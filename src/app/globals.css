@@ -58,10 +58,10 @@ letter-spacing: 0%; */
 
 /* rounded-tl-2xl rounded-tr-md rounded-bl-md rounded-br-2xl*/
 .skewed {
-  @apply rounded-[15px] -skew-x-[16deg];
+  @apply rounded-[14px] -skew-x-[12deg];
 }
 .unskewed {
-  @apply skew-x-[16deg]
+  @apply skew-x-[12deg]
 
 }
 

@@ -7,7 +7,7 @@ export default function StartBuilding() {
   const [periodYears, setPeriodYears] = useState(45);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] flex flex-col items-center justify-center p-6 text-white">
+    <div className="min-h-screen flex flex-col items-center justify-center p-6 text-white">
       <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center">
         Start building your future
       </h2>

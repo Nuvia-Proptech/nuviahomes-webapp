@@ -20,14 +20,15 @@ export default function Footer() {
             </p>
           </div>
           {/* <!-- Download buttons --> */}
-          <div className="flex gap-3">
-            <button className="gap-1 btn-gradient rounded-tl-2xl rounded-tr-md rounded-bl-md rounded-br-2xl py-2 px-4 text-base flex items-center justify-center text-white">
+          <div className="flex gap-3 mt-10">
+            <button className="skewed gap-1 btn-gradient py-2 px-4 text-base flex items-center justify-center text-white">
               <svg
                 width="37"
                 height="37"
                 viewBox="0 0 37 37"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                className="unskewed"
               >
                 <g clipPath="url(#clip0_1142_8148)">
                   <path
@@ -47,18 +48,19 @@ export default function Footer() {
                 </defs>
               </svg>
 
-              <p className="text-start leading-4">
+              <p className="text-start leading-4 unskewed">
                 Get it on <br />
                 Google store
               </p>
             </button>
-            <button className="gap-1 btn-gradient rounded-tl-2xl rounded-tr-md rounded-bl-md rounded-br-2xl py-2 px-2 text-base flex items-center justify-center text-white">
+            <button className="skewed gap-1 btn-gradient py-2 px-2 text-base flex items-center justify-center text-white">
               <svg
                 width="37"
                 height="37"
                 viewBox="0 0 37 37"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                className="unskewed"
               >
                 <path
                   d="M18.1342 8.9716C18.1792 7.61411 18.5512 5.61611 19.8517 4.30361C21.0592 3.08411 22.5292 2.49011 23.4442 2.21861C23.5248 2.19337 23.6103 2.18812 23.6933 2.20331C23.7764 2.2185 23.8545 2.25368 23.921 2.30579C23.9874 2.35791 24.0402 2.42541 24.0747 2.50247C24.1092 2.57953 24.1245 2.66383 24.1192 2.74811C24.0592 4.04711 23.7172 5.98511 22.8352 7.0231C22.0042 8.0011 20.6692 9.2971 18.7117 9.51611C18.6367 9.52422 18.5608 9.51597 18.4893 9.49195C18.4178 9.46792 18.3523 9.42868 18.2974 9.37693C18.2426 9.32518 18.1995 9.26215 18.1714 9.19218C18.1432 9.1222 18.1305 9.04695 18.1342 8.9716Z"
@@ -69,14 +71,14 @@ export default function Footer() {
                   fill="#FDF7ED"
                 />
               </svg>
-              <p className="text-start leading-4">
+              <p className="text-start leading-4 unskewed">
                 Get it on <br />
                 Google store
               </p>
             </button>
           </div>
         </div>
-        <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+        <hr className="my-6 border-gray-500 sm:mx-auto lg:my-8" />
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0 md:w-1/2">
             <Link href="#" className="flex items-center mb-6">

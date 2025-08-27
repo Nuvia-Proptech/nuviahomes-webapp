@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials Slider</title>
+    <style>
+        * {
+            margin: 1;
+            padding: 1;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(136deg, #2D1B69 0%, #1A0F3A 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .testimonials-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        
+        .section-content {
+            flex: 1;
+        }
+        
+        .main-nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .section-label {
+            background: linear-gradient(135deg, #4A90E2, #7B68EE, #50C878);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 4px 0;
+            color: white;
+        }
+
+        .section-subtitle {
+            color: #A0A0A0;
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        .testimonials-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            height: 225px;
+            width: 1230px;
+            max-width: 100%;
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            align-items: flex-start;
+        }
+
+        .testimonial-card {
+            flex: 0 0 480px;
+            margin-right: 30px;
+            background: linear-gradient(155deg, rgba(13, 4, 32, 0.13) -2.13%, rgba(13, 4, 32, 0.13) 136.58%);
+            border-radius: 21.411px;
+            padding: 28px 24px;
+            position: relative;
+            height: 188.56px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4.282px 52.456px 0 rgba(0, 7, 72, 0.12);
+            transform: skewX(-8deg);
+            overflow: hidden;
+        }
+        
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 21.411px;
+            padding: 1.606px;
+            background: linear-gradient(135deg, #4A90E2, #7B68EE, #50C878);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: exclude;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+        }
+        
+        .testimonial-card-content {
+            transform: skewX(8deg);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card.active {
+            border-color: #8B7ED8;
+            box-shadow: 0 0 30px rgba(139, 126, 216, 0.3);
+        }
+
+        .testimonial-content {
+            margin-top: 16px;
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.4;
+            color: #E0E0E0;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .author-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8B7ED8, #6B5B95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .author-info h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .author-info p {
+            color: #A0A0A0;
+            font-size: 14px;
+        }
+
+        .slider-nav {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .nav-arrow {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .nav-arrow:hover {
+            background: rgba(139, 126, 216, 0.3);
+            border-color: #8B7ED8;
+            transform: scale(1.1);
+        }
+
+        .nav-arrow svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 40px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #8B7ED8;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-card {
+                flex: 0 0 280px;
+                height: 162px;
+                margin-right: 15px;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .slider-nav {
+                right: 10px;
+            }
+            
+            .slider-container {
+                height: 198px;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="testimonials-section">
+        <div class="section-header">
+            <div class="section-content">
+                <div class="section-label">Testimonials</div>
+                <h2 class="section-title">Don't just take our words</h2>
+                <p class="section-subtitle">Hear from other people about our services to solve their real estate issues</p>
+            </div>
+            <div class="main-nav">
+                <div class="nav-arrow" id="mainPrevBtn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z"/>
+                    </svg>
+                </div>
+                <div class="nav-arrow" id="mainNextBtn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6L16 12L10 18L8.59 16.59Z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="slider-container">
+                <div class="slider-track" id="sliderTrack">
+                    <div class="testimonial-card active">
+                        <div class="testimonial-card-content">
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Samuelson Okoi</h4>
+                                    <p>Sales Executive at Risevest</p>
+                                </div>
+                                <div class="author-avatar">SO</div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"We are a platform that simplifies property management, development, and investment. Property Owners can submit properties effortlessly, while Investors browse verified listings and invest securely."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-content">
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Samuelson Okoi</h4>
+                                    <p>Sales Executive at Risevest</p>
+                                </div>
+                                <div class="author-avatar">SO</div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"We are a platform that simplifies property management, development, and investment. Property Owners can submit properties effortlessly, while Investors browse verified listings and invest securely."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-content">
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Samuelson Okoi</h4>
+                                    <p>Sales Executive at Risevest</p>
+                                </div>
+                                <div class="author-avatar">SO</div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"We are a platform that simplifies property management, development, and investment. Property Owners can submit properties effortlessly, while Investors browse verified listings and invest securely."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-content">
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Samuelson Okoi</h4>
+                                    <p>Sales Executive at Risevest</p>
+                                </div>
+                                <div class="author-avatar">SO</div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"We are a platform that simplifies property management, development, and investment. Property Owners can submit properties effortlessly, while Investors browse verified listings and invest securely."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Duplicate cards for infinite scroll -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-content">
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Samuelson Okoi</h4>
+                                    <p>Sales Executive at Risevest</p>
+                                </div>
+                                <div class="author-avatar">SO</div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"We are a platform that simplifies property management, development, and investment. Property Owners can submit properties effortlessly, while Investors browse verified listings and invest securely."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-content">
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Samuelson Okoi</h4>
+                                    <p>Sales Executive at Risevest</p>
+                                </div>
+                                <div class="author-avatar">SO</div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"We are a platform that simplifies property management, development, and investment. Property Owners can submit properties effortlessly, while Investors browse verified listings and invest securely."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-content">
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Samuelson Okoi</h4>
+                                    <p>Sales Executive at Risevest</p>
+                                </div>
+                                <div class="author-avatar">SO</div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"We are a platform that simplifies property management, development, and investment. Property Owners can submit properties effortlessly, while Investors browse verified listings and invest securely."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-content">
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Samuelson Okoi</h4>
+                                    <p>Sales Executive at Risevest</p>
+                                </div>
+                                <div class="author-avatar">SO</div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"We are a platform that simplifies property management, development, and investment. Property Owners can submit properties effortlessly, while Investors browse verified listings and invest securely."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-track" id="sliderTrack2" style="transform: translateX(-255px)">
+                    <div class="testimonial-card active">
+                        <div class="testimonial-card-content">
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Jane Smith</h4>
+                                    <p>Product Manager at TechCorp</p>
+                                </div>
+                                <div class="author-avatar">JS</div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"The platform has revolutionized how we manage our real estate portfolio. The interface is intuitive and the investment process is seamless."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-content">
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Michael Chen</h4>
+                                    <p>Investment Director at Capital Group</p>
+                                </div>
+                                <div class="author-avatar">MC</div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"Outstanding service and reliable returns. This platform has become our go-to solution for property investments and management."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-content">
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>Real Estate Investor</p>
+                                </div>
+                                <div class="author-avatar">SJ</div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"The verification process gives me confidence in every investment. Transparent, secure, and profitable - exactly what I was looking for."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-content">
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>David Wilson</h4>
+                                    <p>Property Developer</p>
+                                </div>
+                                <div class="author-avatar">DW</div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"As a developer, this platform has streamlined our funding process. Quick approvals and professional investor network."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Duplicate cards for infinite scroll -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-content">
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Jane Smith</h4>
+                                    <p>Product Manager at TechCorp</p>
+                                </div>
+                                <div class="author-avatar">JS</div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"The platform has revolutionized how we manage our real estate portfolio. The interface is intuitive and the investment process is seamless."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-content">
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Michael Chen</h4>
+                                    <p>Investment Director at Capital Group</p>
+                                </div>
+                                <div class="author-avatar">MC</div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"Outstanding service and reliable returns. This platform has become our go-to solution for property investments and management."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-content">
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>Real Estate Investor</p>
+                                </div>
+                                <div class="author-avatar">SJ</div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"The verification process gives me confidence in every investment. Transparent, secure, and profitable - exactly what I was looking for."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-content">
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>David Wilson</h4>
+                                    <p>Property Developer</p>
+                                </div>
+                                <div class="author-avatar">DW</div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"As a developer, this platform has streamlined our funding process. Quick approvals and professional investor network."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="slider-dots" id="sliderDots">
+            <div class="dot active" data-slide="0"></div>
+            <div class="dot" data-slide="1"></div>
+            <div class="dot" data-slide="2"></div>
+            <div class="dot" data-slide="3"></div>
+        </div>
+    </div>
+
+    <script>
+        class TestimonialsSlider {
+            constructor(trackId, nextBtnId, prevBtnId, cardSelector) {
+                this.currentSlide = 0;
+                this.totalSlides = 4;
+                this.sliderTrack = document.getElementById(trackId);
+                this.nextBtn = document.getElementById(nextBtnId);
+                this.prevBtn = document.getElementById(prevBtnId);
+                this.cards = this.sliderTrack.querySelectorAll(cardSelector);
+                this.autoPlayInterval = null;
+                
+                this.init();
+            }
+
+            init() {
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+                this.prevBtn.addEventListener('click', () => this.prevSlide());
+                this.startAutoPlay();
+                
+                // Pause auto-play on hover
+                this.sliderTrack.addEventListener('mouseenter', () => this.stopAutoPlay());
+                this.sliderTrack.addEventListener('mouseleave', () => this.startAutoPlay());
+            }
+
+            nextSlide() {
+                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+                this.updateSlider();
+            }
+
+            prevSlide() {
+                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                this.updateSlider();
+            }
+
+            updateSlider() {
+                const translateX = -this.currentSlide * (480 + 30); // card width + margin
+                this.sliderTrack.style.transform = `translateX(${translateX}px)`;
+                
+                // Update active states
+                this.cards.forEach((card, index) => {
+                    card.classList.toggle('active', index === this.currentSlide);
+                });
+            }
+
+            startAutoPlay() {
+                this.autoPlayInterval = setInterval(() => {
+                    this.nextSlide();
+                }, 4000);
+            }
+
+            stopAutoPlay() {
+                if (this.autoPlayInterval) {
+                    clearInterval(this.autoPlayInterval);
+                    this.autoPlayInterval = null;
+                }
+            }
+        }
+
+        // Main navigation controller for both sliders
+        class MainNavigation {
+            constructor() {
+                this.currentSlide = 0;
+                this.totalSlides = 4;
+                this.slider1 = document.getElementById('sliderTrack');
+                this.slider2 = document.getElementById('sliderTrack2');
+                this.cards1 = this.slider1.querySelectorAll('.testimonial-card');
+                this.cards2 = this.slider2.querySelectorAll('.testimonial-card');
+                this.dots = document.querySelectorAll('.dot');
+                this.prevBtn = document.getElementById('mainPrevBtn');
+                this.nextBtn = document.getElementById('mainNextBtn');
+                this.autoPlayInterval = null;
+                this.isTransitioning = false;
+                
+                this.init();
+            }
+
+            init() {
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+                this.prevBtn.addEventListener('click', () => this.prevSlide());
+                
+                // Handle dots
+                this.dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => this.goToSlide(index));
+                });
+                
+                this.startAutoPlay();
+                
+                // Pause auto-play on hover
+                this.slider1.addEventListener('mouseenter', () => this.stopAutoPlay());
+                this.slider1.addEventListener('mouseleave', () => this.startAutoPlay());
+                this.slider2.addEventListener('mouseenter', () => this.stopAutoPlay());
+                this.slider2.addEventListener('mouseleave', () => this.startAutoPlay());
+            }
+
+            nextSlide() {
+                if (this.isTransitioning) return;
+                
+                this.isTransitioning = true;
+                this.currentSlide++;
+                
+                if (this.currentSlide >= this.totalSlides) {
+                    // Move to duplicate set
+                    this.updateSliders();
+                    
+                    // Reset to beginning after transition
+                    setTimeout(() => {
+                        this.slider1.style.transition = 'none';
+                        this.slider2.style.transition = 'none';
+                        this.currentSlide = 0;
+                        this.updateSlidersInstant();
+                        
+                        setTimeout(() => {
+                            this.slider1.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                            this.slider2.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                            this.isTransitioning = false;
+                        }, 50);
+                    }, 600);
+                } else {
+                    this.updateSliders();
+                    setTimeout(() => {
+                        this.isTransitioning = false;
+                    }, 600);
+                }
+            }
+
+            prevSlide() {
+                if (this.isTransitioning) return;
+                
+                this.isTransitioning = true;
+                
+                if (this.currentSlide <= 0) {
+                    // Jump to end of duplicates instantly
+                    this.slider1.style.transition = 'none';
+                    this.slider2.style.transition = 'none';
+                    this.currentSlide = this.totalSlides;
+                    this.updateSlidersInstant();
+                    
+                    setTimeout(() => {
+                        this.slider1.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                        this.slider2.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                        this.currentSlide--;
+                        this.updateSliders();
+                        
+                        setTimeout(() => {
+                            this.isTransitioning = false;
+                        }, 600);
+                    }, 50);
+                } else {
+                    this.currentSlide--;
+                    this.updateSliders();
+                    setTimeout(() => {
+                        this.isTransitioning = false;
+                    }, 600);
+                }
+            }
+
+            goToSlide(slideIndex) {
+                this.currentSlide = slideIndex;
+                this.updateSliders();
+            }
+
+            updateSliders() {
+                const translateX = -this.currentSlide * (480 + 30);
+                const offsetX = -255; // Half card width + half margin to center between cards
+                
+                // Update first slider immediately
+                this.slider1.style.transform = `translateX(${translateX}px)`;
+                
+                // Update second slider with delay
+                setTimeout(() => {
+                    this.slider2.style.transform = `translateX(${translateX + offsetX}px)`;
+                }, 200);
+                
+                // Update active states for both sliders (only for original 4 cards)
+                const displaySlide = this.currentSlide % this.totalSlides;
+                this.cards1.forEach((card, index) => {
+                    card.classList.toggle('active', index === displaySlide);
+                });
+                this.cards2.forEach((card, index) => {
+                    card.classList.toggle('active', index === displaySlide);
+                });
+                
+                // Update dots
+                this.dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === displaySlide);
+                });
+            }
+
+            updateSlidersInstant() {
+                const translateX = -this.currentSlide * (480 + 30);
+                const offsetX = -255;
+                
+                this.slider1.style.transform = `translateX(${translateX}px)`;
+                this.slider2.style.transform = `translateX(${translateX + offsetX}px)`;
+                
+                const displaySlide = this.currentSlide % this.totalSlides;
+                this.cards1.forEach((card, index) => {
+                    card.classList.toggle('active', index === displaySlide);
+                });
+                this.cards2.forEach((card, index) => {
+                    card.classList.toggle('active', index === displaySlide);
+                });
+                
+                this.dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === displaySlide);
+                });
+            }
+
+            startAutoPlay() {
+                this.autoPlayInterval = setInterval(() => {
+                    this.nextSlide();
+                }, 4000);
+            }
+
+            stopAutoPlay() {
+                if (this.autoPlayInterval) {
+                    clearInterval(this.autoPlayInterval);
+                    this.autoPlayInterval = null;
+                }
+            }
+        }
+
+        // Initialize main navigation when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new MainNavigation();
+        });
+    </script>
+</body>
+</html>

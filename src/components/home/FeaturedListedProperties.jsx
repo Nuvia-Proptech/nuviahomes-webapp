@@ -6,7 +6,7 @@ import { Bath, Bed, RulerDimensionLineIcon } from "lucide-react";
 export default function FeaturedListedProperties() {
   let items = [1, 2, 3, 4];
   return (
-    <section className="mb-16 md:mb-24">
+    <section className="mb-16 md:mb-28      ">
       <div className="container mx-auto px-14">
         <div className="flex flex-col md:flex-row justify-between my-10">
           <div className="space-y-2 ">

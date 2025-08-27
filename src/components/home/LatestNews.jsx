@@ -15,7 +15,7 @@ export default function LatestNews() {
           </p>
         </div>
         {/* Cards */}
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {items.map((item, i) => (
             <div key={i} className="listedProperty rounded-2xl border border-gray-500">
               <div className="m-2 rounded-2xl max-w-2xl h-[300px] relative">
