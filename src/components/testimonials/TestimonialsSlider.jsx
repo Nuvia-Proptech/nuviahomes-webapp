@@ -99,9 +99,9 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="relative py-16 px-4 bg-gradient-to-br from-[#2D1B69] to-[#1A0F3A] text-white border-4">
+    <section className="relative py-16 px-4 bg-gradient-to-br from-[#2D1B69] to-[#1A0F3A] text-white">
       {/* Header */}
-      <div className="max-w-6xl mx-auto flex justify-between items-end mb-10">
+      <div className="mx-auto flex justify-between items-end mb-10">
         <div>
           <p className="text-sm font-medium uppercase bg-gradient-to-r from-blue-400 via-purple-500 to-green-400 bg-clip-text text-transparent mb-2">
             Testimonials
@@ -115,7 +115,7 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Navigation Arrows */}
-        <div className="flex gap-3 ">
+        <div className="flex gap-3 mr-32">
           <button
             onClick={prevSlide}
             className="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 border border-white/20 hover:bg-purple-400/30 transition"

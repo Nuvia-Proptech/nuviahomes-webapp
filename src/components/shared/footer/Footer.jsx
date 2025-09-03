@@ -93,11 +93,23 @@ export default function Footer() {
               helps you buy, rent and invest in real estate <br />
               opportunities around you
             </p>
-            <div>
-              <form action="">
-                <input type="text" placeholder="Write your email here" />
-                <button>Rent</button>
-              </form>
+            <div className="skewed flex items-center justify-center h-[81px] w-[410px] mt-5 btn-gradient p-[1px]">
+              <div className="rounded-[16px] w-full h-full flex items-center px-2 py-10 bg-[#1c0845]">
+                <form action="" className="flex w-full unskewed">
+                  <input
+                    type="email"
+                    placeholder="Write your email here"
+                    className="h-[51px] flex-1 px-4 rounded-l-xl outline-none"
+                  />
+
+                  <button
+                    type="submit"
+                    className="btn-gradient skewed h-[51px] w-[95px] rounded-r-xl text-white font-semibold"
+                  >
+                    Rent
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
           {/* <!-- links them --> */}
