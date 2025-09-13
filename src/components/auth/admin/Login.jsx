@@ -9,10 +9,9 @@ import twitter from "@/assets/socials/twitter.svg";
 import github from "@/assets/socials/github.svg";
 import google from "@/assets/socials/google.svg";
 
-export default function Register() {
-  const [showPassword, setShowPassword] = useState(false);
+export default function Login() {
+    const [showPassword, setShowPassword] = useState(false);
   return (
-    // max-w-[35rem]
     <div class="bg-gray-50">
       <div class="min-h-screen flex flex-col items-center justify-center py-20 px-4">
         <div class="max-w-[460px] w-full">
@@ -27,26 +26,12 @@ export default function Register() {
             <form class="space-y-6">
               <div>
                 <label class="text-slate-900 text-sm font-medium mb-2 block">
-                  Username
+                  Email Or Username
                 </label>
                 <div class="relative flex items-center">
                   <input
                     name="username"
                     type="text"
-                    required
-                    class="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md focus:outline-none"
-                    placeholder="Enter your username"
-                  />
-                </div>
-              </div>
-              <div>
-                <label class="text-slate-900 text-sm font-medium mb-2 block">
-                  Email
-                </label>
-                <div class="relative flex items-center">
-                  <input
-                    name="username"
-                    type="email"
                     required
                     class="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md focus:outline-none"
                     placeholder="Enter your emil"
@@ -70,7 +55,11 @@ export default function Register() {
                     onClick={() => setShowPassword((prev) => !prev)}
                     className="absolute right-3 top-1/2 transform -translate-y-1/2  text-[#22303E66]"
                   >
-                    {showPassword ? <EyeClosedIcon className="text-black" /> : <EyeIcon className="text-black" />}
+                    {showPassword ? (
+                      <EyeClosedIcon className="text-black" />
+                    ) : (
+                      <EyeIcon className="text-black" />
+                    )}
                   </button>
                 </div>
               </div>
@@ -140,7 +129,3 @@ export default function Register() {
     </div>
   );
 }
-
-// https://flowbite.com/blocks/marketing/login/
-// https://tailwindflex.com/tag/login
-// https://readymadeui.com/tailwind-blocks/login-form
