@@ -3,6 +3,8 @@ import { SuperAdminHeader } from "../SuperAdminHeader";
 import { TotalSpendingItemsCard } from "@/components/shared/TotalSpendingItemsCard";
 import { totalSpendingData } from "@/lib/dummyData/totalSpendingData";
 import { PlusSquareIcon } from "@/components/shared/Icons/PlusSquareIcon";
+import { SelectDropDown } from "@/components/shared/SelectDropDown";
+import { PropertiesTables } from "./PropertiesTables";
 
 export const PropertiesIndex = () => {
   return (
@@ -40,6 +42,65 @@ export const PropertiesIndex = () => {
               />
             );
           })}
+        </div>
+
+        <div className="w-full px-4 bg-white rounded-sm py-7 my-5">
+          <div className="flex flex-row flex-wrap justify-between items-center gap-4">
+            {/* Show Dropdown  */}
+            <SelectDropDown
+              label="show"
+              options={
+                <>
+                  <option value="10">10</option>
+                  <option value="5">5</option>
+                  <option value="15">5</option>
+                  <option value="20">20</option>
+                </>
+              }
+            />
+
+            {/* Filters and Search  */}
+            <div className="flex flex-wrap items-center gap-3">
+              {/* Search  */}
+              <input
+                type="text"
+                placeholder="Search Property"
+                className="bg-transparent border border-[#22303E66] rounded-sm text-sm font-urbanist font-normal px-3 py-1 placeholder:text-[#6C8184] focus:outline-none"
+              />
+
+              {/* Property Status  */}
+              <SelectDropDown
+                id="propertyStatus"
+                options={
+                  <>
+                    <option value="Property Status" disabled defaultValue={true}>
+                      Property Status
+                    </option>
+                    <option value="Cancelled">Cancelled</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Pending">Pending</option>
+                  </>
+                }
+              />
+
+              {/* Property Type  */}
+              <SelectDropDown
+                id="propertyStatus"
+                options={
+                  <>
+                    <option value="Property Type" disabled defaultValue={true}>
+                      Property Type
+                    </option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="Duplex">Duplex</option>
+                  </>
+                }
+              />
+            </div>
+          </div>
+
+          {/* ?Tables */}
+          <PropertiesTables />
         </div>
       </div>
     </div>
