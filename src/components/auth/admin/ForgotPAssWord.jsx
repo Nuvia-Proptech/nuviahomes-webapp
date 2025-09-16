@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "@/assets/logo.png";
 import Image from "next/image";
-import { ChevronLeft  } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 
 export default function ForgotPAssWord() {
@@ -14,8 +14,11 @@ export default function ForgotPAssWord() {
               <Image src={logo} alt="Logo" />
             </div>
             <div className="text-black mt-8 mb-4">
-              <p className="text-24">Forgot Password 🔒</p>
-              <p>Enter your email and we'll send you instructions to reset your password</p>
+              <p className="text-24">Forgot Password</p>
+              <p>
+                Enter your email and we'll send you instructions to reset your
+                password
+              </p>
             </div>
             <form class="space-y-6">
               <div>
@@ -34,14 +37,19 @@ export default function ForgotPAssWord() {
               </div>
 
               <div class="!mt-6">
-                <button
-                  type="button"
-                  class="w-full py-2 px-4 text-[15px] font-medium tracking-wide rounded-md text-white btn-gradient focus:outline-none cursor-pointer"
-                >
-                  Resend Reset Link
-                </button>
+                {/* <Link href=""> */}
+                  <button
+                    type="button"
+                    class="w-full py-2 px-4 text-[15px] font-medium tracking-wide rounded-md text-white btn-gradient focus:outline-none cursor-pointer"
+                  >
+                    Resend Reset Link
+                  </button>
+                {/* </Link> */}
               </div>
-              <Link href="" className="flex gap-1 items-center justify-center text-blue-500">
+              <Link
+                href="/login"
+                className="flex gap-1 items-center justify-center text-blue-500"
+              >
                 <ChevronLeft size={20} /> Back to Login
               </Link>
             </form>

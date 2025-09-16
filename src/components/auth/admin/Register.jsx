@@ -21,7 +21,7 @@ export default function Register() {
               <Image src={logo} alt="Logo" />
             </div>
             <div className="text-black mt-8 mb-4">
-              <p className="text-24">Adventure starts here 🚀</p>
+              <p className="text-24">Adventure starts here</p>
               <p>Make your app managment easy and fun!</p>
             </div>
             <form class="space-y-6">
@@ -70,7 +70,11 @@ export default function Register() {
                     onClick={() => setShowPassword((prev) => !prev)}
                     className="absolute right-3 top-1/2 transform -translate-y-1/2  text-[#22303E66]"
                   >
-                    {showPassword ? <EyeClosedIcon className="text-black" /> : <EyeIcon className="text-black" />}
+                    {showPassword ? (
+                      <EyeClosedIcon className="text-black" />
+                    ) : (
+                      <EyeIcon className="text-black" />
+                    )}
                   </button>
                 </div>
               </div>
@@ -100,12 +104,14 @@ export default function Register() {
               </div>
 
               <div class="!mt-12">
-                <button
-                  type="button"
-                  class="w-full py-2 px-4 text-[15px] font-medium tracking-wide rounded-md text-white btn-gradient focus:outline-none cursor-pointer"
-                >
-                  Sign in
-                </button>
+                <Link href="/admin-login">
+                  <button
+                    type="button"
+                    class="w-full py-2 px-4 text-[15px] font-medium tracking-wide rounded-md text-white btn-gradient focus:outline-none cursor-pointer"
+                  >
+                    Sign in
+                  </button>
+                </Link>
               </div>
               <p class="text-slate-900 text-sm !mt-6 text-center">
                 Already have an account?{" "}
@@ -128,7 +134,6 @@ export default function Register() {
               {[
                 { socialMedia: faceBookIcon, socialUrl: "" },
                 { socialMedia: twitter, socialUrl: "" },
-                { socialMedia: github, socialUrl: "" },
                 { socialMedia: google, socialUrl: "" },
               ].map((item) => (
                 <Image src={item.socialMedia} alt="" />

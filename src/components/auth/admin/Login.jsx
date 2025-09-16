@@ -20,8 +20,8 @@ export default function Login() {
               <Image src={logo} alt="Logo" />
             </div>
             <div className="text-black mt-8 mb-4">
-              <p className="text-24">Adventure starts here 🚀</p>
-              <p>Make your app managment easy and fun!</p>
+              <p className="text-24">Welcome to Nuvia Homes!</p>
+              <p>Please Sign-in to your account</p>
             </div>
             <form class="space-y-6">
               <div>
@@ -63,7 +63,7 @@ export default function Login() {
                   </button>
                 </div>
               </div>
-              <div class="flex flex-wrap items-center">
+              <div class="flex flex-wrap items-center justify-between">
                 <div class="flex items-center">
                   <input
                     id="remember-me"
@@ -75,29 +75,31 @@ export default function Login() {
                     for="remember-me"
                     class="ml-3 block text-sm text-slate-900"
                   >
-                    I agree to
+                    Remember me
                   </label>
                 </div>
                 <div class="text-sm">
-                  <a
-                    href="jajvascript:void(0);"
+                  <Link
+                    href="forgot-password"
                     class="text-blue-600 hover:underline font-semibold"
                   >
-                    privcy policy and terms
-                  </a>
+                    Forgot Password?
+                  </Link>
                 </div>
               </div>
 
               <div class="!mt-12">
-                <button
-                  type="button"
-                  class="w-full py-2 px-4 text-[15px] font-medium tracking-wide rounded-md text-white btn-gradient focus:outline-none cursor-pointer"
-                >
-                  Sign in
-                </button>
+                <Link href="/super-admin-dashboard">
+                  <button
+                    type="button"
+                    class="w-full py-2 px-4 text-[15px] font-medium tracking-wide rounded-md text-white btn-gradient focus:outline-none cursor-pointer"
+                  >
+                    Sign In
+                  </button>
+                </Link>
               </div>
               <p class="text-slate-900 text-sm !mt-6 text-center">
-                Already have an account?{" "}
+                Already have an account?
                 <a
                   href="javascript:void(0);"
                   class="text-blue-600 hover:underline ml-1 whitespace-nowrap font-semibold"

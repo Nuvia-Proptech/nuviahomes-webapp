@@ -38,9 +38,9 @@ export default function Sidebar() {
   return (
     <div className="bg-[#F9FBFB] flex">
       <aside className="h-screen w-[236px] bg-[#1c0845] text-gray-100 flex flex-col shadow-lg">
-        <div className="p-6 text-2xl font-bold tracking-wide border-gray-700 cursor-pointer">
+        <Link href="/ " className="p-6 text-2xl font-bold tracking-wide border-gray-700">
           <Image src={logo} alt="" />
-        </div>
+        </Link>
 
         <div className="flex-1 p-4 space-y-2 text-sm">
           {dashBoardNav.map((item) => (
