@@ -10,6 +10,16 @@ body {
   background-color: #1c0845;
   color: white;
 }
+
+.font-urbanist {
+  font-family: 'Urbanist', sans-serif;
+}
+
+.font-publicSans {
+  font-family: 'public-sans', sans-serif;
+}
+
+
 .home-hero {
    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../assets/icons/home-hero-banner.svg");
