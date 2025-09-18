@@ -20,7 +20,7 @@ export const TotalSpendingItemsCard = ({
         <p className="text-black text-base font-normal font-urbanist capitalize">
           {title}
         </p>
-        <p className="text-[#0F1415] text-lg font-semibold font-urbanist">
+        <p className="text-textColorDark text-lg font-semibold font-urbanist">
           {price}
         </p>
       </div>
