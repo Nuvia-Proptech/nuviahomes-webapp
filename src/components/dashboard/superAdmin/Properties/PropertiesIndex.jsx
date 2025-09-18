@@ -8,16 +8,16 @@ import { PropertiesTables } from "./PropertiesTables";
 
 export const PropertiesIndex = () => {
   return (
-    <div className="w-full flex-1 md:ml-60 justify-center items-center h-screen text-black bg-[#F9FBFB] ">
+    <div className="w-full flex-1 md:ml-60 justify-center items-center h-screen text-black bg-secondaryColor">
       <SuperAdminHeader />
       {/* Page title and Button */}
       <div className="px-4">
         <div className="py-5 flex justify-between items-center">
           <div>
-            <p className="md:text-4xl font-semibold text-[#344346] font-urbanist">
+            <p className="md:text-4xl font-semibold text-textColor font-urbanist">
               Properties
             </p>
-            <p className="text-[#344346] text-sm font-normal font-urbanist">
+            <p className="text-textColor text-sm font-normal font-urbanist">
               A quick glance at all properties
             </p>
           </div>

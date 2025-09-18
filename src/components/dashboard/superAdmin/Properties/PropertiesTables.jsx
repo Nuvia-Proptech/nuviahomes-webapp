@@ -5,9 +5,9 @@ import { propertyData } from "@/lib/dummyData/propertieData";
 export const PropertiesTables = () => {
   return (
     <div className="overflow-x-auto my-5">
-      <table className="min-w-[900px] w-full text-sm text-left text-[#344346]">
+      <table className="min-w-[900px] w-full text-sm text-left text-textColor">
         <thead className="">
-          <tr className="text-[#344346] font-semibold text-sm font-urbanist">
+          <tr className="text-textColor font-semibold text-sm font-urbanist">
             <th className="py-5">ID</th>
             <th>Properties</th>
             <th>Type | Category</th>
