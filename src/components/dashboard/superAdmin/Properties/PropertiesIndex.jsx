@@ -5,8 +5,11 @@ import { totalSpendingData } from "@/lib/dummyData/totalSpendingData";
 import { PlusSquareIcon } from "@/components/shared/Icons/PlusSquareIcon";
 import { SelectDropDown } from "@/components/shared/SelectDropDown";
 import { PropertiesTables } from "./PropertiesTables";
+import Link from 'next/link';
+import appRoutes from "@/constants/AppRoutes";
 
 export const PropertiesIndex = () => {
+
   return (
     <div className="w-full flex-1 md:ml-60 justify-center items-center h-screen text-black bg-secondaryColor">
       <SuperAdminHeader />
@@ -21,12 +24,14 @@ export const PropertiesIndex = () => {
               A quick glance at all properties
             </p>
           </div>
-          <button className="flex flex-row justify-center items-center gap-2.5 rounded-[12px] p-2.5 bg-gradient-to-br from-[#1B5590] via-[#35AF72] to-[#B5E03A]">
+          <Link href={appRoutes.dashboard.admin.properties.addProperties}>
+          <button className="flex flex-row justify-center items-center gap-2.5 rounded-[12px] p-2.5 bg-gradient-to-br from-[#1B5590] via-[#35AF72] to-[#B5E03A] cursor-pointer">
             <PlusSquareIcon />
             <p className="font-publicSans text-base font-normal text-[#F9F6FE]">
               Add Property
             </p>
           </button>
+          </Link>
         </div>
 
         {/* Total Spending Section */}
