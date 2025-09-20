@@ -18,7 +18,10 @@ const appRoutes = {
         index: '/dashboard/admin',
         users: '/dashboard/admin/users',
         investments: '/dashboard/admin/investments',
-        properties: '/dashboard/admin/properties',
+        properties: {
+          index: '/dashboard/admin/properties',
+          addProperties: '/dashboard/admin/properties/add-properties'
+        },
         projects: '/dashboard/admin/projects',
         payments: '/dashboard/admin/payments',
         messages: '/dashboard/admin/messages',

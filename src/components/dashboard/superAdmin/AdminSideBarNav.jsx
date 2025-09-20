@@ -10,7 +10,7 @@ import { SideBarMenuItem } from "@/components/shared/SideBarMenuItem";
 const AdminSideBarNav = () => {
   return (
     <div className="md:w-60 bg-white h-screen flex-shrink-0 fixed left-0 top-0 hidden md:block z-10">
-      <div className="flex flex-col space-y-6 w-full bg-[#1c0845] shadow-lg h-full">
+      <div className="flex flex-col space-y-6 w-full bg-primaryColorLight shadow-lg h-full">
         <div className="cursor-pointer flex justify-center py-5">
           <Link href="/">
             <Image src={logo} alt="Logo" width={120} height={40} />

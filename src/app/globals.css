@@ -4,12 +4,43 @@
 @import "tailwindcss";
 @plugin "daisyui";
 @import "tw-animate-css";
+
+@theme {
+  /* custom app colors */
+  --color-primaryColor: #5818D8;
+  --color-primaryColorLight: #1c0845;
+  --color-primaryColorStrong: #4212A1;
+  --color-secondaryColor: #F9FBFB;
+  --color-successColor: #48A848;
+  --color-dangerColor: #B43C3C;
+  --color-alertColor: #D89818;
+  --color-warningColor: #FFAB00;
+  --color-textColor: #344346;
+  --color-textColorDark: #0F1415;
+  --color-textColorFaded: #78778B;
+  
+  /* Font families */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-urbanist: 'Urbanist', sans-serif;
+  --font-publicSans: 'public-sans', sans-serif;
+}
 /* ---break---   */
 @custom-variant dark (&:is(.dark *));
 body {
   background-color: #1c0845;
   color: white;
 }
+
+.font-urbanist {
+  font-family: 'Urbanist', sans-serif;
+}
+
+.font-publicSans {
+  font-family: 'public-sans', sans-serif;
+}
+
+
 .home-hero {
    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../assets/icons/home-hero-banner.svg");
