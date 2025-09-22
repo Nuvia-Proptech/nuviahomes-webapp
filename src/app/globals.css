@@ -18,6 +18,7 @@
   --color-textColor: #344346;
   --color-textColorDark: #0F1415;
   --color-textColorFaded: #78778B;
+  --color-neutralColor-700: #C6D0D2;
   
   /* Font families */
   --font-sans: var(--font-geist-sans);

@@ -54,7 +54,6 @@ export const AddPropertiesForms = () => {
         goToStep={goToStep}
       />
 
-      {/* <div className="flex-1 "> */}
       <div className="max-w-3xl mx-auto">
         {/* Step Content */}
         <div className="mb-8">{renderStep()}</div>
@@ -67,7 +66,6 @@ export const AddPropertiesForms = () => {
           onPrev={prevStep}
         />
       </div>
-      {/* </div> */}
     </div>
   );
 };

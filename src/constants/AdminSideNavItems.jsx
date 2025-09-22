@@ -1,31 +1,36 @@
+import { HouseIcon } from "@/components/shared/Icons/HouseIcon";
 import appRoutes from "./AppRoutes";
 import { ChatsIcon } from "@/components/shared/Icons/ChatsIcon";
+import { PeopleIcon } from "@/components/shared/Icons/PeopleIcon";
+import { DocumentFowardIcon } from "@/components/shared/Icons/DocumentFowardIcon";
+import { ElementEqualIcon } from "@/components/shared/Icons/ElementEqualIcon";
+import { TaskSquareIcon } from "@/components/shared/Icons/TaskSquareIcon";
 
 export const adminSideNavItems = [
   {
     title: "Dashboard",
     path: appRoutes.dashboard.admin.index,
-    icon: <ChatsIcon />
+    icon: <ElementEqualIcon />
   },
   {
     title: "Users",
     path: appRoutes.dashboard.admin.users,
-    icon: <ChatsIcon />
+    icon: <PeopleIcon />
   },
   {
     title: "Investments",
     path: appRoutes.dashboard.admin.investments,
-    icon: <ChatsIcon />
+    icon: <DocumentFowardIcon />
   },
   {
     title: "Properties",
-    path: appRoutes.dashboard.admin.properties,
-    icon: <ChatsIcon />
+    path: appRoutes.dashboard.admin.properties.index,
+    icon: <HouseIcon fill="white" width="20" height="20" />
   },
   {
     title: "Projects",
     path: appRoutes.dashboard.admin.projects,
-    icon: <ChatsIcon />
+    icon: <TaskSquareIcon />
   },
   {
     title: "Payements",
