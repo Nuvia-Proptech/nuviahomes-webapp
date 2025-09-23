@@ -46,7 +46,7 @@ export const PersonalDetails = () => {
         ))}
       </div>
 
-      <form action="" className="flex flex-wrap gap-4 mt-7">
+      <form action="" className="flex flex-wrap justify-center items-center md:justify-start gap-4 mt-7">
         <AppInput label="First Name" placeholder="John" />
 
         <AppInput label="Last Name" placeholder="John" />

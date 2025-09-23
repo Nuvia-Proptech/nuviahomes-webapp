@@ -1,14 +1,15 @@
-import React from "react";
-import { cn } from "@/lib/utils";
+import React from 'react';
+import { cn } from '@/lib/utils';
 
-export const AppInput = ({
+export const AppTextarea = ({
   className,
   inputClassName,
   labelClassName,
   label,
-  type = "text",
   placeholder,
   name,
+  rows = 4,
+  resize = false, 
   ...props
 }) => {
   return (
@@ -28,13 +29,15 @@ export const AppInput = ({
       >
         {label}
       </label>
-      <input
-        data-slot="input"
+      <textarea
+        data-slot="textarea"
         name={name}
         placeholder={placeholder}
-        type={type}
+        rows={rows}
         className={cn(
-          "w-full h-10 border border-neutralColor-700 px-4 py-1.5 rounded-md text-[#22303E66] text-sm focus:outline-none focus:text-slate-900",
+          "w-full border border-neutralColor-700 px-4 py-3 rounded-md text-[#22303E66] text-sm focus:outline-none focus:text-slate-900",
+          resize ? "resize-y" : "resize-none",
+          "min-h-[100px]",
           inputClassName
         )}
         {...props}

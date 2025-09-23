@@ -5,6 +5,9 @@ import { PeopleIcon } from "@/components/shared/Icons/PeopleIcon";
 import { DocumentFowardIcon } from "@/components/shared/Icons/DocumentFowardIcon";
 import { ElementEqualIcon } from "@/components/shared/Icons/ElementEqualIcon";
 import { TaskSquareIcon } from "@/components/shared/Icons/TaskSquareIcon";
+import { WalletAddIcon } from "@/components/shared/Icons/WalletAddIcon";
+import { NoteIcon } from "@/components/shared/Icons/NoteIcon";
+import { SettingsCpuIcon } from "@/components/shared/Icons/SettingsCpuIcon";
 
 export const adminSideNavItems = [
   {
@@ -35,7 +38,7 @@ export const adminSideNavItems = [
   {
     title: "Payements",
     path: appRoutes.dashboard.admin.payments,
-    icon: <ChatsIcon />
+    icon: <WalletAddIcon />
   },
   {
     title: "Messages",
@@ -50,11 +53,11 @@ export const adminSideNavItems = [
   {
     title: "Reports",
     path: appRoutes.dashboard.admin.reports,
-    icon: <ChatsIcon />
+    icon: <NoteIcon />
   },
   {
     title: "Settings",
     path: appRoutes.dashboard.admin.settings,
-    icon: <ChatsIcon />
+    icon: <SettingsCpuIcon />
   },
 ];
