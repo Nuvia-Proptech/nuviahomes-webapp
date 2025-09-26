@@ -66,7 +66,7 @@ export const SettingsCpuIcon = ({width="20", height="20", stroke="white", fill="
         opacity="0.4"
         d="M1.66663 6.66663H3.33329"
         stroke={fill}
-        strokeLidth="1.5"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

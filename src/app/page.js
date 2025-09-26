@@ -23,9 +23,6 @@ export default function Home() {
         <div className="skewed btn-gradient h-64 w-64 absolute bottom-6 right-32 overflow-hidden p-[2px]">
           <div className="h-full w-full bg-[#1c0845] rounded-[16px]"></div>
         </div>
-        {/* <div className="h-[90%] w-full relative overflow-hidden bg-green-200">
-          <Image src={homeHeroBannerDesktop} alt="" className="w-full object-cover" />
-        </div> */}
         <div className="absolute top-40 left-60 z-50">
           <p className="text-40 mb-8">
             Buy, Rent, or Invest in <br></br> Verified Properties with Ease

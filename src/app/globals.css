@@ -167,20 +167,22 @@ letter-spacing: 0%; */
   );
 }
 
-/* 
-<<<<<<< HEAD
-=======
-<div class="space-y-2 mb-8 md:mb-16">
-    <p class="mediumText gradient-text">Discover More About Us</p>
-    <p class="largeText leading-none">What Nuvia Homes Offers You</p>
-    <p class="smallText">
-        Explore the diverse range of services designed to enhance your real
-        estate experience and help you grow your investment portfolio.
-    </p>
-</div> */
+/* styles.css */
+.widget-tab-style {
+  background-color: rgb(223, 230, 231);
+  box-shadow: 34.26px 31.05px 52.46px rgba(0, 7, 72, 0.08);
+
+  backdrop-filter: blur(49.24px);
+  /* Safari support */
+  -webkit-backdrop-filter: blur(49.24px); 
+
+  /* Optional*/
+  /* background: rgba(255, 255, 255, 0.3);  */
+  /*border-radius: 16px;  Just to make it pretty */
+}
+
 
 /* 
->>>>>>> 59499b5ed511f6e636c6e1386b97f187378b062f
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

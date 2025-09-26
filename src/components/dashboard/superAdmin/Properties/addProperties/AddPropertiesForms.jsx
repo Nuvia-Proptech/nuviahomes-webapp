@@ -54,7 +54,7 @@ export const AddPropertiesForms = () => {
         goToStep={goToStep}
       />
 
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-3xl ml-10">
         {/* Step Content */}
         <div className="mb-8">{renderStep()}</div>
 

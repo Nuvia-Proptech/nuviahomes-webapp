@@ -34,7 +34,7 @@ export const PropertyDetails = () => {
           {/* property type */}
           <SelectDropDown
             className="flex-col justify-start items-start"
-            selectClassName="w-80"
+            selectClassName="w-[360px] h-10"
             label="Property Type"
             options={
               <>
@@ -53,7 +53,7 @@ export const PropertyDetails = () => {
           {/* ?country */}
           <SelectDropDown
             className="flex-col justify-start items-start"
-            selectClassName="w-80"
+            selectClassName="w-[360px] h-10"
             label="Select Country"
             options={
               <>

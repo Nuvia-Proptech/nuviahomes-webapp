@@ -7,7 +7,7 @@ import { TickGoodSquareIcon } from "@/components/shared/Icons/TickGoodSquareIcon
 
 export const AddPropertiesIndex = () => {
   return (
-    <div className="w-full flex-1 md:ml-60 justify-center items-center h-screen text-black bg-secondaryColor">
+    <div className="w-full flex-1 md:ml-52 justify-center items-center h-screen text-black bg-secondaryColor">
       <SuperAdminHeader />
       <div className="py-5 flex justify-between items-center px-4">
         <div>

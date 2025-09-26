@@ -36,21 +36,21 @@ export const PeopleIcon = ({width="20", height="20", stroke="white", fill="#292D
         opacity="0.4"
         d="M5.83121 12.0333C4.68954 12.225 3.43121 12.025 2.54788 11.4333C1.37288 10.65 1.37288 9.36664 2.54788 8.58331C3.43954 7.99164 4.71454 7.79163 5.85621 7.99163"
         stroke={stroke}
-        strokeLidth="1.5"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M10 12.1917C9.95002 12.1834 9.89169 12.1834 9.84169 12.1917C8.69169 12.1501 7.77502 11.2084 7.77502 10.0417C7.77502 8.85006 8.73336 7.89172 9.92502 7.89172C11.1167 7.89172 12.075 8.85839 12.075 10.0417C12.0667 11.2084 11.15 12.1584 10 12.1917Z"
         stroke={stroke}
-        strokeLidth="1.5"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M7.57498 14.8167C6.39998 15.6 6.39998 16.8833 7.57498 17.6667C8.90831 18.5583 11.0916 18.5583 12.425 17.6667C13.6 16.8833 13.6 15.6 12.425 14.8167C11.1 13.9333 8.90831 13.9333 7.57498 14.8167Z"
         stroke={fill}
-        strokeLidth="1.5"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

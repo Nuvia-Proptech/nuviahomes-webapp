@@ -36,7 +36,7 @@ export default function Sidebar() {
     { item: "Settings", icon: setting },
   ];
   return (
-    <div className="bg-[#F9FBFB] flex">
+    <div >
       <aside className="h-screen w-[236px] bg-[#1c0845] text-gray-100 flex flex-col shadow-lg">
         <Link href="/ " className="p-6 text-2xl font-bold tracking-wide border-gray-700">
           <Image src={logo} alt="" />
@@ -79,7 +79,6 @@ export default function Sidebar() {
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   );

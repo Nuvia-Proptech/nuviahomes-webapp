@@ -11,7 +11,7 @@ import appRoutes from "@/constants/AppRoutes";
 export const PropertiesIndex = () => {
 
   return (
-    <div className="w-full flex-1 md:ml-60 justify-center items-center h-screen text-black bg-secondaryColor">
+    <div className="w-full flex-1 md:ml-52 justify-center items-center h-screen text-black bg-secondaryColor">
       <SuperAdminHeader />
       {/* Page title and Button */}
       <div className="px-4">

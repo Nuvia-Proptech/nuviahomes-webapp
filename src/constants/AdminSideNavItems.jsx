@@ -17,7 +17,7 @@ export const adminSideNavItems = [
   },
   {
     title: "Users",
-    path: appRoutes.dashboard.admin.users,
+    path: appRoutes.dashboard.admin.users.index,
     icon: <PeopleIcon />
   },
   {
