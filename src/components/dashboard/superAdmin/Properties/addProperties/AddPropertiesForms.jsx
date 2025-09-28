@@ -40,7 +40,7 @@ export const AddPropertiesForms = () => {
       case 3:
         return <PropertyArea />;
       case 4:
-        return <PropertyArea />;
+        return <PriceDetails />;
       default:
         return <PriceDetails />;
     }

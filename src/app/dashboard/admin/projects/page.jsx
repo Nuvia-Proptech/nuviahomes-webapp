@@ -1,12 +1,12 @@
-import { AdminSideBarNav } from '@/components/dashboard/superAdmin/AdminSideBarNav'
+"use client"
 import { ProjectsIndex } from '@/components/dashboard/superAdmin/Projects/ProjectsIndex'
+import { AppAdminNav } from '@/components/shared/AppAdminNav'
 import React from 'react'
 
 export default function page() {
   return (
-    <section className='bg-[#F9FBFB] flex flex-row'>
-    <AdminSideBarNav />
-      <ProjectsIndex />
-   </section>
+    <AppAdminNav>
+    <ProjectsIndex />
+  </AppAdminNav>
   )
 }
