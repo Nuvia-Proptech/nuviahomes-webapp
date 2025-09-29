@@ -32,7 +32,7 @@ export const adminSideNavItems = [
   },
   {
     title: "Projects",
-    path: appRoutes.dashboard.admin.projects,
+    path: appRoutes.dashboard.admin.projects.index,
     icon: <TaskSquareIcon />
   },
   {

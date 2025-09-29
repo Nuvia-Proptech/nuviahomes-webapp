@@ -7,12 +7,13 @@ export const TotalSpendingItemsCard = ({
   iconClassName,
   title,
   price,
+  className
 }) => {
   return (
-    <div className="w-80 flex flex-row justify-between items-center rounded-xl bg-white px-3 py-2 shadow-md shadow-[#22303E1A]">
+    <div className={cn("w-80 flex flex-row justify-between items-center rounded-xl bg-white px-3 py-2 shadow-md shadow-[#22303E1A]", className)}>
      <div className="flex flex-row gap-10">
          {/* Icon */}
-      <div className={cn("rounded-md p-2 w-14 h-12 flex justify-center items-center", iconClassName)}>
+      <div className={cn("rounded-md p-1 w-12 h-12 flex justify-center items-center", iconClassName)}>
         {icon}
       </div>
       {/* Title and Amount */}
