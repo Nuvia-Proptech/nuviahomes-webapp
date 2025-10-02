@@ -1,11 +1,7 @@
 import React from "react";
 
 export const ProjectInformation = ({
-  startDate,
-  endDate,
-  projectType,
-  currentPhase,
-  location,
+  project
 }) => {
   return (
     <div className="w-full max-w-lg bg-white px-3 py-3.5 font-urbanist">
@@ -18,31 +14,31 @@ export const ProjectInformation = ({
         {/* Start date */}
         <div className="w-full flex justify-between text-textColor text-base font-normal font-urbanist my-2-5">
           <p className="font-semibold">Start Date</p>
-          <p>20/06/2026</p>
+          <p>{project.startDate}</p>
         </div>
 
         {/* end Date */}
         <div className="w-full flex justify-between text-textColor text-base font-normal font-urbanist my-2.5">
           <p className="font-semibold">End Date</p>
-          <p>20/06/2026</p>
+          <p>{project.endDate}</p>
         </div>
 
         {/* Project Type */}
         <div className="w-full flex justify-between text-textColor text-base font-normal font-urbanist my-2.5">
           <p className="font-semibold">Project Type</p>
-          <p>Residential Terrace</p>
+          <p>{project.projectType}</p>
         </div>
 
         {/* current Pahse */}
         <div className="w-full flex justify-between text-textColor text-base font-normal font-urbanist my-2.5">
           <p className="font-semibold">Current Phase</p>
-          <p>Lintel Level</p>
+          <p>{project.currentPhase}</p>
         </div>
 
         {/* location */}
         <div className="w-full flex justify-between text-textColor text-base font-normal font-urbanist my-2.5">
           <p className="font-semibold">Location</p>
-          <p>Cross River State, Calabar</p>
+          <p>{project.location}</p>
         </div>
 
         {/* project description */}
@@ -68,13 +64,13 @@ export const ProjectInformation = ({
           {/* Lead */}
           <div className="w-full flex justify-between text-textColor text-base font-normal font-urbanist my-2-5">
             <p className="font-semibold">Lead</p>
-            <p>Samuel Jackson</p>
+            <p>{project.leader}</p>
           </div>
 
           {/* Co-lead */}
           <div className="w-full flex justify-between text-textColor text-base font-normal font-urbanist my-2-5">
             <p className="font-semibold">Co-Lead</p>
-            <p>Jessica Parker</p>
+            <p>{project.coLeader}</p>
           </div>
         </div>
       </div>

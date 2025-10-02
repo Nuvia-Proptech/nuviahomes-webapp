@@ -1,3 +1,4 @@
+import { useRouter } from 'next/navigation';
 import Image from "next/image";
 import React from "react";
 import houseImage from "@/assets/images/house.png";
@@ -8,6 +9,7 @@ import { EyeIcon } from "@/components/shared/Icons/EyeIcon";
 import { MoreIcon } from "@/components/shared/Icons/MoreIcon";
 import { ProgressBar } from "./ProgressBar";
 import { TeamAvatarGroup } from "./TeamAvatarGroup";
+import appRoutes from '@/constants/AppRoutes';
 
 const teamMembers = [
   {
@@ -46,8 +48,15 @@ export const ProjectsTableBodies = ({
   endDate,
   progress,
 }) => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`${appRoutes.dashboard.admin.projects.index}/${id}`);
+  };
+  
   return (
     <tr
+    onClick={handleClick}
       key={id}
       className="border-t border-textColor/25 font-semibold font-urbanist text-sm"
     >

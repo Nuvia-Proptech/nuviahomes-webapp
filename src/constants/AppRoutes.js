@@ -29,6 +29,7 @@ const appRoutes = {
         },
         projects: {
           index: '/dashboard/admin/projects',
+          slug: '/dashboard/admin/projects/[slug]',
           projectDetails: '/dashboard/admin/projects/project-details'
         },
         payments: '/dashboard/admin/payments',
