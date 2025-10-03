@@ -39,7 +39,7 @@ export const ProjectsIndex = () => {
             Projects
           </p>
 
-          <Link href={appRoutes.dashboard.admin.projects.projectDetails}>
+          <Link href={appRoutes.dashboard.admin.projects.index}>
             <button className="flex flex-row justify-center items-center gap-2.5 rounded-[12px] p-2.5 bg-textColor cursor-pointer">
               <PlusSquareIcon />
               <p className="font-publicSans text-base font-normal text-[#F9F6FE]">

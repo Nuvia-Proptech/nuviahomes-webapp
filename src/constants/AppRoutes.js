@@ -28,8 +28,11 @@ const appRoutes = {
           addProperties: '/dashboard/admin/properties/add-properties'
         },
         projects: {
-          index: '/dashboard/admin/projects',
-          slug: '/dashboard/admin/projects/[slug]',
+          index: '/dashboard/admin/projects',        
+          slug: (slug) => ({
+            index: `/dashboard/admin/projects/${slug}`,
+            editProject: `/dashboard/admin/projects/${slug}/edit-project`,
+          }),
           projectDetails: '/dashboard/admin/projects/project-details'
         },
         payments: '/dashboard/admin/payments',
