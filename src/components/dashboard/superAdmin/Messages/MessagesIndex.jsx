@@ -1,12 +1,19 @@
-import React from 'react'
-import { SuperAdminHeader } from '../SuperAdminHeader'
+import React from "react";
+import { AppWrapper } from "@/components/shared/AppSetup/AppWrapper";
+import { SuperAdminHeader } from "../SuperAdminHeader";
+import { ChatContainer } from "./ChatContainer";
 
 export const MessagesIndex = () => {
   return (
-    <div className="w-full flex-1 md:ml-60 justify-center items-center h-screen text-black">
+    <AppWrapper>
       <SuperAdminHeader />
-    <div>MessagesIndex</div>
-    <p>Messages</p>
-  </div>
-  )
-}
+      <div className="p-4">
+        <h1 className="text-textColor text-4xl font-semibold">Chat</h1>
+        <p className="text-sm text-textColor font-normal">
+          A quick glance at all properties and investments
+        </p>
+      </div>
+      <ChatContainer />
+    </AppWrapper>
+  );
+};

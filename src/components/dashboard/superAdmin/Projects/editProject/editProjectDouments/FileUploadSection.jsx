@@ -236,7 +236,7 @@ export const FileUploadSection = () => {
       {/* Right Side - File Gallery */}
       <div className="flex justify-start items-center overflow-hidden w-fit">
         {selectedFiles.length > 0 ? (
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-h-96 overflow-y-auto overflow-hidden bg-secondaryColor rounded-sm p-2.5">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-h-96 overflow-y-auto overflow-hidden bg-secondaryColor rounded-sm p-2.5p">
             {selectedFiles.map((file, index) => (
              <div>
                 <p className="text-textColor text-sm font-normal font-urbanist mb-1">{file.name}</p>
