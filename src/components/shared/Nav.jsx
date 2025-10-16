@@ -12,7 +12,7 @@ export default function Nav({ styleProp }) {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <header className="top-0 z-50 text-white">
+    <header className="top-0 z-50 text-white ">
       <div className={`bg-${isOpen ? "gray-200" : "[#fdf6ee]"} py-5 relative`}>
         {/* Mobile Header */}
         <div className="flex justify-between items-center p-2 md:hidden">
