@@ -8,7 +8,6 @@ import { format, parseISO, isSameMonth, addMonths, subMonths } from "date-fns";
 import { ChevronRightIcon } from "@/components/shared/Icons/ChevronRightIcon";
 import { SearchIcon } from "@/components/shared/Icons/SearchIcon";
 import { TickedSquareIcon } from "@/components/shared/Icons/TickedSquareIcon";
-import { TickGoodSquareIcon } from "@/components/shared/Icons/TickGoodSquareIcon";
 import { BookingsItems } from "./BookingsItems";
 
 const filters = [
