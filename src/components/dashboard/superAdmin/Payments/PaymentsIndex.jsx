@@ -6,9 +6,13 @@ import { SelectDropDown } from "@/components/shared/SelectDropDown";
 import { AppInput } from "@/components/shared/AppSetup/AppInput";
 import { paymentsData } from "@/lib/dummyData/paymentsData";
 import { FilterIcon } from "@/components/shared/Icons/FilterIcon";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
+import { PaymentDetailSheet } from "./PaymentDetailSheet";
 
 export const PaymentsIndex = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedPayment, setSelectedPayment] = useState(null);
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
 
   const filteredPayments = useMemo(() => {
     if (!searchQuery) return paymentsData;
@@ -23,6 +27,16 @@ export const PaymentsIndex = () => {
 
   const onSearchHandler = (e) => {
     setSearchQuery(e.target.value);
+  };
+
+  const handlePaymentClick = (payment) => {
+    setSelectedPayment(payment);
+    setIsSheetOpen(true);
+  };
+
+  const handleCloseSheet = () => {
+    setIsSheetOpen(false);
+    setSelectedPayment(null);
   };
   return (
     <AppWrapper>
@@ -56,17 +70,31 @@ export const PaymentsIndex = () => {
                 className="w-60"
               />
 
-               <button className="flex justify-center items-center border border-textColorFaded/40 gap-3 h-10 py-1 px-2.5 rounded-md">
-              <p className="text-sm text-textColorFaded/40 font-normal font-publicSans">Filter</p>
-              <FilterIcon />
-            </button>
+              <button className="flex justify-center items-center border border-textColorFaded/40 gap-3 h-10 py-1 px-2.5 rounded-md">
+                <p className="text-sm text-textColorFaded/40 font-normal font-publicSans">
+                  Filter
+                </p>
+                <FilterIcon />
+              </button>
             </div>
           </div>
 
           {/* ?Tables */}
-          <PaymentsTables paymentsData={filteredPayments} />
+          <PaymentsTables
+            paymentsData={filteredPayments}
+            onPaymentClick={handlePaymentClick}
+          />
         </div>
       </div>
+
+      <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+        <SheetContent className="sm:max-w-lg md:max-w-2xl no-scrollbar">
+          <PaymentDetailSheet
+            payment={selectedPayment}
+            onClose={handleCloseSheet}
+          />
+        </SheetContent>
+      </Sheet>
     </AppWrapper>
   );
 };

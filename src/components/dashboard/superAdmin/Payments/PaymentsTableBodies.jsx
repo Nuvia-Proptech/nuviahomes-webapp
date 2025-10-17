@@ -3,14 +3,6 @@ import React from "react";
 import houseImage from "@/assets/images/house.png";
 import { EyeIcon } from "@/components/shared/Icons/EyeIcon";
 import { MoreIcon } from "@/components/shared/Icons/MoreIcon"
-import {
-    Sheet,
-    SheetContent,
-    SheetDescription,
-    SheetHeader,
-    SheetTitle,
-    SheetTrigger,
-  } from "@/components/ui/sheet";
 
 export const PaymentsTableBodies = ({
   id,
@@ -20,10 +12,11 @@ export const PaymentsTableBodies = ({
   charge,
   date,
   payable,
+   onViewClick,
 }) => {
   return (
     <tr
-    //   onClick={handleClick}
+    onClick={onViewClick}
       key={id}
       className="border-t border-textColor/25 font-semibold font-urbanist text-sm"
     >
@@ -57,8 +50,8 @@ export const PaymentsTableBodies = ({
         <p className="font-semibold text-textColorFaded">{payable}</p>
       </td>
       <td>
-        <div class="flex items-center gap-3">
-          <button title="View">
+        <div className="flex items-center gap-3">
+          <button title="View"  onClick={onViewClick}>
             <EyeIcon />
           </button>
           <button title="More">

@@ -1,7 +1,7 @@
 import React from "react";
 import { PaymentsTableBodies } from "./PaymentsTableBodies";
 
-export const PaymentsTables = ({ paymentsData }) => {
+export const PaymentsTables = ({ paymentsData, onPaymentClick }) => {
   return (
     <div className="overflow-x-auto my-5">
       <table className="min-w-[900px] w-full text-sm text-left text-textColor">
@@ -22,6 +22,7 @@ export const PaymentsTables = ({ paymentsData }) => {
           {paymentsData.map((item) => {
             return (
               <PaymentsTableBodies
+                key={item.id}
                 id={item.id}
                 name={item.name}
                 method={item.method}
@@ -29,6 +30,7 @@ export const PaymentsTables = ({ paymentsData }) => {
                 charge={`#${item.charge}`}
                 date={item.date}
                 payable={item.payableAmount}
+                onViewClick={() => onPaymentClick(item)}
               />
             );
           })}

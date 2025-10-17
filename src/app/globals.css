@@ -20,6 +20,7 @@
   --color-textColorDark: #0F1415;
   --color-textColorFaded: #78778B;
   --color-neutralColor-700: #C6D0D2;
+  --color-grayColor: #22303E;
   
   /* Font families */
   --font-sans: var(--font-geist-sans);
