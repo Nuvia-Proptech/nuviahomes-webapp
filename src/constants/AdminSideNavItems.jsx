@@ -36,7 +36,7 @@ export const adminSideNavItems = [
     icon: <TaskSquareIcon />
   },
   {
-    title: "Payements",
+    title: "Payments",
     path: appRoutes.dashboard.admin.payments,
     icon: <WalletAddIcon />
   },

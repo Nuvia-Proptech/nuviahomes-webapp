@@ -1,5 +1,3 @@
-import { SuperAdminHeader } from '@/components/dashboard/superAdmin/SuperAdminHeader'
-import { AppAdminNav } from '@/components/shared/AppAdminNav'
 import React from 'react'
 
 export default function UserDetailsEditpage() {

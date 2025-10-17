@@ -44,13 +44,13 @@ export default function SideBar() {
                 <div>
                     <div className="space-y-[5px]">
                         <p className="text-[16px] font-semibold">Username: <span className="font-normal">@johndoe</span></p>
-                        <p className="text-[16px] font-semibold">Billing Email: <span className="font-normal">@johndoe</span></p>
-                        <p className="text-[16px] font-semibold">Status: <span className="font-normal">Active</span></p>
-                        <p className="text-[16px] font-semibold">Role: <span className="font-normal">Agent</span></p>
-                        <p className="text-[16px] font-semibold">Tax ID: <span className="font-normal">Tax - 8892</span></p>
-                        <p className="text-[16px] font-semibold">Contact: <span className="font-normal">+2348100298300</span></p>
-                        <p className="text-[16px] font-semibold">Language: <span className="font-normal">English</span></p>
-                        <p className="text-[16px] font-semibold">Country: <span className="font-normal">Nigeria</span></p>
+                        <p className="text-[16px] font-semibold">Username: <span className="font-normal">@johndoe</span></p>
+                        <p className="text-[16px] font-semibold">Username: <span className="font-normal">@johndoe</span></p>
+                        <p className="text-[16px] font-semibold">Username: <span className="font-normal">@johndoe</span></p>
+                        <p className="text-[16px] font-semibold">Username: <span className="font-normal">@johndoe</span></p>
+                        <p className="text-[16px] font-semibold">Username: <span className="font-normal">@johndoe</span></p>
+                        <p className="text-[16px] font-semibold">Username: <span className="font-normal">@johndoe</span></p>
+                        <p className="text-[16px] font-semibold">Username: <span className="font-normal">@johndoe</span></p>
                     </div>
 
                     <div className="space-x-[43px] my-[31px]">
