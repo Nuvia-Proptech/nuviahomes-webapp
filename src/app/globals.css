@@ -123,6 +123,24 @@ letter-spacing: 0%; */
     #b5e03a 84.69%
   );
 }
+
+.hover-gradient-text {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hover-gradient-text:hover {
+  background: linear-gradient(
+    114.84deg,
+    #1b5590 11.99%,
+    #35af72 47.99%,
+    #b5e03a 84.69%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* The nude looking ones */
 .btn2-gradient {
   background: linear-gradient(

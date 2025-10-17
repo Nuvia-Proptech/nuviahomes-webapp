@@ -20,11 +20,11 @@ export default function BuyRentInvestWidget({widgetStyle, searchText}) {
         ))}
       </div>
       {/*  */}
-      <div className="skewed overflow-hidden flex justify-between text-lg text-black max-w-[95rem] mx-auto z-50">
-        <div className="widget-tab-style border-r border-white/35 h-[65px] w-full flex flex-col justify-center px-2">
+      <div className="skewed overflow-hidden flex justify-between text-lg text-black max-w-[95rem] mx-auto z-50 ">
+        <div className="widget-tab-style border-r border-white/35 h-[65px] w-full flex flex-col justify-center px-2 md:px-4 ">
           <p className="unskewed text-2">Location</p>
-          <div className="unskewed flex text-12 justify-between">
-            <p className="">Choose what you are looking at</p>
+          <div className="unskewed flex text-12 justify-between ">
+            <p className=" ">Choose what you are looking at</p>
             <Image src={mapIcon} alt="" className="w-4 " />
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono, Urbanist, Public_Sans } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/shared/footer/Footer";
+import { ConditionalFooter } from "@/components/shared/footer/ConditionalFooter";
 import Nav from "@/components/shared/Nav";
 
 const geistSans = Geist({
@@ -38,7 +39,7 @@ export default function RootLayout({ children }) {
       >
         {/* <Nav /> */}
         {children}
-        {/* <Footer /> */}
+        <ConditionalFooter />
       </body>
     </html>
   );
