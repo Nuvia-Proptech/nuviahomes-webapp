@@ -64,7 +64,7 @@ export default function FirstOne() {
           item: "Total users",
           itemValue: "21,456",
           percentage: "+29%",
-          desc: "Last week anylytics",
+          desc: " anylytics",
           icon: totalUsersIcon
         }, {
           item: "Investors",
@@ -76,7 +76,7 @@ export default function FirstOne() {
           item: "Agents",
           itemValue: "300",
           percentage: "-19%",
-          desc: "Last week anylytics",
+          desc: "= anylytics",
           icon: agentsIcon
         }, {
           item: "Property devlopers",
