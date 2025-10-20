@@ -41,11 +41,11 @@ export default function PropertyDetalPage({ params }) {
             <FloorPlan property={property} />
             <PropertyLocation property={property} />
             <Gallery property={property} />
-            <Review propertyId={property.id} />
+            <Review propertyId={property.id} property={property}/>
             <WriteARewiew propertyId={property.id} />
           </div>
           <div className="w-1/3 space-y-10">
-            <BookAppointment propertyId={property.id} />
+            <BookAppointment propertyId={property.id} property={property}/>
             <FeaturedProperty />
           </div>
         </div>
