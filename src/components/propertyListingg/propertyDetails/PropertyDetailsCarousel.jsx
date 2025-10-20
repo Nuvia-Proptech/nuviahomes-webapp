@@ -13,11 +13,11 @@ export default function PropertyDetailsCarousel() {
   return (
     <div className="carousel w-full h-full">
       <div id="slide1" className="carousel-item relative w-full">
-        {/* <img
+        <img
           src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
           className="w-full"
-        /> */}
-        <Image src={egImage} alt="" className="w-full" />
+        />
+        {/* <Image src={egImage} alt="" className="w-full" /> */}
         <div className="absolute left-0 right-0 top-1/2 flex -translate-y-1/2 transform justify-between">
           <a href="#slide4" className="btn border-0 bg-transparent">
             ❮
@@ -29,7 +29,7 @@ export default function PropertyDetailsCarousel() {
       </div>
       <div id="slide2" className="carousel-item relative w-full">
         <img
-          src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
+          src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&w=800&q=80"
           className="w-full"
         />
         <div className="absolute left-0 right-0 top-1/2 flex -translate-y-1/2 transform justify-between">

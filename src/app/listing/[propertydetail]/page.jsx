@@ -1,7 +1,5 @@
 import AltHero from "@/components/shared/AltHero";
 import React from "react";
-import egImage from "@/assets/New Bloom(magazine)-01-2.3.001-bigpicture_01_6.jpg";
-import Image from "next/image";
 import {
   Accordion,
   AccordionContent,
@@ -19,32 +17,38 @@ import PropertyLocation from "@/components/propertyListingg/propertyDetails/Prop
 import PropertyFeatures from "@/components/propertyListingg/propertyDetails/PropertyFeatures";
 import BookAppointment from "@/components/propertyListingg/propertyDetails/BookAppointment";
 import FeaturedProperty from "@/components/propertyListingg/propertyDetails/FeaturedProperty";
+import { PropertyDetailData } from "@/lib/dummyData/PropertyDetailData";
+
+
 
 export default function PropertyDetalPage({ params }) {
-  console.log(`Params here: ${params.propertydetail}`)
+  const property = PropertyDetailData.find((p) => p.id.toString() === params.propertydetail);
+
+  if (!property) {
+    return <div>Property not found</div>;
+  }
+
   return (
     <div>
-      <AltHero pageName={params.propertydetail} />
-
+      <AltHero pageName={property.title} />
       <div className="container px-4 md:px-8 mx-auto space-y-5">
-        <DisplayGrid />
+        <DisplayGrid property={property} />
         <div className="flex gap-8">
           <div className="w-2/3 space-y-5">
-            <PropertyFeatures />
-            <PropertyVideoAndDescription />
-            <Amenities />
-            <FloorPlan />
-            <PropertyLocation />
-            <Gallery />
-            <Review />
-            <WriteARewiew />
+            <PropertyFeatures property={property} />
+            <PropertyVideoAndDescription property={property} />
+            <Amenities property={property} />
+            <FloorPlan property={property} />
+            <PropertyLocation property={property} />
+            <Gallery property={property} />
+            <Review propertyId={property.id} />
+            <WriteARewiew propertyId={property.id} />
           </div>
           <div className="w-1/3 space-y-10">
-            <BookAppointment />
+            <BookAppointment propertyId={property.id} />
             <FeaturedProperty />
           </div>
         </div>
-
       </div>
     </div>
   );

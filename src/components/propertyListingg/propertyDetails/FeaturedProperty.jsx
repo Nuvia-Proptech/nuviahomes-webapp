@@ -10,8 +10,8 @@ export default function FeaturedProperty() {
       <p className="text-3xl mb-4">Featured Property</p>
 
       <div className="space-y-4">
-        {items.map(() => (
-          <div className="forms-gradient flex gap-3 border border-gray-500 rounded-xl p-2">
+        {items.map((item) => (
+          <div className="forms-gradient flex gap-3 border border-gray-500 rounded-xl p-2" key={item}>
             <div className="relative h-[93px] w-1/3 rounded-lg overflow-hidden">
               <Image src={egImage} alt="" fill />
             </div>
