@@ -3,12 +3,13 @@ import BuyRentInvestWidget from "@/components/home/BuyRentInvestWidget";
 import PropertyCard from "@/components/propertyListingg/PropertyCard";
 import AltHero from "@/components/shared/AltHero";
 import React from "react";
-import PropertyDetalPage from "@/lib/dummyData/PropertyDetailData"
+// import PropertyDetalPage from "@/lib/dummyData/PropertyDetailData"
+import { PropertyDetailData } from "@/lib/dummyData/PropertyDetailData";
 
 
 
 export default function Page() {
-  
+
 
   return (
     <section>
@@ -16,7 +17,7 @@ export default function Page() {
       <BuyRentInvestWidget searchText="Search" widgetStyle="w-full mt-20" />
       <div className="container px-10 mx-auto mt-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-4 md:gap-8">
-          {PropertyDetalPage.map((property) => (
+          {PropertyDetailData.map((property) => (
             <PropertyCard key={property.id} property={{ ...property, image: property.images[0] }} />
           ))}
         </div>

@@ -1,19 +1,34 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
      images: {
-    remotePatterns: [
-      {
+        remotePatterns: [
+        
+                 {
         protocol: 'https',
-        hostname: 'images.unsplash.com',
+        hostname: '**',
       },
       {
-        protocol: 'https',
-        hostname: 'plus.unsplash.com', 
-             },
-      {
-        protocol: "https",
-        hostname: "via.placeholder.com",
+        protocol: 'http',
+        hostname: '**',
       },
+    //   {
+    //     protocol: 'https',
+    //     hostname: 'images.unsplash.com',
+    //   },
+    //   {
+    //     protocol: 'https',
+    //     hostname: 'plus.unsplash.com', 
+    //          },
+    //   {
+    //     protocol: "https",
+    //     hostname: "via.placeholder.com",
+    //          },
+    //          {
+    //              protocol: "https",
+    //              hostname: "www.beachfrontcondos.com"
+    //          },
+    //          {protocol: "https", hostname: "fpg.roomsketcher.com"},
+    //          {protocol: "https", hostname: "cdn.home-designing.com"},
     ],
   },
 };

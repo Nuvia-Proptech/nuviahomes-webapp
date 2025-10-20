@@ -1,5 +1,4 @@
 import React from "react";
-import floorPlan from "@/assets/Plan.png";
 import {
   Accordion,
   AccordionContent,
@@ -8,8 +7,7 @@ import {
 } from "@/components/ui/accordion";
 import Image from "next/image";
 
-export default function FloorPlan() {
-  let items = [1, 2, 3];
+export default function FloorPlan({ property }) {
   return (
     <div className="listedProperty border border-gray-500 rounded-2xl px-3">
       <Accordion
@@ -20,22 +18,21 @@ export default function FloorPlan() {
       >
         <AccordionItem value="item-1">
           <AccordionTrigger className="px-3 text-3xl hover:no-underline">
-            Property Vidoe
+            Floor Plan
           </AccordionTrigger>
           <AccordionContent className="flex flex-col gap-4 text-balance">
             <div className="border border-gray-500 overflow-hidden rounded-2xl">
-              {items.map((i) => (
+              {property.floorPlans.map((plan, i) => (
                 <div
                   key={i}
                   className="listedProperty p-5"
                   style={{ borderBottom: "1px solid #6a7282" }}
                 >
-                  <p className="pb-4 px-5 text-[28px]">First Floor</p>
+                  <p className="pb-4 px-5 text-[28px]">{plan.title}</p>
                   <div
-                    key={i}
                     className="relative h-[415px] rounded-2xl overflow-hidden"
                   >
-                    <Image src={floorPlan} alt="" fill />
+                    <Image src={plan.image} alt={plan.title} fill />
                   </div>
                 </div>
               ))}
