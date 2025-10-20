@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
       >
         {/* <Nav /> */}
         {children}
-        {/* <ConditionalFooter /> */}
+        <ConditionalFooter />
       </body>
     </html>
   );

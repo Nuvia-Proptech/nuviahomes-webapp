@@ -3,7 +3,6 @@ import BuyRentInvestWidget from "@/components/home/BuyRentInvestWidget";
 import PropertyCard from "@/components/propertyListingg/PropertyCard";
 import AltHero from "@/components/shared/AltHero";
 import React from "react";
-// import PropertyDetalPage from "@/lib/dummyData/PropertyDetailData"
 import { PropertyDetailData } from "@/lib/dummyData/PropertyDetailData";
 
 
