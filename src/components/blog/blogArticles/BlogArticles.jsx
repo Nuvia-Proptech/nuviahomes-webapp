@@ -1,13 +1,15 @@
 import React from "react";
-import BlogArticlesCards from "./BlogArticlesCard";
 import BlogArticlesCard from "./BlogArticlesCard";
+import { BlogData } from "@/lib/dummyData/BlogData";
 
 export default function BlogArticles() {
-  let items = [1, 2, 3, 4, 5, 6];
+  // Debugging log (remove in production)
+  console.log("BlogArticles: Rendering blogs", { blogs: BlogData });
+
   return (
     <div className="grid gap-5 py-3 grid-cols-3 justify-items-center">
-      {items.map((item) => (
-        <BlogArticlesCard key={item}/>
+      {BlogData.map((blog) => (
+        <BlogArticlesCard key={blog.id} blog={blog} />
       ))}
     </div>
   );
