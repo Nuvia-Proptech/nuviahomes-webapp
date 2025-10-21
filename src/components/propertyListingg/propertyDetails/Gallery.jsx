@@ -1,5 +1,4 @@
 import React from "react";
-import egImage from "@/assets/New Bloom(magazine)-01-2.3.001-bigpicture_01_6.jpg";
 import {
   Accordion,
   AccordionContent,
@@ -8,8 +7,7 @@ import {
 } from "@/components/ui/accordion";
 import Image from "next/image";
 
-export default function Gallery() {
-  let items = [1, 2, 3, 4, 5, 6];
+export default function Gallery({ property }) {
   return (
     <div className="listedProperty border border-gray-500 rounded-2xl px-3">
       <Accordion
@@ -24,9 +22,9 @@ export default function Gallery() {
           </AccordionTrigger>
           <AccordionContent className="flex flex-col gap-4 text-balance">
             <div className="grid gap-4 grid-cols-3">
-              {items.map((item) => (
-                <div key={item} className="relative h-[202px] rounded-2xl overflow-hidden">
-                  <Image src={egImage} alt="" fill />
+              {property.images.map((img, i) => (
+                <div key={i} className="relative h-[202px] rounded-2xl overflow-hidden">
+                  <Image src={img} alt={`Gallery Image ${i + 1}`} fill />
                 </div>
               ))}
             </div>

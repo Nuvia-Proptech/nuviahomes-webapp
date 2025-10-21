@@ -35,6 +35,7 @@ export default function Sidebar() {
     { item: "Reports", icon: reports },
     { item: "Settings", icon: setting },
   ];
+  
   return (
     <div >
       <aside className="h-screen w-[236px] bg-[#1c0845] text-gray-100 flex flex-col shadow-lg">

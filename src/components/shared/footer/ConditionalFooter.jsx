@@ -4,12 +4,12 @@ import Footer from "@/components/shared/footer/Footer";
 
 export function ConditionalFooter() {
   const pathname = usePathname();
-
   
-  const footerRoutes = ["/", "/who-we-are", "/listing", "/agents", "/our-blog", "/contact"];
-
-  // Show footer if the path matches or starts with one of the routes
-  const showFooter = footerRoutes.some((route) => pathname.startsWith(route));
-
-  return showFooter ? <Footer /> : null;
+  // Routes where footer should be hidden
+  const hiddenRoutes = ["/dashboard", "/admin", "/user"];
+  
+  // Check if current path starts with any hidden route
+  const shouldHideFooter = hiddenRoutes.some((route) => pathname.startsWith(route));
+  
+  return !shouldHideFooter ? <Footer /> : null;
 }

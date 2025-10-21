@@ -4,7 +4,6 @@ import avatar from "@/assets/New Bloom(magazine)-01-2.3.001-bigpicture_01_6.jpg"
 
 
 export default function AgentCard() {
-  let agentCard = [1, 2];
   return (
     <div className="flex flex-col lg:flex-row border border-gray-500 rounded-2xl gap-5 p-3">
       <div className="h-52 lg:w-96 rounded-2xl overflow-hidden"> 

@@ -1,43 +1,35 @@
 import Image from "next/image";
-import React from "react";
-import photo from "@/assets/New Bloom(magazine)-01-2.3.001-bigpicture_01_6.jpg"
-import bedSymbol from "@/assets/material-symbols_bed-outline.png"
 import Link from "next/link";
+import { FaBed, FaBath, FaRulerCombined } from "react-icons/fa"; // 👈 Added
 
-export default function PropertyCard({postId}) {
+export default function PropertyCard({ property }) {
   return (
-    <Link href={`/listing/${postId}`}>
-      <div className="border rounded-xl p-2 w-full listedProperty">
-        {/* max-w-80 */}
+    <Link href={`/listing/${property.id}`} className="border rounded-xl p-2 w-full listedProperty">
       <div className="h-[300px] mb-3 rounded-xl overflow-hidden">
         <Image
-          src={photo}
-          alt=""
-          className="w-full h-full object-cover "
+          src={property.image}
+          alt={property.title}
+          width={400}
+          height={300}
+          className="w-full h-full object-cover"
         />
       </div>
-      <p className="mediumText flex items-center gap-1">
-        N1,500,000 <span className="text-base font-normal">/Yearly</span>
-      </p>
-      <p className="inbtwnText">Palm Habour Terrace</p>
-      <p className="text-sm py-2">No. 24 Green Valley Estate. Ifite Awka Anambra</p>
-      <div>
-        <div className="flex items-center justify-between py-2 border-t text-sm">
-          <div className="flex items-center gap-2">
-            <Image src={bedSymbol} alt="" />
-            <p>3Beds</p>
-          </div>
-          <div className="flex items-center gap-2">
-            <Image src={bedSymbol} alt="" />
-            <p>3Bathrooms</p>
-          </div>
-          <div className="flex items-center gap-2">
-            <Image src={bedSymbol} alt="" />
-            <p>5x7 m2</p>
-          </div>
+
+      <p className="mediumText flex items-center gap-1">{property.price}</p>
+      <p className="inbtwnText">{property.title}</p>
+      <p className="text-sm py-2">{property.location}</p>
+
+      <div className="flex items-center justify-between py-2 border-t text-sm">
+        <div className="flex items-center gap-2">
+          <FaBed /> <p>{property.beds} Beds</p>
+        </div>
+        <div className="flex items-center gap-2">
+          <FaBath /> <p>{property.baths} Bathrooms</p>
+        </div>
+        <div className="flex items-center gap-2">
+          <FaRulerCombined /> <p>{property.size}</p>
         </div>
       </div>
-    </div>
     </Link>
   );
 }

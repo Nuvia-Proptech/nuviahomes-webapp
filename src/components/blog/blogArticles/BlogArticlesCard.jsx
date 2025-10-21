@@ -9,7 +9,7 @@ export default function BlogArticlesCard() {
         <div className="rounded-2xl h-[164px] relative">
           <Image src={egImage} alt="" className="w-full h-full object-cover rounded-xl" />
         </div>
-        {/*  */}
+       
         <div>
           <div className="flex justify-between text-12 my-4">
             <p>Osim Faith</p>
