@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
 export default function UserDetailsEditpage() {
   return (
-    <AppAdminNav>
-        <div className="w-full flex-1 md:ml-60 justify-center items-center h-screen text-black bg-secondaryColor ">
-        <SuperAdminHeader />
-        </div>
-    </AppAdminNav>
-  )
+    <div className="w-full flex-1 md:ml-60 justify-center items-center h-screen text-black bg-secondaryColor ">
+      <SuperAdminHeader />
+    </div>
+  );
 }
