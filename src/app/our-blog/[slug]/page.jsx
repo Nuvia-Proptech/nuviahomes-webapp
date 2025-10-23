@@ -8,13 +8,12 @@ import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 import { Quote } from "@/components/shared/Icons/Quote";
+import { CommentSection } from "@/components/shared/CommentSection";
 
 export default async function BlogDetailPage({ params }) {
   const { slug } = await params;
   const blog = BlogData.find((b) => b.id.toString() === slug);
 
-  // Debugging log (remove in production)
-  //
   if (!blog) {
     return <div>Blog not found</div>;
   }
@@ -22,8 +21,8 @@ export default async function BlogDetailPage({ params }) {
   return (
     <div>
       <AltHero pageName={blog.title} />
-      <div className="container px-4 md:px-10 mx-auto">
-        <div className="flex gap-10 mb-12">
+      <div className="container px-4 md:px-10 mx-auto mb-12">
+        <div className="flex gap-10">
           <div className="w-3/4">
             <div className="relative h-[531px] rounded-xl overflow-hidden mb-6">
               <Image
@@ -54,19 +53,24 @@ export default async function BlogDetailPage({ params }) {
                       <Quote />
                     </span>
                     <div>
-                    <p>
-              Buying your first home is more than just a financial investment — it’s a deeply personal journey toward building a space that reflects your life, your goals, and your future; a place where you’ll feel secure, grow through new experiences, and create memories that last a lifetime.
-                    </p>
+                      <p>
+                        Buying your first home is more than just a financial
+                        investment — it's a deeply personal journey toward
+                        building a space that reflects your life, your goals,
+                        and your future; a place where you'll feel secure, grow
+                        through new experiences, and create memories that last a
+                        lifetime.
+                      </p>
                       <p className="mt-3 font-bold"> By {blog.author}</p>
                     </div>
                   </div>
                 </div>
               </div>
-               {blog.content.map((paragraph, index) => (
-                  <p key={index} className="text-16">
-                    {paragraph}
-                  </p>
-                ))}
+              {blog.content.map((paragraph, index) => (
+                <p key={index} className="text-16">
+                  {paragraph}
+                </p>
+              ))}
               <div className="flex justify-between mt-8 md:mt-10">
                 <div className="space-y-2 md:space-y-4">
                   <p className="text-xl font-semibold">Related Tags</p>
@@ -134,7 +138,12 @@ export default async function BlogDetailPage({ params }) {
                 </div>
               </div>
             </div>
+
+            <div className="mt-12">
+              <CommentSection />
+            </div>
           </div>
+
           <div className="w-1/4 flex flex-col gap-10 py-1">
             <SearchBlog />
             <CategoriesBlog />

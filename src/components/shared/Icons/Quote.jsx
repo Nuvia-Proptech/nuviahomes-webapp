@@ -25,7 +25,7 @@ export const Quote = () => {
         >
           <stop stopColor="#1B5590" />
           <stop offset="0.495192" stopColor="#35AF72" />
-          <stop offset="1" stop-color="#B5E03A" />
+          <stop offset="1" stopColor="#B5E03A" />
         </linearGradient>
       </defs>
     </svg>

@@ -4,14 +4,12 @@ import { BlogData } from "@/lib/dummyData/BlogData";
 import Link from "next/link";
 
 export default function TrendingBlog() {
-  // Use first 3 blogs for trending
+  // I used the first 3 blogs for trending
   const trendingBlogs = BlogData.slice(0, 3);
 
-  // Debugging log (remove in production)
-  console.log("TrendingBlog: Rendering trending blogs", { trendingBlogs });
 
   return (
-    <div className="featured-gradient border border-gray-600 rounded-xl p-4">
+    <div className="featured-gradient border border-gray-600 rounded-xl p-4 sticky top-4">
       <p className="text-3xl mb-16">Trending</p>
       <div className="space-y-5 relative ">
         {trendingBlogs.map((blog) => (
