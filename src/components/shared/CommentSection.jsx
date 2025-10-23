@@ -46,15 +46,15 @@ export const CommentSection = () => {
   };
 
   return (
-    <div className="  py-12 px-4 featured-gradient border border-gray-700 rounded-2xl">
-      <div className="max-w-5xl mx-auto ">
+    <div className="py-12 px-6 featured-gradient border border-gray-700 rounded-2xl">
+      <div className="max-w-5xl">
         {/* Comments Header */}
-        <h2 className="text-white text-2xl font-semibold mb-8">comments</h2>
+        <h2 className="text-white text-2xl font-normal mb-10">comments</h2>
 
         {/* Comments List */}
-        <div className="space-y-6 mb-12">
+        <div className="space-y-8 mb-16">
           {comments.map((comment) => (
-            <div key={comment.id} className="flex gap-4">
+            <div key={comment.id} className="flex gap-5">
             
               <div className="flex-shrink-0">
                 <img
@@ -65,41 +65,41 @@ export const CommentSection = () => {
               </div>
 
               {/* Comment Content */}
-              <div className="flex-1">
-                <div className="flex justify-between items-start mb-2">
+              <div className="flex-1 pt-1">
+                <div className="flex justify-between items-start mb-3">
                   <div>
-                    <h3 className="text-white font-semibold text-lg">{comment.author}</h3>
-                    <p className=" text-sm text-gray-400">{comment.date}</p>
+                    <h3 className="text-white font-normal text-base mb-1">{comment.author}</h3>
+                    <p className="text-sm text-gray-400 font-light">{comment.date}</p>
                   </div>
-                  <button className="text-purple-200 hover:text-white transition-colors text-sm">
+                  <button className="text-gray-300 hover:text-white transition-colors text-sm font-light">
                     Reply
                   </button>
                 </div>
-                <p className="text-sm leading-relaxed">{comment.text}</p>
+                <p className="text-white text-sm leading-relaxed font-light">{comment.text}</p>
               </div>
             </div>
           ))}
         </div>
 
         {/* Comment Form Header */}
-        <h2 className="text-white text-2xl font-semibold mb-6">comments</h2>
+        <h2 className="text-white text-2xl font-normal mb-8">comments</h2>
 
         {/* Comment Form */}
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <input
               type="text"
               placeholder="Your Name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className=" border border-purple-900/50 rounded-lg px-4 py-3 text-white  focus:outline-none 0 transition-colors forms-gradient"
+              className="border border-purple-900/50 rounded-lg px-5 py-4 text-white focus:outline-none transition-colors forms-gradient text-sm"
             />
             <input
               type="email"
               placeholder="Your Email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className=" border border-purple-900/50 rounded-lg px-4 py-3 text-white  focus:outline-none  transition-colors forms-gradient "
+              className="border border-purple-900/50 rounded-lg px-5 py-4 text-white focus:outline-none transition-colors forms-gradient text-sm"
             />
           </div>
           
@@ -107,14 +107,14 @@ export const CommentSection = () => {
             placeholder="Type your comment here"
             value={formData.comment}
             onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
-            rows="6"
-            className="w-full border border-purple-900/50 rounded-lg px-4 py-3 text-white  focus:outline-none  transition-colors resize-none forms-gradient"
+            rows="8"
+            className="w-full border border-purple-900/50 rounded-lg px-5 py-4 text-white focus:outline-none transition-colors resize-none forms-gradient text-sm"
           />
 
-          <div className="flex justify-end">
+          <div className="flex justify-end pt-3">
             <button
               type="submit"
-              className="text-purple-900 font-semibold px-8 py-3   transition-all duration-300 shadow-lg hover:shadow-xl btn-gradient skewed hover:translate-y-0.5"
+              className="text-white font-medium px-9 py-3.5 transition-all duration-300 shadow-lg hover:shadow-xl btn-gradient skewed hover:translate-y-0.5 rounded-full"
             >
               Submit message
             </button>
