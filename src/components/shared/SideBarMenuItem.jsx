@@ -8,6 +8,8 @@ const SideBarMenuItem = ({ item }) => {
     const toggleSubMenu = () => {
       setSubMenuOpen(!subMenuOpen);
     };
+
+     const isActive = pathname === item.path || pathname.includes(item.path);
   
     return (
       <div className="">
@@ -15,7 +17,7 @@ const SideBarMenuItem = ({ item }) => {
           <button
             onClick={toggleSubMenu}
             className={`flex flex-row items-center p-2 w-full justify-between ${
-              pathname.includes(item.path) ? "" : ""
+              isActive ? "" : ""
             }`}
           >
             <div className="flex flex-row space-x-4 items-center">
@@ -27,7 +29,7 @@ const SideBarMenuItem = ({ item }) => {
           <Link
             href={item.path}
             className={`flex flex-row space-x-4 items-center p-2 ${
-              item.path === pathname ? "" : ""
+              isActive ? "" : ""
             }`}
           >
             {item.icon}

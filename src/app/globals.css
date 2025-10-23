@@ -20,6 +20,7 @@
   --color-textColorDark: #0F1415;
   --color-textColorFaded: #78778B;
   --color-neutralColor-700: #C6D0D2;
+  --color-neutralColor-900: #F4F6F6;
   --color-grayColor: #22303E;
   
   /* Font families */
@@ -28,6 +29,17 @@
   --font-urbanist: 'Urbanist', sans-serif;
   --font-publicSans: 'public-sans', sans-serif;
 }
+
+@layer utilities {
+  .bg-dashboard-user {
+    background-image: url("/userSide.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+}
+
 /* ---break---   */
 @custom-variant dark (&:is(.dark *));
 body {

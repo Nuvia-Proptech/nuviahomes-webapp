@@ -7,11 +7,12 @@ import { SelectDropDown } from "@/components/shared/SelectDropDown";
 import { PropertiesTables } from "./PropertiesTables";
 import Link from 'next/link';
 import appRoutes from "@/constants/AppRoutes";
+import { AppWrapper } from "@/components/shared/AppSetup/AppWrapper";
 
 export const PropertiesIndex = () => {
 
   return (
-    <div className="w-full flex-1 md:ml-52 justify-center items-center h-screen text-black bg-secondaryColor">
+    <AppWrapper>
       <SuperAdminHeader />
       {/* Page title and Button */}
       <div className="px-4">
@@ -108,6 +109,6 @@ export const PropertiesIndex = () => {
           <PropertiesTables />
         </div>
       </div>
-    </div>
+    </AppWrapper>
   );
 };
