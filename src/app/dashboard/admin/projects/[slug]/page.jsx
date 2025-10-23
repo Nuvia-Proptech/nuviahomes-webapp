@@ -1,6 +1,5 @@
 "use client";
 import { ProjectDetailIndex } from "@/components/dashboard/superAdmin/Projects/projectDetails/ProjectDetailIndex";
-import { AppAdminNav } from "@/components/shared/AppAdminNav";
 import React from "react";
 import { projectData } from "@/lib/dummyData/projectsData";
 import { useParams } from "next/navigation";
@@ -13,12 +12,10 @@ export default function Page() {
   const project = projectData.find((p) => p.id === params.slug);
 
   if (!project) {
-    return <AppAdminNav>{notFound()}</AppAdminNav>;
+    return notFound();
   }
 
   return (
-    <AppAdminNav>
-      <ProjectDetailIndex project={project} milestones={project.milestones} />
-    </AppAdminNav>
+    <ProjectDetailIndex project={project} milestones={project.milestones} />
   );
 }
