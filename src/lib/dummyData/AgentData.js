@@ -25,7 +25,7 @@ export const AgentsData = [
     id: 2,
     name: "Alexander Thompson",
     propertiesListed: 320,
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face", // Professional man in suit, smiling
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face",
     bio: "Alexander Thompson brings a decade of expertise in commercial real estate and investment properties to the table. With a background in economics and finance, he specializes in helping investors build diversified property portfolios across Nigeria's emerging markets. His analytical approach to market data and deep understanding of ROI metrics have helped clients achieve exceptional returns on their investments. Alexander is particularly skilled in identifying undervalued properties with high growth potential and navigating complex commercial transactions with multiple stakeholders.",
     languages: ["English", "French", "Igbo"],
     contacts: [
@@ -91,7 +91,8 @@ export const AgentsData = [
     id: 5,
     name: "Chiamaka Adebayo",
     propertiesListed: 380,
-    avatar: "https://images.unsplash.com/photo-1506794778202-7931692b3cd2?w=400&h=500&fit=crop&crop=face",     
+       avatar: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=400&h=500&fit=crop&crop=face",
+    
     bio: "Chiamaka Adebayo is a visionary real estate developer and agent with over 14 years of comprehensive experience in both residential and commercial property sectors. Her unique background in architecture gives her an exceptional eye for property potential and renovation opportunities. Chiamaka has successfully managed numerous property development projects from conception to completion, specializing in transforming underutilized spaces into premium residential and commercial assets. She is particularly skilled at identifying emerging neighborhoods and advising clients on strategic property investments that align with urban development trends and infrastructure projects.",
     languages: ["English", "Yoruba", "French", "Hausa"],
     contacts: [

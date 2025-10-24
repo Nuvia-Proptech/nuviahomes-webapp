@@ -1,4 +1,3 @@
-// src/components/Agent/AgentCard.jsx
 "use client";
 
 import React from "react";
@@ -107,21 +106,21 @@ export default function AgentCard({ agent }) {
         {/* Contact Info Grid */}
         <div className="grid grid-cols-2 xl:grid-cols-3 gap-3 py-4">
           {agent.contacts.map((contact, index) => {
-  const IconComponent = iconMap[contact.icon];
-  return (
-    <div key={index} className="flex items-center gap-2">
-      <div className="h-6">
-        {IconComponent ? (
-          <IconComponent className="w-6 h-6 text-white" />
-        ) : (
-          <span className="w-6 h-6 text-gray-500">?</span>
-        )}
-      </div>
-      <div>
-        <p className="text-sm text-gray-300">{contact.type}</p>
-        <p className="text-xs text-gray-400">{contact.value}</p>
-      </div>
-    </div>
+          const IconComponent = iconMap[contact.icon];
+          return (
+            <div key={index} className="flex items-center gap-2">
+              <div className="h-6">
+                {IconComponent ? (
+                  <IconComponent className="w-6 h-6 text-white " />
+                ) : (
+                  <span className="w-6 h-6 text-gray-500">?</span>
+                )}
+              </div>
+              <div>
+                <p className="text-sm text-gray-300">{contact.type}</p>
+                <p className="text-xs text-gray-400 max-w-28 truncate">{contact.value}</p>
+              </div>
+            </div>
   );
 })}
         </div>
