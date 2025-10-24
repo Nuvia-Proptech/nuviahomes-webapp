@@ -1,8 +1,11 @@
 import React from "react";
+import Nav from "@/components/shared/Nav";
+import AltHero from "@/components/shared/AltHero";
 
 export default function InvestPage() {
   return (
     <section>
+      <AltHero pageName=" Invest" />
       <div>
         <div className="flex">
           <div className="w-1/2">
