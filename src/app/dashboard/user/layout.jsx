@@ -3,9 +3,9 @@ import { UserSidebarNav } from "@/components/dashboard/User/UserSidebarNav";
 
 const userLayout = ({ children }) => {
   return (
-    <div className="flex bg-white p-2">
+    <div className="flex bg-white p-2 gap-2.5">
       <UserSidebarNav />
-      <main className="flex-1 overflow-auto no-scrollbar w-fit">{children}</main>
+      <main className="overflow-auto no-scrollbar w-full">{children}</main>
     </div>
   );
 };
