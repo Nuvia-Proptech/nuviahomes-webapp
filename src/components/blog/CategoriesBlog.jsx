@@ -10,16 +10,16 @@ export default function CategoriesBlog() {
           <p>09</p>
         </div>
         <div className="flex justify-between">
-          <p>Lifestyle</p>
-          <p>09</p>
+          <p>Travel</p>
+          <p>06</p>
         </div>
         <div className="flex justify-between">
-          <p>Lifestyle</p>
-          <p>09</p>
+          <p>Fashion</p>
+          <p>19</p>
         </div>
         <div className="flex justify-between">
-          <p>Lifestyle</p>
-          <p>09</p>
+          <p>Entertainment</p>
+          <p>15</p>
         </div>
       </div>
     </div>

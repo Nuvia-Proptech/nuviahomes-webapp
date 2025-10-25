@@ -10,7 +10,7 @@ export default function AltHero({pageName}) {
       <Nav styleProp="bg-white/10 backdrop-blur-2xl" />
       {/* <!-- text and bread crumbs --> */}
       <div className="absolute left-1/2 -translate-x-1/2 bottom-28 text-center ">
-        <p>Home / Listing /{ pageName}</p>
+        <p>Home / Blog /{ pageName}</p>
         <p className="text-[56px] font-semibold">{pageName}</p>
       </div>
       {/* <Image

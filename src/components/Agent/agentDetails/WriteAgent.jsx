@@ -37,8 +37,8 @@ export default function WriteAgent() {
             className="forms-gradient border border-gray-500 h-[183px] rounded-2xl p-4 outline-0"
           ></textarea>
         </div>
-        <div className="flex justify-center">
-          <button className="btn-gradient mx-auto py-4 px-20 rounded-[20px]">Send a message</button>
+        <div className="flex justify-center ">
+          <button className="btn-gradient mx-auto py-4 px-20 rounded-[20px] md:w-full">Send a message</button>
         </div>
       </form>
     </div>
