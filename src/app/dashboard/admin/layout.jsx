@@ -5,7 +5,7 @@ const AdminLayout = ({children}) => {
   return (
     <div className="flex bg-secondaryColor">
       <AdminSideBarNav />
-      <main className="flex-1 overflow-auto no-scrollbar w-fit">{children}</main>
+      <main className="flex-1 overflow-auto no-scrollbar w-full">{children}</main>
     </div>
   );
 }

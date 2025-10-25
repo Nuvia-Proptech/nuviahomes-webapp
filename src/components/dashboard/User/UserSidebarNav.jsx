@@ -10,8 +10,8 @@ import {
 
 export const UserSidebarNav = () => {
   return (
-    <div className="md:w-52 h-screen bg-neutralColor-900 overflow-auto no-scrollbar">
-      <div className="flex flex-col justify-between h-full w-full">
+    <div className="md:w-52 h-full bg-neutralColor-900 overflow-auto no-scrollbar">
+      <div className="flex flex-col gap-5 h-full w-full">
         {/* Logo Section */}
         <div className="cursor-pointer flex justify-center py-3">
           <Link href="/">
@@ -19,7 +19,7 @@ export const UserSidebarNav = () => {
           </Link>
         </div>
 
-        <div className="mt-12">
+        <div className="">
           <p className="text-sm font-normal text-textColor mb-3 ml-5">
             MAIN MENU
           </p>
@@ -35,8 +35,8 @@ export const UserSidebarNav = () => {
           ))}
         </div>
 
-        <div className="relative h-44 w-48 rounded-lg bg-dashboard-user">
-          <button className="ml-3 w-39 flex justify-center items-center rounded-3xl p-2.5 bg-gradient-to-br from-[#1B5590] via-[#35AF72] to-[#B5E03A] cursor-pointer">
+        <div className="relative aspect-square rounded-lg bg-dashboard-user mx-2.5">
+          <button className="mx-3 w-32 flex justify-center items-center rounded-3xl p-2.5 bg-gradient-to-br from-[#1B5590] via-[#35AF72] to-[#B5E03A] cursor-pointer absolute bottom-5">
             <p className="font-urbanist text-sm font-normal text-white">
               Download
             </p>
