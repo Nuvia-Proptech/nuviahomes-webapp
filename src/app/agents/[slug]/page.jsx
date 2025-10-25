@@ -28,7 +28,7 @@ export default function AgentDetails({ params }) {
       <div className=" md:px-4">
         <div className="container px-4 mx-auto border border-gray-500 p-8 rounded-2xl">
           <div className="flex gap-10">
-            <div>
+            <div className="">
               <div className="rounded-2xl h-[344px] w-[306px] relative">
                 <Image
                   src={agent.avatar}

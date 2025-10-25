@@ -20,7 +20,7 @@ export default function FloorPlan() {
       >
         <AccordionItem value="item-1">
           <AccordionTrigger className="px-3 text-3xl hover:no-underline">
-            Property Vidoe
+            Floor Plan
           </AccordionTrigger>
           <AccordionContent className="flex flex-col gap-4 text-balance">
             <div className="border border-gray-500 overflow-hidden rounded-2xl">
