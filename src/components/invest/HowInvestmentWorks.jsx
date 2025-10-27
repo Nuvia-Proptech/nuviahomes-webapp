@@ -9,9 +9,9 @@ export const HowInvestmentWorks = () => {
       <div className="min-h-full  mx-auto text-white p-8">
         {/* Logo */}
 
-        <div className=" mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+        <div className="md:relative mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
           {/* Left Side - Text Content */}
-          <div>
+          <div className="md:sticky md:top-2 md:mt-4">
             <div className="mb-4">
               <InvestLogo />
             </div>
