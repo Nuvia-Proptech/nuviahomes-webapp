@@ -23,9 +23,9 @@ export default function Login() {
               <p className="text-24">Welcome to Nuvia Homes!</p>
               <p>Please Sign-in to your account</p>
             </div>
-            <form class="space-y-6">
+            <form className="space-y-6">
               <div>
-                <label class="text-slate-900 text-sm font-medium mb-2 block">
+                <label className="text-slate-900 text-sm font-medium mb-2 block">
                   Email Or Username
                 </label>
                 <div class="relative flex items-center">
@@ -100,12 +100,12 @@ export default function Login() {
               </div>
               <p class="text-slate-900 text-sm !mt-6 text-center">
                 Already have an account?
-                <a
-                  href="javascript:void(0);"
+                <Link
+                  href="/user-register"
                   class="text-blue-600 hover:underline ml-1 whitespace-nowrap font-semibold"
                 >
-                  Register heree
-                </a>
+                  Register here
+                </Link>
               </p>
             </form>
             {/* OR */}
