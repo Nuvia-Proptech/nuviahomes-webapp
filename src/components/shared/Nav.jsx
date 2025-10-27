@@ -116,7 +116,7 @@ export default function Nav({ styleProp }) {
                   </Link>
                 </li>
                 <li className="skewed btn-gradient py-2 px-4 flex gap-1">
-                  <Link href="/admin-register" className="unskewed">
+                  <Link href="/user-login" className="unskewed">
                     Login
                   </Link>
                 </li>

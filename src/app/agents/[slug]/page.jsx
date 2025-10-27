@@ -9,9 +9,9 @@ import {
   FaXTwitter,
 } from "react-icons/fa6";
 import { AgentsData } from "@/lib/dummyData/AgentData";
-import { PropertyListing } from "@/components/Agent/PropertyListing";
 import { CommentSection } from "@/components/shared/CommentSection";
 import TrendingBlog from "@/components/blog/blogArticles/TrendingBlog";
+import { AgentListingCard } from "@/components/Agent/AgentListingCard";
 
 export default function AgentDetails({ params }) {
   const { slug } = params;
@@ -28,7 +28,7 @@ export default function AgentDetails({ params }) {
       <div className=" md:px-4">
         <div className="container px-4 mx-auto border border-gray-500 p-8 rounded-2xl">
           <div className="flex gap-10">
-            <div>
+            <div className="">
               <div className="rounded-2xl h-[344px] w-[306px] relative">
                 <Image
                   src={agent.avatar}
@@ -132,7 +132,7 @@ export default function AgentDetails({ params }) {
           </div>
         </div>
       </div>
-      <PropertyListing />
+      <AgentListingCard />
       <div className="md:flex w-full gap-4 p-4 md:p-10">
         <div className="w-3/4">
           <CommentSection />

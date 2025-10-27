@@ -7,14 +7,14 @@ export default function StartBuilding() {
   const [periodYears, setPeriodYears] = useState(45);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-6 text-white">
+    <div className="min-h-screen flex flex-col items-center justify-center p- 6 text-white md:relative">
       <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center">
         Start building your future
       </h2>
 
-      <div className="grid md:grid-cols-3 gap-20 w-full max-w-[90rem]">
+      <div className="grid md:grid-cols-3 gap-20 w-full max-w-[90rem] md:relative">
         {/* Monthly Income */}
-        <div className="flex flex-col items-center justify-between">
+        <div className="flex flex-col items-center justify-between md:sticky md:top-4">
           <p className="text-lg text-24 w-full">How much do you earn monthly?</p>
           <div className="flex items-center gap-4 w-full">
             <input
@@ -54,7 +54,7 @@ export default function StartBuilding() {
         </div>
 
         {/* Period in Years */}
-        <div>
+        <div className="md:sticky md:top-4">
           <p className="mb-4 text-lg text-24">For a period of</p>
           <div className="flex items-center gap-4">
             <input
@@ -69,7 +69,7 @@ export default function StartBuilding() {
           </div>
         </div>
       </div>
-      {/* You get 💥💥💥*/}
+      {/* You get */}
       <div className="flex flex-col items-center mt-32">
         <p className="text-24">You get</p>
         <p className="text-40">80,045.06</p>

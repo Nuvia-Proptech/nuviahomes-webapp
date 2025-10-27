@@ -4,7 +4,7 @@ import PropertyCard from "@/components/propertyListingg/PropertyCard";
 import AltHero from "@/components/shared/AltHero";
 import { PropertyDetailData } from "@/lib/dummyData/PropertyDetailData";
 
-export const PropertyListing = () => {
+export const AgentListingCard = () => {
   const [activeTab, setActiveTab] = useState("rental");
 
   // Filter to select based on selected tab
