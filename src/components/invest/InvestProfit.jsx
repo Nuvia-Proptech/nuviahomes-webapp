@@ -28,11 +28,11 @@ const data = [
   { month: "Dec", value: 10000 },
 ];
 
-export  const InvestPortfolio = () => {
+export  const InvestProfit = () => {
   const [range, setRange] = useState("All");
 
   return (
-    <div className="  rounded-xl text-white">
+    <div className="px-2 md:p-8 rounded-xl text-white">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold">Your Profits</h2>
         <div className="flex gap-2">

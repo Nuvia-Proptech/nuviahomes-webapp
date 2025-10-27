@@ -5,8 +5,8 @@ import { InvestLogo } from "../shared/Icons/InvestLogo";
 
 export const HowInvestmentWorks = () => {
   return (
-    <main className="flex flex-col md:flex-row mt-6 md:mt-12">
-      <div className="min-h-screen  mx-auto text-white p-8">
+    <main className="flex flex-col md:flex-row mt-6 md:mt-12 ">
+      <div className="min-h-full  mx-auto text-white p-8">
         {/* Logo */}
 
         <div className=" mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
@@ -30,11 +30,11 @@ export const HowInvestmentWorks = () => {
           <div className="space-y-2 md:col-span-2">
             <InvestPortfolio />
             {/* Chart Card */}
-            <div className=" rounded-2xl py-6 md:flex items-start  md:gap-6">
+            <div className=" rounded-2xl mt-4 md:flex items-start  ">
               {/* Funds Till Maturity */}
               <div className=" rounded-xl py-4 mb-4 flex-1">
-                <h3 className="font-semibold mb-2">Funds Till Maturity</h3>
-                <p className="text-sm text-gray-300">
+                <h3 className="font-semibold mb-2 ">Funds Till Maturity</h3>
+                <p className="text-lg text-gray-300 ">
                   You can sell the investment in full over at maturity or send
                   your funds back to your wallet or to your personal bank
                   account
@@ -49,7 +49,7 @@ export const HowInvestmentWorks = () => {
             </div>
 
             {/* Description Cards */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-3 gap-4">
               <div className=" rounded-xl p-4 border-1 border-gray-700 forms-gradient">
                 <h4 className="text-sm font-semibold mb-2">Description</h4>
                 <p className="text-xs text-gray-300">
