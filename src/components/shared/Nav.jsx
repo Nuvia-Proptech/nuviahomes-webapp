@@ -1,7 +1,7 @@
 "use client";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { X } from "lucide-react";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import logo from "@/assets/logo.png";
 import { usePathname } from "next/navigation";
@@ -9,10 +9,36 @@ import { usePathname } from "next/navigation";
 export default function Nav({ styleProp }) {
   const currentPage = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  useEffect(() => {
+    const controlNavbar = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY < lastScrollY || currentScrollY < 10) {
+        // Scrolling up or at the top
+        setIsVisible(true);
+      } else {
+        // Scrolling down
+        setIsVisible(false);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", controlNavbar);
+    return () => window.removeEventListener("scroll", controlNavbar);
+  }, [lastScrollY]);
+
   return (
-    <header className="top-0 z-50 text-white ">
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 text-white transition-transform duration-300 ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <div className={`bg-${isOpen ? "gray-200" : "[#fdf6ee]"} py-5 relative`}>
         {/* Mobile Header */}
         <div className="flex justify-between items-center p-2 md:hidden">
