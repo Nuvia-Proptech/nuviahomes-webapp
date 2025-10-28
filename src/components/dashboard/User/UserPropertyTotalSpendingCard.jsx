@@ -1,13 +1,13 @@
 import React from "react";
 import { cn } from "@/lib/utils";
-import { Building2Icon } from "lucide-react";
+import { UserHouseIcon } from "@/components/shared/Icons/UserHouseIcon";
 
 export const UserPropertyTotalSpendingCard = ({
-  icon,
   iconClassName,
   title,
   price,
   className,
+  fill
 }) => {
   return (
     <div
@@ -23,7 +23,7 @@ export const UserPropertyTotalSpendingCard = ({
           iconClassName
         )}
       >
-        <Building2Icon />
+       <UserHouseIcon fill={fill} />
       </div>
       {/* Title and Amount */}
       <div>
