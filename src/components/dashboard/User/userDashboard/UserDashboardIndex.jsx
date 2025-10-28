@@ -5,6 +5,10 @@ import { PlusSquareIcon } from "@/components/shared/Icons/PlusSquareIcon";
 import Link from "next/link";
 import { userTotalSpendingData } from "@/lib/dummyData/usersTotalSpendingData";
 import { UserPropertyTotalSpendingCard } from "../UserPropertyTotalSpendingCard";
+import { UserProjectProgress } from "./userProjectProgress/UserProjectProgress";
+import { UserProfitReport } from "./userProfitReport/UserProfitReport";
+import { RecentSubmission } from "./RecentSubmission/RecentSubmission";
+import { RecentNotifications } from "./RecentNotifcations";
 
 export const UserDashboardIndex = () => {
   return (
@@ -38,10 +42,22 @@ export const UserDashboardIndex = () => {
                 key={item.id}
                 title={item.title}
                 price={item.price}
+                fill={item.fill}
               />
             );
           })}
         </div>
+
+      <div className="flex gap-5">
+      <div>
+          <UserProjectProgress />
+          <RecentSubmission />
+        </div>
+        <div>
+          <UserProfitReport />
+          <RecentNotifications />
+        </div>
+      </div>
       </div>
     </AppWrapper>
   );
