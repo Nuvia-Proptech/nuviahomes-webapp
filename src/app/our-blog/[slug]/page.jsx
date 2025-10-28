@@ -1,153 +1,162 @@
-import TrendingBlog from "@/components/blog/blogArticles/TrendingBlog";
-import CategoriesBlog from "@/components/blog/CategoriesBlog";
-import FeaturedBlog from "@/components/blog/FeaturedBlog";
-import SearchBlog from "@/components/blog/SearchBlog";
-import AltHero from "@/components/shared/AltHero";
 import React from "react";
+import { BlogData } from "@/lib/dummyData/BlogData";
+import AltHero from "@/components/shared/AltHero";
+import SearchBlog from "@/components/blog/SearchBlog";
+import CategoriesBlog from "@/components/blog/CategoriesBlog";
+import TrendingBlog from "@/components/blog/blogArticles/TrendingBlog";
+import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
+import Image from "next/image";
+import Link from "next/link";
+import { Quote } from "@/components/shared/Icons/Quote";
+import { CommentSection } from "@/components/shared/CommentSection";
 
-export default function page() {
+export default async function BlogDetailPage({ params }) {
+  const { slug } = await params;
+  const blog = BlogData.find((b) => b.id.toString() === slug);
+
+  if (!blog) {
+    return <div>Blog not found</div>;
+  }
+
   return (
     <div>
-      <AltHero pageName="Blog detail" />
-      <div className="container px-4 md:px-10 mx-auto">
-        <div className="flex gap-10 mb-12">
+      <AltHero pageName={blog.title} />
+      <div className="container px-4 md:px-10 mx-auto mb-12">
+        <div className="flex gap-10">
           <div className="w-3/4">
-            <FeaturedBlog />
-            {/*  */}
+            <div className="relative h-[531px] rounded-xl overflow-hidden mb-6">
+              <Image
+                src={blog.image}
+                alt={blog.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
             <div>
-              <div>
-                <p>By Osim Fiath</p>
-                <p>45 Comments</p>
+              <div className="flex justify-between text-14 mb-4">
+                <p>By {blog.author}</p>
+                <p>{blog.comments} Comments</p>
               </div>
-              <div>
-                <p>10 Essential Tips Every First-Time Homebuyer Should Know</p>
-                <p>
-                  10 Essential Tips Every First-Time Homebuyer Should Know” is a
-                  well-rounded, beginner-friendly real estate guide thoughtfully
-                  created to support and empower new and aspiring homeowners as
-                  they navigate one of life’s most important milestones. This
-                  comprehensive resource offers not just expert insights, but
-                  also practical, real-world advice designed to reduce stress,
-                  build confidence, and help buyers avoid costly mistakes. It
-                  walks you step-by-step through everything you need to know —
-                  from setting a realistic and sustainable budget that fits your
-                  lifestyle, getting pre-approved by a lender to strengthen your
-                  buying power, and researching neighborhoods for safety,
-                  schools, and long-term value, to understanding the true and
-                  often hidden costs of homeownership, choosing a trustworthy
-                  real estate agent who advocates for your best interests, and
-                  never skipping the home inspection to protect your investment.
-                  It also emphasizes the importance of thinking long-term about
-                  how the home fits into your future, sticking firmly to your
-                  financial limits even when emotions run high, moving quickly
-                  in fast-paced markets without rushing into poor decisions, and
-                  staying calm, curious, and well-informed throughout the entire
-                  journey — so that when you finally receive the keys, you know
-                  you've made a choice that's smart, secure, and truly yours.
-                </p>
-                <p>
-                  It walks you through the entire home-buying process in a
-                  simple, stress-free way. Instead of getting lost in
-                  complicated terms and confusing steps, this guide helps you
-                  focus on what really matters: setting a clear budget, getting
-                  pre-approved for a mortgage, choosing the right neighborhood,
-                  and understanding all the hidden costs that come with owning a
-                  home. It also reminds you to work with a good agent, always
-                  get a home inspection, and think about your long-term needs —
-                  not just what looks nice right now. You'll learn how to make
-                  smart, fast decisions without rushing, and how to stay calm
-                  and confident even when things feel overwhelming. Whether
-                  you're months away from buying or just starting to explore
-                  your options, these tips give you a clear path forward. Think
-                  of it as the advice you'd get from a friend who’s already been
-                  through the process — honest, helpful, and easy to follow.
-                </p>
-                <p>
-                  10 Essential Tips Every First-Time Homebuyer Should Know” is a
-                  well-rounded, beginner-friendly real estate guide thoughtfully
-                  created to support and empower new and aspiring homeowners as
-                  they navigate one of life’s most important milestones. This
-                  comprehensive resource offers not just expert insights, but
-                  also practical, real-world advice designed to reduce stress,
-                  build confidence, and help buyers avoid costly mistakes. It
-                  walks you step-by-step through everything you need to know —
-                  from setting a realistic and sustainable budget that fits your
-                  lifestyle, getting pre-approved by a lender to strengthen your
-                  buying power, and researching neighborhoods for safety,
-                  schools, and long-term value, to understanding the true and
-                  often hidden costs of homeownership, choosing a trustworthy
-                  real estate agent who advocates for your best interests, and
-                  never skipping the home inspection to protect your investment.
-                  It also emphasizes the importance of thinking long-term about
-                  how the home fits into your future, sticking firmly to your
-                  financial limits even when emotions run high, moving quickly
-                  in fast-paced markets without rushing into poor decisions, and
-                  staying calm, curious, and well-informed throughout the entire
-                  journey — so that when you finally receive the keys, you know
-                  you've made a choice that's smart, secure, and truly yours.
-                </p>
-                <p>
-                  It walks you through the entire home-buying process in a
-                  simple, stress-free way. Instead of getting lost in
-                  complicated terms and confusing steps, this guide helps you
-                  focus on what really matters: setting a clear budget, getting
-                  pre-approved for a mortgage, choosing the right neighborhood,
-                  and understanding all the hidden costs that come with owning a
-                  home. It also reminds you to work with a good agent, always
-                  get a home inspection, and think about your long-term needs —
-                  not just what looks nice right now. You'll learn how to make
-                  smart, fast decisions without rushing, and how to stay calm
-                  and confident even when things feel overwhelming. Whether
-                  you're months away from buying or just starting to explore
-                  your options, these tips give you a clear path forward. Think
-                  of it as the advice you'd get from a friend who’s already been
-                  through the process — honest, helpful, and easy to follow.
-                </p>
+              <div className="space-y-4">
+                <h1 className="text-3xl font-bold">{blog.title}</h1>
+                {blog.content.map((paragraph, index) => (
+                  <p key={index} className="text-16">
+                    {paragraph}
+                  </p>
+                ))}
               </div>
-              {/* Relates tags and Social share */}
-              <div className="flex justify-between">
-                <div>
-                  <p>Related Tags</p>
-                  <div className="flex gap-2">
-                    <button className="border text-16 h-6 px-4 rounded-full">
-                      Travel
+              <div className="gradient-border my-4">
+                <div className="gradient-border-inner">
+                  <div className=" flex md:space-x-4 px-8 py-4 md:gap-6">
+                    <span className="pt-2">
+                      <Quote />
+                    </span>
+                    <div>
+                      <p>
+                        Buying your first home is more than just a financial
+                        investment — it's a deeply personal journey toward
+                        building a space that reflects your life, your goals,
+                        and your future; a place where you'll feel secure, grow
+                        through new experiences, and create memories that last a
+                        lifetime.
+                      </p>
+                      <p className="mt-3 font-bold"> By {blog.author}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {blog.content.map((paragraph, index) => (
+                <p key={index} className="text-16">
+                  {paragraph}
+                </p>
+              ))}
+              <div className="flex justify-between mt-8 md:mt-10">
+                <div className="space-y-2 md:space-y-4">
+                  <p className="text-xl font-semibold">Related Tags</p>
+                  <div className="flex gap-2 align-middle">
+                    {blog.tags.map((tag, index) => (
+                      <button
+                        key={index}
+                        className="border  text-16 h-6 px-4 rounded-full"
+                      >
+                        {tag}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div className="space-y-2 md:space-y-4">
+                  <p className="text-xl font-semibold">Social Share</p>
+                  <div className="flex gap-2 md:gap-6">
+                    <button className="text-16 hover:opacity-80 transition-opacity">
+                      <FaFacebook className="w-10 h-10 text-[#1877F2]" />
                     </button>
-                    <button className="border text-16 h-6 px-4 rounded-full">
-                      Fashion
+                    <button className="text-16 hover:opacity-80 transition-opacity">
+                      <FaTwitter className="w-10 h-10 text-[#1DA1F2]" />
                     </button>
-                    <button className="border text-16 h-6 px-4 rounded-full">
-                      Houses
+                    <button className="text-16 hover:opacity-80 transition-opacity">
+                      <FaLinkedin className="w-10 h-10 text-[#0A66C2]" />
+                    </button>
+                    <button className="text-16 hover:opacity-80 transition-opacity">
+                      <FaInstagram className="w-10 h-10 text-[#E4405F]" />
                     </button>
                   </div>
                 </div>
-                <div>
-                  <p>Social share</p>
-                  <div>F T in</div>
-                </div>
               </div>
-
-              <hr className="my-10" />
-
+              <hr className="my-10 border-gray-500" />
               <div className="flex justify-between">
                 <div>
-                  <button>Prev post</button>
-                  <p>Tips on how to spot a fake agemt</p>
+                  {blog.id > 1 && (
+                    <>
+                      <Link href={`/our-blog/${blog.id - 1}`} className="block">
+                        <button className="text-16   cursor-pointer">
+                          Prev Post
+                        </button>
+                        <p className="text-base font-semibold">
+                          {BlogData.find((b) => b.id === blog.id - 1)?.title}
+                        </p>
+                      </Link>
+                    </>
+                  )}
                 </div>
-                <div>
-                  <button>Next post</button>
-                  <p>Tips on how to spot a fake agemt</p>
+                <div className="text-right">
+                  {blog.id < BlogData.length && (
+                    <>
+                      <Link
+                        href={`/our-blog/${blog.id + 1}`}
+                        className="block "
+                      >
+                        <button className="text-16 cursor-pointer">
+                          Next Post
+                        </button>
+                        <p className="text-base font-semibold">
+                          {BlogData.find((b) => b.id === blog.id + 1)?.title}
+                        </p>
+                      </Link>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
+
+            <div className="mt-12">
+              <CommentSection />
+            </div>
           </div>
-          {/*  */}
+
           <div className="w-1/4 flex flex-col gap-10 py-1">
-          <SearchBlog />
-          <CategoriesBlog />
-          <TrendingBlog />
+            <SearchBlog />
+            <CategoriesBlog />
+            <TrendingBlog />
           </div>
         </div>
       </div>
     </div>
   );
+}
+
+export async function generateStaticParams() {
+  return BlogData.map((blog) => ({
+    blogId: blog.id.toString(),
+  }));
 }

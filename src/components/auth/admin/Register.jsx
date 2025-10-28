@@ -1,22 +1,21 @@
 "use client";
 import React, { useState } from "react";
-import { Eye, EyeClosed, EyeClosedIcon, EyeIcon } from "lucide-react";
+import { EyeClosedIcon, EyeIcon } from "lucide-react";
 import Link from "next/link";
 import logo from "@/assets/logo.png";
 import Image from "next/image";
 import faceBookIcon from "@/assets/socials/facebook.svg";
 import twitter from "@/assets/socials/twitter.svg";
-import github from "@/assets/socials/github.svg";
 import google from "@/assets/socials/google.svg";
 
 export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
   return (
     // max-w-[35rem]
-    <div class="bg-gray-50">
-      <div class="min-h-screen flex flex-col items-center justify-center py-20 px-4">
-        <div class="max-w-[460px] w-full">
-          <div class="p-6 sm:p-8 rounded bg-white border border-gray-200 shadow-sm">
+    <div className="bg-gray-50">
+      <div className="min-h-screen flex flex-col items-center justify-center py-20 px-4">
+        <div className="max-w-[460px] w-full">
+          <div className="p-6 sm:p-8 rounded bg-white border border-gray-200 shadow-sm">
             <div className="flex justify-center">
               <Image src={logo} alt="Logo" />
             </div>
@@ -24,45 +23,45 @@ export default function Register() {
               <p className="text-24">Adventure starts here</p>
               <p>Make your app managment easy and fun!</p>
             </div>
-            <form class="space-y-6">
+            <form className="space-y-6">
               <div>
-                <label class="text-slate-900 text-sm font-medium mb-2 block">
+                <label className="text-slate-900 text-sm font-medium mb-2 block">
                   Username
                 </label>
-                <div class="relative flex items-center">
+                <div className="relative flex items-center">
                   <input
                     name="username"
                     type="text"
                     required
-                    class="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md focus:outline-none"
+                    className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md focus:outline-none"
                     placeholder="Enter your username"
                   />
                 </div>
               </div>
               <div>
-                <label class="text-slate-900 text-sm font-medium mb-2 block">
+                <label className="text-slate-900 text-sm font-medium mb-2 block">
                   Email
                 </label>
-                <div class="relative flex items-center">
+                <div className="relative flex items-center">
                   <input
                     name="username"
                     type="email"
                     required
-                    class="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md focus:outline-none"
+                    className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md focus:outline-none"
                     placeholder="Enter your emil"
                   />
                 </div>
               </div>
               <div>
-                <label class="text-slate-900 text-sm font-medium mb-2 block">
+                <label className="text-slate-900 text-sm font-medium mb-2 block">
                   Password
                 </label>
-                <div class="relative flex items-center">
+                <div className="relative flex items-center">
                   <input
                     name="password"
                     type={showPassword ? "text" : "password"}
                     required
-                    class="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md focus:outline-none"
+                    className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md focus:outline-none"
                     placeholder="Enter password"
                   />
                   <button
@@ -78,48 +77,48 @@ export default function Register() {
                   </button>
                 </div>
               </div>
-              <div class="flex flex-wrap items-center">
-                <div class="flex items-center">
+              <div className="flex flex-wrap items-center">
+                <div className="flex items-center">
                   <input
                     id="remember-me"
                     name="remember-me"
                     type="checkbox"
-                    class="h-4 w-4 shrink-0 text-blue-600 focus:ring-blue-500 border-slate-300 rounded"
+                    className="h-4 w-4 shrink-0 text-blue-600 focus:ring-blue-500 border-slate-300 rounded"
                   />
                   <label
                     for="remember-me"
-                    class="ml-3 block text-sm text-slate-900"
+                    className="ml-3 block text-sm text-slate-900"
                   >
                     I agree to
                   </label>
                 </div>
-                <div class="text-sm">
+                <div className="text-sm">
                   <a
                     href="jajvascript:void(0);"
-                    class="text-blue-600 hover:underline font-semibold"
+                    className="text-blue-600 hover:underline font-semibold"
                   >
                     privcy policy and terms
                   </a>
                 </div>
               </div>
 
-              <div class="!mt-12">
-                <Link href="/admin-login">
+              <div className="!mt-12">
+                <Link href="#">
                   <button
                     type="button"
-                    class="w-full py-2 px-4 text-[15px] font-medium tracking-wide rounded-md text-white btn-gradient focus:outline-none cursor-pointer"
+                    className="w-full py-2 px-4 text-[15px] font-medium tracking-wide rounded-md text-white btn-gradient focus:outline-none cursor-pointer"
                   >
-                    Sign in
+                    Sign up
                   </button>
                 </Link>
               </div>
-              <p class="text-slate-900 text-sm !mt-6 text-center">
+              <p className="text-slate-900 text-sm !mt-6 text-center">
                 Already have an account?{" "}
                 <a
-                  href="javascript:void(0);"
-                  class="text-blue-600 hover:underline ml-1 whitespace-nowrap font-semibold"
+                  href="/user-login"
+                  className="text-blue-600 hover:underline ml-1 whitespace-nowrap font-semibold"
                 >
-                  Register heree
+                  Login in
                 </a>
               </p>
             </form>

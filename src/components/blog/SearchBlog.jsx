@@ -2,9 +2,9 @@ import React from "react";
 
 export default function SearchBlog() {
   return (
-    <div className="featured-gradient border border-gray-500 rounded-xl w-full p-4">
+    <div className="featured-gradient border border-gray-600 rounded-xl w-full p-4">
       <p className="text-3xl mb-16">Search</p>
-      <div className="flex justify-between items-center border border-gray-500 forms-gradient h-[40px] px-3 rounded-md">
+      <div className="flex justify-between items-center border border-gray-600 forms-gradient h-[40px] px-3 rounded-md">
         <form action="">
           <input
             type="text"

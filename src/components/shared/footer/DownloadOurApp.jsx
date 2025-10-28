@@ -4,8 +4,10 @@ import phoneImage from "@/assets/Frame 6996.png";
 
 export default function DownloadOurApp() {
   return (
-    <div>
-      <div className="flex flex-col md:flex-row items-center rounded-2xl my-10 container mx-auto bg-[#1c0845] border border-gray-500">
+    <div className="gradient-border my-10">
+      <div className="gradient-border-inner ">
+
+      <div className="flex flex-col md:flex-row items-center rounded-2xl container mx-auto bg-[#1c0845]">
         {/* Text Column */}
         <div className="w-full md:w-2/3 p-6 sm:p-10">
           <p className="text-4xl md:text-5xl lg:text-[48px] leading-tight mb-4">
@@ -93,6 +95,7 @@ export default function DownloadOurApp() {
             className="w-full max-w-xs md:max-w-sm lg:max-w-md"
           />
         </div>
+      </div>
       </div>
     </div>
   );

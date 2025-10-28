@@ -1,11 +1,5 @@
 import AltHero from "@/components/shared/AltHero";
 import React from "react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import DisplayGrid from "@/components/propertyListingg/propertyDetails/DisplayGrid";
 import PropertyVideoAndDescription from "@/components/propertyListingg/propertyDetails/PropertyVideoAndDescription";
 import Amenities from "@/components/propertyListingg/propertyDetails/Amenities";
