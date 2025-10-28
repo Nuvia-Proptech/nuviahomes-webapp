@@ -12,10 +12,12 @@ export default function StartBuilding() {
         Start building your future
       </h2>
 
-      <div className="grid md:grid-cols-3 gap-20 w-full max-w-[90rem] md:relative">
+      <div className="grid md:grid-cols-3 gap-20 w-full max-w-[90rem] ">
         {/* Monthly Income */}
         <div className="flex flex-col items-center justify-between md:sticky md:top-4">
-          <p className="text-lg text-24 w-full">How much do you earn monthly?</p>
+          <p className="text-lg text-24 w-full">
+            How much do you earn monthly?
+          </p>
           <div className="flex items-center gap-4 w-full">
             <input
               type="range"
@@ -68,20 +70,20 @@ export default function StartBuilding() {
             <p className="text-xl">{periodYears}yrs</p>
           </div>
         </div>
-      </div>
-      {/* You get */}
-      <div className="flex flex-col items-center mt-32">
-        <p className="text-24">You get</p>
-        <p className="text-40">80,045.06</p>
-        <p className="gradient-text text-24">In 45 years</p>
-        <ul className="list-disc list-inside flex gap-10 mt-10">
-          <li className="text-20">
-            <span className="text-16">Returns</span> 60,000.06
-          </li>
-          <li className="text-20">
-            <span className="text-16">Returns</span> 60,000.06
-          </li>
-        </ul>
+        {/* You get */}
+        <div className="flex flex-col items-center mt-32 col-span-3">
+          <p className="text-24">You get</p>
+          <p className="text-40">80,045.06</p>
+          <p className="gradient-text text-24">In 45 years</p>
+          <ul className="list-disc list-inside flex gap-10 mt-10">
+            <li className="text-20">
+              <span className="text-16">Returns</span> 60,000.06
+            </li>
+            <li className="text-20">
+              <span className="text-16">Returns</span> 60,000.06
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
