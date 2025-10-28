@@ -1,18 +1,26 @@
-import React from 'react'
-import { SuperAdminHeader } from '../SuperAdminHeader'
-import { totalSpendingData } from '@/lib/dummyData/totalSpendingData'
-import { PlusSquareIcon } from '@/components/shared/Icons/PlusSquareIcon'
-import Link from 'next/link'
-import { SelectDropDown } from '@/components/shared/SelectDropDown'
-import appRoutes from '@/constants/AppRoutes'
-import { TotalSpendingItemsCard } from '@/components/shared/TotalSpendingItemsCard'
-import { InvestmentTables } from './InvestmentTables'
+"use client"
+import React from "react";
+import { SuperAdminHeader } from "../SuperAdminHeader";
+import { totalSpendingData } from "@/lib/dummyData/totalSpendingData";
+import { PlusSquareIcon } from "@/components/shared/Icons/PlusSquareIcon";
+import Link from "next/link";
+import { SelectDropDown } from "@/components/shared/SelectDropDown";
+import appRoutes from "@/constants/AppRoutes";
+import { TotalSpendingItemsCard } from "@/components/shared/TotalSpendingItemsCard";
+import { InvestmentTables } from "./InvestmentTables";
+import { AppWrapper } from "@/components/shared/AppSetup/AppWrapper";
+import { CreatePlanSheet } from "./CreatePlan/CreatePlanSheet";
+import { useState } from "react";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 
 export const InvesmentsIndex = () => {
+  const [isCreateSheetOpen, setIsCreateSheetOpen] = useState(false);
+
   return (
-    <div className="w-full flex-1 md:ml-60 justify-center items-center min-h-auto text-black">
+    <AppWrapper>
+      {/* <div className="w-full flex-1 md:ml-60 justify-center items-center min-h-auto text-black"> */}
       <SuperAdminHeader />
-     <div className="px-4">
+      <div className="px-4">
         <div className="py-5 flex justify-between items-center">
           <div>
             <p className="md:text-4xl font-semibold text-textColor font-urbanist">
@@ -22,14 +30,15 @@ export const InvesmentsIndex = () => {
               A quick glance at all plans
             </p>
           </div>
-          <Link href={appRoutes.dashboard.admin.investments}>
-          <button className="flex flex-row justify-center items-center gap-2.5 rounded-[12px] p-2.5 bg-gradient-to-br from-[#1B5590] via-[#35AF72] to-[#B5E03A] cursor-pointer">
+        <button
+            onClick={() => setIsCreateSheetOpen(true)}
+            className="flex flex-row justify-center items-center gap-2.5 rounded-[12px] p-2.5 bg-gradient-to-br from-[#1B5590] via-[#35AF72] to-[#B5E03A] cursor-pointer"
+          >
             <PlusSquareIcon />
             <p className="font-publicSans text-base font-normal text-[#F9F6FE]">
               Create Plans
             </p>
           </button>
-          </Link>
         </div>
 
         {/* Total Spending Section */}
@@ -71,8 +80,6 @@ export const InvesmentsIndex = () => {
                 className="bg-transparent border border-[#22303E66] rounded-sm text-sm font-urbanist font-normal px-3 py-1 placeholder:text-[#6C8184] focus:outline-none"
               />
 
-           
-
               {/* Plan Status  */}
               <SelectDropDown
                 id="propertyStatus"
@@ -94,7 +101,12 @@ export const InvesmentsIndex = () => {
           <InvestmentTables />
         </div>
       </div>
-    
-  </div>
-  )
-}
+      {/* Create Plan Sheet */}
+      <Sheet open={isCreateSheetOpen} onOpenChange={setIsCreateSheetOpen}>
+        <SheetContent className="sm:max-w-lg md:max-w-3xl overflow-y-auto">
+          <CreatePlanSheet onClose={() => setIsCreateSheetOpen(false)} />
+        </SheetContent>
+      </Sheet>
+    </AppWrapper>
+  );
+};
