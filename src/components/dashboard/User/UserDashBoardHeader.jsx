@@ -1,11 +1,20 @@
+"use client"
 import { MessageNotificationIcon } from "@/components/shared/Icons/MessageNotificationIcon";
 import { NotificationBingIcon } from "@/components/shared/Icons/NotificationBingIcon";
 import { SearchIcon } from "@/components/shared/Icons/SearchIcon";
 import team from "@/assets/images/team1.png";
 import React from "react";
 import Image from "next/image";
+import { useRouter } from 'next/navigation';
+import appRoutes from "@/constants/AppRoutes";
 
 export const UserDashBoardHeader = () => {
+  const router = useRouter();
+
+  const handleProfileClick = (e) => {
+    e.stopPropagation();
+    router.push(appRoutes.dashboard.user.profile);
+  };
   return (
     <div className="bg-neutralColor-900 p-3 rounded-2xl w-full flex justify-between font-urbanist">
       <div className="w-80 flex gap-3 justify-center items-center border border-tertiaryColor rounded-2xl h-12 py-2 px-3 font-urbanist">
@@ -31,7 +40,7 @@ export const UserDashBoardHeader = () => {
           </button>
         </div>
         {/* User Profile */}
-        <button className="flex gap-2 justify-center items-center">
+        <button onClick={handleProfileClick} className="flex gap-2 justify-center items-center cursor-pointer">
           <div className="w-14 h-14 rounded-full bg-[#FBEFEF] flex justify-center items-center">
             <Image
               className="h-9 w-9 rounded-full border border-neutralColor-900"

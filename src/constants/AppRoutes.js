@@ -50,6 +50,7 @@ const appRoutes = {
         bookings: '/dashboard/user/bookings', 
         settings: '/dashboard/user/settings',
         help: '/dashboard/user/help',
+        profile: '/dashboard/user/profile',
       },
     },
   };
