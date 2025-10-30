@@ -7,14 +7,14 @@ export const SelectDropDown = ({ label, options, id, className, selectClassName 
     <div className={cn(`flex items-center gap-2`, className)}>
       <label
       htmlFor={`${label}`}
-        className="text-base font-normal font-urbanist text-[#22303EE5] capitalize"
+        className="text-base font-normal font-publicSans text-[#22303EE5] capitalize"
       >
         {label}
       </label>
-      <div className="relative w-full">
+      <div className="relative w-full ">
         <select
           id={`${id | label}`}
-          className={cn("bg-transparent border border-[#22303E66] rounded-md text-[#6C8184] font-normal font-urbanist text-sm px-3 pr-7 py-1.5 focus:outline-none appearance-none", selectClassName)}
+          className={cn("bg-transparent border border-[#22303E66] rounded-md text-[#6C8184] font-normal font-urbanist text-sm px-3 pr-7 py-1.5 focus:outline-none appearance-none h-10 " , selectClassName)}
         >
           {options}
         </select>

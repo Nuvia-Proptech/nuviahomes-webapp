@@ -16,14 +16,14 @@ export default function Home() {
   return (
     <div>
       <Nav />
-      <div className="relative h-[90vh] w-full px-20">
-        <div className="skewed btn-gradient h-64 w-64 absolute top-6 left-32 overflow-hidden p-[2px]">
+      <div className="relative h-[90vh] w-full px-20 md:pt-32">
+        <div className="skewed btn-gradient h-64 w-64 absolute top-26 left-30 overflow-hidden p-[2px] bg-red">
           <div className="h-full w-full bg-[#1c0845] rounded-[16px]"></div>
         </div>
-        <div className="skewed btn-gradient h-64 w-64 absolute bottom-6 right-32 overflow-hidden p-[2px]">
+        <div className="skewed btn-gradient h-64 w-64 absolute -bottom-6 right-32 overflow-hidden p-[2px]">
           <div className="h-full w-full bg-[#1c0845] rounded-[16px]"></div>
         </div>
-        <div className="absolute top-40 left-60 z-50">
+        <div className="absolute top-50 left-60 z-50">
           <p className="text-40 mb-8">
             Buy, Rent, or Invest in <br></br> Verified Properties with Ease
           </p>
@@ -91,13 +91,13 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div className="relative top-0 h-full">
+        <div className="relative top-0 h-full  ">
           <Image src={homeHeroBannerDesktop} alt="" fill className="" />
         </div>
       </div>
       {/* top-1/2 -translate-y-1/2 */}
 
-      <BuyRentInvestWidget widgetStyle="-mt-32 flex flex-col" />
+      <BuyRentInvestWidget widgetStyle="-mt-24 flex flex-col" />
       <CorePrinciples />
       <WhatNuviaOffersYou />
       <FeaturedListedProperties />
