@@ -16,7 +16,7 @@ export const AppInput = ({
   return (
     <div
       className={cn(
-        "w-[360px] flex flex-col text-sm font-normal font-publicSans gap-1 text-textColor",
+        " flex flex-col text-sm font-normal font-publicSans gap-1 text-textColor",
         className
       )}
     >
