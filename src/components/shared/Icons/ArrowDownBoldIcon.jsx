@@ -1,0 +1,17 @@
+import React from "react";
+
+export const ArrowDownBoldIcon = ({
+  width = "11",
+  height = "6",
+  fill = "#0F1415",
+  className
+}) => {
+  return (
+    <svg width={width} height={height} viewBox="0 0 11 6" fill="none" className={className}>
+      <path
+        d="M9.68908 0H5.01658H0.809079C0.0890788 0 -0.270921 0.87 0.239079 1.38L4.12408 5.265C4.74658 5.8875 5.75908 5.8875 6.38158 5.265L7.85908 3.7875L10.2666 1.38C10.7691 0.87 10.4091 0 9.68908 0Z"
+        fill={fill}
+      />
+    </svg>
+  );
+};
