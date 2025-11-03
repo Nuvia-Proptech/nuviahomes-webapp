@@ -44,6 +44,7 @@ const appRoutes = {
       user: {
         index: '/dashboard/user',
         properties: '/dashboard/user/properties',
+        investments: '/dashboard/user/investments',
         projects: '/dashboard/user/projects',
         transactions: '/dashboard/user/transactions',
         messages: '/dashboard/user/messages',
