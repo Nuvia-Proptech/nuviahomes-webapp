@@ -3,8 +3,8 @@ import { PropertyDetails } from "./PropertyDetails/PropertyDetails";
 import { PropertyFeatures } from "./PropertyFeatures/PropertyFeatures";
 import { PropertyArea } from "./PropertyArea/PropertyArea";
 import { PriceDetails } from "./PriceDetails/PriceDetails";
-import { AddPropertiesSideBar } from "./AddPropertiesSideBar";
-import { AppPropertiesNavigation } from "./AppPropertiesNavigation";
+import { SubmitPropertiesSideBar } from "./SubmitPropertiesSideBar";
+import { SubmitPropertiesNavigation } from "./SubmitPropertiesNavigation";
 import { addPropertiestepsData } from "@/lib/dummyData/addPropertiesStepsData";
 import { PersonalDetails } from "./PersonalDetails/PersonalDetails";
 
@@ -47,8 +47,8 @@ export const SubmitPropertiesForms = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex">
-      <AddPropertiesSideBar
+    <div className="min-h-screen bg-white flex pr-2.5">
+      <SubmitPropertiesSideBar
         steps={addPropertiestepsData}
         currentStep={currentStep}
         goToStep={goToStep}
@@ -59,7 +59,7 @@ export const SubmitPropertiesForms = () => {
         <div className="mb-8">{renderStep()}</div>
 
         {/* Navigation Buttons */}
-        <AppPropertiesNavigation
+        <SubmitPropertiesNavigation
           currentStep={currentStep}
           totalSteps={addPropertiestepsData.length}
           onNext={nextStep}

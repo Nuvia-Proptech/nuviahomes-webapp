@@ -1,6 +1,6 @@
 import React from "react";
 
-export const AddPropertiesSideBar = ({ steps, currentStep, goToStep }) => {
+export const SubmitPropertiesSideBar = ({ steps, currentStep, goToStep }) => {
   return (
     <div className="w-72 border-r border-[#C6D0D2] p-6 font-urbanist">
       <div className="space-y-2">

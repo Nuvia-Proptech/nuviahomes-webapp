@@ -6,7 +6,7 @@ import { SelectDropDown } from "@/components/shared/SelectDropDown";
 export const PriceDetails = () => {
   return (
     <div className="my-5">
-      <div className="mb-5 flex flex-wrap justify-center items-center md:justify-start gap-4">
+      <div  className="grid md:grid-cols-2 gap-4 my-y">
         {/* Extracted Price */}
         <AppInput
           label="Extracted Price"

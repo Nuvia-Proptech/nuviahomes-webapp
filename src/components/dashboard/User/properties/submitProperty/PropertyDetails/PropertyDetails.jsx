@@ -10,7 +10,7 @@ export const PropertyDetails = () => {
       <SelectPropertyType />
 
       <form action="" className="">
-        <div className="flex flex-wrap justify-center items-center md:justify-start gap-4 mt-7">
+        <div className="grid md:grid-cols-2 gap-4 my-5">
           <AppInput
             label="Property Name"
             name="PropertyName"
@@ -21,16 +21,16 @@ export const PropertyDetails = () => {
             name="PropertyHighlight"
             placeholder="Property highlight name"
           />
-
-          <AppTextarea
-            className="w-full"
-            label="Property Description"
-            placeholder="Full property description"
-            name="description"
-          />
         </div>
 
-        <div className="my-5 flex flex-wrap justify-center items-center md:justify-start gap-4">
+        <AppTextarea
+          className="w-full"
+          label="Property Description"
+          placeholder="Full property description"
+          name="description"
+        />
+
+        <div className="grid md:grid-cols-2 gap-4 my-5">
           {/* property type */}
           <SelectDropDown
             className="flex-col justify-start items-start"
@@ -74,14 +74,14 @@ export const PropertyDetails = () => {
 
           {/* LandMArke */}
           <AppInput label="Landmark" placeholder="Zuma Rock" />
-
-          <AppTextarea
-            className="w-full"
-            label="Street"
-            placeholder="No. 13 off Kubwa express way"
-            name="street"
-          />
         </div>
+
+        <AppTextarea
+          className="w-full"
+          label="Street"
+          placeholder="No. 13 off Kubwa express way"
+          name="street"
+        />
       </form>
     </div>
   );

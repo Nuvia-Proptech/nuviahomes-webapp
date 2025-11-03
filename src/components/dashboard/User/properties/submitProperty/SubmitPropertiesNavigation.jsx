@@ -2,7 +2,7 @@ import { ArrowLeftIcon } from "@/components/shared/Icons/ArrowLeftIcon";
 import { ArrowRightIcon } from "@/components/shared/Icons/ArrowRightIcon";
 import React from "react";
 
-export const AppPropertiesNavigation = ({
+export const SubmitPropertiesNavigation = ({
   currentStep,
   totalSteps,
   onNext,

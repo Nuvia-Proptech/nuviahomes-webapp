@@ -7,7 +7,7 @@ export const PropertyArea = () => {
   return (
     <div className="my-5">
       {/* Forms Sections */}
-      <div className="mb-5 flex flex-wrap justify-center items-center md:justify-start gap-4">
+      <div  className="grid md:grid-cols-2 gap-4 my-5">
         {/* Total Area */}
         <AppInput
           label="Total Area"

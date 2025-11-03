@@ -8,8 +8,8 @@ import team3 from "@/assets/images/team3.png";
 import { EyeIcon } from "@/components/shared/Icons/EyeIcon";
 import { MoreIcon } from "@/components/shared/Icons/MoreIcon";
 import { ProgressBar } from "./ProgressBar";
-import { TeamAvatarGroup } from "./TeamAvatarGroup";
 import appRoutes from '@/constants/AppRoutes';
+import { TeamAvatarGroup } from '@/components/shared/TeamAvatarGroup';
 
 const teamMembers = [
   {
