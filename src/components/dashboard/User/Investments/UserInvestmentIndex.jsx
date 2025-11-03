@@ -5,6 +5,8 @@ import { PlusSquareIcon } from "@/components/shared/Icons/PlusSquareIcon";
 import appRoutes from "@/constants/AppRoutes";
 import Link from "next/link";
 import { FinancialDashboard } from "./InvestmentDashboard";
+import { UserInvestmentTable } from "./InvestmentTable/UserInvestmentTable";
+import { SelectDropDown } from "@/components/shared/SelectDropDown";
 
 const UserInvestmentIndex = () => {
   return (
@@ -40,6 +42,9 @@ const UserInvestmentIndex = () => {
           </div>
         </div>
         <FinancialDashboard />
+
+      
+          <UserInvestmentTable />
       </div>
     </AppWrapper>
   );
