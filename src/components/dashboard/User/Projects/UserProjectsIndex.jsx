@@ -1,13 +1,21 @@
+"use client"
 import { AppWrapper } from "@/components/shared/AppSetup/AppWrapper";
 import React from "react";
 import { UserDashBoardHeader } from "../UserDashBoardHeader";
-import Link from "next/link";
 import { PlusSquareIcon } from "@/components/shared/Icons/PlusSquareIcon";
 import appRoutes from "@/constants/AppRoutes";
 import { UserProjectCard } from "./UserProjectCard";
 import { userProjectsData } from "@/lib/dummyData/userProjectsData";
+import { useRouter } from 'next/navigation';
 
 export const UserProjectsIndex = () => {
+  const router = useRouter();
+
+  // Route to Submit Project
+  const handleSubmitProjectClick = (e) => {
+    e.stopPropagation();
+    router.push(appRoutes.dashboard.user.projects.submitProject);
+  };
   return (
     <AppWrapper className="">
       <UserDashBoardHeader />
@@ -23,7 +31,7 @@ export const UserProjectsIndex = () => {
             </p>
           </div>
 
-          <button className="flex flex-row justify-center items-center gap-2.5 rounded-[12px] p-2.5 bg-textColor cursor-pointer">
+          <button onClick={handleSubmitProjectClick} className="flex flex-row justify-center items-center gap-2.5 rounded-[12px] p-2.5 bg-textColor cursor-pointer">
             <PlusSquareIcon />
             <p className="font-publicSans text-base font-normal text-[#F9F6FE]">
               Add Project

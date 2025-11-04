@@ -99,13 +99,13 @@ export const UserProjectCard = ({ project }) => {
               Tasks: {project.tasks.completed}/{project.tasks.total}
             </p>
             <p className="text-sm font-semibold text-textColorFaded">
-              {project.tasks.completedPercentage}% Completed
+              {hoursPercentage.toFixed(1)}% Completed
             </p>
           </div>
           <div className="w-full bg-grayColor/10 rounded-full h-2">
             <div
               className="bg-primaryColor/80 h-2 rounded-full"
-              style={{ width: `${project.tasks.completedPercentage}%` }}
+              style={{ width: `${hoursPercentage}%` }}
             ></div>
           </div>
         </div>
@@ -124,8 +124,8 @@ export const UserProjectCard = ({ project }) => {
           {project.teamMembers.count} Members on this project
         </p>
 
-        <button className="flex justify-center items-center gap-2.5 text-textColorFaded text-sm font-semibold">
-          <MessageCircle />
+        <button className="flex justify-center items-center gap-1.5 text-textColorFaded text-sm font-semibold">
+          <MessageCircle size={16} />
           {/* chat/comment length */}
           <p>54</p>
         </button>
