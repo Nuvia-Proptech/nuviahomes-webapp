@@ -18,7 +18,7 @@ export const userMainMenuItems = [
   },
 {
     title: "Investment",
-    path: appRoutes.dashboard.user.investments,
+    path: appRoutes.dashboard.user.investments.index,
     icon: <GrMoney className="h-5 w-5" />,
   },
   {

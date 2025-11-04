@@ -1,5 +1,6 @@
 "use client";
 import { UserSidebarNav } from "@/components/dashboard/User/UserSidebarNav";
+import { UserDashBoardHeader } from "@/components/dashboard/User/UserDashBoardHeader";
 
 const UserLayout = ({ children }) => {
   return (
@@ -11,6 +12,9 @@ const UserLayout = ({ children }) => {
 
       {/* Main content */}
       <main className="ml-60 flex-1 overflow-y-auto no-scrollbar p-2">
+        <div>
+          <UserDashBoardHeader />
+        </div>
         {children}
       </main>
     </div>
@@ -18,4 +22,3 @@ const UserLayout = ({ children }) => {
 };
 
 export default UserLayout;
-

@@ -11,7 +11,7 @@ import { SelectDropDown } from "@/components/shared/SelectDropDown";
 const UserInvestmentIndex = () => {
   return (
     <AppWrapper>
-      <UserDashBoardHeader />
+      {/* <UserDashBoardHeader /> */}
       <div className="bg-neutralColor-900 p-3 rounded-2xl w-full font-urbanist my-2">
         <div className="my-3 flex justify-between items-center">
           <div>
@@ -31,7 +31,7 @@ const UserInvestmentIndex = () => {
                 </p>
               </button>
             </Link>
-            <Link href={appRoutes.dashboard.admin.properties.addProperties}>
+            <Link href={appRoutes.dashboard.user.investments.InvestmentsCategory}>
               <button className="flex flex-row justify-center items-center gap-2.5 rounded-[12px] p-2.5 bg-gradient-to-br from-[#1B5590] via-[#35AF72] to-[#B5E03A] cursor-pointer">
                 <PlusSquareIcon />
                 <p className="font-publicSans text-base font-normal text-[#F9F6FE]">

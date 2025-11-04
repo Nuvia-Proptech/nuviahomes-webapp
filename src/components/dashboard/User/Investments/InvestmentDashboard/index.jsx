@@ -20,7 +20,7 @@ export function FinancialDashboard() {
       subtext: "₦20,000 ",
       condition: "better than last month",
       positive: true,
-      icon: <FaWallet className="text-purple-600" />,
+      icon: <FaWallet className="text-purple-600 w-6 h-6" />,
       bgColor: "bg-purple-100",
     },
     {
@@ -30,7 +30,7 @@ export function FinancialDashboard() {
       subtext: "₦1000 ",
       condition: "better than last month",
       positive: true,
-      icon: <FaChartLine className="text-yellow-600" />,
+      icon: <FaChartLine className="text-yellow-600 w-6 h-6" />,
       bgColor: "bg-yellow-100",
     },
     {
@@ -40,7 +40,7 @@ export function FinancialDashboard() {
       condition: "worst than last month",
       subtext: "₦100 ",
       positive: false,
-      icon: <FaMoneyBillWave className="text-red-600" />,
+      icon: <FaMoneyBillWave className="text-red-600 w-6 h-6" />,
       bgColor: "bg-red-100",
     },
     {
@@ -50,7 +50,7 @@ export function FinancialDashboard() {
       subtext: "₦10,000 ",
       condition: "better than last month",
       positive: true,
-      icon: <FaWallet className="text-teal-600" />,
+      icon: <FaWallet className="text-teal-600 w-6 h-6" />,
       bgColor: "bg-teal-100",
     },
     {
@@ -60,7 +60,7 @@ export function FinancialDashboard() {
       condition: "better than last month",
       subtext: "₦10,000 ",
       positive: true,
-      icon: <FaFileInvoiceDollar className="text-lime-600" />,
+      icon: <FaFileInvoiceDollar className="text-lime-600 w-6 h-6" />,
       bgColor: "bg-lime-100",
     },
     {
@@ -70,7 +70,7 @@ export function FinancialDashboard() {
       condition: "better than last month",
       subtext: "₦20,0000 ",
       positive: true,
-      icon: <FaChartLine className="text-purple-600" />,
+      icon: <FaChartLine className="text-purple-600 w-6 h-6" />,
       bgColor: "bg-purple-100",
     },
   ];
