@@ -1,12 +1,21 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { AppWrapper } from "@/components/shared/AppSetup/AppWrapper";
 import Link from "next/link";
 import appRoutes from "@/constants/AppRoutes";
 import { ImProfile } from "react-icons/im";
 import { UserInvestmentsCategoryData } from "@/lib/dummyData/UserInvestmentsCategoryData";
 import { InvestmentCard } from "./InvestmentCard";
+import { InvestmentModal } from "./InvestmentModal";
 
 const InvestmentCategoryIndex = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+
+     const handleInvestClick = (investment) => {
+    setSelectedProject(investment);
+    setModalOpen(true);
+  };
   return (
     <AppWrapper>
       {/* <UserDashBoardHeader /> */}
@@ -40,9 +49,20 @@ const InvestmentCategoryIndex = () => {
         <div className="min-h-screen  py-8 ">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-7xl mx-auto">
             {UserInvestmentsCategoryData.map((investment, index) => (
-              <InvestmentCard key={index} {...investment} />
+              <InvestmentCard
+                key={index}
+                {...investment}
+                investment={investment}
+                onInvestClick={handleInvestClick}
+              />
             ))}
           </div>
+          {/* Modal Component */}
+          <InvestmentModal
+            isOpen={modalOpen}
+            onClose={() => setModalOpen(false)}
+            project={selectedProject}
+          />
         </div>
       </div>
     </AppWrapper>
