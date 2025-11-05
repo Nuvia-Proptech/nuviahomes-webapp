@@ -11,7 +11,7 @@ export const SelectDropDown = ({ label, options, id, className, selectClassName 
       >
         {label}
       </label>
-      <div className="relative w-full ">
+      <div className="relative w-full">
         <select
           id={`${id | label}`}
           className={cn("bg-transparent border border-[#22303E66] rounded-md text-[#6C8184] font-normal font-urbanist text-sm px-3 pr-7 py-1.5 focus:outline-none appearance-none h-10 " , selectClassName)}

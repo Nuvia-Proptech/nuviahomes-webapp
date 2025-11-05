@@ -1,6 +1,6 @@
 import React from "react";
 
-export const UserProjectCard = ({
+export const UserProgressProjectCard = ({
   title,
   location,
   progress,

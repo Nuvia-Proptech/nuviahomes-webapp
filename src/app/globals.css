@@ -10,6 +10,7 @@
   --color-primaryColor: #5818D8;
   --color-primaryColorLight: #1c0845;
   --color-primaryColorStrong: #4212A1;
+  --color-primaryColorMain: #696CFF;
   --color-secondaryColor: #F9FBFB;
   --color-tertiaryColor: "#DFE6E7";
   --color-successColor: #48A848;
@@ -17,6 +18,7 @@
   --color-dangerColor: #B43C3C;
   --color-alertColor: #D89818;
   --color-warningColor: #FFAB00;
+  --color-infoColorMain: #03C3EC;
   --color-textColor: #344346;
   --color-textColorDark: #0F1415;
   --color-textColorFaded: #78778B;
