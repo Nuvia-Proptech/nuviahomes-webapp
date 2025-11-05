@@ -22,6 +22,7 @@ export const ProjectTables = ({ projectData }) => {
           {projectData.map((project) => {
             return (
               <ProjectsTableBodies
+                key={project.id}
                 id={project.id}
                 name={project.name}
                 location={project.location}

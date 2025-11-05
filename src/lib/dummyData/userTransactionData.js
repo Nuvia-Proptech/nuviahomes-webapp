@@ -1,0 +1,122 @@
+export const userTransactionsData = [
+  {
+    id: "010",
+    street: "Adekunle Fajuyi",
+    city: "Lagos",
+    name: "Mr Samuel Onoja",
+    email: "example@gmail.com",
+    date: "14 Apr 2022",
+    time: "8:00 PM",
+    total: "#4200.22",
+    balance: "#15000.50",
+    status: "Approved"
+  },
+  {
+    id: "011",
+    street: "Ahmadu Bello",
+    city: "Abuja",
+    name: "Mrs Amina Bello",
+    email: "amina.bello@email.com",
+    date: "15 Apr 2022",
+    time: "9:30 AM",
+    total: "#3150.50",
+    balance: "#12500.75",
+    status: "Pending"
+  },
+  {
+    id: "012",
+    street: "Allen Avenue",
+    city: "Lagos",
+    name: "Dr Chinedu Okoro",
+    email: "chinedu.okoro@email.com",
+    date: "16 Apr 2022",
+    time: "2:15 PM",
+    total: "#5800.75",
+    balance: "#22000.25",
+    status: "Approved"
+  },
+  {
+    id: "013",
+    street: "Awolowo Road",
+    city: "Ibadan",
+    name: "Miss Funke Adebayo",
+    email: "funke.adebayo@email.com",
+    date: "17 Apr 2022",
+    time: "11:45 AM",
+    total: "#2750.00",
+    balance: "#9800.00",
+    status: "Cancelled"
+  },
+  {
+    id: "014",
+    street: "Bourdillon Road",
+    city: "Lagos",
+    name: "Mr James Johnson",
+    email: "james.johnson@email.com",
+    date: "18 Apr 2022",
+    time: "4:20 PM",
+    total: "#6200.30",
+    balance: "#18500.60",
+    status: "Pending"
+  },
+  {
+    id: "015",
+    street: "Falomo Drive",
+    city: "Lagos",
+    name: "Mrs Grace Williams",
+    email: "grace.williams@email.com",
+    date: "19 Apr 2022",
+    time: "10:10 AM",
+    total: "#3890.45",
+    balance: "#14200.35",
+    status: "Approved"
+  },
+  {
+    id: "016",
+    street: "Maitama District",
+    city: "Abuja",
+    name: "Alhaji Musa Ibrahim",
+    email: "musa.ibrahim@email.com",
+    date: "20 Apr 2022",
+    time: "3:30 PM",
+    total: "#5100.80",
+    balance: "#19800.90",
+    status: "Approved"
+  },
+  {
+    id: "017",
+    street: "GRA Enugu",
+    city: "Enugu",
+    name: "Chief Nnamdi Eze",
+    email: "nnamdi.eze@email.com",
+    date: "21 Apr 2022",
+    time: "1:00 PM",
+    total: "#4450.25",
+    balance: "#16500.40",
+    status: "Cancelled"
+  },
+  {
+    id: "018",
+    street: "Victoria Island",
+    city: "Lagos",
+    name: "Mr Tunde Lawal",
+    email: "tunde.lawal@email.com",
+    date: "22 Apr 2022",
+    time: "6:45 PM",
+    total: "#7200.60",
+    balance: "#25000.15",
+    status: "Pending"
+  },
+  {
+    id: "019",
+    street: "Mokola Hill",
+    city: "Ibadan",
+    name: "Mrs Bisi Adekunle",
+    email: "bisi.adekunle@email.com",
+    date: "23 Apr 2022",
+    time: "9:15 AM",
+    total: "#3350.90",
+    balance: "#12800.70",
+    status: "Approved"
+  }
+];

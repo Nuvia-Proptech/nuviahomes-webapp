@@ -1,5 +1,5 @@
 import React from 'react'
-import { UserProjectCard } from './UserProjectCard'
+import { UserProgressProjectCard } from './UserProgressProjectCard'
 
 export const UserProjectProgress = () => {
   return (
@@ -9,14 +9,14 @@ export const UserProjectProgress = () => {
     </h2>
 
     <div className="flex flex-wrap justify-between gap-5 p-2">
-      <UserProjectCard
+      <UserProgressProjectCard
         title="Landmark Hotel Project"
         location="Agula Lake"
         progress={65}
         color="orange"
         status="In Progress"
       />
-      <UserProjectCard
+      <UserProgressProjectCard
         title="Landmark Hotel Project"
         location="Agula Lake"
         progress={65}
