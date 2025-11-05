@@ -51,6 +51,11 @@ const appRoutes = {
           index: '/dashboard/user/projects',
           submitProject: '/dashboard/user/projects/submit-project',
         },
+        investments: {
+          index: '/dashboard/user/investments',
+          InvestmentsCategory: '/dashboard/user/investments/investments-category'
+        },
+        projects: '/dashboard/user/projects',
         transactions: '/dashboard/user/transactions',
         messages: '/dashboard/user/messages',
         bookings: '/dashboard/user/bookings', 

@@ -90,7 +90,7 @@ export const ProjectsTableBodies = ({
         <ProgressBar progress={progress} />
       </td>
       <td>
-        <div class="flex items-center gap-3">
+        <div className="flex items-center gap-3">
           <button title="View">
             <EyeIcon />
           </button>

@@ -8,6 +8,7 @@ import { ArchiveBookIcon } from "@/components/shared/Icons/ArchiveBookIcon";
 import { SettingsIcon } from "@/components/shared/Icons/SettingsIcon";
 import { MessageQuestionIcon } from "@/components/shared/Icons/MessageQuestionIcon";
 import { LogoutIcon } from "@/components/shared/Icons/LogoutIcon";
+import { GrMoney } from "react-icons/gr";
 
 export const userMainMenuItems = [
   {
@@ -15,7 +16,11 @@ export const userMainMenuItems = [
     path: appRoutes.dashboard.user.index,
     icon: <ElementEqualIcon />,
   },
-
+{
+    title: "Investment",
+    path: appRoutes.dashboard.user.investments.index,
+    icon: <GrMoney className="h-5 w-5" />,
+  },
   {
     title: "Properties",
     path: appRoutes.dashboard.user.properties,

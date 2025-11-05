@@ -17,7 +17,7 @@ export const UserDashBoardHeader = () => {
   };
   return (
     <div className="bg-neutralColor-900 p-3 rounded-2xl w-full flex justify-between font-urbanist">
-      <div className="w-80 flex gap-3 justify-center items-center border border-tertiaryColor rounded-2xl h-12 py-2 px-3 font-urbanist">
+      <div className="w-80 flex gap-3 justify-center items-center border border-grayColor rounded-2xl h-12 py-2 px-3 font-urbanist">
         <SearchIcon width="20" height="20" />
         <input
           type="text"
