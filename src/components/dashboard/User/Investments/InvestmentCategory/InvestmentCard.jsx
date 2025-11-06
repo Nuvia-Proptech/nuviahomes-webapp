@@ -16,6 +16,8 @@ export const InvestmentCard = ({
   riskLevel,
   riskColor,
   minAmount,
+  onInvestClick,
+  investment,
 }) => {
   return (
     <div className="gradient-border">
@@ -86,7 +88,10 @@ export const InvestmentCard = ({
               <p className="text-xs text-gray-500 mb-1">Min Amount</p>
               <p className="text-xl font-bold text-gray-900">{minAmount}</p>
             </div>
-            <button className="btn-gradient text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+            <button
+              onClick={() => onInvestClick(investment)}
+              className="btn-gradient text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+            >
               Invest Now
             </button>
           </div>
