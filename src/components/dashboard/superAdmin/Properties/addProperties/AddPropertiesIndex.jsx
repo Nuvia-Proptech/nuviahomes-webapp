@@ -4,10 +4,11 @@ import { AddPropertiesForms } from "./AddPropertiesForms";
 import { SuperAdminHeader } from "../../SuperAdminHeader";
 import { CloseSquareIcon } from "@/components/shared/Icons/CloseSquareIcon";
 import { TickGoodSquareIcon } from "@/components/shared/Icons/TickGoodSquareIcon";
+import { AppWrapper } from '@/components/shared/AppSetup/AppWrapper'
 
 export const AddPropertiesIndex = () => {
   return (
-    <div className="w-full flex-1 md:ml-52 justify-center items-center h-screen text-black bg-secondaryColor">
+    <AppWrapper>
       <SuperAdminHeader />
       <div className="py-5 flex justify-between items-center px-4">
         <div>
@@ -37,6 +38,6 @@ export const AddPropertiesIndex = () => {
       </div>
 
       <AddPropertiesForms />
-    </div>
+    </AppWrapper>
   );
 };

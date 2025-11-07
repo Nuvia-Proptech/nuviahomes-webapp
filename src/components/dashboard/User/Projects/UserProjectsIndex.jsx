@@ -1,7 +1,6 @@
 "use client"
 import { AppWrapper } from "@/components/shared/AppSetup/AppWrapper";
 import React from "react";
-import { UserDashBoardHeader } from "../UserDashBoardHeader";
 import { PlusSquareIcon } from "@/components/shared/Icons/PlusSquareIcon";
 import appRoutes from "@/constants/AppRoutes";
 import { UserProjectCard } from "./UserProjectCard";
@@ -18,7 +17,6 @@ export const UserProjectsIndex = () => {
   };
   return (
     <AppWrapper className="">
-      <UserDashBoardHeader />
 
       <div className="bg-neutralColor-900 p-3 rounded-2xl w-full font-urbanist my-2">
         <div className="my-3 flex justify-between items-center">

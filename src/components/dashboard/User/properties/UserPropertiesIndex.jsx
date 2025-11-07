@@ -1,7 +1,6 @@
 "use client";
 import { AppWrapper } from "@/components/shared/AppSetup/AppWrapper";
 import React, { useState } from "react";
-import { UserDashBoardHeader } from "../UserDashBoardHeader";
 import { PlusSquareIcon } from "lucide-react";
 import { UserPropertiesCard } from "./UserPropertiesCard";
 import { FilterDropdown } from "./FilterDropDown";
@@ -69,7 +68,6 @@ export const UserPropertiesIndex = () => {
   };
   return (
     <AppWrapper className="">
-      <UserDashBoardHeader />
 
       <div className="bg-neutralColor-900 p-3 rounded-2xl w-full font-urbanist my-2">
         <div className="my-3 flex justify-between items-center">
