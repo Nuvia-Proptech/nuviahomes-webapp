@@ -23,12 +23,12 @@ export const userMainMenuItems = [
   },
   {
     title: "Properties",
-    path: appRoutes.dashboard.user.properties,
+    path: appRoutes.dashboard.user.properties.index,
     icon: <BuildingIcon />,
   },
   {
     title: "Projects",
-    path: appRoutes.dashboard.user.projects,
+    path: appRoutes.dashboard.user.projects.index,
     icon: <BuildingIconTwo />,
   },
   {
