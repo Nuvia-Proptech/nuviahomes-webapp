@@ -15,52 +15,52 @@ const appRoutes = {
     // dashboard routes
     dashboard: {
      admin: {
-        index: '/dashboard/admin',
+        index: '/admin',
         users: {
-          index: '/dashboard/admin/users',
-          userOverview: '/dashboard/admin/users/user-overview',
-          userOverviewSecurity: '/dashboard/admin/users/user-overview-security',
-          userOverviewSecurity: '/dashboard/admin/users/user-details-edit',
+          index: '/admin/users',
+          userOverview: '/admin/users/user-overview',
+          userOverviewSecurity: '/admin/users/user-overview-security',
+          userOverviewSecurity: '/admin/users/user-details-edit',
         },
-        investments: '/dashboard/admin/investments',
+        investments: '/admin/investments',
         properties: {
-          index: '/dashboard/admin/properties',
-          addProperties: '/dashboard/admin/properties/add-properties'
+          index: '/admin/properties',
+          addProperties: '/admin/properties/add-properties'
         },
         projects: {
-          index: '/dashboard/admin/projects',        
+          index: '/admin/projects',        
           slug: (slug) => ({
-            index: `/dashboard/admin/projects/${slug}`,
-            editProject: `/dashboard/admin/projects/${slug}/edit-project`,
+            index: `/admin/projects/${slug}`,
+            editProject: `/admin/projects/${slug}/edit-project`,
           }),
-          projectDetails: '/dashboard/admin/projects/project-details'
+          projectDetails: '/admin/projects/project-details'
         },
-        payments: '/dashboard/admin/payments',
-        messages: '/dashboard/admin/messages',
-        bookings: '/dashboard/admin/bookings',
-        reports: '/dashboard/admin/reports',
-        settings: '/dashboard/admin/settings',
+        payments: '/admin/payments',
+        messages: '/admin/messages',
+        bookings: '/admin/bookings',
+        reports: '/admin/reports',
+        settings: '/admin/settings',
       },
       user: {
-        index: '/dashboard/user',
+        index: '/user',
         properties: {
-          index: '/dashboard/user/properties',
-          submitProperty: '/dashboard/user/properties/submit-property'
+          index: '/user/properties',
+          submitProperty: '/user/properties/submit-property'
         },
         projects: {
-          index: '/dashboard/user/projects',
-          submitProject: '/dashboard/user/projects/submit-project',
+          index: '/user/projects',
+          submitProject: '/user/projects/submit-project',
         },
         investments: {
-          index: '/dashboard/user/investments',
-          InvestmentsCategory: '/dashboard/user/investments/investments-category'
+          index: '/user/investments',
+          InvestmentsCategory: '/user/investments/investments-category'
         },
-        transactions: '/dashboard/user/transactions',
-        messages: '/dashboard/user/messages',
-        bookings: '/dashboard/user/bookings', 
-        settings: '/dashboard/user/settings',
-        help: '/dashboard/user/help',
-        profile: '/dashboard/user/profile',
+        transactions: '/user/transactions',
+        messages: '/user/messages',
+        bookings: '/user/bookings', 
+        settings: '/user/settings',
+        help: '/user/help',
+        profile: '/user/profile',
       },
     },
   };
