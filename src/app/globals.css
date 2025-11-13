@@ -46,7 +46,7 @@
 /* ---break---   */
 @custom-variant dark (&:is(.dark *));
 body {
-  background-color: #1c0845;
+  /* background-color: #1c0845; */
   color: white;
 }
 
