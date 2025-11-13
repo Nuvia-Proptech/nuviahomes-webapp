@@ -6,7 +6,7 @@ const UserLayout = ({ children }) => {
   return (
     <div className="flex h-screen bg-white">
       {/* Sidebar fixed to the left on tablet/desktop*/}
-      <aside className="fixed left-0 top-0 h-screen w-60 bg-neutralColor-900">
+      <aside className="fixed h-screen w-60 bg-neutralColor-900">
         <UserSidebarNav />
       </aside>
 
