@@ -310,7 +310,7 @@ export default function WhoWeArePage() {
       <div className="container mx-auto px-4 md:px-10">
         <OurCompany />
 
-        <div className="mb-64">
+        <div className="md:mb-64 mb-24">
           <div className="text-center mb-20">
             <p className="text-40">Tailor-made Services</p>
             <p className="text-16">
@@ -318,8 +318,8 @@ export default function WhoWeArePage() {
               graphic elements of a document or visual presentation.
             </p>
           </div>
-          {/* Tailor made service 💥💥💥*/}
-          <div className="text-center grid gap-4 md:gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {/* Tailor made service */}
+          <div className="text-center grid gap-4 md:gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-md:space-y-4">
             {/* Card */}
             {tailorMadeServicesDetails.map((item) => (
               <div
@@ -333,25 +333,25 @@ export default function WhoWeArePage() {
             ))}
           </div>
         </div>
-        {/* 18 years of achievments 💥💥💥*/}
-        <div className="flex justify-between mb-40 px-10">
-          <div className="w-1/2">
-            <p className="text-40">Our 18 of achievments</p>
-            <p className="text-lg">With our super we have reached this</p>
-          </div>
-          <div className="grid grid-cols-2 gap-x-28 gap-y-10">
-            {downloadsDetails.map((item) => (
-              <div className="flex items-center gap-4" key={item.title}>
-                <div>{item.icon}</div>
-                <div>
-                  <p className="text-40">{item.title}</p>
-                  <p>{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* 18 years of achievments */}
+        <div className="flex justify-between mb-40 px-10 max-lg:flex-col max-lg:items-start max-lg:gap-8 max-lg:px-4 ">
+  <div className=" max-lg:w-full  max-md:text-center">
+    <p className="text-40 max-sm:text-3xl max-md:text-4xl">Our 18 of achievments</p>
+    <p className="text-lg max-sm:text-base max-md:text-lg">With our super we have reached this</p>
+  </div>
+  <div className="grid grid-cols-2 gap-x-28 gap-y-10 max-lg:grid-cols-1 max-lg:gap-6  place-items-center w-full md:w-auto max-md:space-y-4">
+    {downloadsDetails.map((item) => (
+      <div className="flex items-center max-md:flex-col gap-4 " key={item.title}>
+        <div>{item.icon}</div>
+        <div className="max-md:text-center"> 
+          <p className="text-40 max-sm:text-2xl max-md:text-3xl">{item.title}</p>
+          <p className="max-sm:text-sm max-md:text-base">{item.desc}</p>
         </div>
-        {/* partners 💥💥💥*/}
+      </div>
+    ))}
+  </div>
+</div>
+        {/* partners */}
         <Partners />
       </div>
     </section>
