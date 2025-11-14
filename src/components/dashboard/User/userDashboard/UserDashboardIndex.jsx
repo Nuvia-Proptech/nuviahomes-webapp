@@ -12,7 +12,7 @@ export const UserDashboardIndex = () => {
   return (
     <AppWrapper className="">
       <div className="bg-neutralColor-900 p-3 rounded-2xl w-full font-urbanist my-2">
-        <div className="my-3 flex justify-between items-center">
+        <div className="my-3 flex flex-col sm:flex-row gap-2.5 justify-between sm:items-center">
           <div>
             <p className="md:text-4xl font-semibold text-textColor font-urbanist">
               Dashboard
@@ -22,7 +22,7 @@ export const UserDashboardIndex = () => {
             </p>
           </div>
 
-          <button className="flex flex-row justify-center items-center gap-2.5 rounded-[12px] p-2.5 bg-gradient-to-br from-[#1B5590] via-[#35AF72] to-[#B5E03A] cursor-pointer">
+          <button className="max-w-48 flex flex-row justify-center items-center gap-2.5 rounded-[12px] p-2.5 bg-gradient-to-br from-[#1B5590] via-[#35AF72] to-[#B5E03A] cursor-pointer">
             <PlusSquareIcon />
             <p className="font-publicSans text-base font-normal text-[#F9F6FE]">
               Add Property
@@ -31,7 +31,7 @@ export const UserDashboardIndex = () => {
         </div>
 
         {/* Total Spending Section for user */}
-        <div className="my-5 flex flex-row flex-wrap gap-3">
+        <div className="my-5 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
           {userTotalSpendingData.map((item) => {
             return (
               <UserPropertyTotalSpendingCard
@@ -44,7 +44,7 @@ export const UserDashboardIndex = () => {
           })}
         </div>
 
-        <div className="flex gap-5">
+        <div className="flex flex-col-reverse xl:flex-row gap-5">
           <div>
             <UserProjectProgress />
             <RecentSubmission />

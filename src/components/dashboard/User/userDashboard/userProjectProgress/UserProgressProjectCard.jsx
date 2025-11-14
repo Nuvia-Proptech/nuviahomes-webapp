@@ -25,7 +25,7 @@ export const UserProgressProjectCard = ({
         };
 
   return (
-    <div className="flex flex-col w-full sm:w-80 font-urbanist">
+    <div className="flex flex-col w-full font-urbanist">
       <h3 className="text-base text-textColorDark font-semibold">{title}</h3>
       <p className="text-textColor text-sm font-normal">{location}</p>
 
