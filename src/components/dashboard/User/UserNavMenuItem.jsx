@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
-const UserNavMenuItem = ({ item }) => {
+const UserNavMenuItem = ({ item, onItemClick }) => {
   const pathname = usePathname();
 
   const isActive = pathname === item.path;
@@ -17,6 +17,7 @@ const UserNavMenuItem = ({ item }) => {
         <div className="bg-transparent w-2.5 h-10 rounded-tr-lg rounded-br-lg" />
       )}
       <Link
+      onClick={onItemClick}
         href={item.path}
         className={cn(
           "flex flex-row space-x-2 items-center p-2",

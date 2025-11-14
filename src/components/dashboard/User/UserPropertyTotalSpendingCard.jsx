@@ -12,7 +12,7 @@ export const UserPropertyTotalSpendingCard = ({
   return (
     <div
       className={cn(
-        "w-64 flex flex-row items-center gap-5 rounded-xl bg-white p-3 shadow-md shadow-[#22303E1A]",
+        "flex flex-row items-center gap-5 rounded-xl bg-white p-3 shadow-md shadow-[#22303E1A]",
         className
       )}
     >
