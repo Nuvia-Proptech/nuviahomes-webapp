@@ -8,7 +8,7 @@ export const UserProjectProgress = () => {
       Project Progress
     </h2>
 
-    <div className="flex flex-wrap justify-between gap-5 p-2">
+    <div className="grid sm:grid-cols-2 gap-5 p-2">
       <UserProgressProjectCard
         title="Landmark Hotel Project"
         location="Agula Lake"

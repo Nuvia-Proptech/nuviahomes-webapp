@@ -9,7 +9,7 @@ export const UserProfileIndex = () => {
   return (
     <AppWrapper className="">
       <div className="bg-neutralColor-900 p-3 rounded-2xl w-full font-urbanist my-2">
-        <div className="my-3 flex justify-between items-center">
+        <div className="my-3 flex flex-col sm:flex-row gap-2.5 justify-between sm:items-center">
           <div>
             <p className="md:text-4xl font-semibold text-textColor font-urbanist">
               My Profile
@@ -19,7 +19,7 @@ export const UserProfileIndex = () => {
             </p>
           </div>
 
-          <button className="flex flex-row justify-center items-center gap-2.5 rounded-[12px] p-2.5 bg-textColor cursor-pointer">
+          <button className="max-w-48 flex flex-row justify-center items-center gap-2.5 rounded-[12px] p-2.5 bg-textColor cursor-pointer">
             <PlusSquareIcon />
             <p className="font-publicSans text-base font-normal text-[#F9F6FE]">
               Change Password

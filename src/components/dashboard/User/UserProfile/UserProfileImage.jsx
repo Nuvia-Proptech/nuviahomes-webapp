@@ -28,7 +28,7 @@ export const UserProfileImage = () => {
   };
 
   return (
-    <div className="flex items-center gap-5 font-urbanist">
+    <div className="flex flex-col sm:flex-row sm:items-center gap-5 font-urbanist">
       {/* Profile Image */}
       <div className="relative w-28 h-28 rounded-xl overflow-hidden bg-transparent">
         <Image
