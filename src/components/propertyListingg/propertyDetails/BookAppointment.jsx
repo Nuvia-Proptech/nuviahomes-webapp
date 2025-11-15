@@ -3,11 +3,7 @@ import Image from "next/image";
 import { Mail, Phone } from "lucide-react";
 
 export default function BookAppointment({ property }) {
-  // Debugging log (remove in production)
-  console.log("BookAppointment: Received property", {
-    propertyId: property?.id,
-    agent: property?.agent,
-  });
+
 
   return (
     <div>
@@ -19,14 +15,17 @@ export default function BookAppointment({ property }) {
           Save
         </button>
       </div>
-      <div className="listedProperty border border-gray-500 rounded-2xl p-3">
+
+      <div className="listedProperty border border-gray-500 rounded-2xl p-3 md:p-6">
         <p className="text-3xl hover:no-underline mb-5">Book Appointment</p>
+
         <div className="flex items-center gap-4 mb-10">
-          <div className="relative min-w-[95px] min-h-[95px] rounded-full overflow-hidden">
+          <div className="relative min-w-[95px] min-h-[95px] rounded-full overflow-hidden flex-shrink-0">
             <Image
               src={property.agent.image}
               alt={property.agent.name}
               fill
+              className="object-cover"
             />
           </div>
           <div className="font-light">
@@ -41,46 +40,51 @@ export default function BookAppointment({ property }) {
             </div>
           </div>
         </div>
-        <div>
-          <form action="" className="space-y-6">
-            <div className="flex flex-col">
-              <label htmlFor="fullName" className="mb-1">Full Name</label>
-              <input
-                type="text"
-                id="fullName"
-                placeholder="Enter name"
-                className="forms-gradient h-[59px] rounded-2xl border border-gray-500 p-4 outline-0"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label htmlFor="email" className="mb-1">Email</label>
-              <input
-                type="email"
-                id="email"
-                placeholder="Enter email"
-                className="forms-gradient h-[59px] rounded-2xl border border-gray-500 p-4 outline-0"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label htmlFor="phone" className="mb-1">Phone Number</label>
-              <input
-                type="tel"
-                id="phone"
-                placeholder="Enter phone number"
-                className="forms-gradient h-[59px] rounded-2xl border border-gray-500 p-4 outline-0"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label htmlFor="message" className="mb-1">Message</label>
-              <textarea
-                id="message"
-                placeholder="Message"
-                className="forms-gradient h-[183px] rounded-2xl border border-gray-500 p-4 outline-0"
-              ></textarea>
-            </div>
-            <button className="btn-gradient h-[50px] w-full rounded-2xl">Make Appointment</button>
-          </form>
-        </div>
+
+        <form className="space-y-6">
+          <div className="flex flex-col">
+            <label htmlFor="fullName" className="mb-1">Full Name</label>
+            <input
+              type="text"
+              id="fullName"
+              placeholder="Enter name"
+              className="forms-gradient h-[59px] rounded-2xl border border-gray-500 p-4 outline-0 w-full"
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label htmlFor="email" className="mb-1">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter email"
+              className="forms-gradient h-[59px] rounded-2xl border border-gray-500 p-4 outline-0 w-full"
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label htmlFor="phone" className="mb-1">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              placeholder="Enter phone number"
+              className="forms-gradient h-[59px] rounded-2xl border border-gray-500 p-4 outline-0 w-full"
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label htmlFor="message" className="mb-1">Message</label>
+            <textarea
+              id="message"
+              placeholder="Message"
+              className="forms-gradient h-[183px] rounded-2xl border border-gray-500 p-4 outline-0 w-full resize-none"
+            />
+          </div>
+
+          <button className="btn-gradient h-[50px] w-full rounded-2xl">
+            Make Appointment
+          </button>
+        </form>
       </div>
     </div>
   );
