@@ -4,7 +4,7 @@ import corePrincipalsImage from "@/assets/Frame 7045.png";
 
 export default function CorePrinciples() {
   return (
-<div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 mb-16 md:mb-24 container mx-auto px-14 pt-28">
+<div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 mb-16 md:mb-24 container mx-auto md:px-14 px-6 pt-28">
       {/* Text Section */}
       <div className="md:w-1/2 space-y-6">
         <div className="space-y-3">

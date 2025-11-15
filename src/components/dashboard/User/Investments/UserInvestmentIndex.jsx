@@ -27,7 +27,7 @@ const UserInvestmentIndex = () => {
               <button className="flex flex-row justify-center items-center gap-2.5 rounded-[12px] p-2.5 bg-indigo-800 cursor-pointer">
                 <PlusSquareIcon />
                 <p className="font-publicSans text-base font-normal text-[#F9F6FE]">
-                  window
+                  withdraw
                 </p>
               </button>
             </Link>
@@ -35,7 +35,7 @@ const UserInvestmentIndex = () => {
               <button className="flex flex-row justify-center items-center gap-2.5 rounded-[12px] p-2.5 bg-gradient-to-br from-[#1B5590] via-[#35AF72] to-[#B5E03A] cursor-pointer">
                 <PlusSquareIcon />
                 <p className="font-publicSans text-base font-normal text-[#F9F6FE]">
-                  Add Property
+                  Investment Plansgit 
                 </p>
               </button>
             </Link>

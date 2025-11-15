@@ -11,7 +11,7 @@ export default function BlogArticlesCard({ blog }) {
   };
 
   return (
-    <div className="min-w-[310px]">
+    <div className="min-w-[310px] mt-3 md:mt-0">
       <div className="w-full h-[26rem] flex flex-col">
         <div className="rounded-xl h-[174px] relative border border-gray-700 p-2.5">
           <div className="relative w-full h-full rounded-lg overflow-hidden">
@@ -29,10 +29,10 @@ export default function BlogArticlesCard({ blog }) {
             <p>{blog.date}</p>
           </div>
         </div>
-        <div className="flex flex-col justify-between flex-1">
-          <p className="text-16 mb-2 font-semibold">{blog.title}</p>
+        <div className="flex flex-col justify-between flex-1 ">
+          <p className="text-16 md:mb-2 font-semibold">{blog.title}</p>
           <p className="text-14 text-gray-300 flex-1 flex items-center">{truncateText(blog.excerpt, 130)}</p>
-          <div className="gradient-text flex justify-end mt-4 md:mt-8">
+          <div className="gradient-text flex justify-end md:mt-8">
             <Link href={`/our-blog/${blog.id}`}>
               <button className="flex items-center gap-2 md:gap-3 md:hover:gap-2 text-16 hover:gap-3 transition-all font-semibold">
                 <span className="gradient-text">See More</span>

@@ -34,7 +34,7 @@ export default function WhatNuviaOffersYou() {
     },
   ];
   return (
-    <div className="container mx-auto px-14 mb-16 md:mb-24">
+    <div className="container mx-auto md:px-14 px-6 mb-16 md:mb-24">
       <div className="space-y-2 my-10">
         <p className="text-20 gradient-text">Discover More About Us</p>
         <p className="text-40 leading-none">What Nuvia Homes Offers You</p>

@@ -31,18 +31,19 @@ export default function AgentCard({ agent }) {
   return (
     <div className="flex flex-col lg:flex-row border border-gray-500 rounded-2xl gap-5 p-3">
       {/* Clickable image section */}
-      <div
-        onClick={() => router.push(`/agents/${agent.id}`)}
-        className="h-48 lg:w-96 rounded-2xl overflow-hidden cursor-pointer"
-      >
-        <Image
-          src={agent.avatar}
-          alt={agent.name}
-          width={384}
-          height={192}
-          className="object-fill"
-        />
-      </div>
+    <div
+    onClick={() => router.push(`/agents/${agent.id}`)}
+    className="relative h-48 w-full lg:w-96 rounded-2xl overflow-hidden cursor-pointer"
+  >
+    <Image
+      src={agent.avatar}
+      alt={agent.name}
+      fill
+      className="object-cover w-full h-full"
+      sizes="(max-width: 1024px) 100vw, 384px"
+      priority
+    />
+  </div>
 
       {/* Info Section */}
       <div className="w-full">
