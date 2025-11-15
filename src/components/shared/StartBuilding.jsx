@@ -69,7 +69,7 @@ export default function StartBuilding() {
             />
             <p className="text-xl whitespace-nowrap">{periodYears}yrs</p>
           </div>
-          <div cl></div>
+          <div></div>
         </div>
 
         {/* You get – Full width result */}

@@ -82,7 +82,7 @@ export default function FeaturedListedProperties() {
 
   return (
     <section className="mb-16 md:mb-28">
-      <div className="container mx-auto px-14">
+      <div className="container mx-auto md:px-14 px-6">
         <div className="flex flex-col md:flex-row justify-between my-10">
           <div className="space-y-2">
             <p className="text-20 gradient-text">Checkout Our New</p>
