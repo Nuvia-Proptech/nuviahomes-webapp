@@ -32,7 +32,7 @@ export default function ProfitsChart() {
   const [range, setRange] = useState("All");
 
   return (
-    <div className="mx-20 p-6 rounded-xl text-white">
+    <div className=" md:mx-20 p-6 md:px-14 px-6  rounded-xl text-white">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold">Your Profits</h2>
         <div className="flex gap-2">
