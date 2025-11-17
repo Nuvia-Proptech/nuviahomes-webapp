@@ -37,7 +37,7 @@ export const UserTransactionsIndex = () => {
           A quick glance at all properties
         </p>
 
-        <div className="flex gap-5 my-5">
+        <div className="flex flex-col lg:flex-row gap-5 my-5">
           <TotalRevenueCard />
           <div>
             <UserTransactionProfileReport />

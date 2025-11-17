@@ -15,7 +15,7 @@ export const PropertyFeatures = () => {
       <ImageUploadSection />
 
 {/* Forms Sections */}
-      <div  className="grid md:grid-cols-2 gap-4 my-5">
+      <div  className="grid md:grid-cols-2 gap-4 my-5 w-full">
         {/* BedRooms */}
         <AppInput label="Bedrooms" placeholder="5" />
 
@@ -32,7 +32,7 @@ export const PropertyFeatures = () => {
           label="Furnished Status"
           options={
             <>
-              <option value="10" disbabled defaultValue={true}>
+              <option value="10" defaultValue={true}>
                 Select Furnished Status
               </option>
               <option value="10">Completed</option>

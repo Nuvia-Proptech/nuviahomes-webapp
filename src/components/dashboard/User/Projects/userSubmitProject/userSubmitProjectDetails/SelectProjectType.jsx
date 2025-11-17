@@ -6,12 +6,12 @@ export const SelectProjectType = () => {
     const [projectType, setProjectType] = useState("development")
 
   return (
-    <div className="flex flex-wrap justify-center items-center gap-3 my-3">
+    <div className="grid grid-cols-2 gap-3 lg:my-3">
         {projectTypeData.map((item) => (
           <div
             key={item.id}
             onClick={() => setProjectType(item.id)}
-            className={`border px-5.5 py-4 rounded-xl w-[350px] ${
+            className={`border px-5.5 py-4 rounded-xl w-full ${
               projectType === item.id
                 ? "border-primaryColor"
                 : "border-neutralColor-700"

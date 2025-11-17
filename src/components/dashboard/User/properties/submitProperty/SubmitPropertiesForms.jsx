@@ -3,10 +3,10 @@ import { PropertyDetails } from "./PropertyDetails/PropertyDetails";
 import { PropertyFeatures } from "./PropertyFeatures/PropertyFeatures";
 import { PropertyArea } from "./PropertyArea/PropertyArea";
 import { PriceDetails } from "./PriceDetails/PriceDetails";
-import { SubmitPropertiesSideBar } from "./SubmitPropertiesSideBar";
 import { SubmitPropertiesNavigation } from "./SubmitPropertiesNavigation";
 import { addPropertiestepsData } from "@/lib/dummyData/addPropertiesStepsData";
 import { PersonalDetails } from "./PersonalDetails/PersonalDetails";
+import { AppFormSideBar } from "@/components/shared/AppFormSideBar";
 
 export const SubmitPropertiesForms = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -47,14 +47,14 @@ export const SubmitPropertiesForms = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex pr-2.5">
-      <SubmitPropertiesSideBar
+    <div className="min-h-screen bg-white flex flex-col lg:flex-row pr-2.5 mt-1.5">
+      <AppFormSideBar
         steps={addPropertiestepsData}
         currentStep={currentStep}
         goToStep={goToStep}
       />
 
-      <div className="max-w-3xl ml-10">
+      <div className="max-w-3xl ml-2.5 lg:ml-10">
         {/* Step Content */}
         <div className="mb-8">{renderStep()}</div>
 

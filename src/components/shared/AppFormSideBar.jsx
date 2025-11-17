@@ -2,20 +2,20 @@ import React from "react";
 
 export const AppFormSideBar = ({ steps, currentStep, goToStep }) => {
   return (
-    <div className="w-64 border-r border-[#C6D0D2] p-6 font-urbanist">
-      <div className="space-y-2">
+    <div className="w-full lg:w-64 lg:border-r border-[#C6D0D2] p-6 font-urbanist">
+      <div className="w-full space-y-2 flex justify-between lg:block">
         {steps.map((step, index) => {
           const isActive = currentStep === index;
           return (
             <div key={step.id}>
               <div
-                className={`flex items-start p-3 rounded-lg cursor-pointer transition-all ${
+                className={`flex items-start sm:p-3 rounded-lg cursor-pointer transition-all ${
                   isActive ? "" : ""
                 }`}
                 onClick={() => goToStep(index)}
               >
                 <div
-                  className={`mr-3 flex items-center justify-center w-9 h-9 rounded-sm ${
+                  className={`lg:mr-3 flex items-center justify-center w-9 h-9 rounded-sm ${
                     isActive
                       ? "bg-primaryColor text-white"
                       : "bg-[#DFE6E7] text-textColor"
@@ -27,7 +27,15 @@ export const AppFormSideBar = ({ steps, currentStep, goToStep }) => {
                   })}
                 </div>
 
-                <div>
+                {/* Horizontal right Border except the last */}
+              {/* {index < steps.length - 1 && (
+                <div
+                  className="border-b border-[#DFE6E7] w-8 sm:w-14
+              py-1 mt-3 lg:hidden"
+                ></div>
+              )} */}
+
+                <div className="hidden lg:block">
                   <p
                     className={`text-sm font-semibold ${
                       isActive ? "text-primaryColor" : "text-textColor"
@@ -45,7 +53,7 @@ export const AppFormSideBar = ({ steps, currentStep, goToStep }) => {
               {index < steps.length - 1 && (
                 <div
                   className="border-b border-[#DFE6E7] w-10
-             rotate-90 py-1 ml-3"
+             rotate-90 py-1 ml-3 hidden lg:block"
                 ></div>
               )}
             </div>

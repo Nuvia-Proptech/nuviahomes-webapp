@@ -19,7 +19,7 @@ export const UserProjectsIndex = () => {
     <AppWrapper className="">
 
       <div className="bg-neutralColor-900 p-3 rounded-2xl w-full font-urbanist my-2">
-        <div className="my-3 flex justify-between items-center">
+        <div className="my-3 flex flex-col sm:flex-row gap-2.5 justify-between sm:items-center">
           <div>
             <p className="md:text-4xl font-semibold text-textColor font-urbanist">
               My Projects
@@ -37,7 +37,7 @@ export const UserProjectsIndex = () => {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
       {userProjectsData.map((project) => (
         <UserProjectCard key={project.id} project={project} />
       ))}
