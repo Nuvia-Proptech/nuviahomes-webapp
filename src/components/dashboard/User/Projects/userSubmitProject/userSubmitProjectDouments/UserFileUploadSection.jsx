@@ -154,9 +154,9 @@ export const UserFileUploadSection = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:flex gap-8 font-urbanist my-5">
+    <div className="grid grid-cols-1 sm:flex gap-8 font-urbanist my-5">
       {/* Left Side - Upload Area */}
-      <div className="space-y-2 bg-secondaryColor rounded-xl p-2 w-80 flex flex-col justify-center items-center">
+      <div className="space-y-2 bg-secondaryColor rounded-xl p-2 w-full sm:w-80 flex flex-col justify-center items-center">
         {/* URL Input Section */}
         <div className="flex flex-col justify-end items-end gap-1">
           <button 
@@ -226,14 +226,14 @@ export const UserFileUploadSection = () => {
       </div>
 
       {/* Right Side - File Gallery */}
-      <div className="flex justify-start items-center overflow-hidden w-fit">
+      <div className="flex justify-start items-center overflow-hidden w-full">
         {selectedFiles.length > 0 ? (
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-h-96 overflow-y-auto overflow-hidden bg-secondaryColor rounded-sm p-2.5p">
+          <div className="grid grid-cols-3 md:grid-cols-3 gap-4 max-h-96 overflow-y-auto overflow-hidden bg-secondaryColor rounded-sm p-2.5 w-full">
             {selectedFiles.map((file, index) => (
              <div>
                 <p className="text-textColor text-sm font-normal font-urbanist mb-1">{file.name}</p>
-                 <div key={file.id} className="relative w-full">
-                <div className="rounded-xl border border-dashed border-gray-200 p-4 w-36 h-36 flex flex-col items-center justify-center">
+                 <div key={index} className="relative w-full border border-dashed border-gray-200">
+                <div className="rounded-xl p-4 max-w-36 h-36 flex flex-col items-center justify-center">
                   <div className="flex flex-col gap-2 justify-center items-center text-sm text-dangerColor font-urbanist font-bold">
                     <DocumentUploadIcon />
                     <p>
@@ -243,7 +243,7 @@ export const UserFileUploadSection = () => {
                 </div>
                 <button
                   onClick={() => removeFile(file.id)}
-                  className="absolute w-10.5 h-10.5 rounded-full bg-[#FFFFFFBD] -top-2.5 -right-2.5 transition-opacity z-20"
+                  className="absolute w-7 h-7 md:w-10.5 md:h-10.5 -top-1.5 sm:-top-2.5 right-0 rounded-full bg-[#FFFFFFBD] transition-opacity z-20"
                 >
                   <div className="flex justify-center items-center">
                     <CloseCircleIcon />

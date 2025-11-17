@@ -7,13 +7,13 @@ export const PersonalDetails = () => {
   const [adminType, setAdminType] = useState("builder");
  
   return (
-    <div className="my-8">
-      <div className="flex flex-wrap gap-3 my-3">
+    <div className="lg:my-8 my-3">
+      <div className="grid sm:grid-cols-3 gap-3 lg:my-3">
         {adminTypeData.map((item) => (
           <div
             key={item.id}
             onClick={() => setAdminType(item.id)}
-            className={`border px-5.5 py-4 rounded-xl w-60 ${
+            className={`border px-5.5 py-4 rounded-xl w-full ${
               adminType === item.id
                 ? "border-primaryColor"
                 : "border-neutralColor-700"

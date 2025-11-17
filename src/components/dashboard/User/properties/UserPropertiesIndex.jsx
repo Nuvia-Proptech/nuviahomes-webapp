@@ -70,7 +70,7 @@ export const UserPropertiesIndex = () => {
     <AppWrapper className="">
 
       <div className="bg-neutralColor-900 p-3 rounded-2xl w-full font-urbanist my-2">
-        <div className="my-3 flex justify-between items-center">
+        <div className="my-3 flex flex-col xl:flex-row gap-2.5 justify-between xl:items-center">
           <div>
             <p className="md:text-4xl font-semibold text-textColor font-urbanist">
               Properties
@@ -102,7 +102,7 @@ export const UserPropertiesIndex = () => {
               placeholder="Property Type"
             />
 
-            <AppGradientButton onClick={handleSubmitPropertyClick}>
+            <AppGradientButton onClick={handleSubmitPropertyClick} className="">
               New Listing
               <PlusSquareIcon />
             </AppGradientButton>

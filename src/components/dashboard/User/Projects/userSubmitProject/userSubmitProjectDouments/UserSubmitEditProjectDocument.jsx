@@ -27,11 +27,11 @@ export const EditProjectDocument = () => {
         {/* property type */}
         <SelectDropDown
           className="flex-col justify-start items-start gap-0.5"
-          selectClassName="w-[360px] h-10"
+          selectClassName="w-full h-10"
           label="Furnished Status"
           options={
             <>
-              <option value="10" disbabled defaultValue={true}>
+              <option value="10" defaultValue={true}>
                 Select Furnished Status
               </option>
               <option value="10">Completed</option>

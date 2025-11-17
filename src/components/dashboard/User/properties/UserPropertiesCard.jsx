@@ -19,10 +19,10 @@ export const UserPropertiesCard = ({
   return (
     <div
       key={id}
-      className="w-full bg-white shadow rounded-xl p-3 font-urbanist my-2.5 flex gap-3.5"
+      className="w-full bg-white shadow rounded-xl p-3 font-urbanist my-2.5 flex flex-col lg:flex-row gap-3.5"
     >
       {/* image */}
-      <div className="relative w-40 h-40 rounded-xl overflow-hidden bg-transparent">
+      <div className="relative w-full lg:w-48 h-40 md:h-48 rounded-xl overflow-hidden bg-transparent">
         <Image
           src={houseImg}
           alt="Property Image"
@@ -37,7 +37,7 @@ export const UserPropertiesCard = ({
         {/* property statuses and payment amount */}
         <div className="flex justify-between">
           {/* House status */}
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {status.map((item) => (
               <p className="px-2.5 py-1 w-fit h-fit bg-neutralColor-900 rounded-full text-black text-xs font-normal">
                 {item}
@@ -46,8 +46,10 @@ export const UserPropertiesCard = ({
           </div>
 
           {/* House price and payment type */}
-          <div>
-            <p className="text-2xl text-textColorDark font-semibold">{price}</p>
+          <div className="hidden sm:block">
+            <p className="text-lg sm:text-xl md:text-2xl text-textColorDark font-semibold">
+              {price}
+            </p>
             <p className="text-sm text-textColor font-normal text-center">
               {paymentType}
             </p>
@@ -55,14 +57,16 @@ export const UserPropertiesCard = ({
         </div>
 
         {/* title and Location */}
-        <h2 className="text-2xl text-textColorDark font-semibold">{title}</h2>
+        <h2 className="text-lg sm:text-xl md:text-2xl text-textColorDark font-semibold mt-2 md:mt-0">
+          {title}
+        </h2>
         <div className="flex items-center gap-1 text-textColor">
           <MapPin size={16} />
           <span className="text-sm font-normal">{location}</span>
         </div>
 
         {/* wishlist, downpayment, installment and firstpayment */}
-        <div className="mt-3 flex justify-between flex-wrap gap-5">
+        <div className="mt-3 grid grid-cols-2 sm:flex sm:justify-between sm:flex-wrap gap-5">
           {/* wishlist */}
           <div className="flex items-center gap-2 text-textColor">
             <Heart size={22} />
@@ -111,6 +115,14 @@ export const UserPropertiesCard = ({
             </div>
           </div>
         </div>
+      </div>
+
+      {/* House price and payment type on to be displayed on mobile */}
+      <div className="sm:hidden my-3">
+        <p className="text-lg sm:text-xl md:text-2xl text-textColorDark font-semibold">
+          {price}
+        </p>
+        <p className="text-sm text-textColor font-normal">{paymentType}</p>
       </div>
     </div>
   );

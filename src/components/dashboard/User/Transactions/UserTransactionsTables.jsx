@@ -3,8 +3,8 @@ import { UserTransactionTableBodies } from './UserTransactionTableBodies';
 
 export const UserTransactionsTables = ({ transactions }) => {
   return (
-    <div className="overflow-x-auto">
-    <table className="w-full text-sm text-left text-textColor">
+    <div className="overflow-x-auto w-full">
+    <table className="w-full min-w-3xl text-sm text-left text-textColor">
       <thead className="">
         <tr className="text-textColor font-semibold text-sm font-urbanist">
           <th className="py-2">ID</th>

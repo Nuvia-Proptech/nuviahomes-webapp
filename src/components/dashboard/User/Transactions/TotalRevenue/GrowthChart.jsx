@@ -3,7 +3,7 @@ import { ChevronDown, DollarSign, Wallet } from "lucide-react";
 
 export const GrowthChart = () => {
   return (
-    <div className="w-1/3 flex flex-col items-center">
+    <div className="w-full md:w-1/3 flex flex-col items-center">
       {/* YEAR SELECT */}
       <button className="w-fit flex justify-center items-center gap-2 px-4 py-2 rounded-sm bg-primaryColorMain/15 text-primaryColorMain text-sm font-medium font-publicSans uppercase">
         <p>2023</p>

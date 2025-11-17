@@ -21,7 +21,7 @@ const data = [
 
 export const TotalRevenue = () => {
   return (
-    <div className="w-2/3 pr-4 border-r border-grayColor/10">
+    <div className="w-full md:w-2/3 pr-4 md:border-r border-grayColor/10">
       <div className="flex justify-between items-center">
         <p className="text-lg font-medium text-grayColor/90 font-publicSans">
           Total Revenue
