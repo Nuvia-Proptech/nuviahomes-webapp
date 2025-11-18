@@ -2,7 +2,7 @@ import React from "react";
 
 export default function WriteAgent() {
   return (
-    <div className="w-1/2 border border-gray-500 p-4 rounded-2xl">
+    <div className="lg:w-1/3 border border-gray-500 p-4 rounded-2xl ">
       <p className="text-3xl mb-10">Write Agent</p>
 
       <form action="" className="space-y-6">
