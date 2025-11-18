@@ -6,12 +6,12 @@ export const SelectPropertyType = () => {
     const [propertyType, setPropertyType] = useState("sell")
 
   return (
-    <div className="flex flex-wrap justify-center items-center gap-3 my-3">
+    <div className="grid sm:grid-cols-2 gap-3 lg:my-3">
         {propertyTypeData.map((item) => (
           <div
             key={item.id}
             onClick={() => setPropertyType(item.id)}
-            className={`border px-5.5 py-4 rounded-xl w-[350px] ${
+            className={`border px-5.5 py-4 rounded-xl w-full ${
               propertyType === item.id
                 ? "border-primaryColor"
                 : "border-neutralColor-700"

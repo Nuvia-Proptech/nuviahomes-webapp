@@ -39,14 +39,14 @@ export const UserSubmitProjectForms = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex mt-5">
+    <div className="min-h-screen bg-white lg:flex mt-5">
       <AppFormSideBar
         steps={editProjectStepsData}
         currentStep={currentStep}
         goToStep={goToStep}
       />
 
-      <div className="max-w-3xl ml-10">
+      <div className="max-w-3xl ml-2.5 lg:ml-10">
         {/* Step Content */}
         <div className="mb-8">{renderStep()}</div>
 
