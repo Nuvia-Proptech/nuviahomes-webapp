@@ -25,11 +25,13 @@ export default function AgentDetails({ params }) {
   return (
     <div>
       <AltHero pageName="Agent Details" />
-      <div className=" md:px-4">
+      <div className=" md:px-4 mx-4">
         <div className="container px-4 mx-auto border border-gray-500 p-8 rounded-2xl">
-          <div className="flex gap-10">
+          <div className="flex flex-col lg:flex-row gap-10 lg:justify-between">
+            <div className="flex flex-col md:flex-row  lg:w-2/3 sm:space-x-8">
+              
             <div className="">
-              <div className="rounded-2xl h-[344px] w-[306px] relative">
+              <div className="rounded-2xl max-lg:mx-auto h-[344px] w-[306px] relative ">
                 <Image
                   src={agent.avatar}
                   alt={agent.name}
@@ -74,14 +76,14 @@ export default function AgentDetails({ params }) {
                 </a>
               </div>
             </div>
-            <div className="flex gap-10 w-full">
-              <div className="w-1/2 pr-8">
+            <div className="md:w-1/2 gap-10 w-full mt-8 md:mt-0">
+              <div className=" pr-8">
                 <p className="text-20 gradient-text">Meet Our Agent</p>
                 <p className="text-[32px] font-semibold my-2">{agent.name}</p>
                 <p className="text-20 mb-2 font-semibold">
                   Real Estate Agent/Broker
                 </p>
-                <p className="text-16">{agent.bio}</p>
+                <p className="text-16 ">{agent.bio}</p>
                 <hr
                   className="mt-6 mb-10"
                   style={{ backgroundColor: "red", color: "red" }}
@@ -127,17 +129,18 @@ export default function AgentDetails({ params }) {
                   </div>
                 </div>
               </div>
-              <WriteAgent />
             </div>
+            </div>
+              <WriteAgent />
           </div>
         </div>
       </div>
       <AgentListingCard />
       <div className="md:flex w-full gap-4 p-4 md:p-10">
-        <div className="w-3/4">
+        <div className="md:w-3/4">
           <CommentSection />
         </div>
-        <div className="w-1/4">
+        <div className="md:w-1/4 mt-6 md:mt-0">
           <TrendingBlog />
         </div>
       </div>
