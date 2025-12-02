@@ -11,13 +11,13 @@ export default function Nav({ styleProp }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  
+
   const toggleMenu = () => setIsOpen(!isOpen);
 
   useEffect(() => {
     const controlNavbar = () => {
       const currentScrollY = window.scrollY;
-      
+
       if (currentScrollY < lastScrollY || currentScrollY < 10) {
         // Scrolling up or at the top
         setIsVisible(true);
@@ -25,7 +25,7 @@ export default function Nav({ styleProp }) {
         // Scrolling down
         setIsVisible(false);
       }
-      
+
       setLastScrollY(currentScrollY);
     };
 
@@ -43,7 +43,7 @@ export default function Nav({ styleProp }) {
   ];
 
   return (
-    <header 
+    <header
       className={`fixed top-0 left-0 right-0 z-50 text-white transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
@@ -58,8 +58,8 @@ export default function Nav({ styleProp }) {
               className="font-bold italic w-20"
             />
           </div>
-          <button 
-            onClick={toggleMenu} 
+          <button
+            onClick={toggleMenu}
             className="group z-50 relative p-2   hover:shadow-lg hover:scale-105 transition-all duration-300"
           >
             <div
@@ -89,16 +89,12 @@ export default function Nav({ styleProp }) {
           {/* Decorative gradient orbs */}
           <div className="absolute top-0 right-0 w-72 h-72 bg-[#b5e03a]/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#35af72]/10 rounded-full blur-3xl" />
-          
+
           <div className="relative h-full flex flex-col justify-center px-8">
             {/* Logo at top */}
             <div className="absolute top-8 left-8">
               <div className="bg-white/10 backdrop-blur-md border border-white/20 p-3 rounded-lg">
-                <Image
-                  src={logo}
-                  alt="Nuvia homes logo"
-                  className="w-16"
-                />
+                <Image src={logo} alt="Nuvia homes logo" className="w-16" />
               </div>
             </div>
 
@@ -108,7 +104,9 @@ export default function Nav({ styleProp }) {
                 <li
                   key={i}
                   className={`transform transition-all duration-500 ease-out ${
-                    isOpen ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
+                    isOpen
+                      ? "translate-x-0 opacity-100"
+                      : "-translate-x-8 opacity-0"
                   }`}
                   style={{ transitionDelay: `${i * 50}ms` }}
                 >
@@ -122,11 +120,13 @@ export default function Nav({ styleProp }) {
                     }`}
                   >
                     <span className="flex items-center gap-3">
-                      <span className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                        currentPage === page.url 
-                          ? "bg-gradient-to-r from-[#1b5590] via-[#35af72] to-[#b5e03a] w-6" 
-                          : "bg-white/50"
-                      }`} />
+                      <span
+                        className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                          currentPage === page.url
+                            ? "bg-gradient-to-r from-[#1b5590] via-[#35af72] to-[#b5e03a] w-6"
+                            : "bg-white/50"
+                        }`}
+                      />
                       {page.name}
                     </span>
                   </Link>
@@ -135,9 +135,12 @@ export default function Nav({ styleProp }) {
             </ul>
 
             {/* CTA Buttons */}
-            <div className={`mt-12 space-y-3 transform transition-all duration-500 ${
-              isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-            }`} style={{ transitionDelay: "350ms" }}>
+            <div
+              className={`mt-12 space-y-3 transform transition-all duration-500 ${
+                isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+              }`}
+              style={{ transitionDelay: "350ms" }}
+            >
               <Link
                 href="/invest"
                 className="block text-center bg-white text-[#1b5590] font-bold py-4 px-6 rounded-xl hover:bg-white/90 transition-all duration-300 hover:scale-105"
@@ -155,15 +158,20 @@ export default function Nav({ styleProp }) {
             </div>
 
             {/* Footer */}
-            <div className={`absolute bottom-8 left-8 right-8 border-t border-white/20 pt-6 transform transition-all duration-500 ${
-              isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-            }`} style={{ transitionDelay: "400ms" }}>
+            <div
+              className={`absolute bottom-8 left-8 right-8 border-t border-white/20 pt-6 transform transition-all duration-500 ${
+                isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+              }`}
+              style={{ transitionDelay: "400ms" }}
+            >
               <p className="text-white/60 text-sm">© 2025 Nuvia Homes</p>
-              <p className="text-white/40 text-xs mt-1">Building your future home</p>
+              <p className="text-white/40 text-xs mt-1">
+                Building your future home
+              </p>
             </div>
           </div>
         </nav>
-
+        {/* Trying to be on a safer side */}
         {/* Desktop Navbar - UNCHANGED */}
         <nav className="bg-white/10 backdrop-blur-2xl skewed px-3 hidden md:block p-2 container mx-auto max-w-6xl text-white">
           <div className="unskewed">
@@ -176,7 +184,7 @@ export default function Nav({ styleProp }) {
                 />
               </li>
 
-            { pages.map((link, i) => (
+              {pages.map((link, i) => (
                 <li key={i}>
                   <Link
                     href={link.url}
