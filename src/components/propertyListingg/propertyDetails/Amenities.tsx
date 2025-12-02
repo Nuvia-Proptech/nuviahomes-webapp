@@ -7,12 +7,21 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Image from "next/image";
+import { PropertyDetail } from "@/types";
 
-export default function Amenities({ property }) {
+interface AmenitiesProps {
+  property: PropertyDetail;
+}
 
+export default function Amenities({ property }: AmenitiesProps) {
   return (
     <div className="listedProperty border border-gray-500 rounded-2xl px-3 md:px-6 py-4">
-      <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
+      <Accordion
+        type="single"
+        collapsible
+        className="w-full"
+        defaultValue="item-1"
+      >
         <AccordionItem value="item-1" className="border-b-0">
           <AccordionTrigger className="text-3xl hover:no-underline py-4">
             Amenities
@@ -26,7 +35,9 @@ export default function Amenities({ property }) {
                   </div>
                   <p className="text-16 font-semibold leading-tight">
                     {amenity.label}:{" "}
-                    <span className="font-light text-gray-300">{amenity.value}</span>
+                    <span className="font-light text-gray-300">
+                      {amenity.value}
+                    </span>
                   </p>
                 </div>
               ))}

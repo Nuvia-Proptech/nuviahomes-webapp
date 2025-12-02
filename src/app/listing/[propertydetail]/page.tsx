@@ -14,13 +14,18 @@ import FeaturedProperty from "@/components/propertyListingg/propertyDetails/Feat
 import { PropertyDetailData } from "@/lib/dummyData/PropertyDetailData";
 
 interface PropertyDetailPageProps {
-  params: {
+  params: Promise<{
     propertydetail: string;
-  };
+  }>;
 }
 
-export default function PropertyDetalPage({ params }: PropertyDetailPageProps) {
-  const property = PropertyDetailData.find((p) => p.id.toString() === params.propertydetail);
+export default async function PropertyDetalPage({
+  params,
+}: PropertyDetailPageProps) {
+  const { propertydetail } = await params;
+  const property = PropertyDetailData.find(
+    (p) => p.id.toString() === propertydetail
+  );
 
   if (!property) {
     return <div>Property not found</div>;
@@ -43,14 +48,14 @@ export default function PropertyDetalPage({ params }: PropertyDetailPageProps) {
             <FloorPlan property={property} />
             <PropertyLocation property={property} />
             <Gallery property={property} />
-            <Review propertyId={property.id} property={property} />
-            <WriteARewiew propertyId={property.id} />
+            <Review property={property} />
+            <WriteARewiew />
           </div>
 
           {/* Sidebar — full width & on top on mobile, sticky on desktop */}
           <aside className="w-full lg:w-1/3 order-1 lg:order-2">
             <div className="lg:sticky lg:top-24 space-y-8">
-              <BookAppointment propertyId={property.id} property={property} />
+              <BookAppointment property={property} />
               <FeaturedProperty />
             </div>
           </aside>

@@ -6,17 +6,26 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { GoArrowRight, GoArrowLeft } from "react-icons/go";
 import { AppInput } from "@/components/shared/AppSetup/AppInput";
 import { SiSolana } from "react-icons/si";
-// import { FTX_Logo } from "@/components/shared/Icons/FTX_Logo";
-// import { PhantomLogo } from "@/components/shared/Icons/PhantomLogo";
+import { InvestmentCategoryItem } from "@/lib/dummyData/UserInvestmentsCategoryData";
 
-export const InvestmentModal = ({ isOpen, onClose, project }) => {
+interface InvestmentModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  project: InvestmentCategoryItem | null;
+}
+
+export const InvestmentModal = ({
+  isOpen,
+  onClose,
+  project,
+}: InvestmentModalProps) => {
   const [step, setStep] = useState(1);
   const [investmentAmount, setInvestmentAmount] = useState("5000000");
   const [investmentPeriod, setInvestmentPeriod] = useState("12 Months");
   const [paymentMethod, setPaymentMethod] = useState("");
   const [selectedWallet, setSelectedWallet] = useState("");
 
-  if (!isOpen) return null;
+  if (!isOpen || !project) return null;
 
   const minAmount = 500000;
   const amount = parseFloat(investmentAmount) || 0;
@@ -52,7 +61,8 @@ export const InvestmentModal = ({ isOpen, onClose, project }) => {
     setSelectedWallet("");
     onClose();
   };
-  const handleBackdropClick = (e) => {
+
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       handleClose();
     }

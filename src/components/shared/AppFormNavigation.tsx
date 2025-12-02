@@ -2,12 +2,19 @@ import { ArrowLeftIcon } from "@/components/shared/Icons/ArrowLeftIcon";
 import { ArrowRightIcon } from "@/components/shared/Icons/ArrowRightIcon";
 import React from "react";
 
+interface AppFormNavigationProps {
+  currentStep: number;
+  totalSteps: number;
+  onNext: () => void;
+  onPrev: () => void;
+}
+
 export const AppFormNavigation = ({
   currentStep,
   totalSteps,
   onNext,
   onPrev,
-}) => {
+}: AppFormNavigationProps) => {
   return (
     <div className="flex justify-between mt-8 pt-6 ">
       <button
@@ -26,7 +33,7 @@ export const AppFormNavigation = ({
       {currentStep === totalSteps - 1 ? (
         <button className="flex flex-row justify-center items-center gap-2.5 rounded-lg px-5 py-2.5 bg-gradient-to-br from-[#1B5590] via-[#35AF72] to-[#B5E03A] cursor-pointer">
           <p className="font-urbanist text-base font-normal text-white">
-          Submit
+            Submit
           </p>
         </button>
       ) : (
@@ -34,8 +41,8 @@ export const AppFormNavigation = ({
           onClick={onNext}
           className="flex flex-row justify-center items-center gap-2.5 px-5 py-2 bg-primaryColor text-white rounded-lg font-normal"
         >
-         <p>Next</p>
-         <ArrowRightIcon />
+          <p>Next</p>
+          <ArrowRightIcon />
         </button>
       )}
     </div>

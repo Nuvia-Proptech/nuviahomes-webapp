@@ -1,5 +1,25 @@
 import React from "react";
 import { HiUsers } from "react-icons/hi";
+import { InvestmentCategoryItem } from "@/lib/dummyData/UserInvestmentsCategoryData";
+
+interface InvestmentCardProps {
+  image: string;
+  status: string;
+  statusBg: string;
+  title: string;
+  description: string;
+  roi: string;
+  duration: string;
+  percentComplete: number;
+  amountRaised: string;
+  goalAmount: string;
+  investors: number;
+  riskLevel: string;
+  riskColor: string;
+  minAmount: string;
+  onInvestClick: (investment: InvestmentCategoryItem) => void;
+  investment: InvestmentCategoryItem;
+}
 
 export const InvestmentCard = ({
   image,
@@ -18,7 +38,7 @@ export const InvestmentCard = ({
   minAmount,
   onInvestClick,
   investment,
-}) => {
+}: InvestmentCardProps) => {
   return (
     <div className="gradient-border">
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden w-full max-w-7xl h-full flex flex-col">

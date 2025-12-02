@@ -1,6 +1,22 @@
 import Image from "next/image";
 
-export const TeamAvatarGroup = ({ members, maxDisplay = 3, size = "md" }) => {
+interface TeamMember {
+  id: string | number;
+  avatar: string;
+  name: string;
+}
+
+interface TeamAvatarGroupProps {
+  members: TeamMember[];
+  maxDisplay?: number;
+  size?: "sm" | "md" | "lg";
+}
+
+export const TeamAvatarGroup = ({
+  members,
+  maxDisplay = 3,
+  size = "md",
+}: TeamAvatarGroupProps) => {
   const displayedMembers = members.slice(0, maxDisplay);
   const remainingCount = Math.max(0, members.length - maxDisplay);
 
@@ -34,9 +50,9 @@ export const TeamAvatarGroup = ({ members, maxDisplay = 3, size = "md" }) => {
               ${index > 0 ? sizeClasses[size].overlap : ""}
               transition-transform hover:scale-110 hover:z-10
             `}
-            style={{ 
-                zIndex: displayedMembers.length + index // First item has Lowest-index
-              }}
+          style={{
+            zIndex: displayedMembers.length + index, // First item has Lowest-index
+          }}
         >
           <Image
             src={member.avatar}
@@ -57,7 +73,7 @@ export const TeamAvatarGroup = ({ members, maxDisplay = 3, size = "md" }) => {
               ${sizeClasses[size].overlap}
                transition-colors
             `}
-            style={{ zIndex: 100 }} // Remaining count has highest z-index
+          style={{ zIndex: 100 }} // Remaining count has highest z-index
         >
           +{remainingCount}
         </div>
@@ -65,5 +81,3 @@ export const TeamAvatarGroup = ({ members, maxDisplay = 3, size = "md" }) => {
     </div>
   );
 };
-
- 

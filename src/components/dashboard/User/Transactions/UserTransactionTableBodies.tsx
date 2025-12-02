@@ -7,6 +7,19 @@ import { EyeIcon } from "@/components/shared/Icons/EyeIcon";
 import { MoreIcon } from "@/components/shared/Icons/MoreIcon";
 import { CheckCircle, XCircle } from "lucide-react";
 
+interface UserTransactionTableBodiesProps {
+  id: string | number;
+  street: string;
+  city: string;
+  client: string;
+  email: string;
+  date: string;
+  time: string;
+  total: string;
+  balance: string;
+  status: "Pending" | "Cancelled" | "Approved";
+}
+
 export const UserTransactionTableBodies = ({
   id,
   street,
@@ -18,13 +31,13 @@ export const UserTransactionTableBodies = ({
   total,
   balance,
   status,
-}) => {
+}: UserTransactionTableBodiesProps) => {
   // Map each status to its color and icon
   const statusMap = {
     Pending: {
       bg: "bg-warningColor/10",
       text: "text-warningColor",
-      icon: <TimerIcon className="w-4 h-4 text-warningColor" />,
+      icon: <TimerIcon />,
     },
     Cancelled: {
       bg: "bg-dangerColor/10",

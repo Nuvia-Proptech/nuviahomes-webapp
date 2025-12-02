@@ -4,20 +4,23 @@ import Image from "next/image";
 import defaultProfile from "@/assets/images/profile.png";
 
 export const UserProfileImage = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const fileInputRef = useRef(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleUploadPhoto = () => {
     fileInputRef.current?.click();
   };
 
-  const handleImageChange = (e) => {
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file || !file.type.startsWith("image/")) return;
 
     const reader = new FileReader();
     reader.onload = (event) => {
-      setSelectedImage(event.target?.result);
+      const result = event.target?.result;
+      if (typeof result === "string") {
+        setSelectedImage(result);
+      }
     };
     reader.readAsDataURL(file);
   };

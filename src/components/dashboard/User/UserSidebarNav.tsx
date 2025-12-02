@@ -9,7 +9,11 @@ import {
 } from "@/constants/UserSideNavItems";
 import { UserDetails } from "./UserDetails";
 
-export const UserSidebarNav = ({ onCloseSheet }) => {
+interface UserSidebarNavProps {
+  onCloseSheet?: () => void;
+}
+
+export const UserSidebarNav = ({ onCloseSheet }: UserSidebarNavProps) => {
   return (
     <div className="flex flex-col h-full overflow-y-auto no-scrollbar">
       {/* Fixed top logo section */}
@@ -55,9 +59,8 @@ export const UserSidebarNav = ({ onCloseSheet }) => {
 
       {/* only display on Mobile */}
       <div onClick={onCloseSheet}>
-      <UserDetails className="flex md:hidden" />
+        <UserDetails className="flex md:hidden" />
       </div>
-      
     </div>
   );
 };

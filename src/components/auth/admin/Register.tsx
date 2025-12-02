@@ -86,7 +86,7 @@ export default function Register() {
                     className="h-4 w-4 shrink-0 text-blue-600 focus:ring-blue-500 border-slate-300 rounded"
                   />
                   <label
-                    for="remember-me"
+                    htmlFor="remember-me"
                     className="ml-3 block text-sm text-slate-900"
                   >
                     I agree to

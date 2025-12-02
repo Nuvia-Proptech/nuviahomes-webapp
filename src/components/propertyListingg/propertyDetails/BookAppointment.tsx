@@ -1,10 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import { Mail, Phone } from "lucide-react";
+import { PropertyDetail } from "@/types";
 
-export default function BookAppointment({ property }) {
+interface BookAppointmentProps {
+  property: PropertyDetail;
+}
 
-
+export default function BookAppointment({ property }: BookAppointmentProps) {
   return (
     <div>
       <div className="flex gap-5 justify-between listedProperty border border-gray-500 rounded-2xl p-3 mb-5">
@@ -43,7 +46,9 @@ export default function BookAppointment({ property }) {
 
         <form className="space-y-6">
           <div className="flex flex-col">
-            <label htmlFor="fullName" className="mb-1">Full Name</label>
+            <label htmlFor="fullName" className="mb-1">
+              Full Name
+            </label>
             <input
               type="text"
               id="fullName"
@@ -53,7 +58,9 @@ export default function BookAppointment({ property }) {
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="email" className="mb-1">Email</label>
+            <label htmlFor="email" className="mb-1">
+              Email
+            </label>
             <input
               type="email"
               id="email"
@@ -63,7 +70,9 @@ export default function BookAppointment({ property }) {
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="phone" className="mb-1">Phone Number</label>
+            <label htmlFor="phone" className="mb-1">
+              Phone Number
+            </label>
             <input
               type="tel"
               id="phone"
@@ -73,7 +82,9 @@ export default function BookAppointment({ property }) {
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="message" className="mb-1">Message</label>
+            <label htmlFor="message" className="mb-1">
+              Message
+            </label>
             <textarea
               id="message"
               placeholder="Message"

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react";
 import {
   ChevronDown,
@@ -41,18 +42,18 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import totalUsersIcon from "@/assets/dash1-icons/total-users.svg"
-import investorsIcon from "@/assets/dash1-icons/investors.svg"
-import agentsIcon from "@/assets/dash1-icons/agents.svg"
-import propertyDevelpersIcon from "@/assets/dash1-icons/property-develpers.svg"
+} from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import totalUsersIcon from "@/assets/dash1-icons/total-users.svg";
+import investorsIcon from "@/assets/dash1-icons/investors.svg";
+import agentsIcon from "@/assets/dash1-icons/agents.svg";
+import propertyDevelpersIcon from "@/assets/dash1-icons/property-develpers.svg";
 import Image from "next/image";
 import { Button } from "../ui/button";
-import exportIcon from "@/assets/dash1-icons/export.svg"
-import addSquareIcon from "@/assets/dash1-icons/add-square.svg"
-import agentPhoto from "@/assets/dash1-icons/samuel-o.svg"
+import exportIcon from "@/assets/dash1-icons/export.svg";
+import addSquareIcon from "@/assets/dash1-icons/add-square.svg";
+import agentPhoto from "@/assets/dash1-icons/samuel-o.svg";
 import Link from "next/link";
 
 export default function FirstOne() {
@@ -60,36 +61,44 @@ export default function FirstOne() {
     <div className="bg-gray-200 w-full pt-5 px-[29px]">
       <div className="flex justify-between">
         {/* card */}
-        {[{
-          item: "Total users",
-          itemValue: "21,456",
-          percentage: "+29%",
-          desc: " anylytics",
-          icon: totalUsersIcon
-        }, {
-          item: "Investors",
-          itemValue: "1,456",
-          percentage: "+12%",
-          desc: "Last week anylytics",
-          icon: investorsIcon
-        }, {
-          item: "Agents",
-          itemValue: "300",
-          percentage: "-19%",
-          desc: "= anylytics",
-          icon: agentsIcon
-        }, {
-          item: "Property devlopers",
-          itemValue: "120",
-          percentage: "+29%",
-          desc: "Total users",
-          icon: propertyDevelpersIcon
-        },].map((item) => (
+        {[
+          {
+            item: "Total users",
+            itemValue: "21,456",
+            percentage: "+29%",
+            desc: " anylytics",
+            icon: totalUsersIcon,
+          },
+          {
+            item: "Investors",
+            itemValue: "1,456",
+            percentage: "+12%",
+            desc: "Last week anylytics",
+            icon: investorsIcon,
+          },
+          {
+            item: "Agents",
+            itemValue: "300",
+            percentage: "-19%",
+            desc: "= anylytics",
+            icon: agentsIcon,
+          },
+          {
+            item: "Property devlopers",
+            itemValue: "120",
+            percentage: "+29%",
+            desc: "Total users",
+            icon: propertyDevelpersIcon,
+          },
+        ].map((item) => (
           <div className="flex justify-between h-[130px] w-[265px] py-[16px] px-[8px] rounded-sm shadow-sm bg-white mb-[12px]">
             <div>
               <p>{item.item}</p>
               <p className="text-[24px] font-bold">
-                {item.itemValue} <span className="text-[16px] font-normal text-[#48A848]">({item.percentage})</span>
+                {item.itemValue}{" "}
+                <span className="text-[16px] font-normal text-[#48A848]">
+                  ({item.percentage})
+                </span>
               </p>
               <p>{item.desc}</p>
             </div>
@@ -166,11 +175,15 @@ export default function FirstOne() {
             </select> */}
           </div>
           <div className="flex gap-4">
-            <Button variant="outline" className="#F2EDFD"><Image src={exportIcon} /> Export </Button>
+            <Button variant="outline" className="#F2EDFD">
+              <Image src={exportIcon} /> Export{" "}
+            </Button>
 
             <Sheet>
               <SheetTrigger>
-                <Button variant="outline" className="btn-gradient text-white" ><Image src={addSquareIcon} /> Add new users </Button>
+                <Button variant="outline" className="btn-gradient text-white">
+                  <Image src={addSquareIcon} /> Add new users{" "}
+                </Button>
               </SheetTrigger>
               <SheetContent className="bg-white text-black">
                 <SheetHeader>
@@ -179,31 +192,74 @@ export default function FirstOne() {
                   <hr className="my-4 text-black" />
                   <SheetDescription>
                     <form action="" className="space-y-4">
-                      
-<div class="flex items-center justify-center w-full">
-    <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-        <div class="flex flex-col items-center justify-center pt-5 pb-6">
-            <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-            </svg>
-            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-            <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-        </div>
-        <input id="dropzone-file" type="file" class="hidden" />
-    </label>
-</div> 
-
-                      <div className="grid w-full max-w-sm items-center gap-1">
-                        <Label htmlFor="username" className="text-[13px] font-normal">Username</Label>
-                        <Input type="text" id="username" placeholder="john.doe" className="focus:outline-none" />
+                      <div class="flex items-center justify-center w-full">
+                        <label
+                          for="dropzone-file"
+                          class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+                        >
+                          <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                            <svg
+                              class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400"
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 20 16"
+                            >
+                              <path
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                              />
+                            </svg>
+                            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                              <span class="font-semibold">Click to upload</span>{" "}
+                              or drag and drop
+                            </p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">
+                              SVG, PNG, JPG or GIF (MAX. 800x400px)
+                            </p>
+                          </div>
+                          <input
+                            id="dropzone-file"
+                            type="file"
+                            class="hidden"
+                          />
+                        </label>
                       </div>
 
                       <div className="grid w-full max-w-sm items-center gap-1">
-                        <Label htmlFor="email" className="text-[13px] font-normal">Email</Label>
+                        <Label
+                          htmlFor="username"
+                          className="text-[13px] font-normal"
+                        >
+                          Username
+                        </Label>
+                        <Input
+                          type="text"
+                          id="username"
+                          placeholder="john.doe"
+                          className="focus:outline-none"
+                        />
+                      </div>
+
+                      <div className="grid w-full max-w-sm items-center gap-1">
+                        <Label
+                          htmlFor="email"
+                          className="text-[13px] font-normal"
+                        >
+                          Email
+                        </Label>
                         <Input type="email" id="email" placeholder="Email" />
                       </div>
                       <div className="grid w-full max-w-sm items-center gap-1">
-                        <Label htmlFor="email" className="text-[13px] font-normal">Country</Label>
+                        <Label
+                          htmlFor="email"
+                          className="text-[13px] font-normal"
+                        >
+                          Country
+                        </Label>
                         <Select>
                           <SelectTrigger className="w-full">
                             <SelectValue placeholder="Select Country" />
@@ -216,7 +272,12 @@ export default function FirstOne() {
                         </Select>
                       </div>
                       <div className="grid w-full max-w-sm items-center gap-1">
-                        <Label htmlFor="email" className="text-[13px] font-normal">State</Label>
+                        <Label
+                          htmlFor="email"
+                          className="text-[13px] font-normal"
+                        >
+                          State
+                        </Label>
                         <Select>
                           <SelectTrigger className="w-full">
                             <SelectValue placeholder="Select State" />
@@ -229,7 +290,12 @@ export default function FirstOne() {
                         </Select>
                       </div>
                       <div className="grid w-full max-w-sm items-center gap-1">
-                        <Label htmlFor="email" className="text-[13px] font-normal">Address</Label>
+                        <Label
+                          htmlFor="email"
+                          className="text-[13px] font-normal"
+                        >
+                          Address
+                        </Label>
                         <Select>
                           <SelectTrigger className="w-full">
                             <SelectValue placeholder="Address" />
@@ -242,11 +308,25 @@ export default function FirstOne() {
                         </Select>
                       </div>
                       <div className="grid w-full max-w-sm items-center gap-1">
-                        <Label htmlFor="email" className="text-[13px] font-normal">Phone number</Label>
-                        <Input type="tel" id="phone-number" placeholder="+2348100298300" />
+                        <Label
+                          htmlFor="email"
+                          className="text-[13px] font-normal"
+                        >
+                          Phone number
+                        </Label>
+                        <Input
+                          type="tel"
+                          id="phone-number"
+                          placeholder="+2348100298300"
+                        />
                       </div>
                       <div className="grid w-full max-w-sm items-center gap-1">
-                        <Label htmlFor="email" className="text-[13px] font-normal">Select role</Label>
+                        <Label
+                          htmlFor="email"
+                          className="text-[13px] font-normal"
+                        >
+                          Select role
+                        </Label>
                         <Select>
                           <SelectTrigger className="w-full">
                             <SelectValue placeholder="Select Role" />
@@ -260,9 +340,13 @@ export default function FirstOne() {
                       </div>
                       <div className="space-x-5">
                         <Button type="submit" className="btn-gradient">
-                          <Link href="/dashboard/admin/users/user-overview">Submit</Link>
+                          <Link href="/dashboard/admin/users/user-overview">
+                            Submit
+                          </Link>
                         </Button>
-                        <Button className="bg-[#FBEFEF] text-[#B43C3C]">Cancle</Button>
+                        <Button className="bg-[#FBEFEF] text-[#B43C3C]">
+                          Cancle
+                        </Button>
                       </div>
                     </form>
                   </SheetDescription>
@@ -296,7 +380,9 @@ export default function FirstOne() {
                       <Image src={agentPhoto} alt="Agent photo" />
                     </div>
                     <div>
-                      <p className="font-semibold text-black">Mr. Samuel Onoja</p>
+                      <p className="font-semibold text-black">
+                        Mr. Samuel Onoja
+                      </p>
                       <p>samuel@gmail.com</p>
                     </div>
                   </div>

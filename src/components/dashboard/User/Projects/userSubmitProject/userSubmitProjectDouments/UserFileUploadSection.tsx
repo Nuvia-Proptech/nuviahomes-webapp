@@ -1,36 +1,63 @@
-import { AppInput } from "@/components/shared/AppSetup/AppInput";
 import { CloseCircleIcon } from "@/components/shared/Icons/CloseCircleIcon";
 import { DocumentUploadIcon } from "@/components/shared/Icons/DocumentUploadIcon";
 import React, { useState, useRef } from "react";
 
+interface UploadedFile {
+  id: number;
+  url: string | ArrayBuffer | null;
+  name: string;
+  originalName?: string;
+  type: string;
+  size?: number;
+  fileType?: string;
+}
+
 export const UserFileUploadSection = () => {
-  const [selectedFiles, setSelectedFiles] = useState([]);
+  const [selectedFiles, setSelectedFiles] = useState<UploadedFile[]>([]);
   const [fileUrl, setFileUrl] = useState("");
   const [isDragging, setIsDragging] = useState(false);
   const [isAddingWithUrl, setIsAddingWithUrl] = useState(false);
-  const fileInputRef = useRef(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const predefinedNames = ['Lease Agreement', 'Land Deeds', 'Plan Survey'];
+  const predefinedNames = ["Lease Agreement", "Land Deeds", "Plan Survey"];
 
-  const isImageUrl = (url) => {
-    const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp', '.svg', '.ico'];
-    const imagePatterns = ['image/', 'img.', 'images.', 'photobucket', 'flickr', 'imgur'];
-    
+  const isImageUrl = (url: string) => {
+    const imageExtensions = [
+      ".jpg",
+      ".jpeg",
+      ".png",
+      ".gif",
+      ".bmp",
+      ".webp",
+      ".svg",
+      ".ico",
+    ];
+    const imagePatterns = [
+      "image/",
+      "img.",
+      "images.",
+      "photobucket",
+      "flickr",
+      "imgur",
+    ];
+
     const lowerUrl = url.toLowerCase();
-    return imageExtensions.some(ext => lowerUrl.includes(ext)) || 
-           imagePatterns.some(pattern => lowerUrl.includes(pattern));
+    return (
+      imageExtensions.some((ext) => lowerUrl.includes(ext)) ||
+      imagePatterns.some((pattern) => lowerUrl.includes(pattern))
+    );
   };
 
-  const getFileNameByIndex = (index) => {
+  const getFileNameByIndex = (index: number) => {
     return predefinedNames[index] || `Document ${index + 1}`;
   };
 
-  const handleFileSelect = (event) => {
-    const files = Array.from(event.target.files);
+  const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files ? Array.from(event.target.files) : [];
     handleFiles(files);
   };
 
-  const handleFiles = (files) => {
+  const handleFiles = (files: File[]) => {
     // Check file limit
     if (selectedFiles.length + files.length > 3) {
       alert("Maximum 3 files allowed. Please select fewer files.");
@@ -38,7 +65,9 @@ export const UserFileUploadSection = () => {
     }
 
     // Filter out image files
-    const nonImageFiles = files.filter((file) => !file.type.startsWith("image/"));
+    const nonImageFiles = files.filter(
+      (file) => !file.type.startsWith("image/")
+    );
 
     // Show alert if any images were filtered out
     if (nonImageFiles.length < files.length) {
@@ -48,23 +77,27 @@ export const UserFileUploadSection = () => {
     // Check limit again after filtering
     if (selectedFiles.length + nonImageFiles.length > 3) {
       const filesToAdd = nonImageFiles.slice(0, 3 - selectedFiles.length);
-      filesToAdd.forEach((file, index) => processFile(file, selectedFiles.length + index));
+      filesToAdd.forEach((file, index) =>
+        processFile(file, selectedFiles.length + index)
+      );
       if (nonImageFiles.length > filesToAdd.length) {
         alert("Maximum 3 files reached. Some files were not added.");
       }
     } else {
-      nonImageFiles.forEach((file, index) => processFile(file, selectedFiles.length + index));
+      nonImageFiles.forEach((file, index) =>
+        processFile(file, selectedFiles.length + index)
+      );
     }
   };
 
-  const processFile = (file, globalIndex) => {
+  const processFile = (file: File, globalIndex: number) => {
     const reader = new FileReader();
     reader.onload = (e) => {
       setSelectedFiles((prev) => [
         ...prev,
         {
           id: Date.now() + Math.random(),
-          url: e.target.result,
+          url: e.target?.result || null,
           name: getFileNameByIndex(globalIndex),
           originalName: file.name,
           type: "file",
@@ -76,17 +109,17 @@ export const UserFileUploadSection = () => {
     reader.readAsDataURL(file);
   };
 
-  const handleDragOver = (e) => {
+  const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
     setIsDragging(true);
   };
 
-  const handleDragLeave = (e) => {
+  const handleDragLeave = (e: React.DragEvent) => {
     e.preventDefault();
     setIsDragging(false);
   };
 
-  const handleDrop = (e) => {
+  const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
     setIsDragging(false);
 
@@ -96,13 +129,17 @@ export const UserFileUploadSection = () => {
 
   const handleAddFromUrl = () => {
     if (selectedFiles.length >= 3) {
-      alert("Maximum 3 files allowed. Please remove a file before adding a new one.");
+      alert(
+        "Maximum 3 files allowed. Please remove a file before adding a new one."
+      );
       return;
     }
 
     if (fileUrl.trim()) {
       if (isImageUrl(fileUrl)) {
-        alert("Image URLs are not allowed. Please provide a URL to a document file.");
+        alert(
+          "Image URLs are not allowed. Please provide a URL to a document file."
+        );
         return;
       }
 
@@ -121,36 +158,40 @@ export const UserFileUploadSection = () => {
 
   const handleBrowseClick = () => {
     if (selectedFiles.length >= 3) {
-      alert("Maximum 3 files allowed. Please remove a file before adding a new one.");
+      alert(
+        "Maximum 3 files allowed. Please remove a file before adding a new one."
+      );
       return;
     }
     fileInputRef.current?.click();
   };
 
-  const removeFile = (id) => {
+  const removeFile = (id: number) => {
     setSelectedFiles((prev) => {
       const updatedFiles = prev.filter((file) => file.id !== id);
-      
+
       // Reassign names based on new order
       return updatedFiles.map((file, index) => ({
         ...file,
-        name: getFileNameByIndex(index)
+        name: getFileNameByIndex(index),
       }));
     });
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
       handleAddFromUrl();
     }
   };
 
-  const getFileIcon = (fileType) => {
-    if (fileType?.includes('pdf')) return 'PDF';
-    if (fileType?.includes('word') || fileType?.includes('document')) return 'Word';
-    if (fileType?.includes('sheet') || fileType?.includes('excel')) return 'Sheet';
-    if (fileType?.includes('zip') || fileType?.includes('rar')) return 'Zip';
-    return 'Doc';
+  const getFileIcon = (fileType?: string) => {
+    if (fileType?.includes("pdf")) return "PDF";
+    if (fileType?.includes("word") || fileType?.includes("document"))
+      return "Word";
+    if (fileType?.includes("sheet") || fileType?.includes("excel"))
+      return "Sheet";
+    if (fileType?.includes("zip") || fileType?.includes("rar")) return "Zip";
+    return "Doc";
   };
 
   return (
@@ -159,8 +200,8 @@ export const UserFileUploadSection = () => {
       <div className="space-y-2 bg-secondaryColor rounded-xl p-2 w-full sm:w-80 flex flex-col justify-center items-center">
         {/* URL Input Section */}
         <div className="flex flex-col justify-end items-end gap-1">
-          <button 
-            onClick={() => setIsAddingWithUrl(prev => !prev)} 
+          <button
+            onClick={() => setIsAddingWithUrl((prev) => !prev)}
             className="text-xs font-urbanist font-normal text-primaryColor/80"
             disabled={selectedFiles.length >= 3}
           >
@@ -169,11 +210,11 @@ export const UserFileUploadSection = () => {
 
           {isAddingWithUrl && (
             <div className="flex gap-2 w-full">
-              <AppInput
+              <input
                 type="url"
                 onChange={(e) => setFileUrl(e.target.value)}
                 onKeyPress={handleKeyPress}
-                className="w-[220px]"
+                className="w-[220px] border border-neutralColor-700 px-4 py-1.5 rounded-md text-sm"
                 placeholder="https://example.com/document.pdf"
                 value={fileUrl}
                 disabled={selectedFiles.length >= 3}
@@ -193,7 +234,9 @@ export const UserFileUploadSection = () => {
         <div
           className={`w-full border border-dashed rounded-xl p-4 text-center transition-colors flex flex-col gap-2 justify-center items-center border-[#A8B6B8] max-w-2xs ${
             isDragging ? "border-primaryColor/50 bg-blue-50" : ""
-          } ${selectedFiles.length >= 3 ? "opacity-50 cursor-not-allowed" : ""}`}
+          } ${
+            selectedFiles.length >= 3 ? "opacity-50 cursor-not-allowed" : ""
+          }`}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={selectedFiles.length >= 3 ? undefined : handleDrop}
@@ -213,7 +256,7 @@ export const UserFileUploadSection = () => {
             Browse
           </button>
 
-          <AppInput
+          <input
             type="file"
             ref={fileInputRef}
             onChange={handleFileSelect}
@@ -230,27 +273,27 @@ export const UserFileUploadSection = () => {
         {selectedFiles.length > 0 ? (
           <div className="grid grid-cols-3 md:grid-cols-3 gap-4 max-h-96 overflow-y-auto overflow-hidden bg-secondaryColor rounded-sm p-2.5 w-full">
             {selectedFiles.map((file, index) => (
-             <div>
-                <p className="text-textColor text-sm font-normal font-urbanist mb-1">{file.name}</p>
-                 <div key={index} className="relative w-full border border-dashed border-gray-200">
-                <div className="rounded-xl p-4 max-w-36 h-36 flex flex-col items-center justify-center">
-                  <div className="flex flex-col gap-2 justify-center items-center text-sm text-dangerColor font-urbanist font-bold">
-                    <DocumentUploadIcon />
-                    <p>
-                      {getFileIcon(file.fileType)}
-                    </p>       
+              <div key={file.id}>
+                <p className="text-textColor text-sm font-normal font-urbanist mb-1">
+                  {file.name}
+                </p>
+                <div className="relative w-full border border-dashed border-gray-200">
+                  <div className="rounded-xl p-4 max-w-36 h-36 flex flex-col items-center justify-center">
+                    <div className="flex flex-col gap-2 justify-center items-center text-sm text-dangerColor font-urbanist font-bold">
+                      <DocumentUploadIcon />
+                      <p>{getFileIcon(file.fileType)}</p>
+                    </div>
                   </div>
+                  <button
+                    onClick={() => removeFile(file.id)}
+                    className="absolute w-7 h-7 md:w-10.5 md:h-10.5 -top-1.5 sm:-top-2.5 right-0 rounded-full bg-[#FFFFFFBD] transition-opacity z-20"
+                  >
+                    <div className="flex justify-center items-center">
+                      <CloseCircleIcon />
+                    </div>
+                  </button>
                 </div>
-                <button
-                  onClick={() => removeFile(file.id)}
-                  className="absolute w-7 h-7 md:w-10.5 md:h-10.5 -top-1.5 sm:-top-2.5 right-0 rounded-full bg-[#FFFFFFBD] transition-opacity z-20"
-                >
-                  <div className="flex justify-center items-center">
-                    <CloseCircleIcon />
-                  </div>
-                </button>
               </div>
-             </div>
             ))}
           </div>
         ) : (

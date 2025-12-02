@@ -7,8 +7,15 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
+import { PropertyDetail } from "@/types";
 
-export default function PropertyDetailsCarousel({ property }) {
+interface PropertyDetailsCarouselProps {
+  property: PropertyDetail;
+}
+
+export default function PropertyDetailsCarousel({
+  property,
+}: PropertyDetailsCarouselProps) {
   // Debugging log (remove in production)
   console.log("PropertyDetailsCarousel: Received property", {
     propertyId: property?.id,

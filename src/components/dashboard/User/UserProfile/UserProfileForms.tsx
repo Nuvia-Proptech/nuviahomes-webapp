@@ -77,11 +77,11 @@ export const UserProfileForms = () => {
           label="Select Country"
           options={
             <>
-              <option value="10" disabled defaultValue={true}>
+              <option value="" disabled>
                 Select Country
               </option>
-              <option value="10">Nigeria</option>
-              <option value="5">Ghana</option>
+              <option value="ng">Nigeria</option>
+              <option value="gh">Ghana</option>
             </>
           }
         />
@@ -93,11 +93,11 @@ export const UserProfileForms = () => {
           label="Select Language"
           options={
             <>
-              <option value="10" disbabled defaultValue={true}>
+              <option value="" disabled>
                 Select Language
               </option>
-              <option value="10">English</option>
-              <option value="5">Eng</option>
+              <option value="en">English</option>
+              <option value="fr">French</option>
             </>
           }
         />
@@ -108,11 +108,11 @@ export const UserProfileForms = () => {
           label="Time Zone"
           options={
             <>
-              <option value="10" disabled defaultValue={true}>
+              <option value="" disabled>
                 Time Zone
               </option>
-              <option value="10">WAT</option>
-              <option value="5">EST</option>
+              <option value="wat">WAT</option>
+              <option value="est">EST</option>
             </>
           }
         />
@@ -124,11 +124,11 @@ export const UserProfileForms = () => {
           label="Select Currency"
           options={
             <>
-              <option value="10" disabled defaultValue={true}>
+              <option value="" disabled>
                 Select Currency
               </option>
-              <option value="10">Naira</option>
-              <option value="5">Dollar</option>
+              <option value="ngn">Naira</option>
+              <option value="usd">Dollar</option>
             </>
           }
         />

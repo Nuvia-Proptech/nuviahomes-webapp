@@ -2,12 +2,19 @@
 import React, { useState } from "react";
 import { ArrowDownBoldIcon } from "@/components/shared/Icons/ArrowDownBoldIcon";
 
+interface FilterDropdownProps {
+  options: string[];
+  selected: string;
+  onSelect: (option: string) => void;
+  placeholder?: string;
+}
+
 export const FilterDropdown = ({
   options,
   selected,
   onSelect,
   placeholder,
-}) => {
+}: FilterDropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -16,7 +23,7 @@ export const FilterDropdown = ({
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-3 px-4 py-2 bg-white border rounded-xl text-sm font-medium w-fit"
       >
-        <span className="text-sm font-medium">{selected}</span>
+        <span className="text-sm font-medium">{selected || placeholder}</span>
 
         <ArrowDownBoldIcon className={`${isOpen ? "rotate-180" : ""}`} />
       </button>
@@ -31,7 +38,7 @@ export const FilterDropdown = ({
 
           {/* Dropdown Menu */}
           <div className="absolute top-full left-0 mt-1 w-64 bg-white border rounded-xl shadow-lg z-50 py-2">
-            {options.map((option, index) => (
+            {options.map((option) => (
               <button
                 key={option}
                 onClick={() => {

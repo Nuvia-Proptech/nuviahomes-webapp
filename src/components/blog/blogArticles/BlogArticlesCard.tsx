@@ -3,9 +3,22 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-export default function BlogArticlesCard({ blog }) {
+interface Blog {
+  id: string | number;
+  title: string;
+  image: string;
+  author: string;
+  date: string;
+  excerpt: string;
+}
+
+interface BlogArticlesCardProps {
+  blog: Blog;
+}
+
+export default function BlogArticlesCard({ blog }: BlogArticlesCardProps) {
   // Function to truncate text
-  const truncateText = (text, maxLength = 100) => {
+  const truncateText = (text: string, maxLength = 100) => {
     if (text.length <= maxLength) return text;
     return text.slice(0, maxLength).trim() + "...";
   };
@@ -31,7 +44,9 @@ export default function BlogArticlesCard({ blog }) {
         </div>
         <div className="flex flex-col justify-between flex-1 ">
           <p className="text-16 md:mb-2 font-semibold">{blog.title}</p>
-          <p className="text-14 text-gray-300 flex-1 flex items-center">{truncateText(blog.excerpt, 130)}</p>
+          <p className="text-14 text-gray-300 flex-1 flex items-center">
+            {truncateText(blog.excerpt, 130)}
+          </p>
           <div className="gradient-text flex justify-end md:mt-8">
             <Link href={`/our-blog/${blog.id}`}>
               <button className="flex items-center gap-2 md:gap-3 md:hover:gap-2 text-16 hover:gap-3 transition-all font-semibold">

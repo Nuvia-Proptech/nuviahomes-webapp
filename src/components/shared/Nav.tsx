@@ -6,7 +6,11 @@ import Image from "next/image";
 import logo from "@/assets/logo.png";
 import { usePathname } from "next/navigation";
 
-export default function Nav({ styleProp }) {
+interface NavProps {
+  styleProp?: string;
+}
+
+export default function Nav({ styleProp }: NavProps) {
   const currentPage = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);

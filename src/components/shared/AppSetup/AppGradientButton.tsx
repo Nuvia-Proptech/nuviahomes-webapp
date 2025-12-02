@@ -1,6 +1,16 @@
 import React from "react";
 
-export const AppGradientButton = ({ children, className, onClick }) => {
+interface AppGradientButtonProps {
+  children: React.ReactNode;
+  className?: string;
+  onClick?: () => void;
+}
+
+export const AppGradientButton = ({
+  children,
+  className,
+  onClick,
+}: AppGradientButtonProps) => {
   return (
     <button
       onClick={onClick}

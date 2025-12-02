@@ -4,7 +4,18 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
-const UserNavMenuItem = ({ item, onItemClick }) => {
+interface NavItem {
+  path: string;
+  title: string;
+  icon: React.ReactElement;
+}
+
+interface UserNavMenuItemProps {
+  item: NavItem;
+  onItemClick?: () => void;
+}
+
+const UserNavMenuItem = ({ item, onItemClick }: UserNavMenuItemProps) => {
   const pathname = usePathname();
 
   const isActive = pathname === item.path;
@@ -17,7 +28,7 @@ const UserNavMenuItem = ({ item, onItemClick }) => {
         <div className="bg-transparent w-2.5 h-10 rounded-tr-lg rounded-br-lg" />
       )}
       <Link
-      onClick={onItemClick}
+        onClick={onItemClick}
         href={item.path}
         className={cn(
           "flex flex-row space-x-2 items-center p-2",

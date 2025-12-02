@@ -1,7 +1,11 @@
 "use client";
 import { AdminSideBarNav } from "@/components/dashboard/superAdmin/AdminSideBarNav";
 
-const AdminLayout = ({ children }) => {
+interface AdminLayoutProps {
+  children: React.ReactNode;
+}
+
+const AdminLayout = ({ children }: AdminLayoutProps) => {
   return (
     <div className="flex bg-secondaryColor">
       <aside className="fixed h-screen w-60 bg-primaryColorLight">

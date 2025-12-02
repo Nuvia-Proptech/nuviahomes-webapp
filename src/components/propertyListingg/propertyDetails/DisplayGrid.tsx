@@ -1,8 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import PropertyDetailsCarousel from "./PropertyDetailsCarousel";
+import { PropertyDetail } from "@/types";
 
-export default function DisplayGrid({ property }) {
+interface DisplayGridProps {
+  property: PropertyDetail;
+}
+
+export default function DisplayGrid({ property }: DisplayGridProps) {
   const images = property?.images || [];
 
   return (

@@ -4,18 +4,23 @@ import { AppWrapper } from "@/components/shared/AppSetup/AppWrapper";
 import Link from "next/link";
 import appRoutes from "@/constants/AppRoutes";
 import { ImProfile } from "react-icons/im";
-import { UserInvestmentsCategoryData } from "@/lib/dummyData/UserInvestmentsCategoryData";
+import {
+  UserInvestmentsCategoryData,
+  InvestmentCategoryItem,
+} from "@/lib/dummyData/UserInvestmentsCategoryData";
 import { InvestmentCard } from "./InvestmentCard";
 import { InvestmentModal } from "./InvestmentModal";
 
 const InvestmentCategoryIndex = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] =
+    useState<InvestmentCategoryItem | null>(null);
 
-     const handleInvestClick = (investment) => {
+  const handleInvestClick = (investment: InvestmentCategoryItem) => {
     setSelectedProject(investment);
     setModalOpen(true);
   };
+
   return (
     <AppWrapper>
       {/* <UserDashBoardHeader /> */}

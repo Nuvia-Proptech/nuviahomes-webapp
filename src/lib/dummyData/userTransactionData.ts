@@ -1,4 +1,15 @@
-export const userTransactionsData = [
+export const userTransactionsData: {
+  id: string;
+  street: string;
+  city: string;
+  name: string;
+  email: string;
+  date: string;
+  time: string;
+  total: string;
+  balance: string;
+  status: "Pending" | "Cancelled" | "Approved";
+}[] = [
   {
     id: "010",
     street: "Adekunle Fajuyi",
@@ -9,7 +20,7 @@ export const userTransactionsData = [
     time: "8:00 PM",
     total: "#4200.22",
     balance: "#15000.50",
-    status: "Approved"
+    status: "Approved",
   },
   {
     id: "011",
@@ -21,7 +32,7 @@ export const userTransactionsData = [
     time: "9:30 AM",
     total: "#3150.50",
     balance: "#12500.75",
-    status: "Pending"
+    status: "Pending",
   },
   {
     id: "012",
@@ -33,7 +44,7 @@ export const userTransactionsData = [
     time: "2:15 PM",
     total: "#5800.75",
     balance: "#22000.25",
-    status: "Approved"
+    status: "Approved",
   },
   {
     id: "013",
@@ -45,7 +56,7 @@ export const userTransactionsData = [
     time: "11:45 AM",
     total: "#2750.00",
     balance: "#9800.00",
-    status: "Cancelled"
+    status: "Cancelled",
   },
   {
     id: "014",
@@ -57,7 +68,7 @@ export const userTransactionsData = [
     time: "4:20 PM",
     total: "#6200.30",
     balance: "#18500.60",
-    status: "Pending"
+    status: "Pending",
   },
   {
     id: "015",
@@ -69,7 +80,7 @@ export const userTransactionsData = [
     time: "10:10 AM",
     total: "#3890.45",
     balance: "#14200.35",
-    status: "Approved"
+    status: "Approved",
   },
   {
     id: "016",
@@ -81,7 +92,7 @@ export const userTransactionsData = [
     time: "3:30 PM",
     total: "#5100.80",
     balance: "#19800.90",
-    status: "Approved"
+    status: "Approved",
   },
   {
     id: "017",
@@ -93,7 +104,7 @@ export const userTransactionsData = [
     time: "1:00 PM",
     total: "#4450.25",
     balance: "#16500.40",
-    status: "Cancelled"
+    status: "Cancelled",
   },
   {
     id: "018",
@@ -105,7 +116,7 @@ export const userTransactionsData = [
     time: "6:45 PM",
     total: "#7200.60",
     balance: "#25000.15",
-    status: "Pending"
+    status: "Pending",
   },
   {
     id: "019",
@@ -117,6 +128,6 @@ export const userTransactionsData = [
     time: "9:15 AM",
     total: "#3350.90",
     balance: "#12800.70",
-    status: "Approved"
-  }
+    status: "Approved",
+  },
 ];

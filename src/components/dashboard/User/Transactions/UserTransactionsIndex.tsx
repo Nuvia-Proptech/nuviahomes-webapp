@@ -21,9 +21,9 @@ export const UserTransactionsIndex = () => {
         item.street.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.city.toLowerCase().includes(searchQuery.toLowerCase())
     );
-  }, [userTransactionsData, searchQuery]);
+  }, [searchQuery]);
 
-  const onSearchHandler = (e) => {
+  const onSearchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
 
@@ -78,7 +78,7 @@ export const UserTransactionsIndex = () => {
                 id="transactionStatus"
                 options={
                   <>
-                    <option value="TransactionStatus" defaultValue={true}>
+                    <option value="TransactionStatus">
                       Transaction Status
                     </option>
                     <option value="Cancelled">Cancelled</option>

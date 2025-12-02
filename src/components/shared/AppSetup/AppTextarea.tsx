@@ -1,5 +1,17 @@
-import React from 'react';
-import { cn } from '@/lib/utils';
+import React from "react";
+import { cn } from "@/lib/utils";
+
+interface AppTextareaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  className?: string;
+  inputClassName?: string;
+  labelClassName?: string;
+  label?: string;
+  placeholder?: string;
+  name?: string;
+  rows?: number;
+  resize?: boolean;
+}
 
 export const AppTextarea = ({
   className,
@@ -9,9 +21,9 @@ export const AppTextarea = ({
   placeholder,
   name,
   rows = 4,
-  resize = false, 
+  resize = false,
   ...props
-}) => {
+}: AppTextareaProps) => {
   return (
     <div
       className={cn(
@@ -19,16 +31,15 @@ export const AppTextarea = ({
         className
       )}
     >
-      <label
-        data-slot="label"
-        htmlFor={name}
-        className={cn(
-          "font-medium",
-          labelClassName
-        )}
-      >
-        {label}
-      </label>
+      {label && (
+        <label
+          data-slot="label"
+          htmlFor={name}
+          className={cn("font-medium", labelClassName)}
+        >
+          {label}
+        </label>
+      )}
       <textarea
         data-slot="textarea"
         name={name}
