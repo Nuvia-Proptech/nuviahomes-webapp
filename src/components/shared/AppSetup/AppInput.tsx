@@ -1,6 +1,18 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 
+interface AppInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  className?: string;
+  inputClassName?: string;
+  labelClassName?: string;
+  label?: string;
+  type?: string;
+  placeholder?: string;
+  name?: string;
+  inputHasRightItem?: boolean;
+  rightItem?: React.ReactNode;
+}
+
 export const AppInput = ({
   className,
   inputClassName,
@@ -12,7 +24,7 @@ export const AppInput = ({
   inputHasRightItem = false,
   rightItem,
   ...props
-}) => {
+}: AppInputProps) => {
   return (
     <div
       className={cn(
@@ -20,13 +32,15 @@ export const AppInput = ({
         className
       )}
     >
-      <label
-        data-slot="label"
-        htmlFor={name}
-        className={cn("font-medium", labelClassName)}
-      >
-        {label}
-      </label>
+      {label && (
+        <label
+          data-slot="label"
+          htmlFor={name}
+          className={cn("font-medium", labelClassName)}
+        >
+          {label}
+        </label>
+      )}
       <div className="flex justify-between gap-4 w-full h-10 border border-neutralColor-700 px-4 py-1.5 rounded-md">
         <input
           data-slot="input"
@@ -40,7 +54,7 @@ export const AppInput = ({
           {...props}
         />
 
-        {inputHasRightItem && ( <div className="w-fit">{rightItem}</div> )}
+        {inputHasRightItem && <div className="w-fit">{rightItem}</div>}
       </div>
     </div>
   );

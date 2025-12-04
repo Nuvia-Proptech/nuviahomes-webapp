@@ -6,9 +6,15 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Image from "next/image";
+import { PropertyDetail } from "@/types";
 
+interface PropertyVideoAndDescriptionProps {
+  property: PropertyDetail;
+}
 
-export default function PropertyVideoAndDescription({ property }) {
+export default function PropertyVideoAndDescription({
+  property,
+}: PropertyVideoAndDescriptionProps) {
   return (
     <div className="space-y-5">
       <div className="listedProperty border border-gray-500 rounded-2xl px-3">
@@ -19,7 +25,9 @@ export default function PropertyVideoAndDescription({ property }) {
           defaultValue="item-1"
         >
           <AccordionItem value="item-1">
-            <AccordionTrigger className="px-3 text-3xl hover:no-underline">Property Video</AccordionTrigger>
+            <AccordionTrigger className="px-3 text-3xl hover:no-underline">
+              Property Video
+            </AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
               <div className="relative h-[415px] rounded-2xl overflow-hidden">
                 <Image src={property.videoImage} alt="" fill />
@@ -37,7 +45,9 @@ export default function PropertyVideoAndDescription({ property }) {
           defaultValue="item-1"
         >
           <AccordionItem value="item-1">
-            <AccordionTrigger className="text-3xl hover:no-underline">Description</AccordionTrigger>
+            <AccordionTrigger className="text-3xl hover:no-underline">
+              Description
+            </AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
               <p>{property.description}</p>
             </AccordionContent>

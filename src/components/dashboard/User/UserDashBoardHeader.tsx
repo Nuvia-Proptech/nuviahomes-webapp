@@ -1,11 +1,16 @@
-"use client"
+"use client";
 import { SearchIcon } from "@/components/shared/Icons/SearchIcon";
 import React from "react";
 import { UserDetails } from "./UserDetails";
-import { Menu } from "lucide-react"
+import { Menu } from "lucide-react";
 
-export const UserDashBoardHeader = ({ onNavClick }) => {
- 
+interface UserDashBoardHeaderProps {
+  onNavClick?: () => void;
+}
+
+export const UserDashBoardHeader = ({
+  onNavClick,
+}: UserDashBoardHeaderProps) => {
   return (
     <div className="bg-neutralColor-900 p-3 rounded-2xl w-full flex justify-between font-urbanist">
       <div className="max-w-48 sm:max-w-80 w-full flex gap-3 justify-center items-center border border-grayColor rounded-2xl h-12 py-2 px-3 font-urbanist">
@@ -20,8 +25,8 @@ export const UserDashBoardHeader = ({ onNavClick }) => {
       <UserDetails className="hidden md:flex" />
 
       <button onClick={onNavClick} className="text-textColor md:hidden">
-          <Menu size={32} />
-          </button>
+        <Menu size={32} />
+      </button>
     </div>
   );
 };

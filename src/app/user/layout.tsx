@@ -4,7 +4,11 @@ import { UserSidebarNav } from "@/components/dashboard/User/UserSidebarNav";
 import { UserDashBoardHeader } from "@/components/dashboard/User/UserDashBoardHeader";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 
-const UserLayout = ({ children }) => {
+interface UserLayoutProps {
+  children: React.ReactNode;
+}
+
+const UserLayout = ({ children }: UserLayoutProps) => {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
 
   const handleOnNavClick = () => {

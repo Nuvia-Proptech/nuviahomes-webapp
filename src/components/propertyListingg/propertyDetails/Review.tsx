@@ -6,8 +6,13 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Image from "next/image";
+import { PropertyDetail } from "@/types";
 
-export default function Review({ property }) {
+interface ReviewProps {
+  property: PropertyDetail;
+}
+
+export default function Review({ property }: ReviewProps) {
   // Debugging log (remove in production)
   console.log("Review: Received property", {
     propertyId: property?.id,
@@ -16,7 +21,12 @@ export default function Review({ property }) {
 
   return (
     <div className="listedProperty border border-gray-500 rounded-2xl px-3">
-      <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
+      <Accordion
+        type="single"
+        collapsible
+        className="w-full"
+        defaultValue="item-1"
+      >
         <AccordionItem value="item-1">
           <AccordionTrigger className="text-3xl hover:no-underline">
             {property.reviews.length} Reviews

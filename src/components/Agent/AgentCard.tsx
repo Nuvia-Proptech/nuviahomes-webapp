@@ -14,9 +14,9 @@ import { HiMiniDevicePhoneMobile } from "react-icons/hi2";
 import { HiOutlinePhoneMissedCall, HiOutlineMail } from "react-icons/hi";
 import { SlSocialInstagram } from "react-icons/sl";
 import { PiWhatsappLogo } from "react-icons/pi";
+import { IconType } from "react-icons";
 
-
-const iconMap = {
+const iconMap: Record<string, IconType> = {
   HiOutlinePhoneMissedCall,
   HiMiniDevicePhoneMobile,
   PiWhatsappLogo,
@@ -25,25 +25,51 @@ const iconMap = {
   SlSocialInstagram,
 };
 
-export default function AgentCard({ agent }) {
+interface Contact {
+  type: string;
+  value: string;
+  icon: string;
+}
+
+interface Socials {
+  instagram?: string;
+  facebook?: string;
+  linkedin?: string;
+  twitter?: string;
+}
+
+interface Agent {
+  id: string | number;
+  name: string;
+  avatar: string;
+  propertiesListed: number;
+  socials: Socials;
+  contacts: Contact[];
+}
+
+interface AgentCardProps {
+  agent: Agent;
+}
+
+export default function AgentCard({ agent }: AgentCardProps) {
   const router = useRouter();
 
   return (
     <div className="flex flex-col lg:flex-row border border-gray-500 rounded-2xl gap-5 p-3">
       {/* Clickable image section */}
-    <div
-    onClick={() => router.push(`/agents/${agent.id}`)}
-    className="relative h-48 w-full lg:w-96 rounded-2xl overflow-hidden cursor-pointer"
-  >
-    <Image
-      src={agent.avatar}
-      alt={agent.name}
-      fill
-      className="object-cover w-full h-full"
-      sizes="(max-width: 1024px) 100vw, 384px"
-      priority
-    />
-  </div>
+      <div
+        onClick={() => router.push(`/agents/${agent.id}`)}
+        className="relative h-48 w-full lg:w-96 rounded-2xl overflow-hidden cursor-pointer"
+      >
+        <Image
+          src={agent.avatar}
+          alt={agent.name}
+          fill
+          className="object-cover w-full h-full"
+          sizes="(max-width: 1024px) 100vw, 384px"
+          priority
+        />
+      </div>
 
       {/* Info Section */}
       <div className="w-full">
@@ -106,24 +132,26 @@ export default function AgentCard({ agent }) {
 
         {/* Contact Info Grid */}
         <div className="grid grid-cols-2 xl:grid-cols-3 gap-3 py-4">
-          {agent.contacts.map((contact, index) => {
-          const IconComponent = iconMap[contact.icon];
-          return (
-            <div key={index} className="flex items-center gap-2">
-              <div className="h-6">
-                {IconComponent ? (
-                  <IconComponent className="w-6 h-6 text-white " />
-                ) : (
-                  <span className="w-6 h-6 text-gray-500">?</span>
-                )}
+          {agent.contacts.map((contact: Contact, index: number) => {
+            const IconComponent = iconMap[contact.icon];
+            return (
+              <div key={index} className="flex items-center gap-2">
+                <div className="h-6">
+                  {IconComponent ? (
+                    <IconComponent className="w-6 h-6 text-white " />
+                  ) : (
+                    <span className="w-6 h-6 text-gray-500">?</span>
+                  )}
+                </div>
+                <div>
+                  <p className="text-sm text-gray-300">{contact.type}</p>
+                  <p className="text-xs text-gray-400 max-w-28 truncate">
+                    {contact.value}
+                  </p>
+                </div>
               </div>
-              <div>
-                <p className="text-sm text-gray-300">{contact.type}</p>
-                <p className="text-xs text-gray-400 max-w-28 truncate">{contact.value}</p>
-              </div>
-            </div>
-  );
-})}
+            );
+          })}
         </div>
       </div>
     </div>

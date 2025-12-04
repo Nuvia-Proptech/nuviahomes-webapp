@@ -35,11 +35,10 @@ export const UserInvestmentTable = () => {
           <SelectDropDown
             id="propertyStatus"
             className=""
-            
             selectClassName=" h-7 py-0 rounded-sm"
             options={
               <>
-                <option value="Property Type" disabled defaultValue={true}>
+                <option value="Property Type" disabled>
                   Plan Status
                 </option>
                 <option value="All">All</option>
@@ -74,7 +73,7 @@ export const UserInvestmentTable = () => {
                 plan={item.plan}
                 investedAmount={item.investedAmount}
                 dateOfReturn={item.dateOfReturn}
-                installment={item.installment}
+                installment={item.installment || undefined}
                 profit={item.profit}
                 status={item.status}
               />

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import { EditProjectDetails } from "./userSubmitProjectDetails/UserSubmitProjectDetails";
 import { EditProjectDocument } from "./userSubmitProjectDouments/UserSubmitEditProjectDocument";
@@ -22,7 +22,7 @@ export const UserSubmitProjectForms = () => {
     }
   };
 
-  const goToStep = (index) => {
+  const goToStep = (index: number) => {
     setCurrentStep(index);
   };
 

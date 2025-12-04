@@ -3,15 +3,25 @@ import { EyeIcon } from "@/components/shared/Icons/EyeIcon";
 import { MoreIcon } from "@/components/shared/Icons/MoreIcon";
 import { CircleStop, CircleCheck } from "lucide-react";
 
+interface UserInvestmentTableBodyProps {
+  id: string | number;
+  plan: string;
+  investedAmount: string;
+  dateOfReturn: string;
+  installment?: string;
+  profit: string;
+  status: string;
+}
+
 export const UserInvestmentTableBody = ({
   id,
   plan,
   investedAmount,
   dateOfReturn,
-  installment, 
+  installment,
   profit,
   status,
-}) => {
+}: UserInvestmentTableBodyProps) => {
   return (
     <tr
       key={id}

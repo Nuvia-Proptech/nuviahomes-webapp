@@ -6,11 +6,21 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Image from "next/image";
+import { PropertyDetail } from "@/types";
 
-export default function Gallery({ property }) {
+interface GalleryProps {
+  property: PropertyDetail;
+}
+
+export default function Gallery({ property }: GalleryProps) {
   return (
     <div className="listedProperty border border-gray-500 rounded-2xl px-3 md:px-6">
-      <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
+      <Accordion
+        type="single"
+        collapsible
+        className="w-full"
+        defaultValue="item-1"
+      >
         <AccordionItem value="item-1" className="border-b-0">
           <AccordionTrigger className="px-3 text-3xl hover:no-underline py-4">
             Gallery

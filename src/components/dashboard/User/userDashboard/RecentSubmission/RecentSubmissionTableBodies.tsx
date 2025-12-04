@@ -3,7 +3,17 @@ import React from "react";
 import Image from "next/image";
 import houseImage from "@/assets/images/house.png";
 import { TimerIcon } from "@/components/shared/Icons/TimerIcon";
-import { CheckCircle, XCircle } from "lucide-react"; // Example icons
+import { CheckCircle, XCircle } from "lucide-react";
+
+interface RecentSubmissionTableBodiesProps {
+  id: string | number;
+  street: string;
+  city: string;
+  type: string;
+  date: string;
+  time: string;
+  status: "Pending" | "Cancelled" | "Approved";
+}
 
 export const RecentSubmissionTableBodies = ({
   id,
@@ -13,13 +23,13 @@ export const RecentSubmissionTableBodies = ({
   date,
   time,
   status,
-}) => {
+}: RecentSubmissionTableBodiesProps) => {
   // Map each status to its color and icon
   const statusMap = {
     Pending: {
       bg: "bg-warningColor/10",
       text: "text-warningColor",
-      icon: <TimerIcon className="w-4 h-4 text-warningColor" />,
+      icon: <TimerIcon />,
     },
     Cancelled: {
       bg: "bg-dangerColor/10",

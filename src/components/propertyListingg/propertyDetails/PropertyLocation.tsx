@@ -5,8 +5,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { PropertyDetail } from "@/types";
 
-export default function PropertyLocation({ property }) {
+interface PropertyLocationProps {
+  property: PropertyDetail;
+}
+
+export default function PropertyLocation({ property }: PropertyLocationProps) {
   return (
     <div className="listedProperty border border-gray-500 rounded-2xl px-3">
       <Accordion
@@ -25,8 +30,8 @@ export default function PropertyLocation({ property }) {
                 src={property.mapEmbedUrl}
                 width="600"
                 height="450"
-                style={{border:"0", width: "100%"}}
-                allowFullScreen=""
+                style={{ border: "0", width: "100%" }}
+                allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>

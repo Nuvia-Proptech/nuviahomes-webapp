@@ -6,10 +6,10 @@ import Link from "next/link";
 
 export default function ForgotPAssWord() {
   return (
-    <div class="bg-gray-50">
-      <div class="min-h-screen flex flex-col items-center justify-center py-20 px-4">
-        <div class="max-w-[460px] w-full">
-          <div class="p-6 sm:p-8 rounded bg-white border border-gray-200 shadow-sm">
+    <div className="bg-gray-50">
+      <div className="min-h-screen flex flex-col items-center justify-center py-20 px-4">
+        <div className="max-w-[460px] w-full">
+          <div className="p-6 sm:p-8 rounded bg-white border border-gray-200 shadow-sm">
             <div className="flex justify-center">
               <Image src={logo} alt="Logo" />
             </div>
@@ -20,30 +20,30 @@ export default function ForgotPAssWord() {
                 password
               </p>
             </div>
-            <form class="space-y-6">
+            <form className="space-y-6">
               <div>
-                <label class="text-slate-900 text-sm font-medium mb-2 block">
+                <label className="text-slate-900 text-sm font-medium mb-2 block">
                   Email
                 </label>
-                <div class="relative flex items-center">
+                <div className="relative flex items-center">
                   <input
                     name="username"
                     type="email"
                     required
-                    class="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md focus:outline-none"
+                    className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md focus:outline-none"
                     placeholder="Enter your email"
                   />
                 </div>
               </div>
 
-              <div class="!mt-6">
+              <div className="!mt-6">
                 {/* <Link href=""> */}
-                  <button
-                    type="button"
-                    class="w-full py-2 px-4 text-[15px] font-medium tracking-wide rounded-md text-white btn-gradient focus:outline-none cursor-pointer"
-                  >
-                    Resend Reset Link
-                  </button>
+                <button
+                  type="button"
+                  className="w-full py-2 px-4 text-[15px] font-medium tracking-wide rounded-md text-white btn-gradient focus:outline-none cursor-pointer"
+                >
+                  Resend Reset Link
+                </button>
                 {/* </Link> */}
               </div>
               <Link

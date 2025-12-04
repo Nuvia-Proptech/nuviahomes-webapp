@@ -2,8 +2,13 @@ import { MapPin } from "lucide-react";
 import React from "react";
 import houseImg from "@/assets/icons/house.svg";
 import Image from "next/image";
+import { PropertyDetail } from "@/types";
 
-export default function PropertyFeatures({ property }) {
+interface PropertyFeaturesProps {
+  property: PropertyDetail;
+}
+
+export default function PropertyFeatures({ property }: PropertyFeaturesProps) {
   return (
     <div className="listedProperty border border-gray-500 rounded-2xl p-3 md:p-6">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -16,9 +21,9 @@ export default function PropertyFeatures({ property }) {
         </div>
         <div className="text-right">
           <p className="text-[28px] whitespace-nowrap">
-            {property.price.split('/')[0]}
+            {property.price.split("/")[0]}
             <span className="text-14 text-gray-400">
-              /{property.price.split('/')[1]}
+              /{property.price.split("/")[1]}
             </span>
           </p>
         </div>

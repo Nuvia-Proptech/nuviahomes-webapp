@@ -3,6 +3,20 @@ import houseImg from "@/assets/images/house.png";
 import Image from "next/image";
 import { Heart, MapPin, Wallet, ShoppingBag } from "lucide-react";
 
+interface UserPropertiesCardProps {
+  id: string | number;
+  status: string[];
+  price: string;
+  title: string;
+  location: string;
+  paymentType: string;
+  wishlistCount: number;
+  downPayment: string;
+  downPaymentTime: string;
+  installments: string;
+  firstPaymentDate: string;
+}
+
 export const UserPropertiesCard = ({
   id,
   status,
@@ -15,7 +29,7 @@ export const UserPropertiesCard = ({
   downPaymentTime,
   installments,
   firstPaymentDate,
-}) => {
+}: UserPropertiesCardProps) => {
   return (
     <div
       key={id}
@@ -38,8 +52,11 @@ export const UserPropertiesCard = ({
         <div className="flex justify-between">
           {/* House status */}
           <div className="flex flex-wrap gap-2">
-            {status.map((item) => (
-              <p className="px-2.5 py-1 w-fit h-fit bg-neutralColor-900 rounded-full text-black text-xs font-normal">
+            {status.map((item, index) => (
+              <p
+                key={index}
+                className="px-2.5 py-1 w-fit h-fit bg-neutralColor-900 rounded-full text-black text-xs font-normal"
+              >
                 {item}
               </p>
             ))}

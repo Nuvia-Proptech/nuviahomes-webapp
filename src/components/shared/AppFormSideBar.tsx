@@ -1,6 +1,25 @@
 import React from "react";
 
-export const AppFormSideBar = ({ steps, currentStep, goToStep }) => {
+interface FormStep {
+  id: string | number;
+  title: string;
+  details: string;
+  icon: React.ComponentType<{ fill?: string }>;
+  activeColor: string;
+  inactiveColor: string;
+}
+
+interface AppFormSideBarProps {
+  steps: FormStep[];
+  currentStep: number;
+  goToStep: (index: number) => void;
+}
+
+export const AppFormSideBar = ({
+  steps,
+  currentStep,
+  goToStep,
+}: AppFormSideBarProps) => {
   return (
     <div className="w-full lg:w-64 lg:border-r border-[#C6D0D2] p-6 font-urbanist">
       <div className="w-full space-y-2 flex justify-between lg:block">
@@ -22,11 +41,13 @@ export const AppFormSideBar = ({ steps, currentStep, goToStep }) => {
                   }`}
                 >
                   {/* Render the icon component with appropriate fill color*/}
-                  <step.icon fill={isActive ? step.activeColor : step.inactiveColor} />
+                  <step.icon
+                    fill={isActive ? step.activeColor : step.inactiveColor}
+                  />
                 </div>
 
                 {/* Horizontal right Border except the last */}
-              {/* {index < steps.length - 1 && (
+                {/* {index < steps.length - 1 && (
                 <div
                   className="border-b border-[#DFE6E7] w-8 sm:w-14
               py-1 mt-3 lg:hidden"

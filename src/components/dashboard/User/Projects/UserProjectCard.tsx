@@ -5,11 +5,37 @@ import { MoreIcon } from "@/components/shared/Icons/MoreIcon";
 import { TeamAvatarGroup } from "@/components/shared/TeamAvatarGroup";
 import { MessageCircle } from "lucide-react";
 
-export const UserProjectCard = ({ project }) => {
+interface Project {
+  id: string | number;
+  totalBudget: string;
+  originalBudget: string;
+  startDate: string;
+  deadline: string;
+  description: string;
+  hours: {
+    completed: number;
+    total: number;
+    daysLeft: number;
+  };
+  tasks: {
+    completed: number;
+    total: number;
+  };
+  teamMembers: {
+    count: number;
+    avatars: string[];
+  };
+}
+
+interface UserProjectCardProps {
+  project: Project;
+}
+
+export const UserProjectCard = ({ project }: UserProjectCardProps) => {
   const hoursPercentage = (project.hours.completed / project.hours.total) * 100;
 
   const teamMembersForAvatar = project.teamMembers.avatars.map(
-    (avatar, index) => ({
+    (avatar: string, index: number) => ({
       id: index,
       avatar: avatar,
       name: `Team Member ${index + 1}`,

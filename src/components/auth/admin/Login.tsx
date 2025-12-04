@@ -10,12 +10,12 @@ import github from "@/assets/socials/github.svg";
 import google from "@/assets/socials/google.svg";
 
 export default function Login() {
-    const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   return (
-    <div class="bg-gray-50">
-      <div class="min-h-screen flex flex-col items-center justify-center py-20 px-4">
-        <div class="max-w-[460px] w-full">
-          <div class="p-6 sm:p-8 rounded bg-white border border-gray-200 shadow-sm">
+    <div className="bg-gray-50">
+      <div className="min-h-screen flex flex-col items-center justify-center py-20 px-4">
+        <div className="max-w-[460px] w-full">
+          <div className="p-6 sm:p-8 rounded bg-white border border-gray-200 shadow-sm">
             <div className="flex justify-center">
               <Image src={logo} alt="Logo" />
             </div>
@@ -28,26 +28,26 @@ export default function Login() {
                 <label className="text-slate-900 text-sm font-medium mb-2 block">
                   Email Or Username
                 </label>
-                <div class="relative flex items-center">
+                <div className="relative flex items-center">
                   <input
                     name="username"
                     type="text"
                     required
-                    class="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md focus:outline-none"
+                    className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md focus:outline-none"
                     placeholder="Enter your emil"
                   />
                 </div>
               </div>
               <div>
-                <label class="text-slate-900 text-sm font-medium mb-2 block">
+                <label className="text-slate-900 text-sm font-medium mb-2 block">
                   Password
                 </label>
-                <div class="relative flex items-center">
+                <div className="relative flex items-center">
                   <input
                     name="password"
                     type={showPassword ? "text" : "password"}
                     required
-                    class="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md focus:outline-none"
+                    className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md focus:outline-none"
                     placeholder="Enter password"
                   />
                   <button
@@ -63,46 +63,46 @@ export default function Login() {
                   </button>
                 </div>
               </div>
-              <div class="flex flex-wrap items-center justify-between">
-                <div class="flex items-center">
+              <div className="flex flex-wrap items-center justify-between">
+                <div className="flex items-center">
                   <input
                     id="remember-me"
                     name="remember-me"
                     type="checkbox"
-                    class="h-4 w-4 shrink-0 text-blue-600 focus:ring-blue-500 border-slate-300 rounded"
+                    className="h-4 w-4 shrink-0 text-blue-600 focus:ring-blue-500 border-slate-300 rounded"
                   />
                   <label
-                    for="remember-me"
-                    class="ml-3 block text-sm text-slate-900"
+                    htmlFor="remember-me"
+                    className="ml-3 block text-sm text-slate-900"
                   >
                     Remember me
                   </label>
                 </div>
-                <div class="text-sm">
+                <div className="text-sm">
                   <Link
                     href="forgot-password"
-                    class="text-blue-600 hover:underline font-semibold"
+                    className="text-blue-600 hover:underline font-semibold"
                   >
                     Forgot Password?
                   </Link>
                 </div>
               </div>
 
-              <div class="!mt-12">
+              <div className="!mt-12">
                 <Link href="/super-admin-dashboard">
                   <button
                     type="button"
-                    class="w-full py-2 px-4 text-[15px] font-medium tracking-wide rounded-md text-white btn-gradient focus:outline-none cursor-pointer"
+                    className="w-full py-2 px-4 text-[15px] font-medium tracking-wide rounded-md text-white btn-gradient focus:outline-none cursor-pointer"
                   >
                     Sign In
                   </button>
                 </Link>
               </div>
-              <p class="text-slate-900 text-sm !mt-6 text-center">
+              <p className="text-slate-900 text-sm !mt-6 text-center">
                 Already have an account?
                 <Link
                   href="/user-register"
-                  class="text-blue-600 hover:underline ml-1 whitespace-nowrap font-semibold"
+                  className="text-blue-600 hover:underline ml-1 whitespace-nowrap font-semibold"
                 >
                   Register here
                 </Link>
@@ -121,8 +121,8 @@ export default function Login() {
                 { socialMedia: twitter, socialUrl: "" },
                 { socialMedia: github, socialUrl: "" },
                 { socialMedia: google, socialUrl: "" },
-              ].map((item) => (
-                <Image src={item.socialMedia} alt="" />
+              ].map((item, index) => (
+                <Image key={index} src={item.socialMedia} alt="" />
               ))}
             </div>
           </div>

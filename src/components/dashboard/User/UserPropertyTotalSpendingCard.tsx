@@ -2,13 +2,21 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { UserHouseIcon } from "@/components/shared/Icons/UserHouseIcon";
 
+interface UserPropertyTotalSpendingCardProps {
+  iconClassName?: string;
+  title: string;
+  price: string;
+  className?: string;
+  fill?: string;
+}
+
 export const UserPropertyTotalSpendingCard = ({
   iconClassName,
   title,
   price,
   className,
-  fill
-}) => {
+  fill,
+}: UserPropertyTotalSpendingCardProps) => {
   return (
     <div
       className={cn(
@@ -23,7 +31,7 @@ export const UserPropertyTotalSpendingCard = ({
           iconClassName
         )}
       >
-       <UserHouseIcon fill={fill} />
+        <UserHouseIcon fill={fill} />
       </div>
       {/* Title and Amount */}
       <div>

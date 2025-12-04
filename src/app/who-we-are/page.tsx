@@ -188,7 +188,7 @@ export default function WhoWeArePage() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <g clip-path="url(#clip0_1515_978)">
+          <g clipPath="url(#clip0_1515_978)">
             <path
               d="M24 13.3333H32L28 8L24 13.3333ZM24 18.6667H32L28 24L24 18.6667Z"
               fill="#C4B5FD"
