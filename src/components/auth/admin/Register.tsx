@@ -7,11 +7,15 @@ import Image from "next/image";
 import faceBookIcon from "@/assets/socials/facebook.svg";
 import twitter from "@/assets/socials/twitter.svg";
 import google from "@/assets/socials/google.svg";
+import { useSignUp } from "@/lib/api/requests/auth/useSignUp/useSignUp";
+import { FormInput } from "@/components/shared/form/FormInput";
 
 export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const { control, errors, submitSignUp, isPending } = useSignUp();
+
   return (
-    // max-w-[35rem]
     <div className="bg-gray-50">
       <div className="min-h-screen flex flex-col items-center justify-center py-20 px-4">
         <div className="max-w-[460px] w-full">
@@ -21,62 +25,84 @@ export default function Register() {
             </div>
             <div className="text-black mt-8 mb-4">
               <p className="text-24">Adventure starts here</p>
-              <p>Make your app managment easy and fun!</p>
+              <p>Make your app management easy and fun!</p>
             </div>
-            <form className="space-y-6">
-              <div>
-                <label className="text-slate-900 text-sm font-medium mb-2 block">
-                  Username
-                </label>
-                <div className="relative flex items-center">
-                  <input
-                    name="username"
-                    type="text"
-                    required
-                    className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md focus:outline-none"
-                    placeholder="Enter your username"
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="text-slate-900 text-sm font-medium mb-2 block">
-                  Email
-                </label>
-                <div className="relative flex items-center">
-                  <input
-                    name="username"
-                    type="email"
-                    required
-                    className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md focus:outline-none"
-                    placeholder="Enter your emil"
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="text-slate-900 text-sm font-medium mb-2 block">
-                  Password
-                </label>
-                <div className="relative flex items-center">
-                  <input
-                    name="password"
-                    type={showPassword ? "text" : "password"}
-                    required
-                    className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md focus:outline-none"
-                    placeholder="Enter password"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword((prev) => !prev)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2  text-[#22303E66]"
-                  >
-                    {showPassword ? (
-                      <EyeClosedIcon className="text-black" />
-                    ) : (
-                      <EyeIcon className="text-black" />
-                    )}
-                  </button>
-                </div>
-              </div>
+            <form onSubmit={submitSignUp} className="space-y-6">
+              {/* First Name */}
+              <FormInput
+                name="first_name"
+                label="First Name"
+                placeholder="Enter your first name"
+                control={control}
+                errors={errors}
+              />
+
+              {/* Last Name */}
+              <FormInput
+                name="last_name"
+                label="Last Name"
+                placeholder="Enter your last name"
+                control={control}
+                errors={errors}
+              />
+
+              {/* Email */}
+              <FormInput
+                name="email"
+                label="Email"
+                type="email"
+                placeholder="Enter your email"
+                control={control}
+                errors={errors}
+              />
+
+              {/* Phone */}
+              <FormInput
+                name="phone"
+                label="Phone Number"
+                type="tel"
+                placeholder="Enter your phone number"
+                control={control}
+                errors={errors}
+              />
+
+              {/* Password */}
+              <FormInput
+                name="password"
+                label="Password"
+                type={showPassword ? "text" : "password"}
+                placeholder="Enter password"
+                control={control}
+                errors={errors}
+                icon={
+                  showPassword ? (
+                    <EyeClosedIcon className="text-black" />
+                  ) : (
+                    <EyeIcon className="text-black" />
+                  )
+                }
+                onIconClick={() => setShowPassword((prev) => !prev)}
+              />
+
+              {/* Confirm Password */}
+              <FormInput
+                name="password_confirmation"
+                label="Confirm Password"
+                type={showConfirmPassword ? "text" : "password"}
+                placeholder="Confirm your password"
+                control={control}
+                errors={errors}
+                icon={
+                  showConfirmPassword ? (
+                    <EyeClosedIcon className="text-black" />
+                  ) : (
+                    <EyeIcon className="text-black" />
+                  )
+                }
+                onIconClick={() => setShowConfirmPassword((prev) => !prev)}
+              />
+
+              {/* Terms and Conditions */}
               <div className="flex flex-wrap items-center">
                 <div className="flex items-center">
                   <input
@@ -94,48 +120,62 @@ export default function Register() {
                 </div>
                 <div className="text-sm">
                   <a
-                    href="jajvascript:void(0);"
-                    className="text-blue-600 hover:underline font-semibold"
+                    href="javascript:void(0);"
+                    className="text-blue-600 hover:underline font-semibold ml-1"
                   >
-                    privcy policy and terms
+                    privacy policy and terms
                   </a>
                 </div>
               </div>
 
+              {/* Submit Button */}
               <div className="!mt-12">
-                <Link href="#">
-                  <button
-                    type="button"
-                    className="w-full py-2 px-4 text-[15px] font-medium tracking-wide rounded-md text-white btn-gradient focus:outline-none cursor-pointer"
-                  >
-                    Sign up
-                  </button>
-                </Link>
+                <button
+                  type="submit"
+                  disabled={isPending}
+                  className={`w-full py-2 px-4 text-[15px] font-medium tracking-wide rounded-md text-white btn-gradient focus:outline-none ${
+                    isPending
+                      ? "opacity-50 cursor-not-allowed"
+                      : "cursor-pointer"
+                  }`}
+                >
+                  {isPending ? "Signing up..." : "Sign up"}
+                </button>
               </div>
+
               <p className="text-slate-900 text-sm !mt-6 text-center">
                 Already have an account?{" "}
-                <a
+                <Link
                   href="/user-login"
                   className="text-blue-600 hover:underline ml-1 whitespace-nowrap font-semibold"
                 >
-                  Login in
-                </a>
+                  Log in
+                </Link>
               </p>
             </form>
+
             {/* OR */}
             <div className="text-black flex items-center mt-4">
               <div className="bg-gray-400 h-[1px] w-full"></div>
               <p className="text-center text-black mx-5">or</p>
               <div className="bg-gray-400 h-[1px] w-full"></div>
             </div>
-            {/* social */}
+
+            {/* Social Login */}
             <div className="flex justify-center gap-3 mt-4">
               {[
-                { socialMedia: faceBookIcon, socialUrl: "" },
-                { socialMedia: twitter, socialUrl: "" },
-                { socialMedia: google, socialUrl: "" },
-              ].map((item) => (
-                <Image src={item.socialMedia} alt="" />
+                { socialMedia: faceBookIcon, socialUrl: "", name: "Facebook" },
+                { socialMedia: twitter, socialUrl: "", name: "Twitter" },
+                { socialMedia: google, socialUrl: "", name: "Google" },
+              ].map((item, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  className="hover:opacity-80 transition-opacity"
+                  aria-label={`Sign up with ${item.name}`}
+                >
+                  <Image src={item.socialMedia} alt={item.name} />
+                </button>
               ))}
             </div>
           </div>
@@ -144,7 +184,3 @@ export default function Register() {
     </div>
   );
 }
-
-// https://flowbite.com/blocks/marketing/login/
-// https://tailwindflex.com/tag/login
-// https://readymadeui.com/tailwind-blocks/login-form

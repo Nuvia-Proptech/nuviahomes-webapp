@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ConditionalFooter } from "@/components/shared/footer/ConditionalFooter";
 import { AppBody } from "@/components/shared/AppSetup/AppBody";
+import { Toaster } from "react-hot-toast";
+import { QueryProvider } from "@/providers/QueryProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,10 +50,34 @@ export default function RootLayout({
       <AppBody
         className={`${geistSans.variable} ${geistMono.variable} ${urbanist.variable} ${publicSans.variable} antialiased`}
       >
-        <div className="max-w-[1536px] mx-auto relative">
-          {children}
-          <ConditionalFooter />
-        </div>
+        <QueryProvider>
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              duration: 4000,
+              style: {
+                background: "#363636",
+                color: "#fff",
+              },
+              success: {
+                iconTheme: {
+                  primary: "#10b981",
+                  secondary: "#fff",
+                },
+              },
+              error: {
+                iconTheme: {
+                  primary: "#ef4444",
+                  secondary: "#fff",
+                },
+              },
+            }}
+          />
+          <div className="max-w-[1536px] mx-auto relative">
+            {children}
+            <ConditionalFooter />
+          </div>
+        </QueryProvider>
       </AppBody>
     </html>
   );
