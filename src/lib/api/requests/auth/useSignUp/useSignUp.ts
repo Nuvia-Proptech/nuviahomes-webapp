@@ -7,6 +7,8 @@ import { API_ROUTES } from "../../../routes";
 import { SuccessResponse } from "../../../types";
 import { useSignUpFormValidator } from "./useSignUpFormValidator";
 import { useRouter } from "next/navigation";
+import { useAuthStore } from "@/store/useAuthStore";
+import appRoutes from "@/constants/AppRoutes";
 
 interface SignUpRequest {
   firstName: string;
@@ -17,13 +19,22 @@ interface SignUpRequest {
   role: "user" | "admin" | "agent" | "investor";
 }
 
+interface User {
+  id: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  role: string;
+}
+
 interface SignUpResponse {
-  token: string;
-  data: SignUpRequest;
+  access_token: string;
+  user: User;
 }
 
 export const useSignUp = () => {
   const { push } = useRouter();
+  const { setAuth } = useAuthStore();
   const {
     control,
     handleSubmit,
@@ -42,7 +53,7 @@ export const useSignUp = () => {
         email: formData.email,
         phone: formData.phone,
         password: formData.password,
-        role: "user", // Default role is always 'user'
+        role: "user",
       };
 
       const response = await api.post<
@@ -52,14 +63,17 @@ export const useSignUp = () => {
       return response;
     },
     onSuccess: (data) => {
+      // Store auth token and user data in Zustand (which auto-syncs to localStorage)
+      setAuth(data.data.access_token, data.data.user);
+
       reset();
-      push("/user");
+      push(appRoutes.dashboard.user.index)
       toast.success("registered successfully", {
         duration: 5000,
       });
     },
     onError: (error: any) => {
-      // Handle 409 Conflict - User already exists
+      // if user already exists
       if (error?.response?.status === 409) {
         toast.error("User with this email already exists", {
           duration: 5000,
