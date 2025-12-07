@@ -1,14 +1,6 @@
 // components/Sidebar.jsx
 import Link from "next/link";
-import {
-  Home,
-  Users,
-  Settings,
-  BarChart3,
-  LogOut,
-  Search,
-  Bell,
-} from "lucide-react";
+import { Search, Bell } from "lucide-react";
 import Image from "next/image";
 import logo from "@/assets/logo.svg";
 import dashBoardIcon from "@/assets/dash1-icons/element-equal.svg";
@@ -23,6 +15,7 @@ import reports from "@/assets/dash1-icons/note.svg";
 import setting from "@/assets/dash1-icons/cpu-setting.svg";
 
 export default function Sidebar() {
+  /* eslint-disable prefer-const */
   let dashBoardNav = [
     { item: "Dashboard", icon: dashBoardIcon },
     { item: "Users", icon: users },
@@ -35,11 +28,14 @@ export default function Sidebar() {
     { item: "Reports", icon: reports },
     { item: "Settings", icon: setting },
   ];
-  
+
   return (
-    <div >
+    <div>
       <aside className="h-screen w-[236px] bg-[#1c0845] text-gray-100 flex flex-col shadow-lg">
-        <Link href="/ " className="p-6 text-2xl font-bold tracking-wide border-gray-700">
+        <Link
+          href="/ "
+          className="p-6 text-2xl font-bold tracking-wide border-gray-700"
+        >
           <Image src={logo} alt="" />
         </Link>
 

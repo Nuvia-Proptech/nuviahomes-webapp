@@ -1,4 +1,4 @@
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import React from "react";
 import houseImage from "@/assets/images/house.png";
@@ -8,8 +8,8 @@ import team3 from "@/assets/images/team3.png";
 import { EyeIcon } from "@/components/shared/Icons/EyeIcon";
 import { MoreIcon } from "@/components/shared/Icons/MoreIcon";
 import { ProgressBar } from "./ProgressBar";
-import appRoutes from '@/constants/AppRoutes';
-import { TeamAvatarGroup } from '@/components/shared/TeamAvatarGroup';
+import appRoutes from "@/constants/AppRoutes";
+import { TeamAvatarGroup } from "@/components/shared/TeamAvatarGroup";
 
 const teamMembers = [
   {
@@ -39,6 +39,16 @@ const teamMembers = [
   },
 ];
 
+export interface ProjectProps {
+  id: string;
+  name: string;
+  location: string;
+  leader: string;
+  startDate: string;
+  endDate: string;
+  progress: number;
+}
+
 export const ProjectsTableBodies = ({
   id,
   name,
@@ -47,16 +57,16 @@ export const ProjectsTableBodies = ({
   startDate,
   endDate,
   progress,
-}) => {
+}: ProjectProps) => {
   const router = useRouter();
 
   const handleClick = () => {
     router.push(`${appRoutes.dashboard.admin.projects.index}/${id}`);
   };
-  
+
   return (
     <tr
-    onClick={handleClick}
+      onClick={handleClick}
       key={id}
       className="border-t border-textColor/25 font-semibold font-urbanist text-sm"
     >

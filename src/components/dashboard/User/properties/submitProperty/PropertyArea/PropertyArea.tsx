@@ -1,13 +1,13 @@
 import { AppInput } from "@/components/shared/AppSetup/AppInput";
 import { SelectDropDown } from "@/components/shared/SelectDropDown";
-import React, { useState } from "react";
+import React from "react";
 import { RadioOptionSelector } from "../RadioOptionSelector";
 
 export const PropertyArea = () => {
   return (
     <div className="my-5">
       {/* Forms Sections */}
-      <div  className="grid md:grid-cols-2 gap-4 my-5">
+      <div className="grid md:grid-cols-2 gap-4 my-5">
         {/* Total Area */}
         <AppInput
           label="Total Area"
@@ -54,7 +54,7 @@ export const PropertyArea = () => {
           label="Available From"
           options={
             <>
-              <option value="10" disbabled defaultValue={true}>
+              <option value="10" disabled>
                 Select Furnished Status
               </option>
               <option value="10">Completed</option>

@@ -1,11 +1,16 @@
-import React from 'react'
-import { AdminSideBarNav } from '../dashboard/superAdmin/AdminSideBarNav'
+import React from "react";
+import { AdminSideBarNav } from "../dashboard/superAdmin/AdminSideBarNav";
 
-export const AppAdminNav = ({children, className}) => {
+interface AppAdminNavProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+export const AppAdminNav = ({ children, className }: AppAdminNavProps) => {
   return (
     <section className={`bg-secondaryColor flex flex-row ${className}`}>
-    <AdminSideBarNav />
-       {children}
-   </section>
-  )
-}
+      <AdminSideBarNav />
+      {children}
+    </section>
+  );
+};

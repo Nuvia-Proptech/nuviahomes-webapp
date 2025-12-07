@@ -1,13 +1,13 @@
-import { api } from '@/base/api/api';
-import { API_ROUTES } from '@/base/api/routes';
-import { SuccessResponse } from '@/base/api/types';
-import { useFormManager } from '@/base/formManager/useFormManager';
-import appRoutes from '@/constants/appRoutes';
-import { useMutation } from '@tanstack/react-query';
-import axios from 'axios';
-import { useLocalSearchParams, useRouter } from 'expo-router';
-import Toast from 'react-native-toast-message';
-import { useAccountVerificationFormValidator } from './useAccountVerificationFormValidator';
+import { api } from "@/base/api/api";
+import { API_ROUTES } from "@/base/api/routes";
+import { SuccessResponse } from "@/base/api/types";
+import { useFormManager } from "@/base/formManager/useFormManager";
+import appRoutes from "@/constants/appRoutes";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import { useLocalSearchParams, useRouter } from "expo-router";
+import Toast from "react-native-toast-message";
+import { useAccountVerificationFormValidator } from "./useAccountVerificationFormValidator";
 
 interface AccountVerificationRequest {
   token: string;
@@ -48,14 +48,17 @@ export const useAccountVerification = () => {
       });
 
       Toast.show({
-        type: 'successToast',
-        text1: 'successfully signed up',
+        type: "successToast",
+        text1: "successfully signed up",
       });
     },
     onError: (error: any) => {
       Toast.show({
-        type: 'errorToast',
-        text1: error?.response?.data?.message ?? error?.message ?? 'Something went wrong',
+        type: "errorToast",
+        text1:
+          error?.response?.data?.message ??
+          error?.message ??
+          "Something went wrong",
       });
     },
   });

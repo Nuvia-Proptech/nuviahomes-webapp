@@ -38,7 +38,7 @@ export const EditProjectDetails = () => {
             label="Property Type"
             options={
               <>
-                <option value="10" disbabled defaultValue={true}>
+                <option value="10" disabled>
                   Select propterty Type
                 </option>
                 <option value="10">Apartment</option>
@@ -57,7 +57,7 @@ export const EditProjectDetails = () => {
             label="Select Country"
             options={
               <>
-                <option value="10" disabled defaultValue={true}>
+                <option value="10" disabled>
                   Select Country
                 </option>
                 <option value="10">Nigeria</option>

@@ -80,7 +80,7 @@ export const PropertiesIndex = () => {
                 id="propertyStatus"
                 options={
                   <>
-                    <option value="Property Status" disabled defaultValue={true}>
+                    <option value="Property Status" disabled>
                       Property Status
                     </option>
                     <option value="Cancelled">Cancelled</option>
@@ -95,7 +95,7 @@ export const PropertiesIndex = () => {
                 id="propertyStatus"
                 options={
                   <>
-                    <option value="Property Type" disabled defaultValue={true}>
+                    <option value="Property Type" disabled>
                       Property Type
                     </option>
                     <option value="Apartment">Apartment</option>

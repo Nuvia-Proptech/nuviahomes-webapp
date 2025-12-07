@@ -1,7 +1,4 @@
-import Image from "next/image";
 import React from "react";
-import houseImage from "@/assets/images/house.png";
-import { TimerIcon } from "@/components/shared/Icons/TimerIcon";
 import { EyeIcon } from "@/components/shared/Icons/EyeIcon";
 import { MoreIcon } from "@/components/shared/Icons/MoreIcon";
 import { CircleStop, CircleCheck } from "lucide-react";
@@ -14,6 +11,14 @@ export const InvestmentTableBodies = ({
   profit,
   isInstallment,
   status,
+}: {
+  id: string | number;
+  plan: string;
+  investmentAmount: string;
+  targetInvestment: string;
+  profit: string;
+  isInstallment: boolean;
+  status: string;
 }) => {
   const isInstallmentValue = isInstallment === true ? "Yes" : "No";
 

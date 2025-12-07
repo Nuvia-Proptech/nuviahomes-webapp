@@ -1,10 +1,12 @@
 import React from "react";
+import Image from "next/image";
 import { Bath, Bed, Ruler, Star } from "lucide-react";
 
 const mockProperties = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
     status: "For Sale",
     price: 1500000,
     priceType: "Yearly",
@@ -14,11 +16,12 @@ const mockProperties = [
     beds: 3,
     baths: 3,
     area: 120,
-    address: "No 24 Green Vallet Estates"
+    address: "No 24 Green Vallet Estates",
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
     status: "For Rent",
     price: 850000,
     priceType: "Monthly",
@@ -28,11 +31,12 @@ const mockProperties = [
     beds: 4,
     baths: 2,
     area: 150,
-    address: "No 12 Ocean View Drive"
+    address: "No 12 Ocean View Drive",
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1605146769289-440113cc3d00?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1605146769289-440113cc3d00?w=800&q=80",
     status: "For Sale",
     price: 2200000,
     priceType: "Yearly",
@@ -42,11 +46,12 @@ const mockProperties = [
     beds: 5,
     baths: 4,
     area: 200,
-    address: "No 7 Luxury Lane Estate"
+    address: "No 7 Luxury Lane Estate",
   },
   {
     id: 4,
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
     status: "For Rent",
     price: 650000,
     priceType: "Monthly",
@@ -56,12 +61,12 @@ const mockProperties = [
     beds: 2,
     baths: 2,
     area: 85,
-    address: "No 45 Downtown Circle"
-  }
+    address: "No 45 Downtown Circle",
+  },
 ];
 
-// Helper function to render stars 
-const renderStars = (rating) => {
+// Helper function to render stars
+const renderStars = (rating: number) => {
   return (
     <div className="flex items-center gap-0.5">
       {[...Array(5)].map((_, i) => (
@@ -77,7 +82,6 @@ const renderStars = (rating) => {
 };
 
 export default function FeaturedListedProperties() {
- 
   const properties = mockProperties;
 
   return (
@@ -108,10 +112,12 @@ export default function FeaturedListedProperties() {
             >
               {/* Image Wrapper */}
               <div className="w-full lg:w-1/2 h-60 lg:h-64">
-                <img
+                <Image
                   src={property.image}
                   alt={property.title}
-                  className="w-full h-full object-cover rounded-xl"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  width={500}
+                  height={300}
                 />
               </div>
 
@@ -123,7 +129,9 @@ export default function FeaturedListedProperties() {
                   </div>
                   <p className="text-24 flex items-center gap-1">
                     N{property.price.toLocaleString()}
-                    <span className="text-14 font-normal">/{property.priceType}</span>
+                    <span className="text-14 font-normal">
+                      /{property.priceType}
+                    </span>
                   </p>
                 </div>
 

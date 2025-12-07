@@ -10,7 +10,25 @@ import { ProjectTotalSpendingCard } from "../ProjectTotalSpendingCard";
 import { UserIcon } from "@/components/shared/Icons/UserIcon";
 import { useParams } from "next/navigation";
 
-export const ProjectDetailIndex = ({ project, milestones }) => {
+interface Milestone {
+  title: string;
+  status: string;
+  date: string;
+}
+
+interface Project {
+  name: string;
+  location: string;
+  [key: string]: any;
+}
+
+export const ProjectDetailIndex = ({
+  project,
+  milestones,
+}: {
+  project: Project;
+  milestones: Milestone[];
+}) => {
   const [detailView, setDetailView] = useState("overview");
   const params = useParams();
   const slug = params.slug;
@@ -31,7 +49,7 @@ export const ProjectDetailIndex = ({ project, milestones }) => {
           </div>
           {/* Pause and edit btn */}
           <div className="flex gap-4.5">
-            <Link href={appRoutes.dashboard.admin.projects.slug(slug).index}>
+            <Link href={appRoutes.dashboard.admin.projects.slug(slug as string).index}>
               <button className="flex flex-row justify-center items-center gap-2.5 rounded-[12px] p-2.5 bg-textColor cursor-pointer">
                 <PlusSquareIcon />
                 <p className="font-publicSans text-base font-normal text-white">
@@ -39,7 +57,9 @@ export const ProjectDetailIndex = ({ project, milestones }) => {
                 </p>
               </button>
             </Link>
-            <Link href={appRoutes.dashboard.admin.projects.slug(slug).editProject}>
+            <Link
+              href={appRoutes.dashboard.admin.projects.slug(slug as string).editProject}
+            >
               <button className="flex flex-row justify-center items-center gap-2.5 rounded-[12px] p-2.5 bg-primaryColor cursor-pointer">
                 <PlusSquareIcon />
                 <p className="font-publicSans text-base font-normal text-white">

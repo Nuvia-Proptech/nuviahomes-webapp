@@ -6,6 +6,12 @@ export const UserProgressProjectCard = ({
   progress,
   color,
   status,
+}: {
+  title: string;
+  location: string;
+  progress: number;
+  color: string;
+  status: string;
 }) => {
   const colorClasses =
     color === "orange"
@@ -13,14 +19,14 @@ export const UserProgressProjectCard = ({
           track: "bg-gray-200",
           bar: "bg-warningColor",
           circleBorder: "border-warningColor",
-          
+
           badge: "bg-warningColor text-white",
         }
       : {
           track: "bg-gray-200",
           bar: "bg-successColorLight",
           circleBorder: "border-successColorLight",
-          
+
           badge: "bg-successColorLight text-white",
         };
 
@@ -43,9 +49,7 @@ export const UserProgressProjectCard = ({
             className={`absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-5 h-5 rounded-full border-4 ${colorClasses.circleBorder} bg-white flex items-center justify-center`}
             style={{ left: `${progress}%` }}
           >
-            <div
-              className={`w-2.5 h-2.5 rounded-full bg-white`}
-            />
+            <div className={`w-2.5 h-2.5 rounded-full bg-white`} />
           </div>
         </div>
 

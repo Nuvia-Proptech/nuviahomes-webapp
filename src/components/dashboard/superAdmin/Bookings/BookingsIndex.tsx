@@ -105,7 +105,7 @@ export const BookingsIndex = () => {
               <Calendar
                 mode="single"
                 selected={date}
-                onSelect={setDate}
+                onSelect={(day: Date | undefined) => setDate(day || new Date())}
                 className="border-b w-2xs"
               />
 
@@ -113,14 +113,13 @@ export const BookingsIndex = () => {
                 <p className="text-textColor text-xl font-semibold font-urbanist">
                   Booking Filters
                 </p>
-                
-                 {filters.map(item => (
-                  <div className="flex gap-5 my-3">
-                     <TickedSquareIcon />
+
+                {filters.map((item) => (
+                  <div className="flex gap-5 my-3" key={item.label}>
+                    <TickedSquareIcon />
                     <p>{item.label}</p>
                   </div>
-                 ))}
-                  
+                ))}
               </div>
             </div>
 

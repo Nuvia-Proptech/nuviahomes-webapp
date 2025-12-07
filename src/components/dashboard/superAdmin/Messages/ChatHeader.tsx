@@ -3,7 +3,14 @@ import { MoreIcon } from "@/components/shared/Icons/MoreIcon";
 import { SearchIcon } from "@/components/shared/Icons/SearchIcon";
 import { VideoIcon } from "@/components/shared/Icons/VideoIcon";
 
-export const ChatHeader = ({ contact }) => {
+interface Contact {
+  id: string | number;
+  name: string;
+  role: string;
+  avatar: React.ReactNode;
+}
+
+export const ChatHeader = ({ contact }: { contact: Contact }) => {
   return (
     <div className="border-b border-[#C6D0D2] p-4 font-urbanist flex justify-between">
       <div className="flex items-center gap-4">
@@ -36,4 +43,4 @@ export const ChatHeader = ({ contact }) => {
       </div>
     </div>
   );
-}
+};

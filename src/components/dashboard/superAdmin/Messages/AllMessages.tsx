@@ -1,7 +1,20 @@
 import Image from "next/image";
 import agentImg from "@/assets/images/agent.png";
 
-export const AllMessages = ({ message, nextMessage }) => {
+interface Message {
+  id: number;
+  text: string;
+  time: string;
+  type: string;
+}
+
+export const AllMessages = ({
+  message,
+  nextMessage,
+}: {
+  message: Message;
+  nextMessage?: Message;
+}) => {
   const isSent = message.type === "sent";
 
   const showTime =

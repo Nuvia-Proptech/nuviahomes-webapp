@@ -21,7 +21,7 @@ export const PersonalDetails = () => {
           >
             <div className="flex flex-col justify-center items-center gap-5">
                {/* Render the icon component with appropriate fill color*/}
-               <item.icon fill={adminType === item.id ? item.activeColor : item.inactiveColor} />
+               <item.icon fill={adminType === item.id ? item.activeColor : item.inactiveColor} className="" />
               <p className="text-center font-urbanist font-semibold text-sm text-black">
                 {item.title}
               </p>

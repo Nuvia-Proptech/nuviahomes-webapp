@@ -16,8 +16,8 @@ export default function ForgotPAssWord() {
             <div className="text-black mt-8 mb-4">
               <p className="text-24">Forgot Password</p>
               <p>
-                Enter your email and we'll send you instructions to reset your
-                password
+                Enter your email and we&apos;ll send you instructions to reset
+                your password
               </p>
             </div>
             <form className="space-y-6">

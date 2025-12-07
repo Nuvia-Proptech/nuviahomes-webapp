@@ -22,7 +22,8 @@ export const PropertiesTables = () => {
           {propertyData.map((item) => {
             return (
               <PropertiesTableBodies
-                id={item.id}
+                key={item.id}
+                id={item.id.toString()}
                 street={item.street}
                 city={item.city}
                 type={item.type}

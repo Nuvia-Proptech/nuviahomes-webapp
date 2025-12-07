@@ -4,8 +4,6 @@ import React, { useState } from "react";
 import { ChevronDownIcon } from "./Icons/ChevronDownIcon";
 import { cn } from "@/lib/utils";
 
-
-
 export const MultiSelectDropdown = ({
   label,
   options,
@@ -17,20 +15,13 @@ export const MultiSelectDropdown = ({
 
   const toggleOption = (value) => {
     setSelected((prev) =>
-      prev.includes(value)
-        ? prev.filter((v) => v !== value)
-        : [...prev, value]
+      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
     );
   };
 
   const removeOption = (value) => {
     setSelected((prev) => prev.filter((v) => v !== value));
   };
-
-  const displayText =
-    selected.length === 0
-      ? placeholder
-      : selected.map((v) => options.find((o) => o.value === v)?.label).join(", ");
 
   return (
     <div className={cn("flex flex-col gap-1 w-full", className)}>
@@ -77,7 +68,10 @@ export const MultiSelectDropdown = ({
           <ChevronDownIcon
             fill="#6C8184"
             width="14"
-            className={cn("ml-auto transition-transform", isOpen && "rotate-180")}
+            className={cn(
+              "ml-auto transition-transform",
+              isOpen && "rotate-180"
+            )}
           />
         </div>
 
@@ -104,7 +98,12 @@ export const MultiSelectDropdown = ({
 
       {/* Optional: hidden inputs for form submission */}
       {selected.map((value) => (
-        <input key={value} type="hidden" name={`${label.toLowerCase()}[]`} value={value} />
+        <input
+          key={value}
+          type="hidden"
+          name={`${label.toLowerCase()}[]`}
+          value={value}
+        />
       ))}
     </div>
   );

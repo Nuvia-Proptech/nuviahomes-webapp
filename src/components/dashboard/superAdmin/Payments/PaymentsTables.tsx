@@ -1,7 +1,25 @@
 import React from "react";
 import { PaymentsTableBodies } from "./PaymentsTableBodies";
 
-export const PaymentsTables = ({ paymentsData, onPaymentClick }) => {
+interface PaymentData {
+  id: string | number;
+  name: string;
+  method: string;
+  amount: number | string;
+  charge: number | string;
+  date: string;
+  payableAmount: number | string;
+}
+
+interface PaymentsTablesProps {
+  paymentsData: PaymentData[];
+  onPaymentClick: (payment: PaymentData) => void;
+}
+
+export const PaymentsTables = ({
+  paymentsData,
+  onPaymentClick,
+}: PaymentsTablesProps) => {
   return (
     <div className="overflow-x-auto my-5">
       <table className="min-w-[900px] w-full text-sm text-left text-textColor">

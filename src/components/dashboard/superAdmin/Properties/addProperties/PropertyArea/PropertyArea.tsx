@@ -1,6 +1,6 @@
 import { AppInput } from "@/components/shared/AppSetup/AppInput";
 import { SelectDropDown } from "@/components/shared/SelectDropDown";
-import React, { useState } from "react";
+import React from "react";
 import { RadioOptionSelector } from "../RadioOptionSelector";
 
 export const PropertyArea = () => {
@@ -54,7 +54,7 @@ export const PropertyArea = () => {
           label="Available From"
           options={
             <>
-              <option value="10" disbabled defaultValue={true}>
+              <option value="10" disabled>
                 Select Furnished Status
               </option>
               <option value="10">Completed</option>

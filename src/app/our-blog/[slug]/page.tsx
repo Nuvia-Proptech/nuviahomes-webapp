@@ -61,11 +61,11 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                     <div>
                       <p>
                         Buying your first home is more than just a financial
-                        investment — it's a deeply personal journey toward
+                        investment — it&apos;s a deeply personal journey toward
                         building a space that reflects your life, your goals,
-                        and your future; a place where you'll feel secure, grow
-                        through new experiences, and create memories that last a
-                        lifetime.
+                        and your future; a place where you&apos;ll feel secure,
+                        grow through new experiences, and create memories that
+                        last a lifetime.
                       </p>
                       <p className="mt-3 font-bold"> By {blog.author}</p>
                     </div>

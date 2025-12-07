@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { HiUsers } from "react-icons/hi";
 import { InvestmentCategoryItem } from "@/lib/dummyData/UserInvestmentsCategoryData";
 
@@ -44,7 +45,12 @@ export const InvestmentCard = ({
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden w-full max-w-7xl h-full flex flex-col">
         {/* Image Section */}
         <div className="relative h-48 rounded-lg overflow-hidden mx-4 mt-4 ">
-          <img src={image} alt={title} className="w-full h-full object-cover" />
+          <Image
+            src={image}
+            className="w-full h-full object-cover"
+            alt={title}
+            layout="fill"
+          />
           <div
             className={`absolute top-3 left-3 ${statusBg} text-gray-800 px-4 py-1 rounded-sm text-sm font-medium`}
           >

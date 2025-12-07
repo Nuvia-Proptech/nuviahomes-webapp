@@ -11,6 +11,9 @@ export default function Footer() {
       <DownloadOurApp />
       <EasyPayment />
       <div className="w-full max-w-screen p-4 py-6 lg:py-8">
+        <div className="bg-[#1b5590] text-white py-4 px-6 rounded-lg text-center">
+          <p className="font-semibold text-lg">Let&apos;s Chat!</p>
+        </div>
         <div className="flex flex-col md:flex-row items-center justify-between p-2">
           <div>
             <p className="text-[64px] font-semibold">Ready To Work With Us?</p>
@@ -89,7 +92,8 @@ export default function Footer() {
               > */}
             </Link>
             <p>
-              We are a cutting edge real estate company that <br />
+              Don&apos;t miss out on the future of real estate. company that{" "}
+              <br />
               helps you buy, rent and invest in real estate <br />
               opportunities around you
             </p>
@@ -147,7 +151,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link href="#" className="hover:underline">
-                    Faq's
+                    Faq&apos;s
                   </Link>
                 </li>
                 <li>

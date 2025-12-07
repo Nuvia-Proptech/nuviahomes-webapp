@@ -1,9 +1,8 @@
 import React from "react";
-import { Calendar, ChevronDown, Search } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import mapIcon from "@/assets/icons/map.svg";
 import calendarIcon from "@/assets/icons/calendar.svg";
-import arroewDownIcon from "@/assets/icons/arrow-down.svg";
 import searchIcon from "@/assets/icons/search-icon.svg";
 
 interface BuyRentInvestWidgetProps {
@@ -11,7 +10,10 @@ interface BuyRentInvestWidgetProps {
   searchText?: string;
 }
 
-export default function BuyRentInvestWidget({ widgetStyle, searchText }: BuyRentInvestWidgetProps) {
+export default function BuyRentInvestWidget({
+  widgetStyle,
+  searchText,
+}: BuyRentInvestWidgetProps) {
   return (
     <div className={`${widgetStyle} `}>
       {/* Desktop Version - Hidden on mobile */}
@@ -61,7 +63,9 @@ export default function BuyRentInvestWidget({ widgetStyle, searchText }: BuyRent
             <div className="border rounded-2xl bg-[#1c0845] px-2">
               <div className="flex items-center text-white">
                 {<p className="unskwewd">{searchText}</p>}
-                <span className="unskewed"><Image src={searchIcon} alt="Search icon" /></span>
+                <span className="unskewed">
+                  <Image src={searchIcon} alt="Search icon" />
+                </span>
               </div>
             </div>
           </div>
@@ -81,50 +85,60 @@ export default function BuyRentInvestWidget({ widgetStyle, searchText }: BuyRent
             </button>
           ))}
         </div>
-        
+
         {/* Main Widget Container */}
         <div className="bg-[#DFE6E7] rounded-lg p-4 space-y-3">
           {/* Location */}
           <div className="widget-tab-style bg-white rounded-lg p-3 shadow-sm">
             <p className="text-sm font-semibold text-gray-700 mb-1">Location</p>
             <div className="flex items-center justify-between">
-              <p className="text-xs text-gray-600">Choose what you are looking at</p>
+              <p className="text-xs text-gray-600">
+                Choose what you are looking at
+              </p>
               <Image src={mapIcon} alt="" className="w-5 h-5" />
             </div>
           </div>
-          
+
           {/* Dates Row */}
           <div className="grid grid-cols-2 gap-3">
             <div className="bg-white rounded-lg p-3 shadow-sm">
-              <p className="text-sm font-semibold text-gray-700 mb-1">Check-in</p>
+              <p className="text-sm font-semibold text-gray-700 mb-1">
+                Check-in
+              </p>
               <div className="flex items-center gap-2">
                 <p className="text-xs text-gray-600">Choose date</p>
                 <Image src={calendarIcon} alt="" className="w-4 h-4" />
               </div>
             </div>
-            
+
             <div className="bg-white rounded-lg p-3 shadow-sm">
-              <p className="text-sm font-semibold text-gray-700 mb-1">Check-out</p>
+              <p className="text-sm font-semibold text-gray-700 mb-1">
+                Check-out
+              </p>
               <div className="flex items-center gap-2">
                 <p className="text-xs text-gray-600">Choose date</p>
                 <Image src={calendarIcon} alt="" className="w-4 h-4" />
               </div>
             </div>
           </div>
-          
+
           {/* Property */}
           <div className="bg-white rounded-lg p-3 shadow-sm">
-            <p className="text-sm font-semibold text-gray-700 mb-1">Property Type</p>
+            <p className="text-sm font-semibold text-gray-700 mb-1">
+              Property Type
+            </p>
             <div className="flex items-center justify-between">
               <p className="text-xs text-gray-600">Choose type</p>
               <ChevronDown className="w-4 h-4 text-gray-600" />
             </div>
           </div>
-          
+
           {/* Search Button */}
           <button className="w-full bg-[#1c0845] rounded-xl py-4 shadow-lg">
             <div className="flex items-center justify-center text-white gap-2">
-              <span className="font-medium">{searchText || "Search Properties"}</span>
+              <span className="font-medium">
+                {searchText || "Search Properties"}
+              </span>
               <Image src={searchIcon} alt="Search icon" className="w-5 h-5" />
             </div>
           </button>

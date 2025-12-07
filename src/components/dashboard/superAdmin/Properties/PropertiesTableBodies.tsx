@@ -15,6 +15,16 @@ export const PropertiesTableBodies = ({
   user,
   isFeatured,
   status
+}: {
+  id: string;
+  street: string;
+  city: string;
+  type: string;
+  category: string;
+  price: string;
+  user: string;
+  isFeatured: boolean;
+  status: string;
 }) => {
   const isFeaturedValue = isFeatured === true ? "Yes" : "No";
   return (
@@ -51,12 +61,12 @@ export const PropertiesTableBodies = ({
       <td>
         <div>
           <p className="text-textColor">{price}</p>
-          <p class="text-xs text-textColorFaded">@ {user}</p>
+          <p className="text-xs text-textColorFaded">@ {user}</p>
         </div>
       </td>
       <td>
         <p
-          class={`${
+          className={`${
             isFeatured === true
               ? "bg-successColor/30 text-successColor"
               : "bg-dangerColor/30 text-dangerColor"
@@ -68,11 +78,11 @@ export const PropertiesTableBodies = ({
       <td>
         <div className="bg-warningColor/10 py-1.5 px-2.5 rounded-md gap-2 flex justify-center items-center  w-fit h-fit">
           <TimerIcon />
-          <p class="text-warningColor text-xs">{status}</p>
+          <p className="text-warningColor text-xs">{status}</p>
         </div>
       </td>
       <td>
-        <div class="flex items-center gap-3">
+        <div className="flex items-center gap-3">
           <button title="View">
             <EyeIcon />
           </button>

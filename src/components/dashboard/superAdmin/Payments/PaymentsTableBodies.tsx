@@ -13,6 +13,15 @@ export const PaymentsTableBodies = ({
   date,
   payable,
    onViewClick,
+}: {
+  id: string | number;
+  name: string;
+  method: string;
+  amount: string;
+  charge: string;
+  date: string;
+  payable: string | number;
+  onViewClick: () => void;
 }) => {
   return (
     <tr

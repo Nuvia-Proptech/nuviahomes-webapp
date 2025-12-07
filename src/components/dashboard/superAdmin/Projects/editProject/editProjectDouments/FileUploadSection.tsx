@@ -1,165 +1,33 @@
 import { AppInput } from "@/components/shared/AppSetup/AppInput";
 import { CloseCircleIcon } from "@/components/shared/Icons/CloseCircleIcon";
 import { DocumentUploadIcon } from "@/components/shared/Icons/DocumentUploadIcon";
-import React, { useState, useRef } from "react";
+import { useFileUpload } from "@/hooks/useFileUpload";
+import React from "react";
 
 export const FileUploadSection = () => {
-  const [selectedFiles, setSelectedFiles] = useState([]);
-  const [fileUrl, setFileUrl] = useState("");
-  const [isDragging, setIsDragging] = useState(false);
-  const [isAddingWithUrl, setIsAddingWithUrl] = useState(false);
-  const fileInputRef = useRef(null);
+  const {
+    selectedFiles,
+    fileUrl,
+    setFileUrl,
+    isDragging,
+    isAddingWithUrl,
+    setIsAddingWithUrl,
+    fileInputRef,
+    handleFileSelect,
+    handleAddFromUrl,
+    handleDragOver,
+    handleDragLeave,
+    handleDrop,
+    handleBrowseClick,
+    deleteFile,
+    getFileIcon,
+  } = useFileUpload();
 
-  const predefinedNames = ['Lease Agreement', 'Land Deeds', 'Plan Survey'];
-
-  const isImageUrl = (url) => {
-    const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp', '.svg', '.ico'];
-    const imagePatterns = ['image/', 'img.', 'images.', 'photobucket', 'flickr', 'imgur'];
-    
-    const lowerUrl = url.toLowerCase();
-    return imageExtensions.some(ext => lowerUrl.includes(ext)) || 
-           imagePatterns.some(pattern => lowerUrl.includes(pattern));
-  };
-
-  const getFileNameByIndex = (index) => {
-    return predefinedNames[index] || `Document ${index + 1}`;
-  };
-
-  const handleFileSelect = (event) => {
-    const files = Array.from(event.target.files);
-    handleFiles(files);
-  };
-
-  const handleFiles = (files) => {
-    // Check file limit
-    if (selectedFiles.length + files.length > 3) {
-      alert("Maximum 3 files allowed. Please select fewer files.");
-      return;
-    }
-
-    // Filter out image files
-    const nonImageFiles = files.filter((file) => !file.type.startsWith("image/"));
-
-    // Show alert if any images were filtered out
-    if (nonImageFiles.length < files.length) {
-      alert("Image files are not allowed. Please select document files only.");
-    }
-
-    // Check limit again after filtering
-    if (selectedFiles.length + nonImageFiles.length > 3) {
-      const filesToAdd = nonImageFiles.slice(0, 3 - selectedFiles.length);
-      filesToAdd.forEach((file, index) => processFile(file, selectedFiles.length + index));
-      if (nonImageFiles.length > filesToAdd.length) {
-        alert("Maximum 3 files reached. Some files were not added.");
-      }
-    } else {
-      nonImageFiles.forEach((file, index) => processFile(file, selectedFiles.length + index));
-    }
-  };
-
-  const processFile = (file, globalIndex) => {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      setSelectedFiles((prev) => [
-        ...prev,
-        {
-          id: Date.now() + Math.random(),
-          url: e.target.result,
-          name: getFileNameByIndex(globalIndex),
-          originalName: file.name,
-          type: "file",
-          size: file.size,
-          fileType: file.type,
-        },
-      ]);
-    };
-    reader.readAsDataURL(file);
-  };
-
-  const handleDragOver = (e) => {
-    e.preventDefault();
-    setIsDragging(true);
-  };
-
-  const handleDragLeave = (e) => {
-    e.preventDefault();
-    setIsDragging(false);
-  };
-
-  const handleDrop = (e) => {
-    e.preventDefault();
-    setIsDragging(false);
-
-    const files = Array.from(e.dataTransfer.files);
-    handleFiles(files);
-  };
-
-  const handleAddFromUrl = () => {
-    if (selectedFiles.length >= 3) {
-      alert("Maximum 3 files allowed. Please remove a file before adding a new one.");
-      return;
-    }
-
-    if (fileUrl.trim()) {
-      if (isImageUrl(fileUrl)) {
-        alert("Image URLs are not allowed. Please provide a URL to a document file.");
-        return;
-      }
-
-      setSelectedFiles((prev) => [
-        ...prev,
-        {
-          id: Date.now() + Math.random(),
-          url: fileUrl.trim(),
-          name: getFileNameByIndex(selectedFiles.length),
-          type: "url",
-        },
-      ]);
-      setFileUrl("");
-    }
-  };
-
-  const handleBrowseClick = () => {
-    if (selectedFiles.length >= 3) {
-      alert("Maximum 3 files allowed. Please remove a file before adding a new one.");
-      return;
-    }
-    fileInputRef.current?.click();
-  };
-
-  const removeFile = (id) => {
-    setSelectedFiles((prev) => {
-      const updatedFiles = prev.filter((file) => file.id !== id);
-      
-      // Reassign names based on new order
-      return updatedFiles.map((file, index) => ({
-        ...file,
-        name: getFileNameByIndex(index)
-      }));
-    });
-  };
-
-  const handleKeyPress = (e) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       handleAddFromUrl();
     }
   };
-
-  const getFileIcon = (fileType) => {
-    if (fileType?.includes('pdf')) return 'PDF';
-    if (fileType?.includes('word') || fileType?.includes('document')) return 'Word';
-    if (fileType?.includes('sheet') || fileType?.includes('excel')) return 'Sheet';
-    if (fileType?.includes('zip') || fileType?.includes('rar')) return 'Zip';
-    return 'Doc';
-  };
-
-//   const formatFileSize = (bytes) => {
-//     if (bytes === 0) return '0 Bytes';
-//     const k = 1024;
-//     const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-//     const i = Math.floor(Math.log(bytes) / Math.log(k));
-//     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-//   };
 
   return (
     <div className="grid grid-cols-1 md:flex gap-8 font-urbanist my-5">
@@ -167,8 +35,8 @@ export const FileUploadSection = () => {
       <div className="space-y-2 bg-secondaryColor rounded-xl p-2 w-80 flex flex-col justify-center items-center">
         {/* URL Input Section */}
         <div className="flex flex-col justify-end items-end gap-1">
-          <button 
-            onClick={() => setIsAddingWithUrl(prev => !prev)} 
+          <button
+            onClick={() => setIsAddingWithUrl((prev) => !prev)}
             className="text-xs font-urbanist font-normal text-primaryColor/80"
             disabled={selectedFiles.length >= 3}
           >
@@ -179,7 +47,9 @@ export const FileUploadSection = () => {
             <div className="flex gap-2 w-full">
               <AppInput
                 type="url"
-                onChange={(e) => setFileUrl(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setFileUrl(e.target.value)
+                }
                 onKeyPress={handleKeyPress}
                 className="w-[220px]"
                 placeholder="https://example.com/document.pdf"
@@ -201,7 +71,9 @@ export const FileUploadSection = () => {
         <div
           className={`w-full border border-dashed rounded-xl p-4 text-center transition-colors flex flex-col gap-2 justify-center items-center border-[#A8B6B8] max-w-2xs ${
             isDragging ? "border-primaryColor/50 bg-blue-50" : ""
-          } ${selectedFiles.length >= 3 ? "opacity-50 cursor-not-allowed" : ""}`}
+          } ${
+            selectedFiles.length >= 3 ? "opacity-50 cursor-not-allowed" : ""
+          }`}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={selectedFiles.length >= 3 ? undefined : handleDrop}
@@ -223,6 +95,7 @@ export const FileUploadSection = () => {
 
           <AppInput
             type="file"
+            // @ts-ignore
             ref={fileInputRef}
             onChange={handleFileSelect}
             accept=".pdf,.doc,.docx,.txt,.zip,.rar,.excel,.word,.sheet,.document"
@@ -237,28 +110,28 @@ export const FileUploadSection = () => {
       <div className="flex justify-start items-center overflow-hidden w-fit">
         {selectedFiles.length > 0 ? (
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-h-96 overflow-y-auto overflow-hidden bg-secondaryColor rounded-sm p-2.5p">
-            {selectedFiles.map((file, index) => (
-             <div>
-                <p className="text-textColor text-sm font-normal font-urbanist mb-1">{file.name}</p>
-                 <div key={file.id} className="relative w-full">
-                <div className="rounded-xl border border-dashed border-gray-200 p-4 w-36 h-36 flex flex-col items-center justify-center">
-                  <div className="flex flex-col gap-2 justify-center items-center text-sm text-dangerColor font-urbanist font-bold">
-                    <DocumentUploadIcon />
-                    <p>
-                      {getFileIcon(file.fileType)}
-                    </p>       
+            {selectedFiles.map((file: any) => (
+              <div key={file.id}>
+                <p className="text-textColor text-sm font-normal font-urbanist mb-1">
+                  {file.name}
+                </p>
+                <div className="relative w-full">
+                  <div className="rounded-xl border border-dashed border-gray-200 p-4 w-36 h-36 flex flex-col items-center justify-center">
+                    <div className="flex flex-col gap-2 justify-center items-center text-sm text-dangerColor font-urbanist font-bold">
+                      <DocumentUploadIcon />
+                      <p>{getFileIcon(file.fileType)}</p>
+                    </div>
                   </div>
+                  <button
+                    onClick={(event: any) => deleteFile(event, file)}
+                    className="absolute w-10.5 h-10.5 rounded-full bg-[#FFFFFFBD] -top-2.5 -right-2.5 transition-opacity z-20"
+                  >
+                    <div className="flex justify-center items-center">
+                      <CloseCircleIcon />
+                    </div>
+                  </button>
                 </div>
-                <button
-                  onClick={() => removeFile(file.id)}
-                  className="absolute w-10.5 h-10.5 rounded-full bg-[#FFFFFFBD] -top-2.5 -right-2.5 transition-opacity z-20"
-                >
-                  <div className="flex justify-center items-center">
-                    <CloseCircleIcon />
-                  </div>
-                </button>
               </div>
-             </div>
             ))}
           </div>
         ) : (

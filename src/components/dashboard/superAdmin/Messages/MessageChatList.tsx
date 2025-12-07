@@ -1,9 +1,23 @@
 import { MessageContactItem } from "./MessageContactItem";
 
+interface Contact {
+  id: string | number;
+  name: string;
+  role: string;
+  avatar: React.ReactNode;
+  date: string;
+  lastMessage: string;
+  isTyping?: boolean;
+}
+
 export const MessageChatList = ({
   contacts,
   selectedContact,
   onContactSelect,
+}: {
+  contacts: Contact[];
+  selectedContact: Contact | null;
+  onContactSelect: (contact: Contact) => void;
 }) => {
   return (
     <div className="py-4 mx-3">

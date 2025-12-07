@@ -20,12 +20,11 @@ export const ProjectsIndex = () => {
     return projectData.filter(
       (project) =>
         project.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        project.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        project.team.toLowerCase().includes(searchQuery.toLowerCase())
+        project.location.toLowerCase().includes(searchQuery.toLowerCase())
     );
-  }, [projectData, searchQuery]);
+  }, [searchQuery]);
 
-  const onSearchHandler = (e) => {
+  const onSearchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
 

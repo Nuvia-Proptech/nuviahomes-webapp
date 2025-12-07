@@ -1,10 +1,6 @@
 import React from "react";
 
-export const UserHouseIcon = ({
-  width = "20",
-  height = "20",
-  fill = "#71DD37",
-}) => {
+export const UserHouseIcon = ({ fill = "#71DD37" }) => {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
       <path

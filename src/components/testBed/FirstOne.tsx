@@ -1,14 +1,17 @@
-// @ts-nocheck
-import React from "react";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../ui/table";
 import {
   ChevronDown,
   EllipsisVertical,
   Eye,
-  PlusSquareIcon,
   Search,
   Trash2,
-  Upload,
-  User,
   UserCircle,
 } from "lucide-react";
 import {
@@ -27,15 +30,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import {
   Select,
   SelectContent,
@@ -90,8 +84,11 @@ export default function FirstOne() {
             desc: "Total users",
             icon: propertyDevelpersIcon,
           },
-        ].map((item) => (
-          <div className="flex justify-between h-[130px] w-[265px] py-[16px] px-[8px] rounded-sm shadow-sm bg-white mb-[12px]">
+        ].map((item, index) => (
+          <div
+            key={index}
+            className="flex justify-between h-[130px] w-[265px] py-[16px] px-[8px] rounded-sm shadow-sm bg-white mb-[12px]"
+          >
             <div>
               <p>{item.item}</p>
               <p className="text-[24px] font-bold">
@@ -176,13 +173,13 @@ export default function FirstOne() {
           </div>
           <div className="flex gap-4">
             <Button variant="outline" className="#F2EDFD">
-              <Image src={exportIcon} /> Export{" "}
+              <Image src={exportIcon} alt="Export" /> Export{" "}
             </Button>
 
             <Sheet>
               <SheetTrigger>
                 <Button variant="outline" className="btn-gradient text-white">
-                  <Image src={addSquareIcon} /> Add new users{" "}
+                  <Image src={addSquareIcon} alt="Add user" /> Add new users{" "}
                 </Button>
               </SheetTrigger>
               <SheetContent className="bg-white text-black">
@@ -192,14 +189,14 @@ export default function FirstOne() {
                   <hr className="my-4 text-black" />
                   <SheetDescription>
                     <form action="" className="space-y-4">
-                      <div class="flex items-center justify-center w-full">
+                      <div className="flex items-center justify-center w-full">
                         <label
-                          for="dropzone-file"
-                          class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+                          htmlFor="dropzone-file"
+                          className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
                         >
-                          <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                          <div className="flex flex-col items-center justify-center pt-5 pb-6">
                             <svg
-                              class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400"
+                              className="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400"
                               aria-hidden="true"
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
@@ -207,24 +204,26 @@ export default function FirstOne() {
                             >
                               <path
                                 stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
                                 d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
                               />
                             </svg>
-                            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                              <span class="font-semibold">Click to upload</span>{" "}
+                            <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                              <span className="font-semibold">
+                                Click to upload
+                              </span>{" "}
                               or drag and drop
                             </p>
-                            <p class="text-xs text-gray-500 dark:text-gray-400">
+                            <p className="text-xs text-gray-500 dark:text-gray-400">
                               SVG, PNG, JPG or GIF (MAX. 800x400px)
                             </p>
                           </div>
                           <input
                             id="dropzone-file"
                             type="file"
-                            class="hidden"
+                            className="hidden"
                           />
                         </label>
                       </div>
@@ -370,8 +369,8 @@ export default function FirstOne() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <TableRow className="">
+            {[1, 2, 3, 4, 5, 6].map((_, index) => (
+              <TableRow key={index} className="">
                 <TableCell className="font-medium">0110</TableCell>
                 {/* profile */}
                 <TableCell>

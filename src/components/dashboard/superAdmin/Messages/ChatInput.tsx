@@ -4,10 +4,10 @@ import { PaperClipIcon } from "@/components/shared/Icons/PaperClipIcon";
 import { SendIconTwo } from "@/components/shared/Icons/SendIconTwo";
 import { useState } from "react";
 
-export const ChatInput = ({ onSendMessage }) => {
+export const ChatInput = ({ onSendMessage }: { onSendMessage: any }) => {
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     if (message.trim()) {
       onSendMessage(message);
@@ -23,7 +23,7 @@ export const ChatInput = ({ onSendMessage }) => {
       <input
         type="text"
         value={message}
-        onChange={(e) => setMessage(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setMessage(e.target.value)}
         placeholder="Type your message here..."
         className="flex-1 px-4 py-3 w-full border-none outline-none text-[#22303E66] text-sm focus:outline-none focus:text-slate-900"
       />

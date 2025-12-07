@@ -1,11 +1,9 @@
-"use client"
+"use client";
 import React from "react";
 import { SuperAdminHeader } from "../SuperAdminHeader";
 import { totalSpendingData } from "@/lib/dummyData/totalSpendingData";
 import { PlusSquareIcon } from "@/components/shared/Icons/PlusSquareIcon";
-import Link from "next/link";
 import { SelectDropDown } from "@/components/shared/SelectDropDown";
-import appRoutes from "@/constants/AppRoutes";
 import { TotalSpendingItemsCard } from "@/components/shared/TotalSpendingItemsCard";
 import { InvestmentTables } from "./InvestmentTables";
 import { AppWrapper } from "@/components/shared/AppSetup/AppWrapper";
@@ -30,7 +28,7 @@ export const InvesmentsIndex = () => {
               A quick glance at all plans
             </p>
           </div>
-        <button
+          <button
             onClick={() => setIsCreateSheetOpen(true)}
             className="flex flex-row justify-center items-center gap-2.5 rounded-[12px] p-2.5 bg-gradient-to-br from-[#1B5590] via-[#35AF72] to-[#B5E03A] cursor-pointer"
           >
@@ -52,6 +50,7 @@ export const InvesmentsIndex = () => {
                 price={item.price}
                 icon={<IconComponent />}
                 iconClassName={item.iconClassName}
+                className=""
               />
             );
           })}
@@ -86,7 +85,7 @@ export const InvesmentsIndex = () => {
                 id="propertyStatus"
                 options={
                   <>
-                    <option value="Property Type" disabled defaultValue={true}>
+                    <option value="Property Type" disabled>
                       Plan Status
                     </option>
                     <option value="All">All</option>

@@ -20,8 +20,13 @@ export const PersonalDetails = () => {
             }`}
           >
             <div className="flex flex-col justify-center items-center gap-5">
-               {/* Render the icon component with appropriate fill color*/}
-               <item.icon fill={adminType === item.id ? item.activeColor : item.inactiveColor} />
+              {/* Render the icon component with appropriate fill color*/}
+              <item.icon
+                fill={
+                  adminType === item.id ? item.activeColor : item.inactiveColor
+                }
+                className=""
+              />
               <p className="text-center font-urbanist font-semibold text-sm text-black">
                 {item.title}
               </p>
@@ -44,7 +49,7 @@ export const PersonalDetails = () => {
         ))}
       </div>
 
-      <form action=""  className="grid md:grid-cols-2 gap-4 my-5">
+      <form action="" className="grid md:grid-cols-2 gap-4 my-5">
         <AppInput label="First Name" placeholder="John" />
 
         <AppInput label="Last Name" placeholder="John" />

@@ -1,7 +1,5 @@
-// @ts-nocheck
 "use client";
-import { Check, ChevronDown, User } from "lucide-react";
-import Image from "next/image";
+import { User } from "lucide-react";
 import React, { useState } from "react";
 import { Button } from "../ui/button";
 import SideBar from "../dashboard/superAdmin/Users/UsersOverview/SideBar";
@@ -16,8 +14,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import samO from "@/assets/dash1-icons/samuel-o.svg";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function SecondOne() {
   const [btnClick, setBtnClick] = useState("Overview");

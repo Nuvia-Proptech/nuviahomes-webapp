@@ -2,50 +2,53 @@ import { AppInput } from "@/components/shared/AppSetup/AppInput";
 import { CloseCircleIcon } from "@/components/shared/Icons/CloseCircleIcon";
 import { DocumentUploadIcon } from "@/components/shared/Icons/DocumentUploadIcon";
 import React, { useState, useRef } from "react";
+import Image from "next/image";
 
 export const ImageUploadSection = () => {
-  const [selectedImages, setSelectedImages] = useState([]);
+  const [selectedImages, setSelectedImages] = useState<unknown[]>([]);
   const [imageUrl, setImageUrl] = useState("");
   const [isDragging, setIsDragging] = useState(false);
   const [isAddingWithUrl, setIsAddingWithUrl] = useState(false);
-  const fileInputRef = useRef(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleFileSelect = (event) => {
-    const files = Array.from(event.target.files);
+  const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files ? Array.from(event.target.files) : [];
     handleImageFiles(files);
   };
 
-  const handleImageFiles = (files) => {
+  const handleImageFiles = (files: File[]) => {
     const imageFiles = files.filter((file) => file.type.startsWith("image/"));
 
     imageFiles.forEach((file) => {
       const reader = new FileReader();
       reader.onload = (e) => {
-        setSelectedImages((prev) => [
-          ...prev,
-          {
-            id: Date.now() + Math.random(),
-            url: e.target.result,
-            name: file.name,
-            type: "file",
-          },
-        ]);
+        if (e.target?.result) {
+          setSelectedImages((prev) => [
+            ...prev,
+            {
+              id: Date.now() + Math.random(),
+              url: e.target!.result as string,
+              name: file.name,
+              type: "file",
+            },
+          ]);
+        }
       };
       reader.readAsDataURL(file);
     });
   };
 
-  const handleDragOver = (e) => {
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     setIsDragging(true);
   };
 
-  const handleDragLeave = (e) => {
+  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     setIsDragging(false);
   };
 
-  const handleDrop = (e) => {
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     setIsDragging(false);
 
@@ -72,11 +75,11 @@ export const ImageUploadSection = () => {
     fileInputRef.current?.click();
   };
 
-  const removeImage = (id) => {
-    setSelectedImages((prev) => prev.filter((img) => img.id !== id));
+  const removeImage = (id: any) => {
+    setSelectedImages((prev) => prev.filter((img: any) => img.id !== id));
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = (e: any) => {
     if (e.key === "Enter") {
       handleAddFromUrl();
     }
@@ -88,7 +91,10 @@ export const ImageUploadSection = () => {
       <div className="space-y-2 bg-secondaryColor rounded-xl p-2 w-80 flex flex-col justify-center items-center">
         {/* URL Input Section */}
         <div className="flex flex-col justify-end items-end gap-1">
-          <button onClick={() => setIsAddingWithUrl(prev => !prev)} className="text-xs font-urbanist font-normal text-primaryColor/80">
+          <button
+            onClick={() => setIsAddingWithUrl((prev) => !prev)}
+            className="text-xs font-urbanist font-normal text-primaryColor/80"
+          >
             Add media from URL
           </button>
 
@@ -96,7 +102,7 @@ export const ImageUploadSection = () => {
             <div className="flex gap-2 w-full">
               <AppInput
                 type="url"
-                onChange={(e) => setImageUrl(e.target.value)}
+                onChange={(e: any) => setImageUrl(e.target.value)}
                 onKeyPress={handleKeyPress}
                 className="w-[220px]"
                 placeholder="https://example.com/image.jpg"
@@ -136,7 +142,7 @@ export const ImageUploadSection = () => {
             Browse Image
           </button>
 
-          <AppInput
+          <input
             type="file"
             ref={fileInputRef}
             onChange={handleFileSelect}
@@ -151,14 +157,16 @@ export const ImageUploadSection = () => {
       <div className="flex justify-start items-center overflow-hidden">
         {selectedImages.length > 0 ? (
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-h-96 overflow-y-auto overflow-hidden">
-            {selectedImages.map((image, index) => (
+            {selectedImages.map((image: any, index: any) => (
               <div key={image.id} className="relative w-full">
                 <div className="rounded-xl overflow-hidden">
-                  <img
+                  <Image
                     src={image.url}
                     alt={`Uploaded ${index + 1}`}
-                    className="w-36 h-36 object-cover"
-                    onError={(e) => {
+                    className="w-full h-32 object-cover rounded-lg"
+                    width={500}
+                    height={300}
+                    onError={(e: any) => {
                       e.target.src =
                         "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2YzZjNmMyIvPjx0ZXh0IHg9IjEwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5JbWFnZSBFcnJvcjwvdGV4dD48L3N2Zz4=";
                     }}
@@ -168,8 +176,9 @@ export const ImageUploadSection = () => {
                   onClick={() => removeImage(image.id)}
                   className="absolute w-10.5 h-10.5 rounded-full bg-[#FFFFFFBD] -top-2.5 left-24 transition-opacity z-20"
                 >
-                  <div className="flex justify-center items-center"><CloseCircleIcon /></div>
-                  
+                  <div className="flex justify-center items-center">
+                    <CloseCircleIcon />
+                  </div>
                 </button>
               </div>
             ))}

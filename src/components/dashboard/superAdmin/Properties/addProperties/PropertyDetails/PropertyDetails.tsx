@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { SelectPropertyType } from "./SelectPropertyType";
 import { AppInput } from "@/components/shared/AppSetup/AppInput";
 import { AppTextarea } from "@/components/shared/AppSetup/AppTextarea";
@@ -38,7 +38,7 @@ export const PropertyDetails = () => {
             label="Property Type"
             options={
               <>
-                <option value="10" disbabled defaultValue={true}>
+                <option value="10" disabled>
                   Select propterty Type
                 </option>
                 <option value="10">Apartment</option>
@@ -57,7 +57,7 @@ export const PropertyDetails = () => {
             label="Select Country"
             options={
               <>
-                <option value="10" disabled defaultValue={true}>
+                <option value="10" disabled>
                   Select Country
                 </option>
                 <option value="10">Nigeria</option>

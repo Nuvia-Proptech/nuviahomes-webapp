@@ -1,24 +1,28 @@
-import React from 'react'
-import { MessageContactItem } from './MessageContactItem'
+import React from "react";
+import { MessageContactItem } from "./MessageContactItem";
 
-export const MessageList = ({ contacts, selectedContact, onContactSelect }) => {
+export const MessageList = ({
+  contacts,
+  selectedContact,
+  onContactSelect,
+}: any) => {
   return (
     <div className="py-4">
-    <h2 className="text-xl text-primaryColor font-semibold mb-3"></h2>
-    <div className="space-y-2">
-      {contacts.map(contact => (
-        <MessageContactItem
-          key={contact.id}
-          contact={contact}
-          isSelected={selectedContact?.id === contact.id}
-          onSelect={() => onContactSelect(contact)}
-          showLastMessage
-        />
-      ))}
-    </div>
+      <h2 className="text-xl text-primaryColor font-semibold mb-3"></h2>
+      <div className="space-y-2">
+        {contacts.map((contact: any) => (
+          <MessageContactItem
+            key={contact.id}
+            contact={contact}
+            isSelected={selectedContact?.id === contact.id}
+            onSelect={() => onContactSelect(contact)}
+            showLastMessage
+          />
+        ))}
+      </div>
 
-    <div className="space-y-2">
-        {contacts.map(contact => (
+      <div className="space-y-2">
+        {contacts.map((contact: any) => (
           <MessageContactItem
             key={contact.id}
             contact={contact}
@@ -27,6 +31,6 @@ export const MessageList = ({ contacts, selectedContact, onContactSelect }) => {
           />
         ))}
       </div>
-  </div>
-  )
-}
+    </div>
+  );
+};

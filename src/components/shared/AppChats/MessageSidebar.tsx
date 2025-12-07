@@ -1,15 +1,29 @@
 import Image from "next/image";
-import { MessageChatList} from "./MessageChatList";
+import { MessageChatList } from "./MessageChatList";
 import { MessageContactList } from "./MessageContactList";
 import agentImg from "@/assets/images/agent.png";
-import { AppInput } from "@/components/shared/AppSetup/AppInput";
 import { SearchIcon } from "@/components/shared/Icons/SearchIcon";
+
+interface Contact {
+  id: string | number;
+  name: string;
+  role: string;
+  avatar: React.ReactNode;
+  date: string;
+  lastMessage?: string;
+  isTyping?: boolean;
+}
 
 export const MessageSidebar = ({
   contacts,
   contactList,
   selectedContact,
   onContactSelect,
+}: {
+  contacts: Contact[];
+  contactList: Contact[];
+  selectedContact: Contact | null;
+  onContactSelect: (contact: Contact) => void;
 }) => {
   return (
     <div className="w-80 flex flex-col font-urbanist border-r border-[#C6D0D2] bg-white h-full">

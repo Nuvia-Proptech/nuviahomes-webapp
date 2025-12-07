@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { HiUsers } from "react-icons/hi";
-import { MdCreditCard, MdAccountBalanceWallet } from "react-icons/md";
-import { BiWallet } from "react-icons/bi";
-import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { GoArrowRight, GoArrowLeft } from "react-icons/go";
-import { AppInput } from "@/components/shared/AppSetup/AppInput";
+import { MdCreditCard, MdAccountBalanceWallet } from "react-icons/md";
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
+import { BiWallet } from "react-icons/bi";
 import { SiSolana } from "react-icons/si";
 import { InvestmentCategoryItem } from "@/lib/dummyData/UserInvestmentsCategoryData";
 
@@ -375,7 +373,7 @@ export const InvestmentModal = ({
                 <input type="checkbox" checked readOnly className="w-4 h-4" />
                 <span className="text-sm">Collateral pay</span>
                 <a href="#" className="text-blue-600 text-sm ml-auto">
-                  What's collateral?
+                  What&apos;s collateral?
                 </a>
               </div>
 
