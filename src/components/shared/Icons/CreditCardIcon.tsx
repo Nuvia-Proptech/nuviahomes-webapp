@@ -1,6 +1,7 @@
 import React from "react";
+import { IconProps } from "./types";
 
-export const CreditCardIcon = ({ width="20", height="16", fill="#D89818"}) => {
+export const CreditCardIcon = ({ width="20", height="16", fill="#D89818"}: IconProps) => {
   return (
     <svg
       width={width}

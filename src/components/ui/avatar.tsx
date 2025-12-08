@@ -8,6 +8,9 @@ import { cn } from "@/lib/utils"
 function Avatar({
   className,
   ...props
+}: {
+  className?: string;
+  [x: string]: any;
 }) {
   return (
     <AvatarPrimitive.Root
@@ -20,6 +23,9 @@ function Avatar({
 function AvatarImage({
   className,
   ...props
+}: {
+  className?: string;
+  [x: string]: any;
 }) {
   return (
     <AvatarPrimitive.Image
@@ -32,6 +38,9 @@ function AvatarImage({
 function AvatarFallback({
   className,
   ...props
+}: {
+  className?: string;
+  [x: string]: any;
 }) {
   return (
     <AvatarPrimitive.Fallback

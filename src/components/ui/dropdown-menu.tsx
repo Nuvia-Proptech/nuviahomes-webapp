@@ -26,9 +26,13 @@ function DropdownMenuTrigger({ ...props }) {
 }
 
 function DropdownMenuContent({
-  className = undefined,
+  className,
   sideOffset = 4,
   ...props
+}: {
+  className?: string;
+  sideOffset?: number;
+  [x: string]: any;
 }) {
   return (
     <DropdownMenuPrimitive.Portal>

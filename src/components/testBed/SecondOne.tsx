@@ -5,15 +5,6 @@ import { Button } from "../ui/button";
 import SideBar from "../dashboard/superAdmin/Users/UsersOverview/SideBar";
 import UserOverview from "../dashboard/superAdmin/Users/UsersOverview/UserOverview";
 import KYCDetails from "../dashboard/superAdmin/Users/UsersOverview/KYCDetails";
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 
 export default function SecondOne() {
   const [btnClick, setBtnClick] = useState("Overview");
@@ -47,36 +38,7 @@ export default function SecondOne() {
             <KYCDetails />
           ) : (
             <div>
-              <Table>
-                <TableCaption>A list of your recent invoices.</TableCaption>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="w-[100px]">Invoice</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Project</TableHead>
-                    <TableHead className="bg-red-300">Leader</TableHead>
-                    <TableHead>Team</TableHead>
-                    <TableHead>Progress</TableHead>
-                    <TableHead>Action</TableHead>
-                    <TableHead className="text-right">Amount</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableCell className="font-medium">INV001</TableCell>
-                    <TableCell>Paid</TableCell>
-                    <TableCell>Credit Card</TableCell>
-
-                    <TableCell className="bg-red-300">
-                      <div className=""></div>
-                    </TableCell>
-                    <TableCell>Credit Card</TableCell>
-                    <TableCell>Credit Card</TableCell>
-                    <TableCell>Credit Card</TableCell>
-                    <TableCell className="text-right">$250.00</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
+              hh
             </div>
           )}
         </div>

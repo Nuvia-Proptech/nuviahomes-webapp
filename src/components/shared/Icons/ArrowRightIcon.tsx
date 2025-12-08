@@ -1,10 +1,11 @@
 import React from "react";
+import { IconProps } from "./types";
 
 export const ArrowRightIcon = ({
   width = "15",
   height = "14",
   fill = "white",
-}) => {
+}: IconProps) => {
   return (
     <svg
       width={width}

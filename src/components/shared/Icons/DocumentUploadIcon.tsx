@@ -1,10 +1,11 @@
 import React from "react";
+import { IconProps } from "./types";
 
 export const DocumentUploadIcon = ({
   width = "20",
   height = "20",
   fill = "#6C8184",
-}) => {
+}: IconProps) => {
   return (
     <svg width={width} height={height} viewBox="0 0 20 20" fill="none">
       <path

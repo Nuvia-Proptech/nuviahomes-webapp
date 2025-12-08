@@ -1,18 +1,12 @@
 import {
   Table,
-  TableBody,
-  TableCell,
-  TableHead,
+ 
   TableHeader,
-  TableRow,
+ 
 } from "../ui/table";
 import {
   ChevronDown,
-  EllipsisVertical,
-  Eye,
   Search,
-  Trash2,
-  UserCircle,
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -47,7 +41,6 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 import exportIcon from "@/assets/dash1-icons/export.svg";
 import addSquareIcon from "@/assets/dash1-icons/add-square.svg";
-import agentPhoto from "@/assets/dash1-icons/samuel-o.svg";
 import Link from "next/link";
 
 export default function FirstOne() {
@@ -358,7 +351,7 @@ export default function FirstOne() {
         <Table>
           {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
           <TableHeader>
-            <TableRow>
+            {/* <TableRow>
               <TableHead className="w-[100px]">Invoice</TableHead>
               <TableHead>Status</TableHead>
               <TableHead>Method</TableHead>
@@ -366,58 +359,9 @@ export default function FirstOne() {
               <TableHead>Method</TableHead>
               <TableHead>Method</TableHead>
               <TableHead>Amount</TableHead>
-            </TableRow>
+            </TableRow> */}
           </TableHeader>
-          <TableBody>
-            {[1, 2, 3, 4, 5, 6].map((_, index) => (
-              <TableRow key={index} className="">
-                <TableCell className="font-medium">0110</TableCell>
-                {/* profile */}
-                <TableCell>
-                  <div className="flex items-center gap-2">
-                    <div className="h-10 w-10 bg-gray-600 rounded-full">
-                      <Image src={agentPhoto} alt="Agent photo" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-black">
-                        Mr. Samuel Onoja
-                      </p>
-                      <p>samuel@gmail.com</p>
-                    </div>
-                  </div>
-                </TableCell>
-                <TableCell>+2348100298300</TableCell>
-                <TableCell>
-                  <div className="flex items-center gap-2">
-                    <UserCircle />
-                    <p>Agent</p>
-                  </div>
-                </TableCell>
-                <TableCell>
-                  <div>
-                    <p>
-                      <span className="text-black font-semibold">
-                        14 Apr 2022
-                      </span>
-                      <br /> at 8:00 PM
-                    </p>
-                  </div>
-                </TableCell>
-                <TableCell>
-                  <div className="bg-[#48A848]/20 py-2 px-4 rounded-md text-[12px] text-[#48A848] text-center w-[100px]">
-                    Active
-                  </div>
-                </TableCell>
-                <TableCell className="text-righ">
-                  <div className="flex gap-2 justify-en">
-                    <Trash2 />
-                    <Eye />
-                    <EllipsisVertical />
-                  </div>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
+          
         </Table>
       </div>
     </div>

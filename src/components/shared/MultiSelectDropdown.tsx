@@ -9,17 +9,22 @@ export const MultiSelectDropdown = ({
   options,
   placeholder = "Select items...",
   className,
+}: {
+  label: string;
+  options: { value: string; label: string }[];
+  placeholder?: string;
+  className?: string;
 }) => {
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState<string[]>([]);
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleOption = (value) => {
-    setSelected((prev) =>
+  const toggleOption = (value: string) => {
+    setSelected((prev: string[]) =>
       prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
     );
   };
 
-  const removeOption = (value) => {
+  const removeOption = (value: string) => {
     setSelected((prev) => prev.filter((v) => v !== value));
   };
 
@@ -43,7 +48,7 @@ export const MultiSelectDropdown = ({
             <span>{placeholder}</span>
           ) : (
             selected.map((value) => {
-              const opt = options.find((o) => o.value === v);
+              const opt = options.find((o) => o.value === value);
               if (!opt) return null;
               return (
                 <span

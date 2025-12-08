@@ -19,10 +19,15 @@ function SelectValue({ ...props }) {
 }
 
 function SelectTrigger({
-  className = undefined,
+  className,
   size = "default",
   children,
   ...props
+}: {
+  className?: string;
+  size?: "default" | "sm";
+  children?: React.ReactNode;
+  [x: string]: any;
 }) {
   return (
     <SelectPrimitive.Trigger
@@ -43,10 +48,15 @@ function SelectTrigger({
 }
 
 function SelectContent({
-  className = undefined,
+  className,
   children,
   position = "popper",
   ...props
+}: {
+  className?: string;
+  children?: React.ReactNode;
+  position?: "popper" | "item-aligned";
+  [x: string]: any;
 }) {
   return (
     <SelectPrimitive.Portal>
@@ -87,7 +97,12 @@ function SelectLabel({ className = undefined, ...props }) {
   );
 }
 
-function SelectItem({ className = undefined, children, ...props }) {
+function SelectItem({ className, children, value, ...props }: {
+  className?: string;
+  children?: React.ReactNode;
+  value: string;
+  [x: string]: any;
+}) {
   return (
     <SelectPrimitive.Item
       data-slot="select-item"
@@ -95,6 +110,7 @@ function SelectItem({ className = undefined, children, ...props }) {
         "focus:bg-accent focus:text-accent-foreground [&_svg:not([class*='text-'])]:text-muted-foreground relative flex w-full cursor-default items-center gap-2 rounded-sm py-1.5 pr-8 pl-2 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2",
         className
       )}
+      value={value}
       {...props}
     >
       <span className="absolute right-2 flex size-3.5 items-center justify-center">

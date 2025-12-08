@@ -1,11 +1,12 @@
 import React from "react";
+import { IconProps } from "./types";
 
 export const WalletAddIcon = ({
   width = "20",
   height = "20",
   stroke = "white",
   fill ="#292D32"
-}) => {
+}: IconProps) => {
   return (
     <svg width={width} height={height} viewBox="0 0 20 20" fill="none">
       <g opacity="0.4">

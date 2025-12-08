@@ -9,6 +9,8 @@ import { cn } from "@/lib/utils"
 function Checkbox({
   className,
   ...props
+}: {
+  className?: string;
 }) {
   return (
     <CheckboxPrimitive.Root

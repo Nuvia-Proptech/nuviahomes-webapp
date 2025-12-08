@@ -125,7 +125,7 @@ export const CommentSection = () => {
             onChange={(e) =>
               setFormData({ ...formData, comment: e.target.value })
             }
-            rows="8"
+            rows={8}
             className="w-full border border-purple-900/50 rounded-lg px-5 py-4 text-white focus:outline-none transition-colors resize-none forms-gradient text-sm"
           />
 

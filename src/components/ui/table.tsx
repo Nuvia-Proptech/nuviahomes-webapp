@@ -39,7 +39,7 @@ function TableBody({ className = undefined, ...props }) {
   );
 }
 
-function TableFooter({ className = undefined, ...props }) {
+function TableFooter({ className, ...props }: { className?: string }) {
   return (
     <tfoot
       data-slot="table-footer"
@@ -52,7 +52,7 @@ function TableFooter({ className = undefined, ...props }) {
   );
 }
 
-function TableRow({ className = undefined, ...props }) {
+function TableRow({ className, ...props }: { className?: string }) {
   return (
     <tr
       data-slot="table-row"
@@ -65,7 +65,7 @@ function TableRow({ className = undefined, ...props }) {
   );
 }
 
-function TableHead({ className = undefined, ...props }) {
+function TableHead({ className, ...props }: { className?: string }) {
   return (
     <th
       data-slot="table-head"
@@ -78,7 +78,7 @@ function TableHead({ className = undefined, ...props }) {
   );
 }
 
-function TableCell({ className = undefined, ...props }) {
+function TableCell({ className, ...props }: { className?: string }) {
   return (
     <td
       data-slot="table-cell"
@@ -91,7 +91,7 @@ function TableCell({ className = undefined, ...props }) {
   );
 }
 
-function TableCaption({ className = undefined, ...props }) {
+function TableCaption({ className, ...props }: { className?: string }) {
   return (
     <caption
       data-slot="table-caption"

@@ -5,5 +5,5 @@ import React from "react";
 
 export const AppBody = ({ children, className }: { children: React.ReactNode, className: string }) => {
   const bgClass = useAppConditionalBg();
-  return <div className={cn("min-h-screen", bgClass, className)}>{children}</div>;
+  return <body className={cn("min-h-screen", bgClass, className)}>{children}</body>;
 };

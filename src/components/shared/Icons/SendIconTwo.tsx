@@ -1,6 +1,7 @@
 import React from "react";
+import { IconProps } from "./types";
 
-export const SendIconTwo = ({ width = "21", height = "20", fill = "white" }) => {
+export const SendIconTwo = ({ width = "21", height = "20", fill = "white" }: IconProps) => {
   return (
     <svg width={width} height={height} viewBox="0 0 21 20" fill="none">
       <path

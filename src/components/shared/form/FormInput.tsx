@@ -33,6 +33,7 @@ export function FormInput({
         <Controller
           name={name}
           control={control}
+          defaultValue=""
           render={({ field }) => (
             <input
               {...field}

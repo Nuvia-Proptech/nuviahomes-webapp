@@ -1,6 +1,7 @@
 import React from "react";
+import { IconProps } from "./types";
 
-export const LocationAddIcon = ({width="24", height="24", fill="#4E6164"}) => {
+export const LocationAddIcon = ({width="24", height="24", fill="#4E6164"}: IconProps) => {
   return (
     <svg
       width={width}

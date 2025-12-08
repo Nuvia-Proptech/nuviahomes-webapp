@@ -1,6 +1,7 @@
 import React from "react";
+import { IconProps } from "./types";
 
-export const TimerIcon = ({width="9", height="14", fill="#FFAB00"}) => {
+export const TimerIcon = ({width="9", height="14", fill="#FFAB00"}: IconProps) => {
   return (
     <svg
       width={width}

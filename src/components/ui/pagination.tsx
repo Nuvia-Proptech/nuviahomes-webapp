@@ -11,6 +11,9 @@ import { buttonVariants } from "@/components/ui/button";
 function Pagination({
   className,
   ...props
+}: {
+  className?: string;
+  [x: string]: any;
 }) {
   return (
     <nav
@@ -25,6 +28,9 @@ function Pagination({
 function PaginationContent({
   className,
   ...props
+}: {
+  className?: string;
+  [x: string]: any;
 }) {
   return (
     <ul
@@ -45,6 +51,11 @@ function PaginationLink({
   isActive,
   size = "icon",
   ...props
+}: {
+  className?: string;
+  isActive?: boolean;
+  size?: "icon" | "default";
+  [x: string]: any;
 }) {
   return (
     <a
@@ -62,6 +73,9 @@ function PaginationLink({
 function PaginationPrevious({
   className,
   ...props
+}: {
+  className?: string;
+  [x: string]: any;
 }) {
   return (
     <PaginationLink
@@ -78,6 +92,9 @@ function PaginationPrevious({
 function PaginationNext({
   className,
   ...props
+}: {
+  className?: string;
+  [x: string]: any;
 }) {
   return (
     <PaginationLink
@@ -94,6 +111,9 @@ function PaginationNext({
 function PaginationEllipsis({
   className,
   ...props
+}: {
+  className?: string;
+  [x: string]: any;
 }) {
   return (
     <span

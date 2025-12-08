@@ -16,7 +16,7 @@ export type CalendarProps = React.ComponentProps<typeof DayPicker> & {
   classNames?: any;
   showOutsideDays?: boolean;
   captionLayout?: "label" | "dropdown" | "buttons";
-  buttonVariant?: string;
+  buttonVariant?: "link" | "default" | "destructive" | "outline" | "secondary" | "ghost" | null | undefined;
   formatters?: any;
   components?: any;
 };
@@ -189,10 +189,13 @@ function Calendar({
   );
 }
 
-function CalendarDayButton({ className, day, modifiers, ...props }) {
+function CalendarDayButton({ className, day, modifiers, ...props }: {
+  className?: string;
+  [x: string]: any;
+}) {
   const defaultClassNames = getDefaultClassNames();
 
-  const ref = React.useRef(null);
+ const ref = React.useRef<HTMLButtonElement | null>(null);
   React.useEffect(() => {
     if (modifiers.focused) ref.current?.focus();
   }, [modifiers.focused]);

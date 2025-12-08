@@ -1,10 +1,11 @@
 import React from "react";
+import { IconProps } from "./types";
 
 export const SettingsInProgressIcon = ({
   fill = "#5818D8",
   width = "24",
   height = "26",
-}) => {
+}: IconProps) => {
   return (
     <svg width={width} height={height} viewBox="0 0 24 26" fill="none">
       <path

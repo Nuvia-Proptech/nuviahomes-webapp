@@ -8,6 +8,9 @@ import { cn } from "@/lib/utils"
 function Label({
   className,
   ...props
+}: {
+  className?: string;
+  [x: string]: any;
 }) {
   return (
     <LabelPrimitive.Root

@@ -1,6 +1,7 @@
 import React from "react";
+import { IconProps } from "./types";
 
-export const CrownIcon = ({ width="24", height="24", fill="#344346", className}) => {
+export const CrownIcon = ({ width="24", height="24", fill="#344346", className}: IconProps) => {
   return (
     <svg
       width={width}

@@ -1,10 +1,11 @@
 import React from "react";
+import { IconProps } from "./types";
 
 export const CloseCircleIcon = ({
   width = "24",
   height = "24",
   fill = "#292D32",
-}) => {
+}: IconProps) => {
   return (
     <svg width={width} height={height} viewBox="0 0 24 24" fill="none">
       <path

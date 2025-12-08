@@ -1,10 +1,11 @@
 import React from "react";
+import { IconProps } from "./types";
 
 export const DatabaseIcon = ({
   width = "24",
   height = "24",
   fill = "#5818D8",
-}) => {
+}: IconProps) => {
   return (
     <svg
       width={width}

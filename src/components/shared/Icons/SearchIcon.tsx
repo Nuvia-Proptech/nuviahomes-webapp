@@ -1,10 +1,11 @@
 import React from "react";
+import { IconProps } from "./types";
 
 export const SearchIcon = ({
   width = "14",
   height = "14",
   fill = "#344346",
-}) => {
+}: IconProps) => {
   return (
     <svg
       width={width}
