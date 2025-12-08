@@ -1,6 +1,7 @@
 import React from "react";
+import { IconProps } from "./types";
 
-export const UserIcon = ({ width = "25", height = "24", fill = "#B43C3C" }) => {
+export const UserIcon = ({ width = "25", height = "24", fill = "#B43C3C" }: IconProps) => {
   return (
     <svg
       width={width}

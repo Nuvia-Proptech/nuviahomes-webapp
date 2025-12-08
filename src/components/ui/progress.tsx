@@ -9,6 +9,9 @@ function Progress({
   className,
   value,
   ...props
+}: {
+  className?: string;
+  value?: number;
 }) {
   return (
     <ProgressPrimitive.Root

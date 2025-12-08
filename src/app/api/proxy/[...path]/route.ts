@@ -10,37 +10,42 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { path: string[] } }
+  { params }: { params: Promise<{ path: string[] }> }
 ) {
-  return handleRequest(request, params, "GET");
+  const resolvedParams = await params;
+  return handleRequest(request, resolvedParams, "GET");
 }
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { path: string[] } }
+  { params }: { params: Promise<{ path: string[] }> }
 ) {
-  return handleRequest(request, params, "POST");
+  const resolvedParams = await params;
+  return handleRequest(request, resolvedParams, "POST");
 }
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { path: string[] } }
+  { params }: { params: Promise<{ path: string[] }> }
 ) {
-  return handleRequest(request, params, "PUT");
+  const resolvedParams = await params;
+  return handleRequest(request, resolvedParams, "PUT");
 }
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { path: string[] } }
+  { params }: { params: Promise<{ path: string[] }> }
 ) {
-  return handleRequest(request, params, "PATCH");
+  const resolvedParams = await params;
+  return handleRequest(request, resolvedParams, "PATCH");
 }
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { path: string[] } }
+  { params }: { params: Promise<{ path: string[] }> }
 ) {
-  return handleRequest(request, params, "DELETE");
+  const resolvedParams = await params;
+  return handleRequest(request, resolvedParams, "DELETE");
 }
 
 async function handleRequest(
@@ -89,10 +94,10 @@ async function handleRequest(
 
     // Return the response with the same status code
     return NextResponse.json(data, { status: response.status });
-  } catch (error: any) {
+  } catch (error: unknown) {
     // Only log errors in development mode
     if (process.env.NODE_ENV === "development") {
-      console.error("Proxy error:", error.message);
+      console.error("Proxy error:", (error as Error).message);
     }
 
     return NextResponse.json(

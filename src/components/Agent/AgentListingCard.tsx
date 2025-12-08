@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import PropertyCard from "@/components/propertyListingg/PropertyCard";
-import AltHero from "@/components/shared/AltHero";
 import { PropertyDetailData } from "@/lib/dummyData/PropertyDetailData";
 
 export const AgentListingCard = () => {

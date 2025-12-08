@@ -1,6 +1,5 @@
 import { AppWrapper } from "@/components/shared/AppSetup/AppWrapper";
 import React from "react";
-import Link from "next/link";
 import { PlusSquareIcon } from "@/components/shared/Icons/PlusSquareIcon";
 import { UserProfileImage } from "./UserProfileImage";
 import { UserProfileForms } from "./UserProfileForms";

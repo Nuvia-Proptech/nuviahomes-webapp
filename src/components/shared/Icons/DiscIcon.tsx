@@ -1,6 +1,7 @@
 import React from "react";
+import { IconProps } from "./types";
 
-export const DiscIcon = ({ width="24", height="24", fill="#7B43EA" }) => {
+export const DiscIcon = ({ width="24", height="24", fill="#7B43EA" }: IconProps) => {
   return (
     <svg
       width={width}

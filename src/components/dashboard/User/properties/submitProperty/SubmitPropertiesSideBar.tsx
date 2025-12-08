@@ -1,6 +1,25 @@
 import React from "react";
 
-export const SubmitPropertiesSideBar = ({ steps, currentStep, goToStep }) => {
+interface Step {
+  id: string | number;
+  title: string;
+  details: string;
+  icon: React.ReactElement;
+  activeColor: string;
+  inactiveColor: string;
+}
+
+interface SubmitPropertiesSideBarProps {
+  steps: Step[];
+  currentStep: number;
+  goToStep: (index: number) => void;
+}
+
+export const SubmitPropertiesSideBar = ({
+  steps,
+  currentStep,
+  goToStep,
+}: SubmitPropertiesSideBarProps) => {
   return (
     <div className="w-72 border-r border-[#C6D0D2] p-6 font-urbanist">
       <div className="space-y-2">
@@ -22,9 +41,12 @@ export const SubmitPropertiesSideBar = ({ steps, currentStep, goToStep }) => {
                   }`}
                 >
                   {/* Clone the icon element and modify its fill prop with appropriate fill color*/}
-                  {React.cloneElement(step.icon, {
-                    fill: isActive ? step.activeColor : step.inactiveColor,
-                  })}
+                  {React.cloneElement(
+                    step.icon as React.ReactElement<{ fill: string }>,
+                    {
+                      fill: isActive ? step.activeColor : step.inactiveColor,
+                    }
+                  )}
                 </div>
 
                 <div>

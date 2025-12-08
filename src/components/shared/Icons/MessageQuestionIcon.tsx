@@ -1,10 +1,11 @@
 import React from "react";
+import { IconProps } from "./types";
 
 export const MessageQuestionIcon = ({
   width = "24",
   height = "24",
   stroke = "#1C0845",
-}) => {
+}: IconProps) => {
   return (
     <svg width={width} height={height} viewBox="0 0 24 24" fill="none">
       <path

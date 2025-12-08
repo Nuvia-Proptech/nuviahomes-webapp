@@ -31,7 +31,7 @@ export const EditProjectDocument = () => {
         label="Furnished Status"
         options={
           <>
-            <option value="10" disbabled defaultValue={true}>
+            <option value="10" disabled>
               Select Furnished Status
             </option>
             <option value="10">Completed</option>

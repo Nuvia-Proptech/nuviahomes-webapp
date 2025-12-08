@@ -5,7 +5,7 @@ import { UserHouseIcon } from "@/components/shared/Icons/UserHouseIcon";
 interface UserPropertyTotalSpendingCardProps {
   iconClassName?: string;
   title: string;
-  price: string;
+  price: string | number;
   className?: string;
   fill?: string;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function WhatNuviaOffersYou() {
-  let propertyAqusitionCards = [
+  const propertyAqusitionCards = [
     {
       topic: "Property acqusition service",
       subTopic: "Unlock endless opportunities",
@@ -69,9 +69,7 @@ export default function WhatNuviaOffersYou() {
               <p className="text-20 md:text-2xl font-semibold mb-2">
                 {card.subTopic}
               </p>
-              <p className="text-16 leading-relaxed">
-                {card.desc}
-              </p>
+              <p className="text-16 leading-relaxed">{card.desc}</p>
             </div>
           </div>
         ))}

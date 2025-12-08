@@ -1,16 +1,11 @@
 "use client";
-import { X } from "lucide-react";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import logo from "@/assets/logo.png";
 import { usePathname } from "next/navigation";
 
-interface NavProps {
-  styleProp?: string;
-}
-
-export default function Nav({ styleProp }: NavProps) {
+export default function Nav() {
   const currentPage = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);

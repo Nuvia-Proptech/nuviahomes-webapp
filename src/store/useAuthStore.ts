@@ -42,7 +42,7 @@ const customStorage = {
           secure: process.env.NODE_ENV === "production",
         });
       }
-    } catch (error) {
+    } catch {
       // Ignore parsing errors
     }
   },

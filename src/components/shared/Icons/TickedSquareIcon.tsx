@@ -1,10 +1,11 @@
 import React from "react";
+import { IconProps } from "./types";
 
 export const TickedSquareIcon = ({
   width = "18",
   height = "18",
   fill = "#5818D8",
-}) => {
+}: IconProps) => {
   return (
     <svg width={width} height={height} viewBox="0 0 18 18" fill="none">
       <path

@@ -12,22 +12,27 @@ export default function FAQS() {
       q: "What is AI",
       a: "AI stands for Artificial Intelligence, which refers to the simulation of human intelligence in machines. It enables them to perform tasks like problem-solving, learning, and decision-making.",
     },
-  ].concat(Array(4).fill({
-    q: "What is AI",
-    a: "AI stands for Artificial Intelligence, which refers to the simulation of human intelligence in machines. It enables them to perform tasks like problem-solving, learning, and decision-making.",
-  }));
+  ].concat(
+    Array(4).fill({
+      q: "What is AI",
+      a: "AI stands for Artificial Intelligence, which refers to the simulation of human intelligence in machines. It enables them to perform tasks like problem-solving, learning, and decision-making.",
+    })
+  );
 
   return (
     <div className="flex flex-col lg:flex-row sm:px-8 lg:px-14 gap-8 lg:gap-0">
       {/* LEFT TEXT */}
       <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
-        <p className="text-lg sm:text-20 gradient-text">You've questions?</p>
+        <p className="text-lg sm:text-20 gradient-text">
+          You&apos;ve questions?
+        </p>
         <p className="text-2xl sm:text-[32px] font-semibold mb-3 sm:mb-5">
           Frequently Asked Questions
         </p>
         <p className="text-sm sm:text-16">
-          If the question is not available on our FAQ section, feel free <br className="hidden sm:inline" />{" "}
-          to contact us personally, we will resolve your respective <br className="hidden sm:inline" /> doubts.
+          If the question is not available on our FAQ section, feel free{" "}
+          <br className="hidden sm:inline" /> to contact us personally, we will
+          resolve your respective <br className="hidden sm:inline" /> doubts.
         </p>
       </div>
 

@@ -1,8 +1,10 @@
 import Image from "next/image";
 
+import type { StaticImageData } from "next/image";
+
 interface TeamMember {
   id: string | number;
-  avatar: string;
+  avatar: string | StaticImageData;
   name: string;
 }
 

@@ -4,33 +4,29 @@ import React, { useState } from "react";
 import { ChevronDownIcon } from "./Icons/ChevronDownIcon";
 import { cn } from "@/lib/utils";
 
-
-
 export const MultiSelectDropdown = ({
   label,
   options,
   placeholder = "Select items...",
   className,
+}: {
+  label: string;
+  options: { value: string; label: string }[];
+  placeholder?: string;
+  className?: string;
 }) => {
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState<string[]>([]);
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleOption = (value) => {
-    setSelected((prev) =>
-      prev.includes(value)
-        ? prev.filter((v) => v !== value)
-        : [...prev, value]
+  const toggleOption = (value: string) => {
+    setSelected((prev: string[]) =>
+      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
     );
   };
 
-  const removeOption = (value) => {
+  const removeOption = (value: string) => {
     setSelected((prev) => prev.filter((v) => v !== value));
   };
-
-  const displayText =
-    selected.length === 0
-      ? placeholder
-      : selected.map((v) => options.find((o) => o.value === v)?.label).join(", ");
 
   return (
     <div className={cn("flex flex-col gap-1 w-full", className)}>
@@ -52,7 +48,7 @@ export const MultiSelectDropdown = ({
             <span>{placeholder}</span>
           ) : (
             selected.map((value) => {
-              const opt = options.find((o) => o.value === v);
+              const opt = options.find((o) => o.value === value);
               if (!opt) return null;
               return (
                 <span
@@ -77,7 +73,10 @@ export const MultiSelectDropdown = ({
           <ChevronDownIcon
             fill="#6C8184"
             width="14"
-            className={cn("ml-auto transition-transform", isOpen && "rotate-180")}
+            className={cn(
+              "ml-auto transition-transform",
+              isOpen && "rotate-180"
+            )}
           />
         </div>
 
@@ -104,7 +103,12 @@ export const MultiSelectDropdown = ({
 
       {/* Optional: hidden inputs for form submission */}
       {selected.map((value) => (
-        <input key={value} type="hidden" name={`${label.toLowerCase()}[]`} value={value} />
+        <input
+          key={value}
+          type="hidden"
+          name={`${label.toLowerCase()}[]`}
+          value={value}
+        />
       ))}
     </div>
   );

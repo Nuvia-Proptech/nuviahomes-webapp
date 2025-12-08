@@ -10,6 +10,14 @@ export const ProjectTotalSpendingCard = ({
   progress,
   icon,
   iconClassName,
+}: {
+  className?: string;
+  title: string;
+  item: string;
+  description?: string;
+  progress: number;
+  icon: React.ReactNode;
+  iconClassName?: string;
 }) => {
   return (
     <div

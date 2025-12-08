@@ -33,6 +33,8 @@ function SheetPortal({
 function SheetOverlay({
   className,
   ...props
+}: {
+  className?: string
 }) {
   return (
     <SheetPrimitive.Overlay
@@ -50,10 +52,15 @@ function SheetContent({
   children,
   side = "right",
   ...props
+}: {
+  className?: string;
+  children?: React.ReactNode;
+  side?: "right" | "left" | "top" | "bottom";
+  [x: string]: any;
 }) {
   return (
     <SheetPortal>
-      <SheetOverlay />
+      <SheetOverlay className="" />
       <SheetPrimitive.Content
         data-slot="sheet-content"
         className={cn(
@@ -83,6 +90,10 @@ function SheetContent({
 function SheetHeader({
   className,
   ...props
+}: {
+  className?: string;
+  children?: React.ReactNode;
+  [x: string]: any;
 }) {
   return (
     <div
@@ -95,6 +106,10 @@ function SheetHeader({
 function SheetFooter({
   className,
   ...props
+}: {
+  className?: string;
+  children?: React.ReactNode;
+  [x: string]: any;
 }) {
   return (
     <div
@@ -107,6 +122,10 @@ function SheetFooter({
 function SheetTitle({
   className,
   ...props
+}: {
+  className?: string;
+  children?: React.ReactNode;
+  [x: string]: any;
 }) {
   return (
     <SheetPrimitive.Title
@@ -119,6 +138,10 @@ function SheetTitle({
 function SheetDescription({
   className,
   ...props
+}: {
+  className?: string;
+  children?: React.ReactNode;
+  [x: string]: any;
 }) {
   return (
     <SheetPrimitive.Description

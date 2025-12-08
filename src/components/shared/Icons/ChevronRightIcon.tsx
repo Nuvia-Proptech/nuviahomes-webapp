@@ -1,10 +1,11 @@
 import React from "react";
+import { IconProps } from "./types";
 
 export const ChevronRightIcon = ({
   width = "24",
   height = "24",
   stroke = "#292D32",
-}) => {
+}: IconProps) => {
   return (
     <svg
       width={width}

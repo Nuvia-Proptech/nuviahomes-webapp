@@ -1,6 +1,7 @@
 import React from "react";
+import { IconProps } from "./types";
 
-export const SettingsDeadlineIcon = ({width="24",height="25", fill="#D0942B"}) => {
+export const SettingsDeadlineIcon = ({width="24",height="25", fill="#D0942B"}: IconProps) => {
   return (
     <svg
       width={width}

@@ -135,7 +135,7 @@ function Carousel({
   );
 }
 
-interface CarouselContentProps extends React.HTMLAttributes<HTMLDivElement> {}
+type CarouselContentProps = React.HTMLAttributes<HTMLDivElement>;
 
 function CarouselContent({ className, ...props }: CarouselContentProps) {
   const { carouselRef, orientation } = useCarousel();
@@ -158,7 +158,7 @@ function CarouselContent({ className, ...props }: CarouselContentProps) {
   );
 }
 
-interface CarouselItemProps extends React.HTMLAttributes<HTMLDivElement> {}
+type CarouselItemProps = React.HTMLAttributes<HTMLDivElement>;
 
 function CarouselItem({ className, ...props }: CarouselItemProps) {
   const { orientation } = useCarousel();
@@ -180,7 +180,13 @@ function CarouselItem({ className, ...props }: CarouselItemProps) {
 
 interface CarouselButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
+  variant?:
+    | "default"
+    | "destructive"
+    | "outline"
+    | "secondary"
+    | "ghost"
+    | "link";
   size?: "default" | "sm" | "lg" | "icon";
 }
 

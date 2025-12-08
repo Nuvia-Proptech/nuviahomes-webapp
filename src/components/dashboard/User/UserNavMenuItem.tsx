@@ -39,7 +39,7 @@ const UserNavMenuItem = ({ item, onItemClick }: UserNavMenuItemProps) => {
         {React.cloneElement(item.icon, {
           fill: isActive ? "#1C0845" : "#292D32",
           stroke: isActive ? "#1C0845" : "#292D32",
-        })}
+        } as any)}
         <span className="text-base font-normal text-textColor">
           {item.title}
         </span>

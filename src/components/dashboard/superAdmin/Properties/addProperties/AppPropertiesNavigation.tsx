@@ -7,6 +7,11 @@ export const AppPropertiesNavigation = ({
   totalSteps,
   onNext,
   onPrev,
+}: {
+  currentStep: number;
+  totalSteps: number;
+  onNext: () => void;
+  onPrev: () => void;
 }) => {
   return (
     <div className="flex justify-between mt-8 pt-6 ">

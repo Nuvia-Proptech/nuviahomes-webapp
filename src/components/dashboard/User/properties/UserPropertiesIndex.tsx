@@ -25,7 +25,7 @@ export const UserPropertiesIndex = () => {
   const [selectedCity, setSelectedCity] = useState("All Cities");
   const [selectedPurpose, setSelectedPurpose] = useState("Property Purpose");
   const [selectedType, setSelectedType] = useState("Property Type");
-  const [showNewListing, setShowNewListing] = useState(false);
+  const [showNewListing] = useState(false);
 
   // Filter properties based on selections
   const filteredProperties = userPropertiesData.filter((property) => {

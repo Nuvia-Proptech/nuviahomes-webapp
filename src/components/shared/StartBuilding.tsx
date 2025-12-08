@@ -24,7 +24,7 @@ export default function StartBuilding() {
               min="1"
               max="10000"
               value={monthlyIncome}
-              onChange={(e) => setMonthlyIncome(e.target.value)}
+              onChange={(e) => setMonthlyIncome(e.target.value as unknown as number)}
               className="w-full h-3 accent-green-400 rounded-lg cursor-pointer"
             />
             <p className="text-xl whitespace-nowrap">${monthlyIncome}</p>
@@ -45,7 +45,7 @@ export default function StartBuilding() {
               min="1"
               max="100"
               value={investPercent}
-              onChange={(e) => setInvestPercent(e.target.value)}
+              onChange={(e) => setInvestPercent(e.target.value as unknown as number)}
               className="w-full h-3 accent-green-400 rounded-lg cursor-pointer"
             />
             <p className="text-xl whitespace-nowrap">{investPercent}%</p>
@@ -64,7 +64,7 @@ export default function StartBuilding() {
               min="1"
               max="60"
               value={periodYears}
-              onChange={(e) => setPeriodYears(e.target.value)}
+              onChange={(e) => setPeriodYears(e.target.value as unknown as number)}
               className="w-full h-3 accent-green-400 rounded-lg cursor-pointer"
             />
             <p className="text-xl whitespace-nowrap">{periodYears}yrs</p>

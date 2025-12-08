@@ -23,13 +23,13 @@ export const PaymentsIndex = () => {
         pay.accountName.toLowerCase().includes(searchQuery.toLowerCase()) ||
         pay.method.toLowerCase().includes(searchQuery.toLowerCase())
     );
-  }, [paymentsData, searchQuery]);
+  }, [searchQuery]);
 
-  const onSearchHandler = (e) => {
+  const onSearchHandler = (e: any) => {
     setSearchQuery(e.target.value);
   };
 
-  const handlePaymentClick = (payment) => {
+  const handlePaymentClick = (payment: any) => {
     setSelectedPayment(payment);
     setIsSheetOpen(true);
   };

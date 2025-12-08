@@ -3,18 +3,63 @@ import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials1 = [
-  { name: "Samuelson Okoi", role: "Sales Executive at Risevest", avatar: "SO", text: "We are a platform that simplifies property management, development, and investment. Property Owners can submit properties effortlessly, while Investors browse verified listings and invest securely." },
-  { name: "Samuelson Okoi", role: "Sales Executive at Risevest", avatar: "SO", text: "We are a platform that simplifies property management, development, and investment. Property Owners can submit properties effortlessly, while Investors browse verified listings and invest securely." },
-  { name: "Samuelson Okoi", role: "Sales Executive at Risevest", avatar: "SO", text: "We are a platform that simplifies property management, development, and investment. Property Owners can submit properties effortlessly, while Investors browse verified listings and invest securely." },
-  { name: "Samuelson Okoi", role: "Sales Executive at Risevest", avatar: "SO", text: "We are a platform that simplifies property management, development, and investment. Property Owners can submit properties effortlessly, while Investors browse verified listings and invest securely." },
-  { name: "Samuelson Okoi", role: "Sales Executive at Risevest", avatar: "SO", text: "We are a platform that simplifies property management, development, and investment. Property Owners can submit properties effortlessly, while Investors browse verified listings and invest securely." },
+  {
+    name: "Samuelson Okoi",
+    role: "Sales Executive at Risevest",
+    avatar: "SO",
+    text: "We are a platform that simplifies property management, development, and investment. Property Owners can submit properties effortlessly, while Investors browse verified listings and invest securely.",
+  },
+  {
+    name: "Samuelson Okoi",
+    role: "Sales Executive at Risevest",
+    avatar: "SO",
+    text: "We are a platform that simplifies property management, development, and investment. Property Owners can submit properties effortlessly, while Investors browse verified listings and invest securely.",
+  },
+  {
+    name: "Samuelson Okoi",
+    role: "Sales Executive at Risevest",
+    avatar: "SO",
+    text: "We are a platform that simplifies property management, development, and investment. Property Owners can submit properties effortlessly, while Investors browse verified listings and invest securely.",
+  },
+  {
+    name: "Samuelson Okoi",
+    role: "Sales Executive at Risevest",
+    avatar: "SO",
+    text: "We are a platform that simplifies property management, development, and investment. Property Owners can submit properties effortlessly, while Investors browse verified listings and invest securely.",
+  },
+  {
+    name: "Samuelson Okoi",
+    role: "Sales Executive at Risevest",
+    avatar: "SO",
+    text: "We are a platform that simplifies property management, development, and investment. Property Owners can submit properties effortlessly, while Investors browse verified listings and invest securely.",
+  },
 ];
 
 const testimonials2 = [
-  { name: "Jane Smith", role: "Product Manager at TechCorp", avatar: "JS", text: "The platform has revolutionized how we manage our real estate portfolio. The interface is intuitive and the investment process is seamless." },
-  { name: "Michael Chen", role: "Investment Director at Capital Group", avatar: "MC", text: "Outstanding service and reliable returns. This platform has become our go-to solution for property investments and management." },
-  { name: "Sarah Johnson", role: "Real Estate Investor", avatar: "SJ", text: "The verification process gives me confidence in every investment. Transparent, secure, and profitable - exactly what I was looking for." },
-  { name: "David Wilson", role: "Property Developer", avatar: "DW", text: "As a developer, this platform has streamlined our funding process. Quick approvals and professional investor network." },
+  {
+    name: "Jane Smith",
+    role: "Product Manager at TechCorp",
+    avatar: "JS",
+    text: "The platform has revolutionized how we manage our real estate portfolio. The interface is intuitive and the investment process is seamless.",
+  },
+  {
+    name: "Michael Chen",
+    role: "Investment Director at Capital Group",
+    avatar: "MC",
+    text: "Outstanding service and reliable returns. This platform has become our go-to solution for property investments and management.",
+  },
+  {
+    name: "Sarah Johnson",
+    role: "Real Estate Investor",
+    avatar: "SJ",
+    text: "The verification process gives me confidence in every investment. Transparent, secure, and profitable - exactly what I was looking for.",
+  },
+  {
+    name: "David Wilson",
+    role: "Property Developer",
+    avatar: "DW",
+    text: "As a developer, this platform has streamlined our funding process. Quick approvals and professional investor network.",
+  },
 ];
 
 export default function TestimonialsSection() {
@@ -47,7 +92,7 @@ export default function TestimonialsSection() {
         setCurrentSlide(totalSlides);
       }, 500);
     }
-  }, [currentSlide]);
+  }, [currentSlide, totalSlides]);
 
   useEffect(() => {
     if (!isTransitioning) {
@@ -55,21 +100,17 @@ export default function TestimonialsSection() {
     }
   }, [isTransitioning]);
 
-  const renderRow = (items, offset = 0) => {
+  const renderRow = (items: typeof testimonials1, offset = 0) => {
     // Clone last + first for seamless loop
-    const extendedItems = [
-      items[items.length - 1],
-      ...items,
-      items[0],
-    ];
+    const extendedItems = [items[items.length - 1], ...items, items[0]];
     return (
       <div className="overflow-hidden">
         <div
-          className={`flex ${isTransitioning ? "transition-transform duration-500" : ""}`}
+          className={`flex ${
+            isTransitioning ? "transition-transform duration-500" : ""
+          }`}
           style={{
-            transform: `translateX(-${
-              currentSlide * cardWidth - offset
-            }px)`,
+            transform: `translateX(-${currentSlide * cardWidth - offset}px)`,
           }}
         >
           {extendedItems.map((t, i) => (
@@ -110,7 +151,8 @@ export default function TestimonialsSection() {
             Don&apos;t just take our words
           </h2>
           <p className="text-gray-400 max-w-lg">
-            Hear from other people about our services to solve their real estate issues
+            Hear from other people about our services to solve their real estate
+            issues
           </p>
         </div>
 

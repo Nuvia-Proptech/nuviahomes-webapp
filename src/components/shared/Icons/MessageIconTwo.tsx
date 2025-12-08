@@ -1,10 +1,11 @@
 import React from "react";
+import { IconProps } from "./types";
 
 export const MessageIconTwo = ({
   fill = "#5818D8",
   width = "41",
   height = "40",
-}) => {
+}: IconProps) => {
   return (
     <svg width={width} height={height} viewBox="0 0 41 40" fill="none">
       <path

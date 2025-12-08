@@ -3,9 +3,8 @@ import { AppInput } from "@/components/shared/AppSetup/AppInput";
 import { AppTextarea } from "@/components/shared/AppSetup/AppTextarea";
 import { SelectDropDown } from "@/components/shared/SelectDropDown";
 import { ImageUploadSection } from "../../Properties/addProperties/PropertyFeatures/ImageUploadSection";
-import { MultiSelectDropdown } from "@/components/shared/MultiSelectDropdown";
 
-export const CreatePlanSheet = ({ onClose }) => {
+export const CreatePlanSheet = ({ onClose }: { onClose: () => void }) => {
   return (
     <div className="p-4">
       <h2 className="text-2xl font-semibold text-textColor font-urbanist mb-6">
@@ -203,7 +202,7 @@ export const CreatePlanSheet = ({ onClose }) => {
             />
           </div>
 
-          <ImageUploadSection/>
+          <ImageUploadSection />
         </div>
 
         {/* Submit Buttons */}

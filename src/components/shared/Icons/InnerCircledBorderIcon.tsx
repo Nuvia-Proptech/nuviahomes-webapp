@@ -1,10 +1,11 @@
 import React from "react";
+import { IconProps } from "./types";
 
 export const InnerCircledBorderIcon = ({
   width = "18",
   height = "17",
   fill = "#5818D8",
-}) => {
+}: IconProps) => {
   return (
     <svg width={width} height={height} viewBox="0 0 18 17" fill="none">
       <path

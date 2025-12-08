@@ -1,10 +1,11 @@
 import React from "react";
+import { IconProps } from "./types";
 
 export const CloseSquareIcon = ({
   width = "20",
   height = "20",
   fill = "#B43C3C",
-}) => {
+}: IconProps) => {
   return (
     <svg width={width} height={height} viewBox="0 0 20 20" fill="none">
       <path

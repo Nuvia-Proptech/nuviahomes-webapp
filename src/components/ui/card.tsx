@@ -5,6 +5,9 @@ import { cn } from "@/lib/utils"
 function Card({
   className,
   ...props
+}: {
+  className?: string;
+  [x: string]: any;
 }) {
   return (
     (<div
@@ -20,6 +23,9 @@ function Card({
 function CardHeader({
   className,
   ...props
+}: {
+  className?: string;
+  [x: string]: any;
 }) {
   return (
     (<div
@@ -35,6 +41,9 @@ function CardHeader({
 function CardTitle({
   className,
   ...props
+}: {
+  className?: string;
+  [x: string]: any;
 }) {
   return (
     (<div
@@ -47,6 +56,9 @@ function CardTitle({
 function CardDescription({
   className,
   ...props
+}: {
+  className?: string;
+  [x: string]: any;
 }) {
   return (
     (<div
@@ -59,6 +71,9 @@ function CardDescription({
 function CardAction({
   className,
   ...props
+}: {
+  className?: string;
+  [x: string]: any;
 }) {
   return (
     (<div
@@ -74,6 +89,9 @@ function CardAction({
 function CardContent({
   className,
   ...props
+}: {
+  className?: string;
+  [x: string]: any;
 }) {
   return (<div data-slot="card-content" className={cn("px-6", className)} {...props} />);
 }
@@ -81,6 +99,9 @@ function CardContent({
 function CardFooter({
   className,
   ...props
+}: {
+  className?: string;
+  [x: string]: any;
 }) {
   return (
     (<div

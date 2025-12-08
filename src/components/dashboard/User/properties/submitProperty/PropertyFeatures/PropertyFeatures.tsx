@@ -14,8 +14,8 @@ export const PropertyFeatures = () => {
 
       <ImageUploadSection />
 
-{/* Forms Sections */}
-      <div  className="grid md:grid-cols-2 gap-4 my-5 w-full">
+      {/* Forms Sections */}
+      <div className="grid md:grid-cols-2 gap-4 my-5 w-full">
         {/* BedRooms */}
         <AppInput label="Bedrooms" placeholder="5" />
 
@@ -32,24 +32,22 @@ export const PropertyFeatures = () => {
           label="Furnished Status"
           options={
             <>
-              <option value="10" defaultValue={true}>
-                Select Furnished Status
-              </option>
+              <option value="10">Select Furnished Status</option>
               <option value="10">Completed</option>
               <option value="5">Pending</option>
             </>
           }
         />
       </div>
-      
 
-{/* IsCommon area section */}
+      {/* IsCommon area section */}
       <div>
         <p className="text-sm text-textColor font-normal font-publicSans">
           Is there any common area?
         </p>
         {["yes", "no"].map((item) => (
           <div
+            key={item}
             onClick={() => setIsCommonArea(item)}
             className="flex items-center gap-2 my-3"
           >

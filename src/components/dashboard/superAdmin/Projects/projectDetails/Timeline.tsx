@@ -1,6 +1,12 @@
 import { ChevronRightIcon } from "@/components/shared/Icons/ChevronRightIcon";
 
-export const Timeline = ({ milestones }) => {
+interface Milestone {
+  title: string;
+  status: string;
+  date: string;
+}
+
+export const Timeline = ({ milestones }: { milestones: Milestone[] }) => {
   return (
     <div className="w-full max-w-lg bg-white px-2.5 py-3.5 font-urbanist">
       {/* Header */}

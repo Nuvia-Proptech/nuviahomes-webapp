@@ -1,6 +1,7 @@
 import React from "react";
+import { IconProps } from "./types";
 
-export const DocumentFowardIcon = ({width="20", height="20", stroke="white"}) => {
+export const DocumentFowardIcon = ({width="20", height="20", stroke="white"}: IconProps) => {
   return (
     <svg
       width={width}

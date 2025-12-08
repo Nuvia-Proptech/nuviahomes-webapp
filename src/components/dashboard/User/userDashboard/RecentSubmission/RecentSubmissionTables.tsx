@@ -19,13 +19,14 @@ export const RecentSubmissionTables = () => {
           {recentSubmissionData.map((item) => {
             return (
               <RecentSubmissionTableBodies
+                key={item.id}
                 id={item.id}
                 street={item.street}
                 city={item.city}
                 type={item.type}
                 date={item.date}
                 time={item.time}
-                status={item.status}
+                status={item.status as any}
               />
             );
           })}

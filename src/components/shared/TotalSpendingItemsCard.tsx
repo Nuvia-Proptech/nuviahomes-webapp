@@ -8,6 +8,12 @@ export const TotalSpendingItemsCard = ({
   title,
   price,
   className
+}: {
+  icon: React.ReactNode;
+  iconClassName: string;
+  title: string;
+  price: string;
+  className?: string;
 }) => {
   return (
     <div className={cn("w-80 flex flex-row justify-between items-center rounded-xl bg-white px-3 py-2 shadow-md shadow-[#22303E1A]", className)}>

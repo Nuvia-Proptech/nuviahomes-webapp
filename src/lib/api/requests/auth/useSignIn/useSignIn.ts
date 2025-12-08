@@ -1,17 +1,19 @@
-import { api } from '@/base/api/api';
-import { useFormManager } from '@/base/formManager/useFormManager';
-import appRoutes from '@/constants/appRoutes';
-import { useMutation } from '@tanstack/react-query';
-import axios from 'axios';
-import { useRouter } from 'expo-router';
-import Toast from 'react-native-toast-message';
-import { API_ROUTES } from '../../../routes';
-import { SuccessResponse } from '../../../types';
-import { useSignInFormValidator } from './useSignInFormValidator';
+import { api } from "@/lib/api/api";
+import { useFormManager } from "@/lib/formManager/useFormManager";
+import appRoutes from "@/constants/AppRoutes";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import { API_ROUTES } from "@/lib/api/routes"; // Assuming routes is in lib/api
+import { SuccessResponse } from "@/lib/api/types"; // Assuming types is in lib/api
+import { useSignInFormValidator } from "./useSignInFormValidator";
+
 interface SignInRequest {
   email: string;
   password: string;
 }
+
 interface SignInResponse {
   token: string;
   data: SignInRequest;
@@ -29,11 +31,11 @@ export const useSignIn = () => {
   });
 
   const { mutate: signIn, isPending } = useMutation({
-    mutationFn: async (formData: Record<string, any>) => {
-      const response = await axios.post<SignInRequest, SuccessResponse<SignInResponse>>(
-        API_ROUTES.auth.signIn,
-        formData
-      );
+    mutationFn: async (formData: Record<string, unknown>) => {
+      const response = await axios.post<
+        SignInRequest,
+        SuccessResponse<SignInResponse>
+      >(API_ROUTES.auth.signIn, formData);
       return response.data;
     },
     onSuccess: (data) => {
@@ -43,16 +45,14 @@ export const useSignIn = () => {
 
       reset();
 
-      Toast.show({
-        type: 'successToast',
-        text1: `successfully signed in as ${data.data.email}`,
-      });
+      toast.success(`Successfully signed in as ${data.data.email}`);
     },
     onError: (error: any) => {
-      Toast.show({
-        type: 'errorToast',
-        text1: error?.response?.data?.message ?? error?.message ?? 'Something went wrong',
-      });
+      const message =
+        error?.response?.data?.message ??
+        error?.message ??
+        "Something went wrong";
+      toast.error(message);
     },
   });
 

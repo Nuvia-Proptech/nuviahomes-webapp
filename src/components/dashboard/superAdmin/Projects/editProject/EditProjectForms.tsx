@@ -21,7 +21,7 @@ export const EditProjectForms = () => {
     }
   };
 
-  const goToStep = (index) => {
+  const goToStep = (index: number) => {
     setCurrentStep(index);
   };
 

@@ -1,6 +1,7 @@
 import { CloseCircleIcon } from "@/components/shared/Icons/CloseCircleIcon";
 import { DocumentUploadIcon } from "@/components/shared/Icons/DocumentUploadIcon";
 import React, { useState, useRef } from "react";
+import Image from "next/image";
 
 interface UploadedImage {
   id: number;
@@ -26,7 +27,7 @@ export const ImageUploadSection = () => {
 
     imageFiles.forEach((file) => {
       const reader = new FileReader();
-      reader.onload = (e) => {
+      reader.onload = (e: ProgressEvent<FileReader>) => {
         setSelectedImages((prev) => [
           ...prev,
           {
@@ -41,17 +42,17 @@ export const ImageUploadSection = () => {
     });
   };
 
-  const handleDragOver = (e: React.DragEvent) => {
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     setIsDragging(true);
   };
 
-  const handleDragLeave = (e: React.DragEvent) => {
+  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     setIsDragging(false);
   };
 
-  const handleDrop = (e: React.DragEvent) => {
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     setIsDragging(false);
 
@@ -82,7 +83,7 @@ export const ImageUploadSection = () => {
     setSelectedImages((prev) => prev.filter((img) => img.id !== id));
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       handleAddFromUrl();
     }
@@ -163,10 +164,12 @@ export const ImageUploadSection = () => {
             {selectedImages.map((image, index) => (
               <div key={image.id} className="relative w-full">
                 <div className="rounded-xl overflow-hidden">
-                  <img
+                  <Image
                     src={typeof image.url === "string" ? image.url : ""}
                     alt={`Uploaded ${index + 1}`}
-                    className="w-full max-w-36 h-36 object-cover"
+                    className="w-full h-32 object-cover rounded-lg"
+                    width={500}
+                    height={300}
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       target.src =

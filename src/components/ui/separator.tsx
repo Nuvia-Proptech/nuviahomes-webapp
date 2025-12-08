@@ -10,6 +10,10 @@ function Separator({
   orientation = "horizontal",
   decorative = true,
   ...props
+}: {
+  className?: string;
+  orientation?: "horizontal" | "vertical";
+  decorative?: boolean;
 }) {
   return (
     <SeparatorPrimitive.Root

@@ -1,6 +1,22 @@
 import React from "react";
 
-export const BookingsItems = ({key, date, day, items}) => {
+interface BookingItem {
+  time: string;
+  color: string;
+  label: string;
+}
+
+export const BookingsItems = ({
+  key,
+  date,
+  day,
+  items,
+}: {
+  key?: string | number;
+  date: string;
+  day: string;
+  items: BookingItem[];
+}) => {
   return (
     <div key={key} className="w-full text-base font-urbanist">
       <div className="text-textColor font-semibold bg-secondaryColor/90 flex justify-between items-center p-2">

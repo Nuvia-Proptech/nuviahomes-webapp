@@ -24,7 +24,7 @@ export const SubmitPropertiesForms = () => {
     }
   };
 
-  const goToStep = (index) => {
+  const goToStep = (index: number) => {
     setCurrentStep(index);
   };
 

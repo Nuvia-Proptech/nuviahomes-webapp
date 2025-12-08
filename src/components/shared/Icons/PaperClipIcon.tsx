@@ -1,6 +1,7 @@
 import React from "react";
+import { IconProps } from "./types";
 
-export const PaperClipIcon = ({stroke="#344346", width="20", height="20" }) => {
+export const PaperClipIcon = ({stroke="#344346", width="20", height="20" }: IconProps) => {
   return (
     <svg
       width={width}

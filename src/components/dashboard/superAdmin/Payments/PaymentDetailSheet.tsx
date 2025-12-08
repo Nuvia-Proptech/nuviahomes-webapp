@@ -1,12 +1,11 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
 import { SheetTitle } from "@/components/ui/sheet";
 import Image from "next/image";
 import paymentImage from "@/assets/images/payment.jpg";
 import { CloseSquareIcon } from "@/components/shared/Icons/CloseSquareIcon";
 import { TickGoodSquareIcon } from "@/components/shared/Icons/TickGoodSquareIcon";
 
-export const PaymentDetailSheet = ({ payment, onClose }) => {
+export const PaymentDetailSheet = ({ payment, onClose }: any) => {
   if (!payment) return null;
 
   return (
@@ -95,7 +94,10 @@ export const PaymentDetailSheet = ({ payment, onClose }) => {
 
       {/* Action Buttons */}
       <div className="flex justify-between">
-        <button className="py-2 px-5 bg transparent border-2 border-grayColor/20 rounded-lg text-black text-sm font-normal font-publicSans" onClick={onClose}>
+        <button
+          className="py-2 px-5 bg transparent border-2 border-grayColor/20 rounded-lg text-black text-sm font-normal font-publicSans"
+          onClick={onClose}
+        >
           Close
         </button>
         <div className="flex gap-3">

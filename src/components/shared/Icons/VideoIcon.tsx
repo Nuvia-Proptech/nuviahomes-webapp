@@ -1,10 +1,11 @@
 import React from "react";
+import { IconProps } from "./types";
 
 export const VideoIcon = ({
   width = "20",
   height = "20",
   fill = "#78778B",
-}) => {
+}: IconProps) => {
   return (
     <svg width={width} height={height} viewBox="0 0 20 20" fill="none">
       <path

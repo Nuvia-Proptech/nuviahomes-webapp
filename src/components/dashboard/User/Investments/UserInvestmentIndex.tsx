@@ -1,12 +1,10 @@
 import React from "react";
-import { UserDashBoardHeader } from "../UserDashBoardHeader";
 import { AppWrapper } from "@/components/shared/AppSetup/AppWrapper";
 import { PlusSquareIcon } from "@/components/shared/Icons/PlusSquareIcon";
 import appRoutes from "@/constants/AppRoutes";
 import Link from "next/link";
 import { FinancialDashboard } from "./InvestmentDashboard";
 import { UserInvestmentTable } from "./InvestmentTable/UserInvestmentTable";
-import { SelectDropDown } from "@/components/shared/SelectDropDown";
 
 const UserInvestmentIndex = () => {
   return (
@@ -31,11 +29,13 @@ const UserInvestmentIndex = () => {
                 </p>
               </button>
             </Link>
-            <Link href={appRoutes.dashboard.user.investments.InvestmentsCategory}>
+            <Link
+              href={appRoutes.dashboard.user.investments.InvestmentsCategory}
+            >
               <button className="flex flex-row justify-center items-center gap-2.5 rounded-[12px] p-2.5 bg-gradient-to-br from-[#1B5590] via-[#35AF72] to-[#B5E03A] cursor-pointer">
                 <PlusSquareIcon />
                 <p className="font-publicSans text-base font-normal text-[#F9F6FE]">
-                  Investment Plansgit 
+                  Investment Plansgit
                 </p>
               </button>
             </Link>
@@ -43,8 +43,7 @@ const UserInvestmentIndex = () => {
         </div>
         <FinancialDashboard />
 
-      
-          <UserInvestmentTable />
+        <UserInvestmentTable />
       </div>
     </AppWrapper>
   );

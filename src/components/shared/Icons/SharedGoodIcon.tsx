@@ -1,10 +1,11 @@
 import React from "react";
+import { IconProps } from "./types";
 
 export const SharedGoodIcon = ({
   width = "25",
   height = "24",
   fill = "#48A848",
-}) => {
+}: IconProps) => {
   return (
     <svg
       width={width}

@@ -1,11 +1,10 @@
 import AltHero from "@/components/shared/AltHero";
-import Image from "next/image";
 import React from "react";
 import OurCompany from "@/components/whoWeAre/OurCompany";
 import Partners from "@/components/whoWeAre/Partners";
 
 export default function WhoWeArePage() {
-  let tailorMadeServicesDetails = [
+  const tailorMadeServicesDetails = [
     {
       icon: (
         <svg
@@ -178,7 +177,7 @@ export default function WhoWeArePage() {
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum.",
     },
   ];
-  let downloadsDetails = [
+  const downloadsDetails = [
     {
       icon: (
         <svg
@@ -335,22 +334,31 @@ export default function WhoWeArePage() {
         </div>
         {/* 18 years of achievments */}
         <div className="flex justify-between mb-40 px-10 max-lg:flex-col max-lg:items-start max-lg:gap-8 max-lg:px-4 ">
-  <div className=" max-lg:w-full  max-md:text-center">
-    <p className="text-40 max-sm:text-3xl max-md:text-4xl">Our 18 of achievments</p>
-    <p className="text-lg max-sm:text-base max-md:text-lg">With our super we have reached this</p>
-  </div>
-  <div className="grid grid-cols-2 gap-x-28 gap-y-10 max-lg:grid-cols-1 max-lg:gap-6  place-items-center w-full md:w-auto max-md:space-y-4">
-    {downloadsDetails.map((item) => (
-      <div className="flex items-center max-md:flex-col gap-4 " key={item.title}>
-        <div>{item.icon}</div>
-        <div className="max-md:text-center"> 
-          <p className="text-40 max-sm:text-2xl max-md:text-3xl">{item.title}</p>
-          <p className="max-sm:text-sm max-md:text-base">{item.desc}</p>
+          <div className=" max-lg:w-full  max-md:text-center">
+            <p className="text-40 max-sm:text-3xl max-md:text-4xl">
+              Our 18 of achievments
+            </p>
+            <p className="text-lg max-sm:text-base max-md:text-lg">
+              With our super we have reached this
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-x-28 gap-y-10 max-lg:grid-cols-1 max-lg:gap-6  place-items-center w-full md:w-auto max-md:space-y-4">
+            {downloadsDetails.map((item) => (
+              <div
+                className="flex items-center max-md:flex-col gap-4 "
+                key={item.title}
+              >
+                <div>{item.icon}</div>
+                <div className="max-md:text-center">
+                  <p className="text-40 max-sm:text-2xl max-md:text-3xl">
+                    {item.title}
+                  </p>
+                  <p className="max-sm:text-sm max-md:text-base">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    ))}
-  </div>
-</div>
         {/* partners */}
         <Partners />
       </div>

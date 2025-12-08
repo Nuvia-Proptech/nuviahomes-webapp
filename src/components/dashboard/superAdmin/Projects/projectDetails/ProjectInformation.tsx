@@ -1,8 +1,6 @@
 import React from "react";
 
-export const ProjectInformation = ({
-  project
-}) => {
+export const ProjectInformation = ({ project }: any) => {
   return (
     <div className="w-full max-w-lg bg-white px-3 py-3.5 font-urbanist">
       {/* Header */}
@@ -20,6 +18,7 @@ export const ProjectInformation = ({
         {/* end Date */}
         <div className="w-full flex justify-between text-textColor text-base font-normal font-urbanist my-2.5">
           <p className="font-semibold">End Date</p>
+          <p> to be &quot;Completed&quot; or &quot;Sold out&quot;e</p>
           <p>{project.endDate}</p>
         </div>
 
@@ -31,7 +30,7 @@ export const ProjectInformation = ({
 
         {/* current Pahse */}
         <div className="w-full flex justify-between text-textColor text-base font-normal font-urbanist my-2.5">
-          <p className="font-semibold">Current Phase</p>
+          <span className="font-semibold">&quot;Green Village&quot;</span>
           <p>{project.currentPhase}</p>
         </div>
 

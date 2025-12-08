@@ -1,11 +1,12 @@
 import React from "react";
+import { IconProps } from "./types";
 
 export const ArrowDownBoldIcon = ({
   width = "11",
   height = "6",
   fill = "#0F1415",
   className
-}) => {
+}: IconProps) => {
   return (
     <svg width={width} height={height} viewBox="0 0 11 6" fill="none" className={className}>
       <path

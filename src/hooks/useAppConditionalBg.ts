@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 
-export const appConditionalBg = () => {
+export const useAppConditionalBg = () => {
   const pathname = usePathname();
 
   const hiddenRoutes = [
@@ -11,9 +11,7 @@ export const appConditionalBg = () => {
     "/super-admin-dashboard",
   ];
 
-  const shouldHideBg = hiddenRoutes.some((route) =>
-    pathname.startsWith(route)
-  );
+  const shouldHideBg = hiddenRoutes.some((route) => pathname.startsWith(route));
 
   return shouldHideBg ? "bg-transparent" : "bg-primaryColorLight";
 };

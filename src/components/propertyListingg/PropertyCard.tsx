@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaBed, FaBath, FaRulerCombined } from "react-icons/fa"; // 👈 Added
+import { FaBed, FaBath, FaRulerCombined } from "react-icons/fa";
 
-export default function PropertyCard({ property }) {
+export default function PropertyCard({ property }: { property: any }) {
   return (
     <Link href={`/listing/${property.id}`} className="border rounded-xl p-2 w-full listedProperty">
       <div className="h-[300px] mb-3 rounded-xl overflow-hidden">

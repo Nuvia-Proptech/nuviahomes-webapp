@@ -1,6 +1,25 @@
 import React from "react";
 
-export const AddPropertiesSideBar = ({ steps, currentStep, goToStep }) => {
+interface Step {
+  id: string | number;
+  title: string;
+  details: string;
+  icon: React.ElementType;
+  activeColor: string;
+  inactiveColor: string;
+}
+
+interface AddPropertiesSideBarProps {
+  steps: Step[];
+  currentStep: number;
+  goToStep: (index: number) => void;
+}
+
+export const AddPropertiesSideBar = ({
+  steps,
+  currentStep,
+  goToStep,
+}: AddPropertiesSideBarProps) => {
   return (
     <div className="w-72 border-r border-[#C6D0D2] p-6 font-urbanist">
       <div className="space-y-2">
@@ -22,7 +41,9 @@ export const AddPropertiesSideBar = ({ steps, currentStep, goToStep }) => {
                   }`}
                 >
                   {/* Render the icon component with appropriate fill color*/}
-                  <step.icon fill={isActive ? step.activeColor : step.inactiveColor} />
+                  <step.icon
+                    fill={isActive ? step.activeColor : step.inactiveColor}
+                  />
                 </div>
 
                 <div>

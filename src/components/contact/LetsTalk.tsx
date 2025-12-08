@@ -7,9 +7,11 @@ export default function LetsTalk() {
       {/* ---------- LEFT COLUMN ---------- */}
       <div className="w-full lg:w-1/2">
         <div className="mb-8 sm:mb-10">
-          <p className="text-lg sm:text-20 gradient-text">You've got a question?</p>
+          <p className="text-lg sm:text-20 gradient-text">
+            You&apos;ve got a question?
+          </p>
           <p className="text-2xl sm:text-[32px] font-semibold mb-3 sm:mb-5">
-            Let's Talk
+            Let&apos;s Talk
           </p>
           <p className="text-sm sm:text-16">
             Get in touch with us using the enquiry form or contact details below
@@ -19,16 +21,30 @@ export default function LetsTalk() {
         {/* Contact items */}
         <div className="space-y-4 sm:space-y-5">
           {[
-            { Icon: Mail, title: "Quick Contact", text: "Email nuviahomes.com" },
-            { Icon: Phone, title: "Quick Contact", text: "Email nuviahomes.com" },
-            { Icon: MapPin, title: "Quick Contact", text: "Email nuviahomes.com" },
+            {
+              Icon: Mail,
+              title: "Quick Contact",
+              text: "Email nuviahomes.com",
+            },
+            {
+              Icon: Phone,
+              title: "Quick Contact",
+              text: "Email nuviahomes.com",
+            },
+            {
+              Icon: MapPin,
+              title: "Quick Contact",
+              text: "Email nuviahomes.com",
+            },
           ].map(({ Icon, title, text }, i) => (
             <div key={i} className="flex items-center gap-3 sm:gap-4">
               <div className="featured-gradient border border-gray-500 p-2.5 sm:p-3 rounded-md">
                 <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <p className="text-base sm:text-20 font-semibold mb-0.5">{title}</p>
+                <p className="text-base sm:text-20 font-semibold mb-0.5">
+                  {title}
+                </p>
                 <p className="text-sm sm:text-16">{text}</p>
               </div>
             </div>
@@ -58,7 +74,9 @@ export default function LetsTalk() {
           {/* Email & Message */}
           <div className="space-y-4 mb-5">
             <div className="flex flex-col">
-              <label className="mb-2 text-base sm:text-xl font-semibold">Email</label>
+              <label className="mb-2 text-base sm:text-xl font-semibold">
+                Email
+              </label>
               <input
                 type="text"
                 placeholder="Your Email"
@@ -66,7 +84,9 @@ export default function LetsTalk() {
               />
             </div>
             <div className="flex flex-col">
-              <label className="mb-2 text-base sm:text-xl font-semibold">Message</label>
+              <label className="mb-2 text-base sm:text-xl font-semibold">
+                Message
+              </label>
               <textarea
                 rows={6}
                 className="border border-gray-500 outline-0 w-full p-2.5 sm:p-3 rounded-md forms-gradient resize-none"

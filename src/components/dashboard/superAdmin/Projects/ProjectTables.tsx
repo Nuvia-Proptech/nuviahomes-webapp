@@ -1,7 +1,11 @@
 import React from "react";
-import { ProjectsTableBodies } from "./ProjectsTableBodies";
+import { ProjectsTableBodies, ProjectProps } from "./ProjectsTableBodies";
 
-export const ProjectTables = ({ projectData }) => {
+export const ProjectTables = ({
+  projectData,
+}: {
+  projectData: ProjectProps[];
+}) => {
   return (
     <div className="overflow-x-auto my-5">
       <table className="min-w-[900px] w-full text-sm text-left text-textColor">
@@ -19,7 +23,7 @@ export const ProjectTables = ({ projectData }) => {
         </thead>
 
         <tbody className="">
-          {projectData.map((project) => {
+          {projectData.map((project: ProjectProps) => {
             return (
               <ProjectsTableBodies
                 key={project.id}
