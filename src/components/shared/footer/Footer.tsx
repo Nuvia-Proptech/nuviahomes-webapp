@@ -84,13 +84,9 @@ export default function Footer() {
         <hr className="my-6 border-gray-500 sm:mx-auto lg:my-8" />
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0 md:w-1/2">
-            <Link href="#" className="flex items-center mb-6">
-              <Image src={logo} className="h-8 me-3" alt="FlowBite Logo" />
-              {/* <span
-                className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
-                >Nuvia</span
-              > */}
-            </Link>
+            
+              <Image src={logo} className="h-8 w-20 aspect-ratio mb-2" alt="Nuvia Homes Logo" />
+              
             <p>
               Don&apos;t miss out on the future of real estate. company that{" "}
               <br />

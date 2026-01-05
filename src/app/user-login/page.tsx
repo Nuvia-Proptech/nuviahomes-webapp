@@ -1,4 +1,4 @@
-import Login from "@/components/auth/admin/Login";
+import Login from "@/components/auth/user/Login";
 import React from "react";
 
 export default function page() {

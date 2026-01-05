@@ -20,9 +20,7 @@ export const publicRoutes = [
   appRoutes.auth.forgotPassword, 
   appRoutes.auth.otpVerification,
   appRoutes.auth.resetPassword, 
-  "/user-login", 
-  "/user-register",
-  "/forgot-password", 
+ 
 ];
 
 // Routes that should redirect to dashboard if already authenticate
@@ -30,8 +28,6 @@ export const authRoutes = [
   appRoutes.auth.authIndex,
   appRoutes.auth.signUp,
   appRoutes.auth.signIn,
-  "/user-login",
-  "/user-register",
 ];
 
 // Default redirect routes based on user role
