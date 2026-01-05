@@ -71,9 +71,9 @@ const appRoutes: AppRoutes = {
   // auth routes
   auth: {
     authIndex: '/auth',
-    signUp: '/auth/sign-up',
-    signIn: '/auth/sign-in',
-    forgotPassword: '/auth/forgot-password',
+    signUp: '/user-register',
+    signIn: '/user-login',
+    forgotPassword: '/forgot-password',
     otpVerification: '/auth/forgot-password/otp-verification',
     resetPassword: '/auth/forgot-password/reset-password',
   },
