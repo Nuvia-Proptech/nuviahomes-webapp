@@ -12,7 +12,20 @@ import { FormInput } from "@/components/shared/form/FormInput";
 
 function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
-  const { control, errors, submitSignIn, isPending } = useSignIn();
+  const { control, errors, submitSignIn, isPending, isSuccess } = useSignIn();
+
+  if (isSuccess) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="flex flex-col items-center gap-4">
+          <Loader2 className="h-10 w-10 animate-spin text-blue-600" />
+          <p className="text-slate-500 font-medium animate-pulse">
+            Loading...
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-gray-50">
@@ -82,7 +95,7 @@ function LoginForm() {
               </div>
 
               {/* Submit Button */}
-              <div className="!mt-12">
+              <div className="mt-12!">
                 <button
                   type="submit"
                   disabled={isPending}
@@ -103,7 +116,7 @@ function LoginForm() {
                 </button>
               </div>
 
-              <p className="text-slate-900 text-sm !mt-6 text-center">
+              <p className="text-slate-900 text-sm mt-6! text-center">
                 Don&apos;t have an account?
                 <Link
                   href="/user-register"
@@ -116,9 +129,9 @@ function LoginForm() {
 
             {/* OR */}
             <div className="text-black flex items-center mt-4">
-              <div className="bg-gray-400 h-[1px] w-full"></div>
+              <div className="bg-gray-400 h-px w-full"></div>
               <p className="text-center text-black mx-5">or</p>
-              <div className="bg-gray-400 h-[1px] w-full"></div>
+              <div className="bg-gray-400 h-px w-full"></div>
             </div>
 
             {/* Social Login */}

@@ -40,7 +40,11 @@ export const useSignIn = () => {
     validator: useSignInFormValidator,
   });
 
-  const { mutate: signIn, isPending } = useMutation({
+  const {
+    mutate: signIn,
+    isPending,
+    isSuccess,
+  } = useMutation({
     mutationFn: async (formData: SignInRequest) => {
       const response = await api.post<SignInRequest, SignInResponse>(
         API_ROUTES.auth.signIn,
@@ -48,7 +52,7 @@ export const useSignIn = () => {
       );
       return response;
     },
-    onSuccess: (data) => {
+    onSuccess: (data: SignInResponse) => {
       // Store token and user in Zustand store (also persists to cookie for middleware)
       // The schema shows access_token and user are at the root
       setAuth(data.access_token, data.user);
@@ -86,5 +90,6 @@ export const useSignIn = () => {
     errors,
     submitSignIn,
     isPending,
+    isSuccess,
   };
 };

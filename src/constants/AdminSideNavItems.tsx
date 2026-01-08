@@ -8,56 +8,62 @@ import { TaskSquareIcon } from "@/components/shared/Icons/TaskSquareIcon";
 import { WalletAddIcon } from "@/components/shared/Icons/WalletAddIcon";
 import { NoteIcon } from "@/components/shared/Icons/NoteIcon";
 import { SettingsCpuIcon } from "@/components/shared/Icons/SettingsCpuIcon";
+import { LogoutIcon } from "@/components/shared/Icons/LogoutIcon";
 
 export const adminSideNavItems = [
   {
     title: "Dashboard",
     path: appRoutes.dashboard.admin.index,
-    icon: <ElementEqualIcon />
+    icon: <ElementEqualIcon />,
   },
   {
     title: "Users",
     path: appRoutes.dashboard.admin.users.index,
-    icon: <PeopleIcon />
+    icon: <PeopleIcon />,
   },
   {
     title: "Investments",
     path: appRoutes.dashboard.admin.investments,
-    icon: <DocumentFowardIcon />
+    icon: <DocumentFowardIcon />,
   },
   {
     title: "Properties",
     path: appRoutes.dashboard.admin.properties.index,
-    icon: <HouseIcon fill="white" width="20" height="20" />
+    icon: <HouseIcon fill="white" width="20" height="20" />,
   },
   {
     title: "Projects",
     path: appRoutes.dashboard.admin.projects.index,
-    icon: <TaskSquareIcon />
+    icon: <TaskSquareIcon />,
   },
   {
     title: "Payments",
     path: appRoutes.dashboard.admin.payments,
-    icon: <WalletAddIcon />
+    icon: <WalletAddIcon />,
   },
   {
     title: "Messages",
     path: appRoutes.dashboard.admin.messages,
-    icon: <ChatsIcon />
+    icon: <ChatsIcon />,
   },
   {
     title: "Bookings",
     path: appRoutes.dashboard.admin.bookings,
-    icon: <ChatsIcon />
+    icon: <ChatsIcon />,
   },
   {
     title: "Reports",
     path: appRoutes.dashboard.admin.reports,
-    icon: <NoteIcon />
+    icon: <NoteIcon />,
   },
   {
     title: "Settings",
     path: appRoutes.dashboard.admin.settings,
-    icon: <SettingsCpuIcon />
+    icon: <SettingsCpuIcon />,
+  },
+  {
+    title: "Logout",
+    path: "",
+    icon: <LogoutIcon />,
   },
 ];

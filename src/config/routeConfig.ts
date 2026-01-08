@@ -13,14 +13,14 @@ import appRoutes from "@/constants/AppRoutes";
 
 // Routes that don't require authentication
 export const publicRoutes = [
-  appRoutes.home.index, 
-  appRoutes.auth.authIndex, 
-  appRoutes.auth.signUp, 
-  appRoutes.auth.signIn, 
-  appRoutes.auth.forgotPassword, 
+  appRoutes.home.index,
+  appRoutes.auth.authIndex,
+  appRoutes.auth.signUp,
+  appRoutes.auth.signIn,
+  appRoutes.auth.adminSignIn,
+  appRoutes.auth.forgotPassword,
   appRoutes.auth.otpVerification,
-  appRoutes.auth.resetPassword, 
- 
+  appRoutes.auth.resetPassword,
 ];
 
 // Routes that should redirect to dashboard if already authenticate
@@ -28,6 +28,7 @@ export const authRoutes = [
   appRoutes.auth.authIndex,
   appRoutes.auth.signUp,
   appRoutes.auth.signIn,
+  appRoutes.auth.adminSignIn,
 ];
 
 // Default redirect routes based on user role
@@ -36,7 +37,8 @@ export const defaultRedirects = {
   authenticated: {
     user: appRoutes.dashboard.user.index,
     admin: appRoutes.dashboard.admin.index,
-    agent: appRoutes.dashboard.user.index, 
-    investor: appRoutes.dashboard.user.index, 
+    "super-admin": appRoutes.dashboard.admin.index,
+    agent: appRoutes.dashboard.user.index,
+    investor: appRoutes.dashboard.user.index,
   },
 };

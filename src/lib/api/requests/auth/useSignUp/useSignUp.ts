@@ -44,7 +44,11 @@ export const useSignUp = () => {
     validator: useSignUpFormValidator,
   });
 
-  const { mutate: signUp, isPending } = useMutation({
+  const {
+    mutate: signUp,
+    isPending,
+    isSuccess,
+  } = useMutation({
     mutationFn: async (formData: Record<string, any>) => {
       // Transform form data to match API schema
       const apiPayload: SignUpRequest = {
@@ -67,7 +71,7 @@ export const useSignUp = () => {
       setAuth(data.data.access_token, data.data.user);
 
       reset();
-      push(appRoutes.dashboard.user.index)
+      push(appRoutes.dashboard.user.index);
       toast.success("registered successfully", {
         duration: 5000,
       });
@@ -100,5 +104,6 @@ export const useSignUp = () => {
     errors,
     submitSignUp,
     isPending,
+    isSuccess,
   };
 };

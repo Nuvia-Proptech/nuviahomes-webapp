@@ -10,11 +10,25 @@ interface MenuItem {
   [key: string]: any;
 }
 
-const SideBarMenuItem = ({ item }: { item: MenuItem }) => {
+interface SideBarMenuItemProps {
+  item: MenuItem;
+  onItemClick?: () => void;
+}
+
+const SideBarMenuItem = ({ item, onItemClick }: SideBarMenuItemProps) => {
   const pathname = usePathname();
   const [subMenuOpen, setSubMenuOpen] = useState(false);
   const toggleSubMenu = () => {
     setSubMenuOpen(!subMenuOpen);
+  };
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (onItemClick) {
+      onItemClick();
+    }
+    if (!item.path) {
+      e.preventDefault();
+    }
   };
 
   const isActive = pathname === item.path || pathname.includes(item.path);
@@ -35,7 +49,8 @@ const SideBarMenuItem = ({ item }: { item: MenuItem }) => {
         </button>
       ) : (
         <Link
-          href={item.path}
+          onClick={handleClick}
+          href={item.path || "#"}
           className={`flex flex-row space-x-4 items-center p-2 ${
             isActive ? "" : ""
           }`}
