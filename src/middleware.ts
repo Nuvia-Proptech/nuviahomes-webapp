@@ -5,6 +5,7 @@ import {
   authRoutes,
   defaultRedirects,
 } from "@/config/routeConfig";
+import appRoutes from "@/constants/AppRoutes";
 
 /**
  * Next.js Middleware for Route Protection
@@ -59,30 +60,16 @@ export function middleware(request: NextRequest) {
   let isAuthenticated = false;
   let userRole = "user";
 
-  // DEBUG: Log all cookies and auth status // if by any chance you needed to see all this in your console then Uncomment it
-  // console.log("=== MIDDLEWARE DEBUG ===");
-  // console.log("Pathname:", pathname);
-  // console.log("Auth cookie exists:", !!authStorage);
-  // console.log("Auth cookie value:", authStorage?.value);
-
   if (authStorage) {
     try {
       const authData = JSON.parse(authStorage.value);
       isAuthenticated = !!authData?.state?.access_token;
       userRole = authData?.state?.user?.role || "user";
-      console.log("Parsed auth data:", JSON.stringify(authData, null, 2));
-      console.log("Access token exists:", !!authData?.state?.access_token);
-    } catch (error) {
+    } catch {
       // Invalid auth data, treat as unauthenticated
-      console.log("Error parsing auth data:", error);
       isAuthenticated = false;
     }
   }
-
-  // if by any chance you needed to see all this in your console then Uncomment it
-  // console.log("Is authenticated:", isAuthenticated);
-  // console.log("Is public route:", isPublicRoute(pathname));
-  // console.log("========================");
 
   // Allow access to public routes
   if (isPublicRoute(pathname)) {
@@ -100,13 +87,36 @@ export function middleware(request: NextRequest) {
   // Check if trying to access protected route without authentication
   if (!isAuthenticated) {
     // Redirect to login page
-    const loginUrl = new URL(defaultRedirects.unauthenticated, request.url);
+    // For admin routes, redirect to admin login
+    const isTryingAdmin = pathname.startsWith("/admin");
+    const loginPath = isTryingAdmin
+      ? appRoutes.auth.adminSignIn
+      : defaultRedirects.unauthenticated;
+
+    const loginUrl = new URL(loginPath, request.url);
     // Add redirect parameter to return user after login
     loginUrl.searchParams.set("redirect", pathname);
     return NextResponse.redirect(loginUrl);
   }
 
-  // User is authenticated, allow access
+  // --- ROLE BASED ACCESS CONTROL (RBAC) ---
+  const isAdmin = userRole === "admin" || userRole === "super-admin";
+
+  // 1. Admin trying to access user dashboard
+  if (isAdmin && pathname.startsWith("/user")) {
+    return NextResponse.redirect(
+      new URL(appRoutes.dashboard.admin.index, request.url)
+    );
+  }
+
+  // 2. User trying to access admin dashboard
+  if (!isAdmin && pathname.startsWith("/admin")) {
+    return NextResponse.redirect(
+      new URL(appRoutes.dashboard.user.index, request.url)
+    );
+  }
+
+  // User is authenticated and has correct role for the path, allow access
   return NextResponse.next();
 }
 

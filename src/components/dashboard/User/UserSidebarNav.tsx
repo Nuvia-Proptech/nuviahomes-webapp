@@ -1,4 +1,5 @@
 "use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/assets/logo.svg";
@@ -8,12 +9,26 @@ import {
   userMainMenuItems,
 } from "@/constants/UserSideNavItems";
 import { UserDetails } from "./UserDetails";
+import { LogoutModal } from "@/components/shared/LogoutModal";
+import { useAuthStore } from "@/store/useAuthStore";
+import { useRouter } from "next/navigation";
 
 interface UserSidebarNavProps {
   onCloseSheet?: () => void;
 }
 
 export const UserSidebarNav = ({ onCloseSheet }: UserSidebarNavProps) => {
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
+  const { clearAuth } = useAuthStore();
+  const router = useRouter();
+
+  const handleLogoutConfirm = () => {
+    clearAuth();
+    router.push("/user-login");
+    setIsLogoutModalOpen(false);
+    if (onCloseSheet) onCloseSheet();
+  };
+
   return (
     <div className="flex flex-col h-full overflow-y-auto no-scrollbar">
       {/* Fixed top logo section */}
@@ -41,7 +56,17 @@ export const UserSidebarNav = ({ onCloseSheet }: UserSidebarNavProps) => {
             GENERAL
           </p>
           {userGeneralItems.map((item) => (
-            <UserNavMenuItem key={item.path} item={item} />
+            <UserNavMenuItem
+              key={item.title}
+              item={item}
+              onItemClick={() => {
+                if (item.title === "Logout") {
+                  setIsLogoutModalOpen(true);
+                } else if (onCloseSheet) {
+                  onCloseSheet();
+                }
+              }}
+            />
           ))}
         </div>
       </div>
@@ -49,7 +74,7 @@ export const UserSidebarNav = ({ onCloseSheet }: UserSidebarNavProps) => {
       {/* Fixed bottom card/button only display on desktop/tablet */}
       <div className="p-2 hidden md:block">
         <div className="relative aspect-square rounded-lg bg-dashboard-user mx-2.5 w-full">
-          <button className="mx-auto w-9/12 flex justify-center items-center rounded-3xl p-2.5 bg-gradient-to-br from-[#1B5590] via-[#35AF72] to-[#B5E03A] cursor-pointer absolute bottom-5 left-1/2 -translate-x-1/2">
+          <button className="mx-auto w-9/12 flex justify-center items-center rounded-3xl p-2.5 bg-linear-to-br from-[#1B5590] via-[#35AF72] to-[#B5E03A] cursor-pointer absolute bottom-5 left-1/2 -translate-x-1/2">
             <p className="font-urbanist text-sm font-normal text-white">
               Download
             </p>
@@ -61,6 +86,12 @@ export const UserSidebarNav = ({ onCloseSheet }: UserSidebarNavProps) => {
       <div onClick={onCloseSheet}>
         <UserDetails className="flex md:hidden" />
       </div>
+
+      <LogoutModal
+        isOpen={isLogoutModalOpen}
+        onClose={() => setIsLogoutModalOpen(false)}
+        onConfirm={handleLogoutConfirm}
+      />
     </div>
   );
 };
