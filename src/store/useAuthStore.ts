@@ -41,6 +41,9 @@ const customStorage = {
           sameSite: "strict",
           secure: process.env.NODE_ENV === "production",
         });
+      } else {
+        // Clear cookie if no token is present
+        Cookies.remove("auth-storage");
       }
     } catch {
       // Ignore parsing errors

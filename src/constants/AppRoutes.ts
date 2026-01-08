@@ -11,6 +11,7 @@ interface AppRoutes {
     authIndex: string;
     signUp: string;
     signIn: string;
+    adminSignIn: string;
     forgotPassword: string;
     otpVerification: string;
     resetPassword: string;
@@ -66,65 +67,66 @@ interface AppRoutes {
 const appRoutes: AppRoutes = {
   // home routes
   home: {
-    index: '/',
+    index: "/",
   },
   // auth routes
   auth: {
-    authIndex: '/auth',
-    signUp: '/user-register',
-    signIn: '/user-login',
-    forgotPassword: '/forgot-password',
-    otpVerification: '/auth/forgot-password/otp-verification',
-    resetPassword: '/auth/forgot-password/reset-password',
+    authIndex: "/auth",
+    signUp: "/user-register",
+    signIn: "/user-login",
+    adminSignIn: "/nuvia-proptech-admin-login",
+    forgotPassword: "/forgot-password",
+    otpVerification: "/auth/forgot-password/otp-verification",
+    resetPassword: "/auth/forgot-password/reset-password",
   },
   // dashboard routes
   dashboard: {
     admin: {
-      index: '/admin',
+      index: "/admin",
       users: {
-        index: '/admin/users',
-        userOverview: '/admin/users/user-overview',
-        userOverviewSecurity: '/admin/users/user-details-edit',
+        index: "/admin/users",
+        userOverview: "/admin/users/user-overview",
+        userOverviewSecurity: "/admin/users/user-details-edit",
       },
-      investments: '/admin/investments',
+      investments: "/admin/investments",
       properties: {
-        index: '/admin/properties',
-        addProperties: '/admin/properties/add-properties'
+        index: "/admin/properties",
+        addProperties: "/admin/properties/add-properties",
       },
       projects: {
-        index: '/admin/projects',
+        index: "/admin/projects",
         slug: (slug: string) => ({
           index: `/admin/projects/${slug}`,
           editProject: `/admin/projects/${slug}/edit-project`,
         }),
-        projectDetails: '/admin/projects/project-details'
+        projectDetails: "/admin/projects/project-details",
       },
-      payments: '/admin/payments',
-      messages: '/admin/messages',
-      bookings: '/admin/bookings',
-      reports: '/admin/reports',
-      settings: '/admin/settings',
+      payments: "/admin/payments",
+      messages: "/admin/messages",
+      bookings: "/admin/bookings",
+      reports: "/admin/reports",
+      settings: "/admin/settings",
     },
     user: {
-      index: '/user',
+      index: "/user",
       properties: {
-        index: '/user/properties',
-        submitProperty: '/user/properties/submit-property'
+        index: "/user/properties",
+        submitProperty: "/user/properties/submit-property",
       },
       projects: {
-        index: '/user/projects',
-        submitProject: '/user/projects/submit-project',
+        index: "/user/projects",
+        submitProject: "/user/projects/submit-project",
       },
       investments: {
-        index: '/user/investments',
-        InvestmentsCategory: '/user/investments/investments-category'
+        index: "/user/investments",
+        InvestmentsCategory: "/user/investments/investments-category",
       },
-      transactions: '/user/transactions',
-      messages: '/user/messages',
-      bookings: '/user/bookings',
-      settings: '/user/settings',
-      help: '/user/help',
-      profile: '/user/profile',
+      transactions: "/user/transactions",
+      messages: "/user/messages",
+      bookings: "/user/bookings",
+      settings: "/user/settings",
+      help: "/user/help",
+      profile: "/user/profile",
     },
   },
 };

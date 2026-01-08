@@ -14,11 +14,20 @@ interface UserNavMenuItemProps {
   item: NavItem;
   onItemClick?: () => void;
 }
-
 const UserNavMenuItem = ({ item, onItemClick }: UserNavMenuItemProps) => {
   const pathname = usePathname();
 
   const isActive = pathname === item.path;
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (onItemClick) {
+      onItemClick();
+    }
+    // If the path is empty, it's likely a functional button (like Logout)
+    if (!item.path) {
+      e.preventDefault();
+    }
+  };
 
   return (
     <div className="w-full font-urbanist flex gap-2">
@@ -28,10 +37,10 @@ const UserNavMenuItem = ({ item, onItemClick }: UserNavMenuItemProps) => {
         <div className="bg-transparent w-2.5 h-10 rounded-tr-lg rounded-br-lg" />
       )}
       <Link
-        onClick={onItemClick}
+        onClick={handleClick}
         href={item.path}
         className={cn(
-          "flex flex-row space-x-2 items-center p-2",
+          "flex flex-row space-x-2 items-center p-2 w-full",
           isActive ? "" : ""
         )}
       >

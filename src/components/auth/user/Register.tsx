@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { EyeClosedIcon, EyeIcon } from "lucide-react";
+import { EyeClosedIcon, EyeIcon, Loader2 } from "lucide-react";
 import Link from "next/link";
 import logo from "@/assets/logo.png";
 import Image from "next/image";
@@ -13,7 +13,20 @@ import { FormInput } from "@/components/shared/form/FormInput";
 export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const { control, errors, submitSignUp, isPending } = useSignUp();
+  const { control, errors, submitSignUp, isPending, isSuccess } = useSignUp();
+
+  if (isSuccess) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="flex flex-col items-center gap-4">
+          <Loader2 className="h-10 w-10 animate-spin text-blue-600" />
+          <p className="text-slate-500 font-medium animate-pulse">
+            Account created Successfully...
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-gray-50">
@@ -103,47 +116,48 @@ export default function Register() {
               />
 
               {/* Terms and Conditions */}
-              <div className="flex flex-wrap items-center">
-                <div className="flex items-center">
-                  <input
-                    id="remember-me"
-                    name="remember-me"
-                    type="checkbox"
-                    className="h-4 w-4 shrink-0 text-blue-600 focus:ring-blue-500 border-slate-300 rounded"
-                  />
-                  <label
-                    htmlFor="remember-me"
-                    className="ml-3 block text-sm text-slate-900"
+              <div className="text-center">
+                <p className="text-sm text-slate-500">
+                  By clicking Sign up, you agree to our{" "}
+                  <Link
+                    href="/privacy-policy"
+                    className="text-blue-600 hover:underline font-semibold"
                   >
-                    I agree to
-                  </label>
-                </div>
-                <div className="text-sm">
-                  <a
-                    href="javascript:void(0);"
-                    className="text-blue-600 hover:underline font-semibold ml-1"
+                    privacy policy
+                  </Link>{" "}
+                  and{" "}
+                  <Link
+                    href="/terms"
+                    className="text-blue-600 hover:underline font-semibold"
                   >
-                    privacy policy and terms
-                  </a>
-                </div>
+                    terms
+                  </Link>
+                </p>
               </div>
 
               {/* Submit Button */}
-              <div className="!mt-12">
+              <div className="mt-8!">
                 <button
                   type="submit"
                   disabled={isPending}
-                  className={`w-full py-2 px-4 text-[15px] font-medium tracking-wide rounded-md text-white btn-gradient focus:outline-none ${
+                  className={`w-full py-2 px-4 text-[15px] font-medium tracking-wide rounded-md text-white btn-gradient focus:outline-none flex items-center justify-center gap-2 ${
                     isPending
                       ? "opacity-50 cursor-not-allowed"
                       : "cursor-pointer"
                   }`}
                 >
-                  {isPending ? "Signing up..." : "Sign up"}
+                  {isPending ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      Signing up...
+                    </>
+                  ) : (
+                    "Sign up"
+                  )}
                 </button>
               </div>
 
-              <p className="text-slate-900 text-sm !mt-6 text-center">
+              <p className="text-slate-900 text-sm mt-6! text-center">
                 Already have an account?{" "}
                 <Link
                   href="/user-login"
@@ -156,9 +170,9 @@ export default function Register() {
 
             {/* OR */}
             <div className="text-black flex items-center mt-4">
-              <div className="bg-gray-400 h-[1px] w-full"></div>
+              <div className="bg-gray-400 h-px w-full"></div>
               <p className="text-center text-black mx-5">or</p>
-              <div className="bg-gray-400 h-[1px] w-full"></div>
+              <div className="bg-gray-400 h-px w-full"></div>
             </div>
 
             {/* Social Login */}
