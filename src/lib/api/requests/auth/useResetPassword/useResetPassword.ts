@@ -16,6 +16,10 @@ interface ResetPasswordResponse {
   message?: string;
 }
 
+// interface ResetPasswordResponse {
+//   message?: string;
+// }
+
 export const useResetPassword = () => {
   const { push } = useRouter();
   const searchParams = useSearchParams();
