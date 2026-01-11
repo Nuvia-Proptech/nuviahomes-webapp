@@ -1,17 +1,19 @@
 "use client";
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import logo from "@/assets/logo.png";
 import Image from "next/image";
-import { ChevronLeft, Loader2, CheckCircle } from "lucide-react";
+import { ChevronLeft, Loader2, EyeClosedIcon, EyeIcon, AlertCircle } from "lucide-react";
 import Link from "next/link";
-import { useForgotPassword } from "@/lib/api/requests/auth/useForgotPassword/useForgotPassword";
+import { useResetPassword } from "@/lib/api/requests/auth/useResetPassword/useResetPassword";
 import { FormInput } from "@/components/shared/form/FormInput";
 
-function ForgotPasswordForm() {
-  const { control, errors, submitForgotPassword, isPending, isSuccess } =
-    useForgotPassword();
+function ResetPasswordForm() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const { control, errors, submitResetPassword, isPending, hasToken } =
+    useResetPassword();
 
-  if (isSuccess) {
+  if (!hasToken) {
     return (
       <div className="bg-gray-50">
         <div className="min-h-screen flex flex-col items-center justify-center py-20 px-4">
@@ -21,15 +23,21 @@ function ForgotPasswordForm() {
                 <Image src={logo} alt="Logo" />
               </div>
               <div className="flex flex-col items-center text-center mt-8">
-                <CheckCircle className="h-16 w-16 text-green-500 mb-4" />
-                <p className="text-24 text-black">Check Your Email</p>
+                <AlertCircle className="h-16 w-16 text-red-500 mb-4" />
+                <p className="text-24 text-black">Invalid Reset Link</p>
                 <p className="text-gray-600 mt-2">
-                  If an account exists with the email you entered, you will
-                  receive password reset instructions shortly.
+                  This password reset link is invalid or has expired. Please
+                  request a new password reset.
                 </p>
                 <Link
-                  href="/login"
-                  className="flex gap-1 items-center justify-center text-blue-500 mt-6"
+                  href="/forgot-password"
+                  className="mt-6 w-full py-2 px-4 text-[15px] font-medium tracking-wide rounded-md text-white btn-gradient focus:outline-none flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  Request New Reset Link
+                </Link>
+                <Link
+                  href="/user-login"
+                  className="flex gap-1 items-center justify-center text-blue-500 mt-4"
                 >
                   <ChevronLeft size={20} /> Back to Login
                 </Link>
@@ -50,20 +58,42 @@ function ForgotPasswordForm() {
               <Image src={logo} alt="Logo" />
             </div>
             <div className="text-black mt-8 mb-4">
-              <p className="text-24">Forgot Password</p>
-              <p>
-                Enter your email and we&apos;ll send you instructions to reset
-                your password
-              </p>
+              <p className="text-24">Reset Password</p>
+              <p>Enter your new password below</p>
             </div>
-            <form className="space-y-6" onSubmit={submitForgotPassword}>
+            <form className="space-y-6" onSubmit={submitResetPassword}>
               <FormInput
-                name="email"
-                label="Email"
-                type="email"
-                placeholder="Enter your email"
+                name="newPassword"
+                label="New Password"
+                type={showPassword ? "text" : "password"}
+                placeholder="Enter new password"
                 control={control}
                 errors={errors}
+                icon={
+                  showPassword ? (
+                    <EyeClosedIcon className="text-black" />
+                  ) : (
+                    <EyeIcon className="text-black" />
+                  )
+                }
+                onIconClick={() => setShowPassword((prev) => !prev)}
+              />
+
+              <FormInput
+                name="confirmPassword"
+                label="Confirm Password"
+                type={showConfirmPassword ? "text" : "password"}
+                placeholder="Confirm new password"
+                control={control}
+                errors={errors}
+                icon={
+                  showConfirmPassword ? (
+                    <EyeClosedIcon className="text-black" />
+                  ) : (
+                    <EyeIcon className="text-black" />
+                  )
+                }
+                onIconClick={() => setShowConfirmPassword((prev) => !prev)}
               />
 
               <div className="!mt-6">
@@ -79,15 +109,15 @@ function ForgotPasswordForm() {
                   {isPending ? (
                     <>
                       <Loader2 className="h-4 w-4 animate-spin" />
-                      Sending...
+                      Resetting Password...
                     </>
                   ) : (
-                    "Send Reset Link"
+                    "Reset Password"
                   )}
                 </button>
               </div>
               <Link
-                href="/login"
+                href="/user-login"
                 className="flex gap-1 items-center justify-center text-blue-500"
               >
                 <ChevronLeft size={20} /> Back to Login
@@ -100,7 +130,7 @@ function ForgotPasswordForm() {
   );
 }
 
-export default function ForgotPassword() {
+export default function ResetPassword() {
   return (
     <Suspense
       fallback={
@@ -109,7 +139,7 @@ export default function ForgotPassword() {
         </div>
       }
     >
-      <ForgotPasswordForm />
+      <ResetPasswordForm />
     </Suspense>
   );
 }
