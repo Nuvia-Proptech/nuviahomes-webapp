@@ -38,6 +38,7 @@ export const defaultRedirects = {
     user: appRoutes.dashboard.user.index,
     admin: appRoutes.dashboard.admin.index,
     "super-admin": appRoutes.dashboard.admin.index,
+    super_admin: appRoutes.dashboard.admin.index,
     agent: appRoutes.dashboard.user.index,
     investor: appRoutes.dashboard.user.index,
   },

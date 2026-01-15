@@ -71,6 +71,13 @@ export function middleware(request: NextRequest) {
     }
   }
 
+  // Debug log for middleware
+  if (isAuthenticated) {
+    console.log(
+      `[Middleware] Path: ${pathname} | Auth: YES | Role: ${userRole}`
+    );
+  }
+
   // Allow access to public routes
   if (isPublicRoute(pathname)) {
     // If authenticated user tries to access auth pages, redirect to dashboard
@@ -100,10 +107,15 @@ export function middleware(request: NextRequest) {
   }
 
   // --- ROLE BASED ACCESS CONTROL (RBAC) ---
-  const isAdmin = userRole === "admin" || userRole === "super-admin";
+  const normalizedRole = userRole.toLowerCase();
+  const isAdmin =
+    normalizedRole === "admin" ||
+    normalizedRole === "super-admin" ||
+    normalizedRole === "super_admin";
 
   // 1. Admin trying to access user dashboard
   if (isAdmin && pathname.startsWith("/user")) {
+    console.log(`[Middleware] Admin redirected from /user to /admin`);
     return NextResponse.redirect(
       new URL(appRoutes.dashboard.admin.index, request.url)
     );
@@ -111,6 +123,7 @@ export function middleware(request: NextRequest) {
 
   // 2. User trying to access admin dashboard
   if (!isAdmin && pathname.startsWith("/admin")) {
+    console.log(`[Middleware] Non-admin redirected from /admin to /user`);
     return NextResponse.redirect(
       new URL(appRoutes.dashboard.user.index, request.url)
     );

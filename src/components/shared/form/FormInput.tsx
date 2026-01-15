@@ -5,7 +5,7 @@ interface FormInputProps {
   name: string;
   label: string;
   type?: string;
-  placeholder: string;
+  placeholder?: string;
   control: Control<any>;
   errors: FieldErrors;
   icon?: React.ReactNode;
@@ -38,7 +38,7 @@ export function FormInput({
             <input
               {...field}
               type={type}
-              className={`w-full text-slate-900 text-sm border ${
+              className={`w-full text-slate-900 text-sm border placeholder:text-slate-400 ${
                 error ? "border-red-500" : "border-slate-300"
               } px-4 py-3 ${
                 icon ? "pr-12" : ""
