@@ -9,7 +9,7 @@ import { FormInput } from "@/components/shared/form/FormInput";
 
 function AdminLoginForm() {
   const [showPassword, setShowPassword] = useState(false);
-  const { control, errors, submitSignIn, isPending, isSuccess } = useSignIn({
+  const { control, errors, submitSignIn, isPending } = useSignIn({
     portalType: "admin",
   });
 

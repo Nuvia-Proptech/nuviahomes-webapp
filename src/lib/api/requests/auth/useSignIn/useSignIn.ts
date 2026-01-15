@@ -60,7 +60,7 @@ export const useSignIn = (options?: UseSignInOptions) => {
     onSuccess: (data: SignInResponse) => {
       // Get role and normalize it (handle underscores and hyphens)
       const rawRole = (data.user?.role || "user").toLowerCase();
-      let normalizedRole = rawRole.replace("_", "-");
+      const normalizedRole = rawRole.replace("_", "-");
 
       // Verify role mapping for redirection
       const userRole =
