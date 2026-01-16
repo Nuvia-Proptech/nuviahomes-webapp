@@ -1,35 +1,21 @@
 import appRoutes from "./AppRoutes";
 import { ChatsIcon } from "@/components/shared/Icons/ChatsIcon";
 import { ElementEqualIcon } from "@/components/shared/Icons/ElementEqualIcon";
-import { BuildingIcon } from "@/components/shared/Icons/BuildingIcon";
 import { BitcoinCardIcon } from "@/components/shared/Icons/BitcoinCardIcon";
-import { BuildingIconTwo } from "@/components/shared/Icons/BuildingIconTwo";
-import { ArchiveBookIcon } from "@/components/shared/Icons/ArchiveBookIcon";
-import { SettingsIcon } from "@/components/shared/Icons/SettingsIcon";
-import { MessageQuestionIcon } from "@/components/shared/Icons/MessageQuestionIcon";
-import { LogoutIcon } from "@/components/shared/Icons/LogoutIcon";
 import { GrMoney } from "react-icons/gr";
+import { investorGeneralItems } from "./SharedSideNavItems";
 
+// Investor (User) Main Menu Items
 export const userMainMenuItems = [
   {
     title: "Dashboard",
     path: appRoutes.dashboard.user.index,
     icon: <ElementEqualIcon />,
   },
-{
-    title: "Investment",
+  {
+    title: "Investments",
     path: appRoutes.dashboard.user.investments.index,
     icon: <GrMoney className="h-5 w-5" />,
-  },
-  {
-    title: "Properties",
-    path: appRoutes.dashboard.user.properties.index,
-    icon: <BuildingIcon />,
-  },
-  {
-    title: "Projects",
-    path: appRoutes.dashboard.user.projects.index,
-    icon: <BuildingIconTwo />,
   },
   {
     title: "Transactions",
@@ -41,27 +27,7 @@ export const userMainMenuItems = [
     path: appRoutes.dashboard.user.messages,
     icon: <ChatsIcon />,
   },
-  {
-    title: "Bookings",
-    path: appRoutes.dashboard.user.bookings,
-    icon: <ArchiveBookIcon />,
-  },
 ];
 
-export const userGeneralItems = [
-  {
-    title: "Settings",
-    path: appRoutes.dashboard.user.settings,
-    icon: <SettingsIcon />,
-  },
-  {
-    title: "Help",
-    path: appRoutes.dashboard.user.help,
-    icon: <MessageQuestionIcon />,
-  },
-  {
-    title: "Logout",
-    path: "",
-    icon: <LogoutIcon />,
-  },
-];
+// Re-export shared general items for investor
+export const userGeneralItems = investorGeneralItems;

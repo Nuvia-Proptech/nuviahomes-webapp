@@ -13,7 +13,7 @@ export const UserProjectsIndex = () => {
   // Route to Submit Project
   const handleSubmitProjectClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    router.push(appRoutes.dashboard.user.projects.submitProject);
+    router.push(appRoutes.dashboard.owner.projects.submitProject);
   };
 
   return (

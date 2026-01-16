@@ -20,7 +20,13 @@ const cityOptions = [
 const purposeOptions = ["Property Purpose", "For sale", "For Rent", "Land"];
 const typeOptions = ["Property Type", "Residential", "Commercial", "Land"];
 
-export const UserPropertiesIndex = () => {
+interface UserPropertiesIndexProps {
+  submitRoute?: string;
+}
+
+export const UserPropertiesIndex = ({
+  submitRoute,
+}: UserPropertiesIndexProps) => {
   const router = useRouter();
   const [selectedCity, setSelectedCity] = useState("All Cities");
   const [selectedPurpose, setSelectedPurpose] = useState("Property Purpose");
@@ -63,7 +69,10 @@ export const UserPropertiesIndex = () => {
 
   // Route to Submit Property
   const handleSubmitPropertyClick = () => {
-    router.push(appRoutes.dashboard.user.properties.submitProperty);
+    // Use provided route or fallback to owner route (default)
+    const route =
+      submitRoute || appRoutes.dashboard.owner.properties.submitProperty;
+    router.push(route);
   };
   return (
     <AppWrapper className="">

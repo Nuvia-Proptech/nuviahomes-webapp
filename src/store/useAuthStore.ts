@@ -18,6 +18,7 @@ interface AuthState {
   getToken: () => string | null;
   getUser: () => User | null;
   isAuthenticated: () => boolean;
+  updateUserRole: (role: string) => void;
 }
 
 // Custom storage that uses both localStorage and cookies
@@ -79,6 +80,13 @@ export const useAuthStore = create<AuthState>()(
 
       isAuthenticated: () => {
         return !!get().access_token;
+      },
+
+      updateUserRole: (role: string) => {
+        const user = get().user;
+        if (user) {
+          set({ user: { ...user, role } });
+        }
       },
     }),
     {

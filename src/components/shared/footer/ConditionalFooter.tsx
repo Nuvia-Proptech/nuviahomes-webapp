@@ -10,8 +10,10 @@ export function ConditionalFooter() {
     "/dashboard",
     "/admin",
     "/user",
+    "/owner",
+    "/agent",
     "/super-admin-dashboard",
-    "nuvia-proptech-admin-login",
+    "/nuvia-proptech-admin-login",
   ];
   
   // Check if current path starts with any hidden route
