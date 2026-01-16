@@ -22,7 +22,7 @@ const AdminSideBarNav = () => {
   };
 
   return (
-    <div className="flex flex-col space-y-6 w-full bg-primaryColorLight shadow-lg h-full relative">
+    <div className="flex flex-col h-full overflow-y-auto no-scrollbar bg-primaryColorLight shadow-lg">
       <div className="cursor-pointer flex justify-center py-5">
         <Link href="/">
           <Image src={logo} alt="Logo" width={120} height={40} />
@@ -30,19 +30,17 @@ const AdminSideBarNav = () => {
       </div>
 
       <div className="flex flex-col space-y-2 md:px-6">
-        {adminSideNavItems.map((item, idx) => {
-          return (
-            <SideBarMenuItem
-              key={idx}
-              item={item}
-              onItemClick={() => {
-                if (item.title === "Logout") {
-                  setIsLogoutModalOpen(true);
-                }
-              }}
-            />
-          );
-        })}
+        {adminSideNavItems.map((item, idx) => (
+          <SideBarMenuItem
+            key={idx}
+            item={item}
+            onItemClick={() => {
+              if (item.title === "Logout") {
+                setIsLogoutModalOpen(true);
+              }
+            }}
+          />
+        ))}
       </div>
 
       <LogoutModal

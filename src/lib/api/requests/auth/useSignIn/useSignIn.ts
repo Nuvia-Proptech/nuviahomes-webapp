@@ -26,10 +26,15 @@ interface SignInResponse {
   user: User;
 }
 
-export const useSignIn = () => {
+interface UseSignInOptions {
+  portalType: "admin" | "user";
+}
+
+export const useSignIn = (options?: UseSignInOptions) => {
   const { push } = useRouter();
   const searchParams = useSearchParams();
   const setAuth = useAuthStore((state) => state.setAuth);
+  const portalType = options?.portalType || "user";
 
   const {
     control,
@@ -53,21 +58,56 @@ export const useSignIn = () => {
       return response;
     },
     onSuccess: (data: SignInResponse) => {
-      // Store token and user in Zustand store (also persists to cookie for middleware)
-      // The schema shows access_token and user are at the root
+      // Get role and normalize it (handle underscores and hyphens)
+      const rawRole = (data.user?.role || "user").toLowerCase();
+      const normalizedRole = rawRole.replace("_", "-");
+
+      // Verify role mapping for redirection
+      const userRole =
+        normalizedRole as keyof typeof defaultRedirects.authenticated;
+
+      console.log("--- Login Success Verification ---");
+      console.log("Portal Type Requested:", portalType);
+      console.log("User Data Received:", data.user);
+      console.log("Raw Role from API:", rawRole);
+      console.log("Normalized Role for App:", normalizedRole);
+
+      // --- Portal Validation ---
+      const isAdminRole =
+        normalizedRole === "admin" || normalizedRole === "super-admin";
+
+      if (portalType === "admin" && !isAdminRole) {
+        toast.error("Access denied. Administrator privileges required.");
+        return;
+      }
+
+      if (portalType === "user" && isAdminRole) {
+        toast.error("Please use the Administrator Portal for this account.");
+        return;
+      }
+
+      // If validation passed, store token and user
       setAuth(data.access_token, data.user);
+
+      // Console all details as requested
+      console.log("Access Token:", data.access_token);
+      console.log("User Details (Stored):", data.user);
 
       // Check for redirect parameter, otherwise use role-based default
       const redirectPath = searchParams.get("redirect");
-      const userRole = data.user
-        .role as keyof typeof defaultRedirects.authenticated;
+
+      // Determine final path
       const defaultPath =
         defaultRedirects.authenticated[userRole] ||
-        defaultRedirects.authenticated.user;
+        (isAdminRole
+          ? defaultRedirects.authenticated.admin
+          : defaultRedirects.authenticated.user);
+
+      console.log("Final Redirect Path:", redirectPath || defaultPath);
 
       push(redirectPath || defaultPath);
       reset();
-      toast.success(`Welcome back!`);
+      toast.success(`Welcome back, ${data.user.firstName}!`);
     },
     onError: (error: unknown) => {
       const apiError = error as {

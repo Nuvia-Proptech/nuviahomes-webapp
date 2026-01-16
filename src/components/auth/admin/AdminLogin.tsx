@@ -9,7 +9,10 @@ import { FormInput } from "@/components/shared/form/FormInput";
 
 function AdminLoginForm() {
   const [showPassword, setShowPassword] = useState(false);
-  const { control, errors, submitSignIn, isPending } = useSignIn();
+  const { control, errors, submitSignIn, isPending } = useSignIn({
+    portalType: "admin",
+  });
+
 
   return (
     <div className="bg-slate-50">
@@ -37,7 +40,6 @@ function AdminLoginForm() {
                 name="email"
                 label="Administrator Email"
                 type="email"
-                placeholder="admin@nuviahomes.com"
                 control={control}
                 errors={errors}
               />
@@ -47,7 +49,6 @@ function AdminLoginForm() {
                 name="password"
                 label="Password"
                 type={showPassword ? "text" : "password"}
-                placeholder="••••••••"
                 control={control}
                 errors={errors}
                 icon={
@@ -76,7 +77,7 @@ function AdminLoginForm() {
                 <button
                   type="submit"
                   disabled={isPending}
-                  className={`w-full py-3 px-4 text-[15px] font-bold tracking-wide rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors focus:outline-none flex items-center justify-center gap-2 shadow-lg shadow-blue-200 ${
+                  className={`w-full py-3 px-4 text-[15px] font-bold tracking-wide rounded-md text-white btn-gradient transition-colors focus:outline-none flex items-center justify-center gap-2 shadow-lg shadow-blue-200 ${
                     isPending
                       ? "opacity-50 cursor-not-allowed"
                       : "cursor-pointer"
