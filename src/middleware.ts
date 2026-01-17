@@ -113,20 +113,52 @@ export function middleware(request: NextRequest) {
     normalizedRole === "super-admin" ||
     normalizedRole === "super_admin";
 
-  // 1. Admin trying to access user dashboard
-  if (isAdmin && pathname.startsWith("/user")) {
-    console.log(`[Middleware] Admin redirected from /user to /admin`);
-    return NextResponse.redirect(
-      new URL(appRoutes.dashboard.admin.index, request.url)
-    );
-  }
+  // Define dashboard path prefixes
+  const dashboardPaths = ["/user", "/owner", "/agent", "/admin"];
+  const isAccessingDashboard = dashboardPaths.some((path) =>
+    pathname.startsWith(path)
+  );
 
-  // 2. User trying to access admin dashboard
-  if (!isAdmin && pathname.startsWith("/admin")) {
-    console.log(`[Middleware] Non-admin redirected from /admin to /user`);
-    return NextResponse.redirect(
-      new URL(appRoutes.dashboard.user.index, request.url)
-    );
+  if (isAccessingDashboard) {
+    // Admin trying to access non-admin dashboard
+    if (isAdmin && !pathname.startsWith("/admin")) {
+      console.log(`[Middleware] Admin redirected from ${pathname} to /admin`);
+      return NextResponse.redirect(
+        new URL(appRoutes.dashboard.admin.index, request.url)
+      );
+    }
+
+    // Owner role routing
+    if (normalizedRole === "owner") {
+      if (!pathname.startsWith("/owner")) {
+        console.log(`[Middleware] Owner redirected from ${pathname} to /owner`);
+        return NextResponse.redirect(
+          new URL(appRoutes.dashboard.owner.index, request.url)
+        );
+      }
+    }
+
+    // Agent role routing
+    if (normalizedRole === "agent") {
+      if (!pathname.startsWith("/agent")) {
+        console.log(`[Middleware] Agent redirected from ${pathname} to /agent`);
+        return NextResponse.redirect(
+          new URL(appRoutes.dashboard.agent.index, request.url)
+        );
+      }
+    }
+
+    // Investor (user) role routing - can only access /user
+    if (normalizedRole === "user" || normalizedRole === "investor") {
+      if (!pathname.startsWith("/user")) {
+        console.log(
+          `[Middleware] Investor redirected from ${pathname} to /user`
+        );
+        return NextResponse.redirect(
+          new URL(appRoutes.dashboard.user.index, request.url)
+        );
+      }
+    }
   }
 
   // User is authenticated and has correct role for the path, allow access

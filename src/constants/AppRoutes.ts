@@ -40,7 +40,21 @@ interface AppRoutes {
       reports: string;
       settings: string;
     };
+    // Investor (User) routes
     user: {
+      index: string;
+      investments: {
+        index: string;
+        InvestmentsCategory: string;
+      };
+      transactions: string;
+      messages: string;
+      settings: string;
+      help: string;
+      profile: string;
+    };
+    // Owner routes
+    owner: {
       index: string;
       properties: {
         index: string;
@@ -50,16 +64,27 @@ interface AppRoutes {
         index: string;
         submitProject: string;
       };
+      transactions: string;
+      messages: string;
+      bookings: string;
+      settings: string;
+      help: string;
+    };
+    // Agent routes
+    agent: {
+      index: string;
+      listings: {
+        index: string;
+        submitListing: string;
+      };
       investments: {
         index: string;
-        InvestmentsCategory: string;
       };
       transactions: string;
       messages: string;
       bookings: string;
       settings: string;
       help: string;
-      profile: string;
     };
   };
 }
@@ -107,26 +132,51 @@ const appRoutes: AppRoutes = {
       reports: "/admin/reports",
       settings: "/admin/settings",
     },
+    // Investor (User) dashboard routes
     user: {
       index: "/user",
-      properties: {
-        index: "/user/properties",
-        submitProperty: "/user/properties/submit-property",
-      },
-      projects: {
-        index: "/user/projects",
-        submitProject: "/user/projects/submit-project",
-      },
       investments: {
         index: "/user/investments",
         InvestmentsCategory: "/user/investments/investments-category",
       },
       transactions: "/user/transactions",
       messages: "/user/messages",
-      bookings: "/user/bookings",
       settings: "/user/settings",
       help: "/user/help",
       profile: "/user/profile",
+    },
+    // Owner dashboard routes
+    owner: {
+      index: "/owner",
+      properties: {
+        index: "/owner/properties",
+        submitProperty: "/owner/properties/submit-property",
+      },
+      projects: {
+        index: "/owner/projects",
+        submitProject: "/owner/projects/submit-project",
+      },
+      transactions: "/owner/transactions",
+      messages: "/owner/messages",
+      bookings: "/owner/bookings",
+      settings: "/owner/settings",
+      help: "/owner/help",
+    },
+    // Agent dashboard routes
+    agent: {
+      index: "/agent",
+      listings: {
+        index: "/agent/listings",
+        submitListing: "/agent/listings/submit-property",
+      },
+      investments: {
+        index: "/agent/investments",
+      },
+      transactions: "/agent/transactions",
+      messages: "/agent/messages",
+      bookings: "/agent/bookings",
+      settings: "/agent/settings",
+      help: "/agent/help",
     },
   },
 };

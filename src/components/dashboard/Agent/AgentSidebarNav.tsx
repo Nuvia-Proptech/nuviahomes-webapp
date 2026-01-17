@@ -1,0 +1,95 @@
+"use client";
+import React, { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import logo from "@/assets/logo.svg";
+import { UserNavMenuItem } from "../User/UserNavMenuItem";
+import { agentMainMenuItems } from "@/constants/AgentSideNavItems";
+import { agentGeneralItems } from "@/constants/SharedSideNavItems";
+import { UserDetails } from "../User/UserDetails";
+import { LogoutModal } from "@/components/shared/LogoutModal";
+import { useAuthStore } from "@/store/useAuthStore";
+import { useRouter } from "next/navigation";
+
+interface AgentSidebarNavProps {
+  onCloseSheet?: () => void;
+}
+
+export const AgentSidebarNav = ({ onCloseSheet }: AgentSidebarNavProps) => {
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
+  const { clearAuth } = useAuthStore();
+  const router = useRouter();
+
+  const handleLogoutConfirm = () => {
+    clearAuth();
+    router.push("/user-login");
+    setIsLogoutModalOpen(false);
+    if (onCloseSheet) onCloseSheet();
+  };
+
+  return (
+    <div className="flex flex-col h-full overflow-y-auto no-scrollbar">
+      {/* Fixed top logo section */}
+      <div className="flex justify-center py-2 border-neutral-800">
+        <Link href="/">
+          <Image src={logo} alt="Logo" width={100} height={40} />
+        </Link>
+      </div>
+
+      {/* Scrollable menu area */}
+      <div className="flex-1 mb-10">
+        <div className="mt-5">
+          <p className="text-sm font-normal text-textColor mb-3 ml-5">
+            MAIN MENU
+          </p>
+          {agentMainMenuItems.map((item) => (
+            <UserNavMenuItem
+              key={item.path}
+              item={item}
+              onItemClick={onCloseSheet}
+            />
+          ))}
+
+          <p className="text-sm font-normal text-textColor mt-9 mb-3 ml-5">
+            GENERAL
+          </p>
+          {agentGeneralItems.map((item) => (
+            <UserNavMenuItem
+              key={item.title}
+              item={item}
+              onItemClick={() => {
+                if (item.title === "Logout") {
+                  setIsLogoutModalOpen(true);
+                } else if (onCloseSheet) {
+                  onCloseSheet();
+                }
+              }}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Fixed bottom card/button only display on desktop/tablet */}
+      <div className="p-2 hidden md:block">
+        <div className="relative aspect-square rounded-lg bg-dashboard-user mx-2.5 w-full">
+          <button className="mx-auto w-9/12 flex justify-center items-center rounded-3xl p-2.5 bg-linear-to-br from-[#1B5590] via-[#35AF72] to-[#B5E03A] cursor-pointer absolute bottom-5 left-1/2 -translate-x-1/2">
+            <p className="font-urbanist text-sm font-normal text-white">
+              Download
+            </p>
+          </button>
+        </div>
+      </div>
+
+      {/* only display on Mobile */}
+      <div onClick={onCloseSheet}>
+        <UserDetails className="flex md:hidden" />
+      </div>
+
+      <LogoutModal
+        isOpen={isLogoutModalOpen}
+        onClose={() => setIsLogoutModalOpen(false)}
+        onConfirm={handleLogoutConfirm}
+      />
+    </div>
+  );
+};
