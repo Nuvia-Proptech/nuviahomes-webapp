@@ -87,18 +87,20 @@ export default function Nav() {
         >
           {/* Decorative gradient orbs */}
           <div className="absolute top-0 right-0 w-72 h-72 bg-[#b5e03a]/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#35af72]/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#35af72]/10 rounded-full blur-3xl -z-10" />
 
-          <div className="relative h-full flex flex-col justify-center px-8">
+          <div className="relative h-full overflow-y-auto px-8 py-8 flex flex-col">
             {/* Logo at top */}
-            <div className="absolute top-8 left-8">
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-3 rounded-lg">
-                <Image src={logo} alt="Nuvia homes logo" className="w-16" />
+            <div className="mb-8 flex justify-start">
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-lg">
+                <Image src={logo} alt="Nuvia homes logo" className="w-14" />
               </div>
             </div>
 
-            {/* Navigation Links */}
-            <ul className="space-y-1 mt-8">
+            {/* Middle Section: Navigation & CTAs */}
+            <div className="flex-1 flex flex-col justify-center">
+              {/* Navigation Links */}
+              <ul className="space-y-0.5">
               {pages.map((page, i) => (
                 <li
                   key={i}
@@ -112,7 +114,7 @@ export default function Nav() {
                   <Link
                     href={page.url}
                     onClick={() => setIsOpen(false)}
-                    className={`block py-4 px-6 rounded-xl text-2xl font-semibold transition-all duration-300 ${
+                    className={`block py-3 px-6 rounded-xl text-xl font-semibold transition-all duration-300 ${
                       currentPage === page.url
                         ? "bg-white/20 text-white scale-105 shadow-lg w-[93%] mx-auto"
                         : "text-white/90 hover:text-white hover:bg-white/10 hover:translate-x-2 "
@@ -135,35 +137,36 @@ export default function Nav() {
 
             {/* CTA Buttons */}
             <div
-              className={`mt-12 space-y-3 transform transition-all duration-500 ${
+              className={`mt-8 space-y-2 transform transition-all duration-500 ${
                 isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
               }`}
               style={{ transitionDelay: "350ms" }}
             >
               <Link
                 href="/invest"
-                className="block text-center bg-white text-[#1b5590] font-bold py-4 px-6 rounded-xl hover:bg-white/90 transition-all duration-300 hover:scale-105"
+                className="block text-center bg-white text-[#1b5590] font-bold py-3 px-6 rounded-xl hover:bg-white/90 transition-all duration-300 hover:scale-105"
                 onClick={() => setIsOpen(false)}
               >
                 Invest
               </Link>
               <Link
                 href="/user-login"
-                className="block text-center bg-gradient-to-r from-[#1b5590] via-[#35af72] to-[#b5e03a] text-white font-bold py-4 px-6 rounded-xl hover:opacity-90 transition-all duration-300 hover:scale-105"
+                className="block text-center bg-gradient-to-r from-[#1b5590] via-[#35af72] to-[#b5e03a] text-white font-bold py-3 px-6 rounded-xl hover:opacity-90 transition-all duration-300 hover:scale-105"
                 onClick={() => setIsOpen(false)}
               >
                 Login
               </Link>
+              </div>
             </div>
 
             {/* Footer */}
             <div
-              className={`absolute bottom-8 left-8 right-8 border-t border-white/20 pt-6 transform transition-all duration-500 ${
+              className={`mt-8 border-t border-white/20 pt-4 transform transition-all duration-500 ${
                 isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
               }`}
               style={{ transitionDelay: "400ms" }}
             >
-              <p className="text-white/60 text-sm">© 2025 Nuvia Homes</p>
+              <p className="text-white/60 text-sm">© {new Date().getFullYear()} Nuvia Homes</p>
               <p className="text-white/40 text-xs mt-1">
                 Building your future home
               </p>
