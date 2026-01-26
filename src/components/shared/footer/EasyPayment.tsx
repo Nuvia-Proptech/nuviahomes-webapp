@@ -21,11 +21,11 @@ export default function EasyPayment() {
     //     </div>
     //   </div>
     // </div>
-    <div className="container px-4 mx-auto">
+    <div className="container px-4 mx-auto w-full">
       <div className="flex flex-col md:flex-row gap-10 items-stretch">
         {/* Text Block */}
         <div className="w-full flex flex-col justify-center p-6 rounded-xl">
-          <p className="text-56 mb-2">
+          <p className="text-4xl md:text-6xl mb-2">
             Easy Payment With Cryptocurrencies
           </p>
           <p className="text-20">

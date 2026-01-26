@@ -24,9 +24,9 @@ export default function DownloadOurApp() {
 
             {/* <!-- Download buttons --> */}
             <div className="flex gap-3 mt-10">
-              <button className="bg-white text-[#1f2937] px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors">
+              {/* <button className="bg-white text-[#1f2937] px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors">
                 Let&apos;s Chat
-              </button>
+              </button> */}
               <button className="skewed gap-1 btn-gradient py-2 px-4 text-base flex items-center justify-center text-white">
                 <svg
                   width="37"

@@ -93,7 +93,7 @@ export default function Footer() {
               helps you buy, rent and invest in real estate <br />
               opportunities around you
             </p>
-            <div className="skewed flex items-center justify-center h-[81px] w-[410px] mt-5 btn-gradient p-[1px]">
+            <div className="skewed flex items-center justify-center h-[81px] max-w-[410px] mt-5 btn-gradient p-[1px]">
               <div className="rounded-[16px] w-full h-full flex items-center px-2 py-10 bg-[#1c0845]">
                 <form action="" className="flex w-full unskewed">
                   <input
