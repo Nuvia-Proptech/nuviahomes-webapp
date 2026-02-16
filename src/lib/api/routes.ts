@@ -9,4 +9,8 @@ export const API_ROUTES = {
     // verifyForgotPassword: "/api/auth/verify-forgot-password",
     // resetForgotPassword: "/api/auth/reset-forgot-password",
   },
+  users: {
+    requestRoleChange: "/api/users/request-role-change",
+    changeRole: (userId: string) => `/api/users/${userId}/change-role`,
+  },
 };

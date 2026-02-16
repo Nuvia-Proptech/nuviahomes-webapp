@@ -1,34 +1,37 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { useAuthStore } from "@/store/useAuthStore";
 import { useRouter } from "next/navigation";
 import { defaultRedirects } from "@/config/routeConfig";
 import { Loader2 } from "lucide-react";
+import { useRequestRoleChange } from "@/lib/api/requests/auth/useRequestRoleChange";
 
 export const RoleSwitcher = () => {
-  const { user, updateUserRole } = useAuthStore();
+  const { user, updateUserRole, setAuth, access_token } = useAuthStore();
   const router = useRouter();
-  const [loadingRole, setLoadingRole] = useState<string | null>(null);
 
-  const handleRoleSwitch = async (role: string) => {
-    if (user?.role === role) return;
+  const { requestRoleChange, isPending } = useRequestRoleChange({
+    onSuccess: (data) => {
+      // Update the auth store with the new user data from the API
+      if (access_token && data.user) {
+        setAuth(access_token, data.user);
+      } else if (data.user) {
+        // Fallback: just update the role if we don't have the full user object
+        updateUserRole(data.user.role);
+      }
 
-    setLoadingRole(role);
+      // Redirect to appropriate dashboard
+      const redirectUrl =
+        defaultRedirects.authenticated[
+          data.user.role as keyof typeof defaultRedirects.authenticated
+        ];
+      router.push(redirectUrl);
+    },
+  });
 
-    // Simulate network delay
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    // Update role in store
-    updateUserRole(role);
-
-    // Redirect to appropriate dashboard
-    const redirectUrl =
-      defaultRedirects.authenticated[
-        role as keyof typeof defaultRedirects.authenticated
-      ];
-    router.push(redirectUrl);
-
-    setLoadingRole(null);
+  const handleRoleSwitch = (role: string) => {
+    if (user?.role === role || isPending) return;
+    requestRoleChange(role);
   };
 
   const roles = [
@@ -40,7 +43,7 @@ export const RoleSwitcher = () => {
   return (
     <div className="p-6 bg-gray-50 rounded-lg border border-gray-200 my-6">
       <h3 className="text-lg font-semibold mb-4 text-gray-600">
-        Role Switcher (Test Mode)
+        Switch Role
       </h3>
       <p className="text-sm text-gray-500 mb-4">
         Current Role:{" "}
@@ -52,7 +55,7 @@ export const RoleSwitcher = () => {
           <button
             key={role.id}
             onClick={() => handleRoleSwitch(role.id)}
-            disabled={!!loadingRole || user?.role === role.id}
+            disabled={isPending || user?.role === role.id}
             className={`
               flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-colors
               ${
@@ -61,13 +64,13 @@ export const RoleSwitcher = () => {
                   : "bg-white border border-gray-300 hover:bg-gray-100 text-gray-700"
               }
               ${
-                loadingRole && loadingRole !== role.id
+                isPending && user?.role !== role.id
                   ? "opacity-50 cursor-not-allowed"
                   : ""
               }
             `}
           >
-            {loadingRole === role.id && (
+            {isPending && user?.role !== role.id && (
               <Loader2 className="h-4 w-4 animate-spin" />
             )}
             {role.label}
@@ -77,3 +80,4 @@ export const RoleSwitcher = () => {
     </div>
   );
 };
+

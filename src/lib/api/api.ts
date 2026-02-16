@@ -169,12 +169,21 @@ class Api {
     // Request interceptor to add authorization token
     this.instance.interceptors.request.use(
       (config) => {
-        // Get token from storage (client-side only, synchronous)
-        const token = webStorage.getStringSync(AUTH_TOKEN_KEY);
+        // Get token from Zustand's persisted auth storage
+        const authStorageRaw = webStorage.getStringSync("auth-storage");
 
-        if (token) {
-          // Add Bearer token to Authorization header
-          config.headers.Authorization = `Bearer ${token}`;
+        if (authStorageRaw) {
+          try {
+            const authData = JSON.parse(authStorageRaw);
+            const token = authData?.state?.access_token;
+
+            if (token) {
+              // Add Bearer token to Authorization header
+              config.headers.Authorization = `Bearer ${token}`;
+            }
+          } catch {
+            // Ignore parsing errors
+          }
         }
 
         return config;

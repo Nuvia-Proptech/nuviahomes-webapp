@@ -6,6 +6,7 @@ import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import appRoutes from "@/constants/AppRoutes";
+import { useAuthStore } from "@/store/useAuthStore";
 
 interface UserDetailsProps {
   className?: string;
@@ -13,6 +14,7 @@ interface UserDetailsProps {
 
 export const UserDetails = ({ className }: UserDetailsProps) => {
   const router = useRouter();
+  const { user } = useAuthStore();
 
   const handleProfileClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -48,9 +50,11 @@ export const UserDetails = ({ className }: UserDetailsProps) => {
           />
         </div>
         <div className="flex flex-col justify-start items-start">
-          <p className="text-sm text-textColor font-bold">Osim Faith</p>
+          <p className="text-sm text-textColor font-bold">
+            {user ? `${user.firstName} ${user.lastName}` : "User"}
+          </p>
           <p className="text-sm text-textColor font-normal">
-            dbossosim@gmail.com
+            {user?.email || ""}
           </p>
         </div>
       </button>
