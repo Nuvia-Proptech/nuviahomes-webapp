@@ -21,6 +21,12 @@ export const publicRoutes = [
   appRoutes.auth.forgotPassword,
   appRoutes.auth.otpVerification,
   appRoutes.auth.resetPassword,
+  appRoutes.home.whoWeAre,
+  appRoutes.home.listing,
+  appRoutes.home.agents,
+  appRoutes.home.ourBlog,
+  appRoutes.home.contact,
+  appRoutes.home.invest,
 ];
 
 // Routes that should redirect to dashboard if already authenticate

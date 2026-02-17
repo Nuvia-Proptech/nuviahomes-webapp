@@ -1,6 +1,7 @@
 import { SettingsIcon } from "@/components/shared/Icons/SettingsIcon";
 import { MessageQuestionIcon } from "@/components/shared/Icons/MessageQuestionIcon";
 import { LogoutIcon } from "@/components/shared/Icons/LogoutIcon";
+import { UserProfileAddIcon } from "@/components/shared/Icons/UserProfileAddIcon";
 
 // Shared General Items for all dashboard roles (Owner, Investor, Agent)
 // These items appear in the "GENERAL" section of every dashboard sidebar
@@ -14,6 +15,11 @@ export const createGeneralItems = (basePath: string) => [
     title: "Help",
     path: `${basePath}/help`,
     icon: <MessageQuestionIcon />,
+  },
+  {
+    title: "Upgrade Account",
+    path: `${basePath}/upgrade-account`,
+    icon: <UserProfileAddIcon />,
   },
   {
     title: "Logout",

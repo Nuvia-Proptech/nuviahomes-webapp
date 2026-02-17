@@ -6,6 +6,12 @@ interface ProjectSlugRoutes {
 interface AppRoutes {
   home: {
     index: string;
+    whoWeAre: string;
+    listing: string;
+    agents: string;
+    ourBlog: string;
+    contact: string;
+    invest: string;
   };
   auth: {
     authIndex: string;
@@ -52,6 +58,7 @@ interface AppRoutes {
       settings: string;
       help: string;
       profile: string;
+      upgradeAccount: string;
     };
     // Owner routes
     owner: {
@@ -69,6 +76,7 @@ interface AppRoutes {
       bookings: string;
       settings: string;
       help: string;
+      upgradeAccount: string;
     };
     // Agent routes
     agent: {
@@ -85,6 +93,7 @@ interface AppRoutes {
       bookings: string;
       settings: string;
       help: string;
+      upgradeAccount: string;
     };
   };
 }
@@ -93,6 +102,12 @@ const appRoutes: AppRoutes = {
   // home routes
   home: {
     index: "/",
+    whoWeAre: "/who-we-are",
+    listing: "/listing",
+    agents: "/agents",
+    ourBlog: "/our-blog",
+    contact: "/contact",
+    invest: "/invest",
   },
   // auth routes
   auth: {
@@ -144,6 +159,7 @@ const appRoutes: AppRoutes = {
       settings: "/user/settings",
       help: "/user/help",
       profile: "/user/profile",
+      upgradeAccount: "/user/upgrade-account",
     },
     // Owner dashboard routes
     owner: {
@@ -161,6 +177,7 @@ const appRoutes: AppRoutes = {
       bookings: "/owner/bookings",
       settings: "/owner/settings",
       help: "/owner/help",
+      upgradeAccount: "/owner/upgrade-account",
     },
     // Agent dashboard routes
     agent: {
@@ -177,6 +194,7 @@ const appRoutes: AppRoutes = {
       bookings: "/agent/bookings",
       settings: "/agent/settings",
       help: "/agent/help",
+      upgradeAccount: "/agent/upgrade-account",
     },
   },
 };
