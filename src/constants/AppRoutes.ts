@@ -6,6 +6,12 @@ interface ProjectSlugRoutes {
 interface AppRoutes {
   home: {
     index: string;
+    whoWeAre: string;
+    listing: string;
+    agents: string;
+    ourBlog: string;
+    contact: string;
+    invest: string;
   };
   auth: {
     authIndex: string;
@@ -96,6 +102,12 @@ const appRoutes: AppRoutes = {
   // home routes
   home: {
     index: "/",
+    whoWeAre: "/who-we-are",
+    listing: "/listing",
+    agents: "/agents",
+    ourBlog: "/our-blog",
+    contact: "/contact",
+    invest: "/invest",
   },
   // auth routes
   auth: {

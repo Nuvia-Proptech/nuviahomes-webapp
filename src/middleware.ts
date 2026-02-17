@@ -116,7 +116,7 @@ export function middleware(request: NextRequest) {
   // Define dashboard path prefixes
   const dashboardPaths = ["/user", "/owner", "/agent", "/admin"];
   const isAccessingDashboard = dashboardPaths.some((path) =>
-    pathname.startsWith(path)
+    pathname === path || pathname.startsWith(path + "/")
   );
 
   if (isAccessingDashboard) {
