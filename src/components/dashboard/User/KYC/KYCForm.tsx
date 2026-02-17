@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -269,10 +270,12 @@ export const KYCForm = () => {
                 <label className="border-2 border-dashed rounded-2xl p-8 flex flex-col items-center justify-center bg-gray-50 border-neutralColor-700/50 hover:bg-brandBlue/5 hover:border-brandBlue transition-all cursor-pointer relative overflow-hidden group">
                   {watch("idFront")?.[0] ? (
                     <>
-                      <img 
+                      <Image 
                         src={URL.createObjectURL(watch("idFront")[0])} 
                         alt="ID Preview" 
+                        fill
                         className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-60 transition-opacity"
+                        unoptimized
                       />
                       <div className="z-10 bg-white/90 p-2 rounded-lg shadow-sm">
                         <p className="text-xs font-bold text-brandBlue flex items-center">
@@ -363,10 +366,12 @@ export const KYCForm = () => {
                    {watch("addressProof")?.[0] ? (
                     <div className="z-10 flex flex-col items-center">
                        {watch("addressProof")[0].type.startsWith('image/') ? (
-                          <img 
+                          <Image 
                             src={URL.createObjectURL(watch("addressProof")[0])} 
                             alt="Address Proof Preview" 
+                            fill
                             className="absolute inset-0 w-full h-full object-cover opacity-60"
+                            unoptimized
                           />
                        ) : (
                           <div className="absolute inset-0 bg-brandBlue/5 w-full h-full" />
@@ -417,10 +422,12 @@ export const KYCForm = () => {
                 <div className="flex flex-col items-center justify-center space-y-6 py-6">
                   <label className="w-56 h-56 rounded-full bg-secondaryColor border-2 border-dashed border-brandBlue/30 flex items-center justify-center overflow-hidden relative group cursor-pointer hover:border-brandBlue hover:shadow-lg transition-all">
                      {watch("selfie")?.[0] ? (
-                        <img 
+                        <Image 
                           src={URL.createObjectURL(watch("selfie")[0])} 
                           alt="Selfie Preview" 
+                          fill
                           className="w-full h-full object-cover"
+                          unoptimized
                         />
                      ) : (
                         <>
