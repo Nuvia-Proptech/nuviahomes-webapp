@@ -13,4 +13,7 @@ export const API_ROUTES = {
     requestRoleChange: "/api/users/request-role-change",
     changeRole: (userId: string) => `/api/users/${userId}/change-role`,
   },
+  kyc: {
+    submit: "/api/kyc/submit",
+  },
 };

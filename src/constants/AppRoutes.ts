@@ -52,6 +52,7 @@ interface AppRoutes {
       settings: string;
       help: string;
       profile: string;
+      upgradeAccount: string;
     };
     // Owner routes
     owner: {
@@ -144,6 +145,7 @@ const appRoutes: AppRoutes = {
       settings: "/user/settings",
       help: "/user/help",
       profile: "/user/profile",
+      upgradeAccount: "/user/upgrade-account",
     },
     // Owner dashboard routes
     owner: {
