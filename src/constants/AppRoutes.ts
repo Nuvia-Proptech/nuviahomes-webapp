@@ -70,6 +70,7 @@ interface AppRoutes {
       bookings: string;
       settings: string;
       help: string;
+      upgradeAccount: string;
     };
     // Agent routes
     agent: {
@@ -86,6 +87,7 @@ interface AppRoutes {
       bookings: string;
       settings: string;
       help: string;
+      upgradeAccount: string;
     };
   };
 }
@@ -163,6 +165,7 @@ const appRoutes: AppRoutes = {
       bookings: "/owner/bookings",
       settings: "/owner/settings",
       help: "/owner/help",
+      upgradeAccount: "/owner/upgrade-account",
     },
     // Agent dashboard routes
     agent: {
@@ -179,6 +182,7 @@ const appRoutes: AppRoutes = {
       bookings: "/agent/bookings",
       settings: "/agent/settings",
       help: "/agent/help",
+      upgradeAccount: "/agent/upgrade-account",
     },
   },
 };

@@ -4,6 +4,7 @@ import { ElementEqualIcon } from "@/components/shared/Icons/ElementEqualIcon";
 import { BitcoinCardIcon } from "@/components/shared/Icons/BitcoinCardIcon";
 import { GrMoney } from "react-icons/gr";
 import { investorGeneralItems } from "./SharedSideNavItems";
+import { UserProfileAddIcon } from "@/components/shared/Icons/UserProfileAddIcon";
 
 // Investor (User) Main Menu Items
 export const userMainMenuItems = [
